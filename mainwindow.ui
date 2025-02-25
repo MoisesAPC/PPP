@@ -25,31 +25,15 @@
     </property>
     <layout class="QGridLayout" name="glTime">
      <property name="sizeConstraint">
-      <enum>QLayout::SizeConstraint::SetNoConstraint</enum>
+      <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
      </property>
-     <item row="1" column="3">
-      <widget class="QTextEdit" name="teMinutes"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QTextEdit" name="teDay"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="labelDay">
-       <property name="text">
-        <string>Day</string>
+     <item row="0" column="3">
+      <widget class="QLabel" name="labelMinutes">
+       <property name="acceptDrops">
+        <bool>false</bool>
        </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="4">
-      <widget class="QTextEdit" name="teSeconds"/>
-     </item>
-     <item row="0" column="4">
-      <widget class="QLabel" name="labelSeconds">
        <property name="text">
-        <string>Seconds</string>
+        <string>Minutes</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -66,6 +50,26 @@
        </property>
       </widget>
      </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="labelDay">
+       <property name="text">
+        <string>Day</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="labelSeconds">
+       <property name="text">
+        <string>Seconds</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="5">
       <widget class="QLabel" name="labelMilliseconds">
        <property name="text">
@@ -75,9 +79,6 @@
         <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
-     </item>
-     <item row="1" column="5">
-      <widget class="QTextEdit" name="teMilliseconds"/>
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="labelWeek">
@@ -95,36 +96,6 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QTextEdit" name="teHour"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QTextEdit" name="teWeek">
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QLabel" name="labelMinutes">
-       <property name="acceptDrops">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>Minutes</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="6">
-      <widget class="QTextEdit" name="teFramecount">
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="6">
       <widget class="QLabel" name="labelFramecount">
        <property name="layoutDirection">
@@ -138,6 +109,55 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLineEdit" name="leWeek">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="leDay">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLineEdit" name="leHour">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLineEdit" name="leMinutes">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QLineEdit" name="leSeconds">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="5">
+      <widget class="QLineEdit" name="leMilliseconds">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="6">
+      <widget class="QLineEdit" name="leFrameCount">
+       <property name="text">
+        <string>0</string>
        </property>
       </widget>
      </item>
@@ -244,20 +264,13 @@
       <x>180</x>
       <y>130</y>
       <width>241</width>
-      <height>51</height>
+      <height>46</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="glLife">
      <property name="sizeConstraint">
-      <enum>QLayout::SizeConstraint::SetNoConstraint</enum>
+      <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
      </property>
-     <item row="1" column="0">
-      <widget class="QTextEdit" name="teLife">
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="0">
       <widget class="QLabel" name="labelLife">
        <property name="layoutDirection">
@@ -271,13 +284,6 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QTextEdit" name="teLife_2">
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
        </property>
       </widget>
      </item>
@@ -342,6 +348,20 @@
        </item>
       </widget>
      </item>
+     <item row="1" column="0">
+      <widget class="QLineEdit" name="leLife">
+       <property name="text">
+        <string>100</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="leGold">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget_4">
@@ -355,7 +375,7 @@
     </property>
     <layout class="QGridLayout" name="glMap">
      <property name="sizeConstraint">
-      <enum>QLayout::SizeConstraint::SetNoConstraint</enum>
+      <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
      </property>
      <item row="0" column="1">
       <widget class="QLabel" name="labelSpawn">
@@ -373,13 +393,6 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QTextEdit" name="teSpawn">
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="2">
       <widget class="QLabel" name="labelSaveCrystal">
        <property name="layoutDirection">
@@ -393,13 +406,6 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <widget class="QTextEdit" name="teWhiteJewel">
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
        </property>
       </widget>
      </item>
@@ -573,6 +579,20 @@
        </item>
       </widget>
      </item>
+     <item row="2" column="2">
+      <widget class="QLineEdit" name="leWhiteJewel">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="leSpawn">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget_5">
@@ -586,24 +606,8 @@
     </property>
     <layout class="QGridLayout" name="glMisc">
      <property name="sizeConstraint">
-      <enum>QLayout::SizeConstraint::SetNoConstraint</enum>
+      <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
      </property>
-     <item row="0" column="0">
-      <widget class="QLabel" name="labelTimesSaved">
-       <property name="layoutDirection">
-        <enum>Qt::LayoutDirection::LeftToRight</enum>
-       </property>
-       <property name="text">
-        <string>Times saved</string>
-       </property>
-       <property name="textFormat">
-        <enum>Qt::TextFormat::AutoText</enum>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="2">
       <widget class="QLabel" name="labelGoldRenon">
        <property name="layoutDirection">
@@ -620,15 +624,21 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QTextEdit" name="teGoldRenon">
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelTimesSaved">
+       <property name="layoutDirection">
+        <enum>Qt::LayoutDirection::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>Times saved</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::TextFormat::AutoText</enum>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QTextEdit" name="teDeathCount"/>
      </item>
      <item row="0" column="1">
       <widget class="QLabel" name="labelDeathCount">
@@ -641,7 +651,25 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QTextEdit" name="teTimesSaved"/>
+      <widget class="QLineEdit" name="leTimesSaved">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="leDeathCount">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLineEdit" name="leGoldRenon">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
