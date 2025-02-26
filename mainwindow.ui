@@ -484,7 +484,7 @@
      <item row="3" column="0">
       <widget class="QCheckBox" name="cboxHardMode">
        <property name="text">
-        <string>Hard Mode</string>
+        <string>Hard Mode unlocked</string>
        </property>
       </widget>
      </item>
@@ -585,7 +585,7 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>640</y>
+      <y>630</y>
       <width>294</width>
       <height>51</height>
      </rect>
@@ -614,7 +614,105 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="labelEndingSetting">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>460</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LayoutDirection::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>Ending setting</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::TextFormat::AutoText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>594</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuSlot">
+    <property name="title">
+     <string>Slot</string>
+    </property>
+    <addaction name="actionSlot_1"/>
+    <addaction name="actionSlot2"/>
+    <addaction name="actionSlot_3"/>
+    <addaction name="actionSlot_4"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuSlot"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::FolderOpen"/>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSlot_1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Slot 1</string>
+   </property>
+  </action>
+  <action name="actionSlot2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Slot 2</string>
+   </property>
+  </action>
+  <action name="actionSlot_3">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Slot 3</string>
+   </property>
+  </action>
+  <action name="actionSlot_4">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Slot 4</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::ApplicationExit"/>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
