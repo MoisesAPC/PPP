@@ -36,6 +36,8 @@ void MainWindow::setupPageMain() {
     setupLineEditNumberUnsigned(ui->leTimesSaved, 0, UINT_MAX);
     setupLineEditNumberUnsigned(ui->leDeathCount, 0, UINT_MAX);
     setupLineEditNumberUnsigned(ui->leGoldRenon, 0, UINT_MAX);
+    setupLineEditNumberUnsigned(ui->leHourVamp, 0, 23);
+    setupLineEditNumberUnsigned(ui->leHealthDepletionRate, 0, SHRT_MAX);
 
     setupLineEditNumberUnsigned(ui->leWeek, 0, SHRT_MAX);
     setupLineEditNumberUnsigned(ui->leDay, 0, 7 - 1);
@@ -126,7 +128,8 @@ void MainWindow::setupPageItems() {
 }
 
 void MainWindow::setupPageEventFlags() {
-
+    ui->labelSet0->setText("Set 0");
+    createGridFlag(ui->gridFlagSet0, 0);
 }
 
 void MainWindow::handleNumberOnlyInputUnsigned() {
@@ -206,8 +209,39 @@ void MainWindow::checkMandragoraAndNitroLineEdits() {
     bool okMandragora = false;
     bool okNitro = false;
 
-    if ((mandragoraLineEdit->text().toUInt(&okMandragora, 10) != 0) && (nitroLineEdit->text().toUInt(&okMandragora, 10) != 0)) {
+    if ((mandragoraLineEdit->text().toUInt(&okMandragora, 10) != 0) && (nitroLineEdit->text().toUInt(&okNitro, 10) != 0)) {
         mandragoraLineEdit->setText(QString::number(0));
         nitroLineEdit->setText(QString::number(0));
+    }
+}
+
+void MainWindow::createGridFlag(QGridLayout* gridLayout, unsigned int flags) {
+    QLineEdit* hexBitflagDisplay = new QLineEdit();
+    hexBitflagDisplay->setAlignment(Qt::AlignRight);
+    hexBitflagDisplay->setText(QString("0x%1").arg(flags, 8, 16, QChar('0')).toUpper());
+    gridLayout->addWidget(hexBitflagDisplay, 0, 0, 1, 8);
+
+    QVector<QCheckBox*> checkBoxes(32);
+
+    // Create 32 checkboxes (one for each bit)
+    for (int i = 0; i < 32; ++i) {
+        QCheckBox* checkBox = new QCheckBox();
+        // Set the checked state based on the flag value
+        checkBox->setChecked(flags & (1 << i));
+        // Add the checkbox to the grid layout. Then place it in a 4x8 grid
+        gridLayout->addWidget(checkBox, i / 8, i % 8);
+
+        checkBoxes[i] = checkBox;
+
+        // Make sure that each checkbox is updated *on-the-fly* as we edit the hex value from the line edit
+        connect(checkBox, &QCheckBox::toggled, this, [checkBoxes, hexBitflagDisplay]() {
+            unsigned int updatedFlags = 0;
+            for (int j = 0; j < 32; ++j) {
+                if (checkBoxes[j]->isChecked()) {
+                    updatedFlags |= (1 << j);
+                }
+            }
+            hexBitflagDisplay->setText(QString("0x%1").arg(updatedFlags, 8, 16, QChar('0')).toUpper());
+        });
     }
 }

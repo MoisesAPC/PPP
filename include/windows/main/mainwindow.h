@@ -34,6 +34,7 @@ private slots:
     void onPageButtonClicked(const QWidget* page);
     void switchPage(QStackedWidget* stackedWidgetPages, const QWidget* page);
     void checkMandragoraAndNitroLineEdits();
+    void createGridFlag(QGridLayout* gridLayout, unsigned int flags);
 
 private:
     Ui::MainWindow* ui;

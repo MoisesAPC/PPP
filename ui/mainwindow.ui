@@ -60,19 +60,37 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="pageEventFlags">
-     <widget class="QWidget" name="gridLayoutWidget_14">
+     <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>160</y>
-        <width>160</width>
-        <height>80</height>
+        <x>130</x>
+        <y>30</y>
+        <width>291</width>
+        <height>151</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout"/>
+      <layout class="QVBoxLayout" name="vlFlags">
+       <item>
+        <widget class="QLabel" name="labelSet0">
+         <property name="text">
+          <string>Set 0x0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="gridFlagSet0">
+         <property name="sizeConstraint">
+          <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+         </property>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="pageItems">
@@ -679,7 +697,7 @@
      <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>10</x>
         <y>290</y>
         <width>541</width>
         <height>51</height>
@@ -828,9 +846,9 @@
      <widget class="QWidget" name="gridLayoutWidget_5">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>10</x>
         <y>220</y>
-        <width>281</width>
+        <width>561</width>
         <height>51</height>
        </rect>
       </property>
@@ -838,29 +856,13 @@
        <property name="sizeConstraint">
         <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
        </property>
-       <item row="0" column="2">
-        <widget class="QLabel" name="labelGoldRenon">
+       <item row="0" column="4">
+        <widget class="QLabel" name="labelHealthDepletionRate">
          <property name="layoutDirection">
           <enum>Qt::LayoutDirection::LeftToRight</enum>
          </property>
          <property name="text">
-          <string>Gold Spent on Renon</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::TextFormat::AutoText</enum>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="labelTimesSaved">
-         <property name="layoutDirection">
-          <enum>Qt::LayoutDirection::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>Times saved</string>
+          <string>Health depletion rate (POISON)</string>
          </property>
          <property name="textFormat">
           <enum>Qt::TextFormat::AutoText</enum>
@@ -887,6 +889,29 @@
          </property>
         </widget>
        </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="labelGoldRenon">
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Gold Spent on Renon</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::TextFormat::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLineEdit" name="leGoldRenon">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
        <item row="1" column="1">
         <widget class="QLineEdit" name="leDeathCount">
          <property name="text">
@@ -894,8 +919,47 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QLineEdit" name="leGoldRenon">
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelTimesSaved">
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Times saved</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::TextFormat::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLabel" name="labelHourVamp">
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Current hour (VAMP)</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::TextFormat::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLineEdit" name="leHourVamp">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
+        <widget class="QLineEdit" name="leHealthDepletionRate">
          <property name="text">
           <string>0</string>
          </property>
