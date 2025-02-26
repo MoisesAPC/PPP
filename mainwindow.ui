@@ -11,7 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Castlevania 64 Save Editor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="QIcon::ThemeIcon::DocumentSave"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="gridLayoutWidget">
@@ -190,8 +193,7 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QComboBox" name="cbCharacter">
-      </widget>
+      <widget class="QComboBox" name="cbCharacter"/>
      </item>
      <item row="0" column="3">
       <widget class="QLabel" name="labelSoundMode">
@@ -214,12 +216,10 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QComboBox" name="cbButtonConfig">
-      </widget>
+      <widget class="QComboBox" name="cbButtonConfig"/>
      </item>
      <item row="1" column="3">
-      <widget class="QComboBox" name="cbSoundMode">
-      </widget>
+      <widget class="QComboBox" name="cbSoundMode"/>
      </item>
     </layout>
    </widget>
@@ -285,8 +285,7 @@
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QComboBox" name="cbSubweapon">
-      </widget>
+      <widget class="QComboBox" name="cbSubweapon"/>
      </item>
      <item row="1" column="0">
       <widget class="QLineEdit" name="leLife">
@@ -366,8 +365,7 @@
       </widget>
      </item>
      <item row="2" column="0">
-      <widget class="QComboBox" name="cbMap">
-      </widget>
+      <widget class="QComboBox" name="cbMap"/>
      </item>
      <item row="2" column="2">
       <widget class="QLineEdit" name="leWhiteJewel">
