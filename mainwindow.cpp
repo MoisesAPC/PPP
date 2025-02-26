@@ -40,6 +40,8 @@ MainWindow::MainWindow(QWidget *parent)
     setupComboBox(ui->cbCarrieEnding, comboBoxDataEndingCarrie);
 
     // Initialize pages and the buttons that travel to those pages
+    // When each button is pressed, "onPageButtonClicked" will be called passing
+    // the desired page by arguments
     connect(ui->buttonMain, &QPushButton::clicked, this, [this]() {
         onPageButtonClicked(ui->pageMain);
     });
@@ -51,6 +53,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->buttonEventFlags, &QPushButton::clicked, this, [this]() {
         onPageButtonClicked(ui->pageEventFlags);
     });
+
+    // Ensure that we start in the "Main" page
+    switchPage(ui->stackedWidgetPages, ui->pageMain);
 }
 
 MainWindow::~MainWindow()
@@ -113,7 +118,9 @@ void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& arra
 }
 
 void MainWindow::onPageButtonClicked(const QWidget* page) {
-    QStackedWidget* stackedWidgetPages = ui->stackedWidgetPages;
+    switchPage(ui->stackedWidgetPages, page);
+}
 
-    stackedWidgetPages->setCurrentIndex(stackedWidgetPages->indexOf(page));
+void MainWindow::switchPage(QStackedWidget* stackedWidget, const QWidget* page) {
+    stackedWidget->setCurrentIndex(stackedWidget->indexOf(page));
 }

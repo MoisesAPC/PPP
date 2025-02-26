@@ -20,8 +20,8 @@
    <widget class="QWidget" name="gridLayoutWidget_8">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>630</y>
+      <x>140</x>
+      <y>620</y>
       <width>294</width>
       <height>51</height>
      </rect>
@@ -652,6 +652,19 @@
       </layout>
      </widget>
     </widget>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>590</y>
+      <width>541</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Orientation::Horizontal</enum>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

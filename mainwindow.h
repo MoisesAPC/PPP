@@ -28,6 +28,7 @@ private slots:
     void setupLineEditNumberUnsigned(QLineEdit* lineEdit, unsigned int minValue, unsigned int maxValue);
     void setupComboBox(QComboBox* comboBox, const std::vector<std::map<std::string, int> >& array);
     void onPageButtonClicked(const QWidget* page);
+    void switchPage(QStackedWidget* stackedWidgetPages, const QWidget* page);
 
 private:
     Ui::MainWindow* ui;
