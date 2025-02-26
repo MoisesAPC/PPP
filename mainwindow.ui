@@ -191,16 +191,6 @@
      </item>
      <item row="1" column="0">
       <widget class="QComboBox" name="cbCharacter">
-       <item>
-        <property name="text">
-         <string>Reinhardt</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Carrie</string>
-        </property>
-       </item>
       </widget>
      </item>
      <item row="0" column="3">
@@ -225,35 +215,10 @@
      </item>
      <item row="1" column="1">
       <widget class="QComboBox" name="cbButtonConfig">
-       <item>
-        <property name="text">
-         <string>Type A</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Type B</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Type C</string>
-        </property>
-       </item>
       </widget>
      </item>
      <item row="1" column="3">
       <widget class="QComboBox" name="cbSoundMode">
-       <item>
-        <property name="text">
-         <string>Stereo</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Monoaural</string>
-        </property>
-       </item>
       </widget>
      </item>
     </layout>
@@ -321,31 +286,6 @@
      </item>
      <item row="1" column="2">
       <widget class="QComboBox" name="cbSubweapon">
-       <item>
-        <property name="text">
-         <string>None</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Knife</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Holy Water</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Cross</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Axe</string>
-        </property>
-       </item>
       </widget>
      </item>
      <item row="1" column="0">
@@ -427,156 +367,6 @@
      </item>
      <item row="2" column="0">
       <widget class="QComboBox" name="cbMap">
-       <item>
-        <property name="text">
-         <string>Forest of Silence</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Castle Wall (Towers)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Castle Wall (Main)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Villa (Yard)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Villa (Foyer)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Villa (Hallway)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Villa (Maze Garden)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Tunnel</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Underground Waterway</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Castle Center (Main)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Castle Center (Bottom Elevator)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Castle Center (Gears)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Castle Center (Friendly Lizard-man)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Castle Center (Library)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Castle Center (Nitro Room)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Castle Center (Top Elevator)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Tower of Execution</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Tower of Sorcery</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Tower of Science</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Duel Tower</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Castle Keep Stairs</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Castle Keep</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Intro Cutscene Map</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Clock Tower</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Dracula Desert</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Rose / Actrice Fan Room</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Villa (Vampire Crypt)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Room of Clocks</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Ending Map</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Test Grid</string>
-        </property>
-       </item>
       </widget>
      </item>
      <item row="2" column="2">

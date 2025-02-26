@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QIntValidator>    // With "QIntValidator", we can validate the contents of an integer (see "handleNumberOnlyInput()")
 #include <QtGlobal>         // qBound()
-#include <climits>
+#include <climits>          // SHRT_MAX, UINT_MAX, etc
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -28,6 +28,13 @@ MainWindow::MainWindow(QWidget *parent)
     setupLineEditNumberUnsigned(ui->leSeconds, 0, 60 - 1);
     setupLineEditNumberUnsigned(ui->leMilliseconds, 0, 600 - 1);
     setupLineEditNumberUnsigned(ui->leFrameCount, 0, UINT_MAX);
+
+    // Initialize combo boxes
+    setupComboBox(ui->cbMap, comboBoxDataMap);
+    setupComboBox(ui->cbCharacter, comboBoxDataCharacter);
+    setupComboBox(ui->cbButtonConfig, comboBoxDataButtonConfig);
+    setupComboBox(ui->cbSoundMode, comboBoxDataSoundMode);
+    setupComboBox(ui->cbSubweapon, comboBoxDataSubweapon);
 }
 
 MainWindow::~MainWindow()
@@ -76,4 +83,15 @@ void MainWindow::setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned
     lineEdit->setProperty("maxValue", maxValue);
 
     connect(lineEdit, &QLineEdit::editingFinished, this, &MainWindow::handleNumberOnlyInputUnsigned);
+}
+
+// Populate a Combo box given an array of name strings and their associated numeric value
+void MainWindow::setupComboBox(QComboBox* comboBox, const std::vector<std::map<std::string, int>>& array) {
+    comboBox->clear();
+
+    for (const auto& map: array) {
+        for (const auto& entry: map) {
+            comboBox->addItem(QString::fromStdString(entry.first), QVariant(entry.second));
+        }
+    }
 }
