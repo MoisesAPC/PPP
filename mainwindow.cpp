@@ -38,6 +38,19 @@ MainWindow::MainWindow(QWidget *parent)
     setupComboBox(ui->cbDifficulty, comboBoxDataDifficulty);
     setupComboBox(ui->cbReinhardtEnding, comboBoxDataEndingReinhardt);
     setupComboBox(ui->cbCarrieEnding, comboBoxDataEndingCarrie);
+
+    // Initialize pages and the buttons that travel to those pages
+    connect(ui->buttonMain, &QPushButton::clicked, this, [this]() {
+        onPageButtonClicked(ui->pageMain);
+    });
+
+    connect(ui->buttonItems, &QPushButton::clicked, this, [this]() {
+        onPageButtonClicked(ui->pageItems);
+    });
+
+    connect(ui->buttonEventFlags, &QPushButton::clicked, this, [this]() {
+        onPageButtonClicked(ui->pageEventFlags);
+    });
 }
 
 MainWindow::~MainWindow()
@@ -97,4 +110,10 @@ void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& arra
             comboBox->addItem(QString::fromStdString(entry.first), QVariant(entry.second));
         }
     }
+}
+
+void MainWindow::onPageButtonClicked(const QWidget* page) {
+    QStackedWidget* stackedWidgetPages = ui->stackedWidgetPages;
+
+    stackedWidgetPages->setCurrentIndex(stackedWidgetPages->indexOf(page));
 }
