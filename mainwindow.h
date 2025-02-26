@@ -19,7 +19,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void handleNumberOnlyInput();
+    void handleNumberOnlyInputUnsigned();
     void setupLineEditNumber(QLineEdit* lineEdit, int minValue, int maxValue);
 
 private:
