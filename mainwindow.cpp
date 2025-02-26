@@ -35,6 +35,9 @@ MainWindow::MainWindow(QWidget *parent)
     setupComboBox(ui->cbButtonConfig, comboBoxDataButtonConfig);
     setupComboBox(ui->cbSoundMode, comboBoxDataSoundMode);
     setupComboBox(ui->cbSubweapon, comboBoxDataSubweapon);
+    setupComboBox(ui->cbDifficulty, comboBoxDataDifficulty);
+    setupComboBox(ui->cbReinhardtEnding, comboBoxDataEndingReinhardt);
+    setupComboBox(ui->cbCarrieEnding, comboBoxDataEndingCarrie);
 }
 
 MainWindow::~MainWindow()
@@ -86,7 +89,7 @@ void MainWindow::setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned
 }
 
 // Populate a Combo box given an array of name strings and their associated numeric value
-void MainWindow::setupComboBox(QComboBox* comboBox, const std::vector<std::map<std::string, int>>& array) {
+void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array) {
     comboBox->clear();
 
     for (const auto& map: array) {

@@ -7,6 +7,10 @@
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
+
+typedef std::vector<std::map<std::string, int>> ComboBoxData;
+#define BIT(value) (1 << (value))
+
 class MainWindow;
 }
 QT_END_NAMESPACE
@@ -27,7 +31,7 @@ private slots:
 private:
     Ui::MainWindow* ui;
 
-    std::vector<std::map<std::string, int>> comboBoxDataMap = {
+    Ui::ComboBoxData comboBoxDataMap = {
         {{"Forest of Silence", 0}},
         {{"Castle Wall (Towers)", 1}},
         {{"Castle Wall (Main)", 2}},
@@ -60,28 +64,44 @@ private:
         {{"Test Grid", 29}}
     };
 
-    std::vector<std::map<std::string, int>> comboBoxDataCharacter = {
+    Ui::ComboBoxData comboBoxDataCharacter = {
         {{"Reinhardt", 0}},
         {{"Carrie", 1}}
     };
 
-    std::vector<std::map<std::string, int>> comboBoxDataButtonConfig = {
+    Ui::ComboBoxData comboBoxDataButtonConfig = {
         {{"Type A", 0}},
         {{"Type B", 1}},
         {{"Type C", 2}}
     };
 
-    std::vector<std::map<std::string, int>> comboBoxDataSoundMode = {
+    Ui::ComboBoxData comboBoxDataSoundMode = {
         {{"Stereo", 0}},
         {{"Monoaural", 1}}
     };
 
-    std::vector<std::map<std::string, int>> comboBoxDataSubweapon = {
+    Ui::ComboBoxData comboBoxDataSubweapon = {
         {{"None", 0}},
         {{"Knife", 1}},
         {{"Holy Water", 2}},
         {{"Cross", 3}},
         {{"Axe", 4}}
+    };
+
+    Ui::ComboBoxData comboBoxDataDifficulty = {
+        {{"Easy", BIT(4)}},
+        {{"Normal", BIT(5)}},
+        {{"Hard", BIT(6)}},
+    };
+
+    Ui::ComboBoxData comboBoxDataEndingReinhardt = {
+        {{"Good", BIT(17)}},
+        {{"Bad", BIT(18)}}
+    };
+
+    Ui::ComboBoxData comboBoxDataEndingCarrie = {
+        {{"Good", BIT(19)}},
+        {{"Bad", BIT(20)}}
     };
 };
 #endif // MAINWINDOW_H

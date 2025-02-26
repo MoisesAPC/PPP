@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>594</width>
-    <height>840</height>
+    <height>657</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -456,6 +456,126 @@
       <widget class="QLineEdit" name="leGoldRenon">
        <property name="text">
         <string>0</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_6">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>411</y>
+      <width>281</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="glSaveFlags">
+     <property name="sizeConstraint">
+      <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+     </property>
+     <item row="7" column="0">
+      <widget class="QCheckBox" name="cboxUseAlternateCostume_2">
+       <property name="text">
+        <string>Use alternate costume</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QCheckBox" name="cboxHardMode">
+       <property name="text">
+        <string>Hard Mode</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QComboBox" name="cbDifficulty"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QCheckBox" name="cboxUseAlternateCostume">
+       <property name="text">
+        <string>Use alternate costume</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QCheckBox" name="cboxCarrieCostume">
+       <property name="text">
+        <string>Carrie alternate costume unlocked</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QCheckBox" name="cboxReinhardtCostume">
+       <property name="text">
+        <string>Reinhardt alternate costume unlocked</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QCheckBox" name="cboxNitro">
+       <property name="text">
+        <string>Carrying Magical Nitro</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" rowspan="2">
+      <widget class="QLabel" name="labelDifficulty">
+       <property name="layoutDirection">
+        <enum>Qt::LayoutDirection::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>Difficulty</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::TextFormat::AutoText</enum>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_7">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>490</y>
+      <width>145</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="glEndings">
+     <item row="0" column="1">
+      <widget class="QLabel" name="labelCarrieEnding">
+       <property name="text">
+        <string>Carrie</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QComboBox" name="cbReinhardtEnding"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="cbCarrieEnding"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelReinhardtEnding">
+       <property name="layoutDirection">
+        <enum>Qt::LayoutDirection::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>Reinhardt</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::TextFormat::AutoText</enum>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
      </item>
