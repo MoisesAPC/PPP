@@ -598,15 +598,15 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QPushButton" name="buttonMain_2">
+     <item row="0" column="2">
+      <widget class="QPushButton" name="buttonEventFlags">
        <property name="text">
         <string>Event Flags</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="2">
-      <widget class="QPushButton" name="buttonMain_3">
+     <item row="0" column="1">
+      <widget class="QPushButton" name="buttonItems">
        <property name="text">
         <string>Items</string>
        </property>
