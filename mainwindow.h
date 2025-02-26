@@ -20,7 +20,7 @@ public:
 
 private slots:
     void handleNumberOnlyInputUnsigned();
-    void setupLineEditNumber(QLineEdit* lineEdit, int minValue, int maxValue);
+    void setupLineEditNumberUnsigned(QLineEdit* lineEdit, unsigned int minValue, unsigned int maxValue);
 
 private:
     Ui::MainWindow* ui;
