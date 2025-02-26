@@ -9,7 +9,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // Initialize pages
     setupPageMain();
+    setupPageItems();
+    setupPageEventFlags();
 
     // Ensure that we start in the "Main" page
     switchPage(ui->stackedWidgetPages, ui->pageMain);
@@ -22,8 +25,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupPageMain() {
     // Initialize line edits
-    setupLineEditNumberUnsigned(ui->leLife, 0, 100);
+    setupLineEditNumberUnsigned(ui->leLife, 1, 100);
     setupLineEditNumberUnsigned(ui->leGold, 0, 99999);
+    setupLineEditNumberUnsigned(ui->leRedJewels, 0, 99);
+    setupLineEditNumberUnsigned(ui->lePowerup, 0, 2);
 
     setupLineEditNumberUnsigned(ui->leSpawn, 0, SHRT_MAX);
     setupLineEditNumberUnsigned(ui->leWhiteJewel, 0, UCHAR_MAX);
@@ -81,6 +86,49 @@ void MainWindow::setupPageMain() {
     });
 }
 
+void MainWindow::setupPageItems() {
+    // Jewels
+    setupLineEditNumberUnsigned(ui->leItemsSpecial1, 0, 1);
+    setupLineEditNumberUnsigned(ui->leItemsSpecial2, 0, 1);
+
+    // Healing and effect-cure items
+    setupLineEditNumberUnsigned(ui->leItemsRoastChicken, 0, 10);
+    setupLineEditNumberUnsigned(ui->leItemsRoastBeef, 0, 10);
+    setupLineEditNumberUnsigned(ui->leItemsHealingKit, 0, 10);
+    setupLineEditNumberUnsigned(ui->leItemsPurifying, 0, 10);
+    setupLineEditNumberUnsigned(ui->leItemsCureAmpoule, 0, 10);
+    setupLineEditNumberUnsigned(ui->leItemsPoutPourri, 0, 10);
+
+    // Quest Items
+    setupLineEditNumberUnsigned(ui->leItemsSunCard, 0, 10);
+    setupLineEditNumberUnsigned(ui->leItemsMoonCard, 0, 10);
+    setupLineEditNumberUnsigned(ui->leItemsNitro, 0, 1);
+    setupLineEditNumberUnsigned(ui->leItemsMandragora, 0, 1);
+
+    // Keys
+    setupLineEditNumberUnsigned(ui->leKeyScience1, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyScience2, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyScience3, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyClocktower1, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyClocktower2, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyClocktower3, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyChamber, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyCopper, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyExecution, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyGarden, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyLeftTower, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyArchives, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyStoreroom, 0, 1);
+
+    // Unused items
+    setupLineEditNumberUnsigned(ui->leItemsER, 0, 1);
+    setupLineEditNumberUnsigned(ui->leItemsIG, 0, 1);
+}
+
+void MainWindow::setupPageEventFlags() {
+
+}
+
 void MainWindow::handleNumberOnlyInputUnsigned() {
     // Obtain the line edit object that called this function
     QLineEdit* lineEdit = qobject_cast<QLineEdit*>(sender());
@@ -104,6 +152,11 @@ void MainWindow::handleNumberOnlyInputUnsigned() {
         const unsigned int maxValue = lineEdit->property("maxValue").toUInt();
 
         value = qBound<unsigned int>(minValue, value, maxValue);
+
+        // We call this function just before setting the text
+        // to update the values for the Mandragora and Nitro accordingly
+        // when editing either of those line edits
+        checkMandragoraAndNitroLineEdits();
 
         lineEdit->setText(QString::number(value));
     }
@@ -141,4 +194,20 @@ void MainWindow::onPageButtonClicked(const QWidget* page) {
 
 void MainWindow::switchPage(QStackedWidget* stackedWidget, const QWidget* page) {
     stackedWidget->setCurrentIndex(stackedWidget->indexOf(page));
+}
+
+// The player can only have a Mandragora *OR* a Magical Nitro at the same time.
+// This function checks if both Mandragora and Nitro have an amount larger than 0 at the same time.
+// If so, set the amount for both items back to 0
+void MainWindow::checkMandragoraAndNitroLineEdits() {
+    QLineEdit* mandragoraLineEdit = ui->leItemsMandragora;
+    QLineEdit* nitroLineEdit = ui->leItemsNitro;
+
+    bool okMandragora = false;
+    bool okNitro = false;
+
+    if ((mandragoraLineEdit->text().toUInt(&okMandragora, 10) != 0) && (nitroLineEdit->text().toUInt(&okMandragora, 10) != 0)) {
+        mandragoraLineEdit->setText(QString::number(0));
+        nitroLineEdit->setText(QString::number(0));
+    }
 }

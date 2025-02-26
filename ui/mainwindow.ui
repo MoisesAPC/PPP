@@ -62,29 +62,531 @@
     <property name="currentIndex">
      <number>2</number>
     </property>
-    <widget class="QWidget" name="pageEventFlags"/>
-    <widget class="QWidget" name="pageItems">
-     <widget class="QWidget" name="gridLayoutWidget_9">
+    <widget class="QWidget" name="pageEventFlags">
+     <widget class="QWidget" name="gridLayoutWidget_14">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>90</y>
+        <x>170</x>
+        <y>160</y>
         <width>160</width>
         <height>80</height>
        </rect>
       </property>
+      <layout class="QGridLayout" name="gridLayout"/>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="pageItems">
+     <widget class="QWidget" name="gridLayoutWidget_9">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>30</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
       <layout class="QGridLayout" name="gridJewels">
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="leW">
+       <item row="1" column="3">
+        <widget class="QLabel" name="labelItemsSpecial2">
+         <property name="text">
+          <string>Special 2</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="leItemsSpecial1">
          <property name="text">
           <string>0</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="labelWhiteJewel">
+       <item row="2" column="3">
+        <widget class="QLineEdit" name="leItemsSpecial2">
          <property name="text">
-          <string>White Jewel</string>
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="labelItemsSpecial1">
+         <property name="text">
+          <string>Special 1</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_10">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>110</y>
+        <width>506</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridHealing">
+       <item row="2" column="6">
+        <widget class="QLineEdit" name="leItemsPurifying">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLabel" name="labelItemsRoastBeef">
+         <property name="text">
+          <string>Roast Beef</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="5">
+        <widget class="QLineEdit" name="leItemsHealingKit">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="7">
+        <widget class="QLabel" name="labelItemsCureAmpoule">
+         <property name="text">
+          <string>Cure Ampoule</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="5">
+        <widget class="QLabel" name="labelItemsHealingKit">
+         <property name="text">
+          <string>Healing Kit</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QLineEdit" name="leItemsRoastBeef">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="8">
+        <widget class="QLabel" name="labelItemsPoutPourri">
+         <property name="text">
+          <string>Pout Pourri</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="labelItemsRoastChicken">
+         <property name="text">
+          <string>Roast Chicken</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="8">
+        <widget class="QLineEdit" name="leItemsPoutPourri">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="leItemsRoastChicken">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="6">
+        <widget class="QLabel" name="labelItemsPurifying">
+         <property name="text">
+          <string>Purifying</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="7">
+        <widget class="QLineEdit" name="leItemsCureAmpoule">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_11">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>200</y>
+        <width>506</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridQuest">
+       <item row="1" column="4">
+        <widget class="QLabel" name="labelItemsMoonCard">
+         <property name="text">
+          <string>Moon Card</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLabel" name="labelItemsSunCard">
+         <property name="text">
+          <string>Sun Card</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="5">
+        <widget class="QLineEdit" name="leItemsNitro">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="5">
+        <widget class="QLabel" name="labelItemsNitro">
+         <property name="text">
+          <string>Magical Nitro</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="4">
+        <widget class="QLineEdit" name="leItemsMoonCard">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QLineEdit" name="leItemsSunCard">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="6">
+        <widget class="QLabel" name="labelItemsMandragora">
+         <property name="text">
+          <string>Mandragora</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="6">
+        <widget class="QLineEdit" name="leItemsMandragora">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_12">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>290</y>
+        <width>541</width>
+        <height>168</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridKeys">
+       <item row="4" column="6">
+        <widget class="QLineEdit" name="leKeyScience2">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="5">
+        <widget class="QLabel" name="labelStoreroom">
+         <property name="text">
+          <string>Storeroom Key</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QLabel" name="labelExecution">
+         <property name="text">
+          <string>Execution Key</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="8">
+        <widget class="QLabel" name="labelChamber">
+         <property name="text">
+          <string>Chamber Key</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="5">
+        <widget class="QLineEdit" name="leKeyClocktower1">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLabel" name="labelLeftTowerKey">
+         <property name="text">
+          <string>Left Tower Key</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="5">
+        <widget class="QLabel" name="labelClockTower1">
+         <property name="text">
+          <string>Clocktower Key 1</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="7">
+        <widget class="QLabel" name="labelScience3">
+         <property name="text">
+          <string>Science Key 3</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="6">
+        <widget class="QLabel" name="labelScience2">
+         <property name="text">
+          <string>Science Key 2</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="6">
+        <widget class="QLineEdit" name="leKeyGarden">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="labelArchivesKey">
+         <property name="text">
+          <string>Archives Key</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="5">
+        <widget class="QLineEdit" name="leKeyStoreroom">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="7">
+        <widget class="QLineEdit" name="leKeyScience3">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QLineEdit" name="leKeyLeftTower">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="5">
+        <widget class="QLineEdit" name="leKeyScience1">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="7">
+        <widget class="QLineEdit" name="leKeyCopper">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="7">
+        <widget class="QLineEdit" name="leKeyClocktower3">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="6">
+        <widget class="QLabel" name="labelClockTower2">
+         <property name="text">
+          <string>Clocktower Key 2</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="7">
+        <widget class="QLabel" name="labelClockTower3">
+         <property name="text">
+          <string>Clocktower Key 3</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="6">
+        <widget class="QLineEdit" name="leKeyClocktower2">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="5">
+        <widget class="QLabel" name="labelScience1">
+         <property name="text">
+          <string>Science Key 1</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="8">
+        <widget class="QLineEdit" name="leKeyChamber">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="leKeyArchives">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QLineEdit" name="leKeyExecution">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="7">
+        <widget class="QLabel" name="labelCopper">
+         <property name="text">
+          <string>Copper Key</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="6">
+        <widget class="QLabel" name="labelGardenKey">
+         <property name="text">
+          <string>Garden Key</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_13">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>480</y>
+        <width>221</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridItemsUnused">
+       <item row="1" column="3">
+        <widget class="QLabel" name="labelItemsIG">
+         <property name="text">
+          <string>Incandescent gaze</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="leItemsER">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QLineEdit" name="leItemsIG">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="labelItemsER">
+         <property name="text">
+          <string>Engagement ring</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -156,7 +658,7 @@
       <property name="geometry">
        <rect>
         <x>410</x>
-        <y>410</y>
+        <y>360</y>
         <width>91</width>
         <height>21</height>
        </rect>
@@ -545,7 +1047,7 @@
           <enum>Qt::LayoutDirection::LeftToRight</enum>
          </property>
          <property name="text">
-          <string>Difficulty</string>
+          <string>Difficulty and other parameters</string>
          </property>
          <property name="textFormat">
           <enum>Qt::TextFormat::AutoText</enum>
@@ -561,7 +1063,7 @@
       <property name="geometry">
        <rect>
         <x>380</x>
-        <y>440</y>
+        <y>390</y>
         <width>145</width>
         <height>51</height>
        </rect>
@@ -604,32 +1106,16 @@
      <widget class="QWidget" name="gridLayoutWidget_3">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>80</y>
-        <width>241</width>
-        <height>46</height>
+        <x>100</x>
+        <y>90</y>
+        <width>391</width>
+        <height>52</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="glLife">
        <property name="sizeConstraint">
         <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
        </property>
-       <item row="0" column="0">
-        <widget class="QLabel" name="labelLife">
-         <property name="layoutDirection">
-          <enum>Qt::LayoutDirection::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>Life</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::TextFormat::AutoText</enum>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="1">
         <widget class="QLabel" name="labelGold">
          <property name="layoutDirection">
@@ -646,7 +1132,7 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="2">
+       <item row="0" column="4">
         <widget class="QLabel" name="labelSubweapon">
          <property name="layoutDirection">
           <enum>Qt::LayoutDirection::LeftToRight</enum>
@@ -662,8 +1148,31 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelLife">
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Life</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::TextFormat::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
         <widget class="QComboBox" name="cbSubweapon"/>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLineEdit" name="leRedJewels">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLineEdit" name="leLife">
@@ -676,6 +1185,97 @@
         <widget class="QLineEdit" name="leGold">
          <property name="text">
           <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="labelJewels">
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Red Jewels</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::TextFormat::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <widget class="QLabel" name="labelPowerup">
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Powerup Level</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::TextFormat::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="5">
+        <widget class="QLineEdit" name="lePowerup">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_15">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>450</y>
+        <width>206</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="glPlayerStatus">
+       <property name="sizeConstraint">
+        <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+       </property>
+       <item row="4" column="0">
+        <widget class="QCheckBox" name="cboxSto">
+         <property name="text">
+          <string>STO</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="cboxPoison">
+         <property name="text">
+          <string>POISON</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="cboxVamp">
+         <property name="text">
+          <string>VAMP</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="labelPlayerStatus">
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Player status</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::TextFormat::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
         </widget>
        </item>

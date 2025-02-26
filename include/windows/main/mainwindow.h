@@ -25,11 +25,15 @@ public:
 
 private slots:
     void setupPageMain();
+    void setupPageItems();
+    void setupPageEventFlags();
+
     void handleNumberOnlyInputUnsigned();
     void setupLineEditNumberUnsigned(QLineEdit* lineEdit, unsigned int minValue, unsigned int maxValue);
     void setupComboBox(QComboBox* comboBox, const std::vector<std::map<std::string, int> >& array);
     void onPageButtonClicked(const QWidget* page);
     void switchPage(QStackedWidget* stackedWidgetPages, const QWidget* page);
+    void checkMandragoraAndNitroLineEdits();
 
 private:
     Ui::MainWindow* ui;
@@ -88,7 +92,9 @@ private:
         {{"Knife", 1}},
         {{"Holy Water", 2}},
         {{"Cross", 3}},
-        {{"Axe", 4}}
+        {{"Axe", 4}},
+        {{"Wooden Stake", 5}},
+        {{"Rose", 6}}
     };
 
     Ui::ComboBoxData comboBoxDataDifficulty = {
