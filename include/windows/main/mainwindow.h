@@ -24,6 +24,7 @@ public:
     ~MainWindow();
 
 private slots:
+    void setupPageMain();
     void handleNumberOnlyInputUnsigned();
     void setupLineEditNumberUnsigned(QLineEdit* lineEdit, unsigned int minValue, unsigned int maxValue);
     void setupComboBox(QComboBox* comboBox, const std::vector<std::map<std::string, int> >& array);
@@ -97,11 +98,13 @@ private:
     };
 
     Ui::ComboBoxData comboBoxDataEndingReinhardt = {
+        {{"-", 0}},
         {{"Good", BIT(17)}},
         {{"Bad", BIT(18)}}
     };
 
     Ui::ComboBoxData comboBoxDataEndingCarrie = {
+        {{"-", 0}},
         {{"Good", BIT(19)}},
         {{"Bad", BIT(20)}}
     };

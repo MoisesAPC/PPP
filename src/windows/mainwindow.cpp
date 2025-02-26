@@ -1,5 +1,4 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "include\windows\main\mainwindow.h"
 #include <QIntValidator>    // With "QIntValidator", we can validate the contents of an integer (see "handleNumberOnlyInput()")
 #include <QtGlobal>         // qBound()
 #include <climits>          // SHRT_MAX, UINT_MAX, etc
@@ -10,6 +9,18 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    setupPageMain();
+
+    // Ensure that we start in the "Main" page
+    switchPage(ui->stackedWidgetPages, ui->pageMain);
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::setupPageMain() {
     // Initialize line edits
     setupLineEditNumberUnsigned(ui->leLife, 0, 100);
     setupLineEditNumberUnsigned(ui->leGold, 0, 99999);
@@ -29,15 +40,30 @@ MainWindow::MainWindow(QWidget *parent)
     setupLineEditNumberUnsigned(ui->leMilliseconds, 0, 600 - 1);
     setupLineEditNumberUnsigned(ui->leFrameCount, 0, UINT_MAX);
 
-    // Initialize combo boxes
+    // Initialize combo boxes and set their default values
     setupComboBox(ui->cbMap, comboBoxDataMap);
+    ui->cbMap->setCurrentIndex(0);
+
     setupComboBox(ui->cbCharacter, comboBoxDataCharacter);
+    ui->cbCharacter->setCurrentIndex(0);
+
     setupComboBox(ui->cbButtonConfig, comboBoxDataButtonConfig);
+    ui->cbButtonConfig->setCurrentIndex(0);
+
     setupComboBox(ui->cbSoundMode, comboBoxDataSoundMode);
+    ui->cbSoundMode->setCurrentIndex(0);
+
     setupComboBox(ui->cbSubweapon, comboBoxDataSubweapon);
+    ui->cbSubweapon->setCurrentIndex(0);
+
     setupComboBox(ui->cbDifficulty, comboBoxDataDifficulty);
+    ui->cbDifficulty->setCurrentIndex(0);
+
     setupComboBox(ui->cbReinhardtEnding, comboBoxDataEndingReinhardt);
+    ui->cbReinhardtEnding->setCurrentIndex(0);
+
     setupComboBox(ui->cbCarrieEnding, comboBoxDataEndingCarrie);
+    ui->cbCarrieEnding->setCurrentIndex(0);
 
     // Initialize pages and the buttons that travel to those pages
     // When each button is pressed, "onPageButtonClicked" will be called passing
@@ -53,14 +79,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->buttonEventFlags, &QPushButton::clicked, this, [this]() {
         onPageButtonClicked(ui->pageEventFlags);
     });
-
-    // Ensure that we start in the "Main" page
-    switchPage(ui->stackedWidgetPages, ui->pageMain);
-}
-
-MainWindow::~MainWindow()
-{
-    delete ui;
 }
 
 void MainWindow::handleNumberOnlyInputUnsigned() {

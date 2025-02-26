@@ -9,17 +9,18 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    main.cpp \
-    mainwindow.cpp
+    src/main.cpp \
+    src/windows/mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h
+    include/windows/main/mainwindow.h
 
 FORMS += \
-    mainwindow.ui
+    ui/mainwindow.ui
 
 TRANSLATIONS += \
-    PPP_en_US.ts
+    ui/languages/PPP_en_US.ts
+
 CONFIG += lrelease
 CONFIG += embed_translations
 
@@ -27,3 +28,7 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    .gitignore \
+    README.md
