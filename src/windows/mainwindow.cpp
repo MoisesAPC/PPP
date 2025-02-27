@@ -218,10 +218,6 @@ void MainWindow::setupPageEventFlags() {
 }
 
 void MainWindow::setupFileMenu() {
-
-}
-
-void MainWindow::setupSlotMenu() {
     // Setp the "Exit" button
     connect(ui->actionExit, &QAction::triggered, this, []() {
         QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Exit", "Are you sure you want to quit?", QMessageBox::Yes | QMessageBox::No);
@@ -229,10 +225,11 @@ void MainWindow::setupSlotMenu() {
         if (reply == QMessageBox::Yes) {
             QApplication::exit();
         }
-        else {
-
-        }
     });
+}
+
+void MainWindow::setupSlotMenu() {
+
 }
 
 void MainWindow::handleNumberOnlyInputUnsigned() {
@@ -386,6 +383,8 @@ void MainWindow::createGridFlag(QGridLayout* gridLayout, unsigned int flags) {
     });
 }
 
+/*
 void ActionFile_Exit() {
-    QMessageBox::information(this, );
+    //QMessageBox::information(this, );
 }
+*/

@@ -39,7 +39,7 @@ private slots:
     void checkMandragoraAndNitroLineEdits();
     void createGridFlag(QGridLayout* gridLayout, unsigned int flags);
 
-    void ActionFile_Exit();
+    //void ActionFile_Exit();
 
 private:
     Ui::MainWindow* ui;
