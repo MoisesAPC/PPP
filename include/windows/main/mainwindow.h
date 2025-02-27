@@ -31,7 +31,7 @@ private slots:
     void handleNumberOnlyInputUnsigned();
     void setupLineEditNumberUnsigned(QLineEdit* lineEdit, unsigned int minValue, unsigned int maxValue);
     void setupComboBox(QComboBox* comboBox, const std::vector<std::map<std::string, int> >& array);
-    void onPageButtonClicked(const QWidget* page);
+    void onPageButtonClicked(QStackedWidget* stackedWidget, const QWidget* page);
     void switchPage(QStackedWidget* stackedWidgetPages, const QWidget* page);
     void checkMandragoraAndNitroLineEdits();
     void createGridFlag(QGridLayout* gridLayout, unsigned int flags);

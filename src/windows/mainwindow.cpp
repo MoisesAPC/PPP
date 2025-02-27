@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Ensure that we start in the "Main" page
     switchPage(ui->stackedWidgetPages, ui->pageMain);
+    switchPage(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage1);
 }
 
 MainWindow::~MainWindow()
@@ -76,15 +77,15 @@ void MainWindow::setupPageMain() {
     // When each button is pressed, "onPageButtonClicked" will be called passing
     // the desired page by arguments
     connect(ui->buttonMain, &QPushButton::clicked, this, [this]() {
-        onPageButtonClicked(ui->pageMain);
+        onPageButtonClicked(ui->stackedWidgetPages, ui->pageMain);
     });
 
     connect(ui->buttonItems, &QPushButton::clicked, this, [this]() {
-        onPageButtonClicked(ui->pageItems);
+        onPageButtonClicked(ui->stackedWidgetPages, ui->pageItems);
     });
 
     connect(ui->buttonEventFlags, &QPushButton::clicked, this, [this]() {
-        onPageButtonClicked(ui->pageEventFlags);
+        onPageButtonClicked(ui->stackedWidgetPages, ui->pageEventFlags);
     });
 }
 
@@ -128,17 +129,49 @@ void MainWindow::setupPageItems() {
 }
 
 void MainWindow::setupPageEventFlags() {
+    /* Page 1 */
     ui->labelSet0->setText("Set 0 (Forest of Silence)");
     createGridFlag(ui->gridFlagSet0, 0);
 
     ui->labelSet1->setText("Set 1 (Villa Foyer, Villa Hallway)");
     createGridFlag(ui->gridFlagSet1, 0);
 
-    ui->labelSet2->setText("Set 2 (Underground Waterway, Castle Center (top elevator room))");
+    ui->labelSet2->setText("Set 2 (Underground Waterway, Castle Center - Top elevator room)");
     createGridFlag(ui->gridFlagSet2, 0);
 
-    //ui->labelSet3->setText("Set 3 (Castle Center - Friendly lizard man, Castle Center - Nitro room)");
-    //createGridFlag(ui->gridFlagSet3, 0);
+    /* Page 2 */
+    ui->labelSet3->setText("Set 3 (Castle Center - Friendly lizard man, Castle Center - Nitro room)");
+    createGridFlag(ui->gridFlagSet3, 0);
+
+    ui->labelSet4->setText("Set 4 (Tower of Execution, Tower of Sorcery, Duel Tower)");
+    createGridFlag(ui->gridFlagSet4, 0);
+
+    ui->labelSet5->setText("Set 5 (Castle Keep - Stairs, Castle Keep, Clock Tower)");
+    createGridFlag(ui->gridFlagSet5, 0);
+
+    // Initialize pages and the buttons that travel to those pages
+    // When each button is pressed, "onPageButtonClicked" will be called passing
+    // the desired page by arguments
+    connect(ui->rbEventFlagPage1, &QRadioButton::clicked, this, [this]() {
+        onPageButtonClicked(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage1);
+    });
+
+    connect(ui->rbEventFlagPage2, &QRadioButton::clicked, this, [this]() {
+        onPageButtonClicked(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage2);
+    });
+/*
+    connect(ui->rbEventFlagPage3, &QRadioButton::clicked, this, [this]() {
+        onPageButtonClicked(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage3);
+    });
+
+    connect(ui->rbEventFlagPage4, &QRadioButton::clicked, this, [this]() {
+        onPageButtonClicked(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage4);
+    });
+
+    connect(ui->rbEventFlagPage5, &QRadioButton::clicked, this, [this]() {
+        onPageButtonClicked(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage5);
+    });
+*/
 }
 
 void MainWindow::handleNumberOnlyInputUnsigned() {
@@ -200,8 +233,8 @@ void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& arra
     }
 }
 
-void MainWindow::onPageButtonClicked(const QWidget* page) {
-    switchPage(ui->stackedWidgetPages, page);
+void MainWindow::onPageButtonClicked(QStackedWidget* stackedWidget, const QWidget* page) {
+    switchPage(stackedWidget, page);
 }
 
 void MainWindow::switchPage(QStackedWidget* stackedWidget, const QWidget* page) {
