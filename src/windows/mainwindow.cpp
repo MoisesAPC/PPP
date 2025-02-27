@@ -128,8 +128,17 @@ void MainWindow::setupPageItems() {
 }
 
 void MainWindow::setupPageEventFlags() {
-    ui->labelSet0->setText("Set 0");
+    ui->labelSet0->setText("Set 0 (Forest of Silence)");
     createGridFlag(ui->gridFlagSet0, 0);
+
+    ui->labelSet1->setText("Set 1 (Villa Foyer, Villa Hallway)");
+    createGridFlag(ui->gridFlagSet1, 0);
+
+    ui->labelSet2->setText("Set 2 (Underground Waterway, Castle Center (top elevator room))");
+    createGridFlag(ui->gridFlagSet2, 0);
+
+    //ui->labelSet3->setText("Set 3 (Castle Center - Friendly lizard man, Castle Center - Nitro room)");
+    //createGridFlag(ui->gridFlagSet3, 0);
 }
 
 void MainWindow::handleNumberOnlyInputUnsigned() {
@@ -218,30 +227,67 @@ void MainWindow::checkMandragoraAndNitroLineEdits() {
 void MainWindow::createGridFlag(QGridLayout* gridLayout, unsigned int flags) {
     QLineEdit* hexBitflagDisplay = new QLineEdit();
     hexBitflagDisplay->setAlignment(Qt::AlignRight);
-    hexBitflagDisplay->setText(QString("0x%1").arg(flags, 8, 16, QChar('0')).toUpper());
-    gridLayout->addWidget(hexBitflagDisplay, 0, 0, 1, 8);
+    hexBitflagDisplay->setText(QString("0x%1").arg(flags, 8, 16, QChar('0')));
+
+    // Ensure that we're putting "hexBitflagDisplay" in the right most part of the checkboxes, on the 1st row, 8th column
+    // @note We also add an extra row and column for printing the column / row number
+    gridLayout->addWidget(hexBitflagDisplay, 0, 9, 5, 1);
+    // Add numbers on top and to the right showing the column / row number respectively
+    for (unsigned int i = 0; i < 8; ++i) {
+        QLabel* colLabel = new QLabel(QString::number(i));
+        colLabel->setAlignment(Qt::AlignCenter);  // Center the row numbers
+        gridLayout->addWidget(colLabel, 0, i + 1);
+    }
+
+    for (unsigned int i = 0; i < 4; ++i) {
+        QLabel* rowLabel = new QLabel(QString::number(i));
+        rowLabel->setAlignment(Qt::AlignCenter);  // Center the row numbers
+        gridLayout->addWidget(rowLabel, i + 1, 0);
+    }
 
     QVector<QCheckBox*> checkBoxes(32);
 
     // Create 32 checkboxes (one for each bit)
-    for (int i = 0; i < 32; ++i) {
+    for (unsigned int i = 0; i < 32; ++i) {
         QCheckBox* checkBox = new QCheckBox();
         // Set the checked state based on the flag value
         checkBox->setChecked(flags & (1 << i));
         // Add the checkbox to the grid layout. Then place it in a 4x8 grid
-        gridLayout->addWidget(checkBox, i / 8, i % 8);
+        // We add +1 so that we don't print the checkboxes in the same row / column as the numbers
+        gridLayout->addWidget(checkBox, (i / 8) + 1, (i % 8) + 1);
 
         checkBoxes[i] = checkBox;
+    }
 
+    // Since now each checkbox is initialized, we can go ahead and connect them + add the function to handle them when toggled
+    for (unsigned int j = 0; j < 32; j++) {
         // Make sure that each checkbox is updated *on-the-fly* as we edit the hex value from the line edit
-        connect(checkBox, &QCheckBox::toggled, this, [checkBoxes, hexBitflagDisplay]() {
+        // To do so, we directly define a lambda function that does this for us. This is executed when pressing any of the checkboxes
+        connect(checkBoxes[j], &QCheckBox::toggled, this, [checkBoxes, hexBitflagDisplay]() {
             unsigned int updatedFlags = 0;
             for (int j = 0; j < 32; ++j) {
                 if (checkBoxes[j]->isChecked()) {
                     updatedFlags |= (1 << j);
                 }
             }
-            hexBitflagDisplay->setText(QString("0x%1").arg(updatedFlags, 8, 16, QChar('0')).toUpper());
+            hexBitflagDisplay->setText(QString("0x%1").arg(updatedFlags, 8, 16, QChar('0')));
         });
     }
+
+    // Lastly, we connect the "hexBitflagDisplay" and add a handling function that will update all
+    // checkboxes depending on the hex bitflag value passed in the "hexBitflagDisplay" line edit
+    connect(hexBitflagDisplay, &QLineEdit::textChanged, this, [checkBoxes, hexBitflagDisplay](const QString& text) {
+        bool ok = false;
+        unsigned int newFlags = text.toUInt(&ok, 16);
+
+        // Ensure we limit the input value up to 0xFFFFFFFF
+        if (ok && newFlags <= 0xFFFFFFFF) {
+            for (int j = 0; j < 32; ++j) {
+                checkBoxes[j]->setChecked(newFlags & (1 << j));
+            }
+        }
+        else {
+            hexBitflagDisplay->setText("0xffffffff");
+        }
+    });
 }

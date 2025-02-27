@@ -66,13 +66,13 @@
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>90</x>
         <y>30</y>
-        <width>291</width>
+        <width>391</width>
         <height>151</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="vlFlags">
+      <layout class="QVBoxLayout" name="vlFlagsSet0">
        <item>
         <widget class="QLabel" name="labelSet0">
          <property name="text">
@@ -85,6 +85,64 @@
        </item>
        <item>
         <layout class="QGridLayout" name="gridFlagSet0">
+         <property name="sizeConstraint">
+          <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+         </property>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>190</y>
+        <width>391</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="vlFlagsSet1">
+       <item>
+        <widget class="QLabel" name="labelSet1">
+         <property name="text">
+          <string>Set 0x0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="gridFlagSet1">
+         <property name="sizeConstraint">
+          <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+         </property>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>360</y>
+        <width>391</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="vlFlagsSet2">
+       <item>
+        <widget class="QLabel" name="labelSet2">
+         <property name="text">
+          <string>Set 0x0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="gridFlagSet2">
          <property name="sizeConstraint">
           <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
          </property>
