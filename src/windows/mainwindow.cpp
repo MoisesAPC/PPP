@@ -130,7 +130,7 @@ void MainWindow::setupPageItems() {
 
 void MainWindow::setupPageEventFlags() {
     /* Page 1 */
-    ui->labelSet0->setText("Set 0 (Forest of Silence)");
+    ui->labelSet0->setText("Set 0 (Forest of Silence, Intro Narration Map, Test Grid)");
     createGridFlag(ui->gridFlagSet0, 0);
 
     ui->labelSet1->setText("Set 1 (Villa Foyer, Villa Hallway)");
@@ -149,6 +149,41 @@ void MainWindow::setupPageEventFlags() {
     ui->labelSet5->setText("Set 5 (Castle Keep - Stairs, Castle Keep, Clock Tower)");
     createGridFlag(ui->gridFlagSet5, 0);
 
+    /* Page 3 */
+    ui->labelSet6->setText("Set 6 (Dracula Desert, Rose / Actriese room, Room of Clocks)");
+    createGridFlag(ui->gridFlagSet6, 0);
+
+    ui->labelSet7->setText("Set 7 (Tower of Science - Turrets)");
+    createGridFlag(ui->gridFlagSet7, 0);
+
+    ui->labelSet8->setText("Set 8 (Castle Center - Bottom Elevator, Castle Center - Gears room)");
+    createGridFlag(ui->gridFlagSet8, 0);
+
+    /* Page 4 */
+    ui->labelSet9->setText("Set 9 (Villa - Front Yard)");
+    createGridFlag(ui->gridFlagSet9, 0);
+
+    ui->labelSet10->setText("Set 10 (Castle Wall - Main)");
+    createGridFlag(ui->gridFlagSet10, 0);
+
+    ui->labelSet11->setText("Set 11 (Maze Garden, Castle Center - Library)");
+    createGridFlag(ui->gridFlagSet11, 0);
+
+    /* Page 5 */
+    ui->labelSet12->setText("Set 12 (Tunnel)");
+    createGridFlag(ui->gridFlagSet12, 0);
+
+    ui->labelSet13->setText("Set 13 (Castle Center - Main)");
+    createGridFlag(ui->gridFlagSet13, 0);
+
+    ui->labelSet14->setText("Set 14 (Castle Wall - Towers)");
+    createGridFlag(ui->gridFlagSet14, 0);
+
+    /* Page 6 */
+    ui->labelSet15->setText("Set 15 (Tower of Science)");
+    createGridFlag(ui->gridFlagSet15, 0);
+
+
     // Initialize pages and the buttons that travel to those pages
     // When each button is pressed, "onPageButtonClicked" will be called passing
     // the desired page by arguments
@@ -159,7 +194,7 @@ void MainWindow::setupPageEventFlags() {
     connect(ui->rbEventFlagPage2, &QRadioButton::clicked, this, [this]() {
         onPageButtonClicked(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage2);
     });
-/*
+
     connect(ui->rbEventFlagPage3, &QRadioButton::clicked, this, [this]() {
         onPageButtonClicked(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage3);
     });
@@ -171,7 +206,10 @@ void MainWindow::setupPageEventFlags() {
     connect(ui->rbEventFlagPage5, &QRadioButton::clicked, this, [this]() {
         onPageButtonClicked(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage5);
     });
-*/
+
+    connect(ui->rbEventFlagPage6, &QRadioButton::clicked, this, [this]() {
+        onPageButtonClicked(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage6);
+    });
 }
 
 void MainWindow::handleNumberOnlyInputUnsigned() {
