@@ -2,6 +2,7 @@
 #include <QIntValidator>    // With "QIntValidator", we can validate the contents of an integer (see "handleNumberOnlyInput()")
 #include <QtGlobal>         // qBound()
 #include <climits>          // SHRT_MAX, UINT_MAX, etc
+#include <QMessageBox>      // QMessageBox
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,6 +14,10 @@ MainWindow::MainWindow(QWidget *parent)
     setupPageMain();
     setupPageItems();
     setupPageEventFlags();
+
+    // Initialize toolbar options
+    setupFileMenu();
+    setupSlotMenu();
 
     // Ensure that we start in the "Main" page
     switchPage(ui->stackedWidgetPages, ui->pageMain);
@@ -212,6 +217,24 @@ void MainWindow::setupPageEventFlags() {
     });
 }
 
+void MainWindow::setupFileMenu() {
+
+}
+
+void MainWindow::setupSlotMenu() {
+    // Setp the "Exit" button
+    connect(ui->actionExit, &QAction::triggered, this, []() {
+        QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Exit", "Are you sure you want to quit?", QMessageBox::Yes | QMessageBox::No);
+
+        if (reply == QMessageBox::Yes) {
+            QApplication::exit();
+        }
+        else {
+
+        }
+    });
+}
+
 void MainWindow::handleNumberOnlyInputUnsigned() {
     // Obtain the line edit object that called this function
     QLineEdit* lineEdit = qobject_cast<QLineEdit*>(sender());
@@ -361,4 +384,8 @@ void MainWindow::createGridFlag(QGridLayout* gridLayout, unsigned int flags) {
             hexBitflagDisplay->setText("0xffffffff");
         }
     });
+}
+
+void ActionFile_Exit() {
+    QMessageBox::information(this, );
 }

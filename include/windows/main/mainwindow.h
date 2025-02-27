@@ -28,6 +28,9 @@ private slots:
     void setupPageItems();
     void setupPageEventFlags();
 
+    void setupFileMenu();
+    void setupSlotMenu();
+
     void handleNumberOnlyInputUnsigned();
     void setupLineEditNumberUnsigned(QLineEdit* lineEdit, unsigned int minValue, unsigned int maxValue);
     void setupComboBox(QComboBox* comboBox, const std::vector<std::map<std::string, int> >& array);
@@ -35,6 +38,8 @@ private slots:
     void switchPage(QStackedWidget* stackedWidgetPages, const QWidget* page);
     void checkMandragoraAndNitroLineEdits();
     void createGridFlag(QGridLayout* gridLayout, unsigned int flags);
+
+    void ActionFile_Exit();
 
 private:
     Ui::MainWindow* ui;
