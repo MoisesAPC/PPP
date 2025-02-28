@@ -234,13 +234,10 @@ void MainWindow::setLastOpenedDirectory(QSettings& settings, const QString filen
     settings.setValue("lastOpenedDirectory", dir);
 }
 
-void MainWindow::populateMainWindow(const SaveData* save) {
-    if (save == nullptr) {
+void MainWindow::populateMainWindow(SaveData* saveData) {
+    if (saveData == nullptr) {
         return;
     }
-
-    // TODO: Add conditions for selecting which save index + if main or beginning of state
-    SaveData* saveData = &SaveManager::getInstance()->getSaves(0).main;
 
     // Combo boxes
     selectComboBoxOption(*ui->cbCharacter, saveData->character);
@@ -328,7 +325,7 @@ void MainWindow::openFile(const QString& filename) {
         file.close();
     }
     //SaveManager::getInstance()->printAllSaves();
-    // Populate with the first slot by default (main save)
+    // Populate with the first slot by default + main save
     populateMainWindow(&SaveManager::getInstance()->getSaves(0).main);
 }
 
@@ -369,19 +366,34 @@ void MainWindow::setupSlotMenu() {
 
         // Create "Main" action inside the Slot X menu
         slotMenuOptions[i].mainSaveOption = new QAction("Main", this);
+        slotMenuOptions[i].mainSaveOption->setCheckable(true);
         slotMenuOptions[i].slotOption->addAction(slotMenuOptions[i].mainSaveOption);
         connect(slotMenuOptions[i].mainSaveOption, &QAction::triggered, this, [this, i]() {
             populateMainWindow(&SaveManager::getInstance()->getSaves(i).main);
             selectedSlot = i;
+            isMain = true;
+            updateSlotMenuCheckedState(i, true);
         });
 
         // Create "Beginning of Stage" action inside the Slot X menu
         slotMenuOptions[i].beginningOfStageSaveOption = new QAction("Beginning of Stage", this);
+        slotMenuOptions[i].beginningOfStageSaveOption->setCheckable(true);
         slotMenuOptions[i].slotOption->addAction(slotMenuOptions[i].beginningOfStageSaveOption);
         connect(slotMenuOptions[i].beginningOfStageSaveOption, &QAction::triggered, this, [this, i]() {
             populateMainWindow(&SaveManager::getInstance()->getSaves(i).beginningOfStage);
             selectedSlot = i;
+            isMain = false;
+            updateSlotMenuCheckedState(i, false);
         });
+    }
+}
+
+// When clicking on a slot option, check it, and *also uncheck* any other unselected options
+// This is done for the "Main" and "Beginning of Stage" slot menu options
+void MainWindow::updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave) {
+    for (unsigned int i = 0; i < NUM_SAVES; ++i) {
+        slotMenuOptions[i].mainSaveOption->setChecked(i == selectedSlotIndex && isMainSave);
+        slotMenuOptions[i].beginningOfStageSaveOption->setChecked(i == selectedSlotIndex && !isMainSave);
     }
 }
 

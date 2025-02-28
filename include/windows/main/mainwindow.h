@@ -50,7 +50,8 @@ private slots:
     QLineEdit* createGridFlag(QGridLayout* gridLayout, unsigned int flags);
 
     void fileOpenMenu();
-    void populateMainWindow(const SaveData* save);
+    void populateMainWindow(SaveData* save);
+    void updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave);
     void openFile(const QString& filename);
     const QString getLastOpenedDirectory(const QSettings& settings);
     void setLastOpenedDirectory(QSettings& settings, const QString filename);
@@ -78,7 +79,7 @@ private:
     QLineEdit* hexBitflagLineEdits[NUM_EVENT_FLAGS] = {};
 
     int selectedSlot = 0;
-    bool isBeginningOfStage = false;
+    bool isMain = true;
 
     SlotMenu slotMenuOptions[4] = {};
 
