@@ -26,6 +26,13 @@ public:
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
+    // With this struct, we can keep track of the components inside the "Slot" menu option
+    struct SlotMenu {
+        QMenu* slotOption;
+        QAction* mainSaveOption;
+        QAction* beginningOfStageSaveOption;
+    };
+
 private slots:
     void setupPageMain();
     void setupPageItems();
@@ -68,10 +75,12 @@ private slots:
 
 private:
     Ui::MainWindow* ui;
-    QLineEdit* hexBitflagLineEdits[NUM_EVENT_FLAGS] = {nullptr};
+    QLineEdit* hexBitflagLineEdits[NUM_EVENT_FLAGS] = {};
 
     int selectedSlot = 0;
     bool isBeginningOfStage = false;
+
+    SlotMenu slotMenuOptions[4] = {};
 
     Ui::ComboBoxData comboBoxDataMap = {
         {{"Forest of Silence", 0}},

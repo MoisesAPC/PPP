@@ -364,18 +364,24 @@ void MainWindow::setupSlotMenu() {
 
     for (int i = 0; i < NUM_SAVES; ++i) {
         // Create a submenu for "Slot X"
-        QMenu* slotMenu = new QMenu(QString("Slot %1").arg(i + 1), this);
-        menuSlot->addMenu(slotMenu);
+        slotMenuOptions[i].slotOption = new QMenu(QString("Slot %1").arg(i + 1), this);
+        menuSlot->addMenu(slotMenuOptions[i].slotOption);
 
         // Create "Main" action inside the Slot X menu
-        QAction* mainAction = new QAction("Main", this);
-        slotMenu->addAction(mainAction);
-        //connect(mainAction, &QAction::triggered, this, [this, i]() { handleMain(i); });
+        slotMenuOptions[i].mainSaveOption = new QAction("Main", this);
+        slotMenuOptions[i].slotOption->addAction(slotMenuOptions[i].mainSaveOption);
+        connect(slotMenuOptions[i].mainSaveOption, &QAction::triggered, this, [this, i]() {
+            populateMainWindow(&SaveManager::getInstance()->getSaves(i).main);
+            selectedSlot = i;
+        });
 
         // Create "Beginning of Stage" action inside the Slot X menu
-        QAction* beginStageAction = new QAction("Beginning of Stage", this);
-        slotMenu->addAction(beginStageAction);
-        //connect(beginStageAction, &QAction::triggered, this, [this, i]() { handleBeginningOfStage(i); });
+        slotMenuOptions[i].beginningOfStageSaveOption = new QAction("Beginning of Stage", this);
+        slotMenuOptions[i].slotOption->addAction(slotMenuOptions[i].beginningOfStageSaveOption);
+        connect(slotMenuOptions[i].beginningOfStageSaveOption, &QAction::triggered, this, [this, i]() {
+            populateMainWindow(&SaveManager::getInstance()->getSaves(i).beginningOfStage);
+            selectedSlot = i;
+        });
     }
 }
 

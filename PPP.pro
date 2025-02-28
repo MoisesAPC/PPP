@@ -17,7 +17,10 @@ HEADERS += \
     include/bit.h \
     include/save/Save.h \
     include/save/SaveManager.h \
-    include/windows/main/mainwindow.h
+    include/windows/main/mainwindow.h \
+    include/windows/main/slotMenu.h \
+    include/windows/main/slotMenu.h \
+    include/windows/main/slotmenu.h
 
 FORMS += \
     ui/mainwindow.ui
