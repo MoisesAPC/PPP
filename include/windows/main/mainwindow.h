@@ -2,14 +2,15 @@
 #define MAINWINDOW_H
 
 #include "ui_mainwindow.h"
+#include "include/bit.h"
 #include <QMainWindow>
+#include <QSettings>        // QSettings
 #include <map>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
 
 typedef std::vector<std::map<std::string, int>> ComboBoxData;
-#define BIT(value) (1 << (value))
 
 class MainWindow;
 }
@@ -39,7 +40,11 @@ private slots:
     void checkMandragoraAndNitroLineEdits();
     void createGridFlag(QGridLayout* gridLayout, unsigned int flags);
 
-    //void ActionFile_Exit();
+    void fileOpenMenu();
+    void populateMainWindow();
+    void openFile(const QString& filename);
+    const QString getLastOpenedDirectory(const QSettings& settings);
+    void setLastOpenedDirectory(QSettings& settings, const QString filename);
 
 private:
     Ui::MainWindow* ui;

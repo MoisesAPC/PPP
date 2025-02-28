@@ -60,7 +60,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="pageEventFlags">
      <widget class="QWidget" name="verticalLayoutWidget_4">
@@ -1891,7 +1891,14 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionOpen"/>
+    <widget class="QMenu" name="menuOpen">
+     <property name="title">
+      <string>Open</string>
+     </property>
+     <addaction name="actionFrom_File"/>
+     <addaction name="actionFrom_CouchDB"/>
+    </widget>
+    <addaction name="menuOpen"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuSlot">
@@ -1906,14 +1913,6 @@
    <addaction name="menuFile"/>
    <addaction name="menuSlot"/>
   </widget>
-  <action name="actionOpen">
-   <property name="icon">
-    <iconset theme="QIcon::ThemeIcon::FolderOpen"/>
-   </property>
-   <property name="text">
-    <string>Open</string>
-   </property>
-  </action>
   <action name="actionSlot_1">
    <property name="checkable">
     <bool>true</bool>
@@ -1952,6 +1951,22 @@
    </property>
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionFrom_File">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentPageSetup"/>
+   </property>
+   <property name="text">
+    <string>From File</string>
+   </property>
+  </action>
+  <action name="actionFrom_CouchDB">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::NetworkWireless"/>
+   </property>
+   <property name="text">
+    <string>From CouchDB</string>
    </property>
   </action>
  </widget>

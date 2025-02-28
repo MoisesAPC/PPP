@@ -1,12 +1,15 @@
 #include "include\windows\main\mainwindow.h"
-
+#include "include/save/SaveManager.h"
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
 
-int main(int argc, char *argv[])
-{
+SaveManager* SaveManager::instance = nullptr;
+
+int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
+
+    SaveManager::createInstance();
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
@@ -19,5 +22,10 @@ int main(int argc, char *argv[])
     }
     MainWindow w;
     w.show();
-    return a.exec();
+
+    int result = a.exec();
+
+    SaveManager::destroyInstance();
+
+    return result;
 }

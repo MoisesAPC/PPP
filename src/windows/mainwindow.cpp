@@ -1,8 +1,12 @@
 #include "include\windows\main\mainwindow.h"
+#include "include\save\SaveManager.h"
+
 #include <QIntValidator>    // With "QIntValidator", we can validate the contents of an integer (see "handleNumberOnlyInput()")
 #include <QtGlobal>         // qBound()
 #include <climits>          // SHRT_MAX, UINT_MAX, etc
 #include <QMessageBox>      // QMessageBox
+#include <QDir>             // QDir
+#include <QFileDialog>      // QFileDialog
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -217,8 +221,52 @@ void MainWindow::setupPageEventFlags() {
     });
 }
 
+// Get the setting to load the last opened directory (defaulting to the current dir if none is found)
+const QString MainWindow::getLastOpenedDirectory(const QSettings& settings) {
+    return settings.value("lastOpenedDirectory", QDir::currentPath()).toString();
+}
+
+void MainWindow::setLastOpenedDirectory(QSettings& settings, const QString filename) {
+    QFileInfo fileInfo(filename);
+    QString dir = fileInfo.absolutePath();
+    settings.setValue("lastOpenedDirectory", dir);
+}
+
+void MainWindow::populateMainWindow() {
+
+}
+
+void MainWindow::openFile(const QString& filename) {
+    if (!filename.isEmpty()) {
+        QFile file(filename);
+
+        if (file.open(QIODevice::ReadOnly)) {
+            SaveManager::getInstance()->parseNote(file);
+        }
+        file.close();
+    }
+
+    populateMainWindow();
+}
+
+void MainWindow::fileOpenMenu() {
+    // With these settings, we can obtain the last opened save directory
+    QSettings settings("", "Castlevania 64 Save Editor");
+
+    // Open file menu in the last opened directory by default
+    QString filename = QFileDialog::getOpenFileName(this, "Open File", getLastOpenedDirectory(settings), "All accepted filetypes (*.pak, *.mpak, *.note);;Individual note (*.note);;Controller Pak data (*.pak, *.mpak);;All Files (*)");
+
+    if (!filename.isEmpty()) {
+        openFile(filename);
+        setLastOpenedDirectory(settings, filename);
+    }
+}
+
 void MainWindow::setupFileMenu() {
-    // Setp the "Exit" button
+    // Setup the "Open > From File" button
+    connect(ui->actionFrom_File, &QAction::triggered, this, &MainWindow::fileOpenMenu);
+
+    // Setup the "Exit" button
     connect(ui->actionExit, &QAction::triggered, this, []() {
         QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Exit", "Are you sure you want to quit?", QMessageBox::Yes | QMessageBox::No);
 
@@ -382,9 +430,3 @@ void MainWindow::createGridFlag(QGridLayout* gridLayout, unsigned int flags) {
         }
     });
 }
-
-/*
-void ActionFile_Exit() {
-    //QMessageBox::information(this, );
-}
-*/
