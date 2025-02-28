@@ -23,7 +23,7 @@ FORMS += \
     ui/mainwindow.ui
 
 TRANSLATIONS += \
-    ui/languages/PPP_en_US.ts
+
 
 CONFIG += lrelease
 CONFIG += embed_translations

@@ -4,13 +4,9 @@
 #include <QtEndian>
 #include <QDebug>
 
-void SaveManager::parseNote(QFile& file) {
-    QDataStream inputStream(&file);
-    SaveData* currentSave = nullptr;
-    long startOffset = 0x30;
+const SaveData& SaveManager::parseSaveData(QDataStream& inputStream, long startOffset) {
+        SaveData* currentSave = new SaveData();
 
-    for (unsigned int k = 0; k < NUM_SAVES; k++, startOffset += sizeof(SaveData)) {
-        currentSave = new SaveData();
         // For .note files, the raw save data starts at offset 0x30. We start from there
         // Seek to the start of the save data
         inputStream.device()->seek(startOffset);
@@ -68,8 +64,20 @@ void SaveManager::parseNote(QFile& file) {
         currentSave->field83_0xd8 = readData<int>(inputStream, inputStream.device()->pos());
         currentSave->gold_spent_on_Renon = readData<unsigned int>(inputStream, inputStream.device()->pos());
 
-        setSave(*currentSave, k);
+        return *currentSave;
+}
 
-        delete currentSave;
+void SaveManager::parseSaveSlot(QFile& file, SaveSlot& slot, long startOffset) {
+    QDataStream inputStream(&file);
+
+    slot.main = parseSaveData(inputStream, startOffset);
+    slot.beginningOfStage = parseSaveData(inputStream, inputStream.device()->pos());
+    slot.checksum1 = readData<unsigned int>(inputStream, inputStream.device()->pos());
+    slot.checksum2 = readData<unsigned int>(inputStream, inputStream.device()->pos());
+}
+
+void SaveManager::parseAllSaveSlots(QFile& file, long startOffset) {
+    for (unsigned int i = 0; i < NUM_SAVES; i++) {
+        parseSaveSlot(file, saves[i], startOffset + (sizeof(SaveSlot) * i));
     }
 }

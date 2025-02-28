@@ -5,7 +5,7 @@
 
 #include <QFile>
 #include <QtEndian>
-
+#include <iostream>
 
 class SaveManager {
     public:
@@ -26,7 +26,9 @@ class SaveManager {
             instance = nullptr;
         }
 
-        void parseNote(QFile& file);
+        const SaveData& parseSaveData(QDataStream& inputStream, long startOffset);
+        void parseSaveSlot(QFile& file, SaveSlot& slot, long startOffset);
+        void parseAllSaveSlots(QFile& file, long startOffset);
 
         template<typename T>
         T readData(QDataStream& inputStream, long offset) {
@@ -47,17 +49,55 @@ class SaveManager {
             outputStream << qFromBigEndian(value);
         }
 
-        const SaveData& getSaves(const int index) const {
+        SaveSlot& getSaves(const int index) {
             return saves[index];
         }
 
-        const SaveData* getAllSaves() const {
+        SaveSlot* getAllSaves() {
             return saves;
         }
 
-        void setSave(const SaveData& save, const int index) {
+        void setSave(const SaveSlot& save, const int index) {
             saves[index] = save;
         }
+
+        void createSlotMenu();
+
+        void printAllSaves() {
+            SaveManager* saveManager = SaveManager::getInstance();
+            const SaveSlot* allSaves = saveManager->getAllSaves();
+
+            for (int i = 0; i < NUM_SAVES; i++) {
+                const SaveSlot& slot = allSaves[i];
+
+                std::cout << "Save Slot " << i + 1 << ":\n";
+                std::cout << "--------------------\n";
+
+                printSaveData(slot.main, "Main Save");
+
+                printSaveData(slot.beginningOfStage, "Beginning of Stage Save");
+
+                std::cout << "Checksum 1: " << slot.checksum1 << "\n";
+                std::cout << "Checksum 2: " << slot.checksum2 << "\n";
+
+                std::cout << "\n";
+            }
+        }
+
+        void printSaveData(const SaveData& data, const std::string& title) {
+            std::cout << title << ":\n";
+            std::cout << "  Character: " << (data.character == SaveData::REINHARDT ? "Reinhardt" : "Carrie") << "\n";
+            std::cout << "  Life: " << data.life << "\n";
+            std::cout << "  Subweapon: " << data.subweapon << "\n";
+            std::cout << "  Gold: " << data.gold << "\n";
+            std::cout << "  Map: " << data.map << "\n";
+            std::cout << "  Spawn: " << data.spawn << "\n";
+            std::cout << "  Time: " << data.week << "w " << data.day << "d "
+                      << data.hour << ":" << data.minute << ":" << data.seconds << "\n";
+            std::cout << "  Gameplay Frame Count: " << data.gameplay_framecount << "\n";
+            std::cout << "  Death Counter: " << data.death_counter << "\n";
+        }
+
 
     private:
         static SaveManager* instance;
@@ -66,7 +106,7 @@ class SaveManager {
         ~SaveManager() {}
         SaveManager(const SaveManager& obj) = delete; // Remove the copy constructor
 
-        SaveData saves[NUM_SAVES];
+        SaveSlot saves[NUM_SAVES];
 };
 
 #endif

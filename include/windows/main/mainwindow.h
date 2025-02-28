@@ -3,6 +3,8 @@
 
 #include "ui_mainwindow.h"
 #include "include/bit.h"
+#include "include/save/Save.h"
+
 #include <QMainWindow>
 #include <QSettings>        // QSettings
 #include <map>
@@ -38,16 +40,38 @@ private slots:
     void onPageButtonClicked(QStackedWidget* stackedWidget, const QWidget* page);
     void switchPage(QStackedWidget* stackedWidgetPages, const QWidget* page);
     void checkMandragoraAndNitroLineEdits();
-    void createGridFlag(QGridLayout* gridLayout, unsigned int flags);
+    QLineEdit* createGridFlag(QGridLayout* gridLayout, unsigned int flags);
 
     void fileOpenMenu();
-    void populateMainWindow();
+    void populateMainWindow(const SaveData* save);
     void openFile(const QString& filename);
     const QString getLastOpenedDirectory(const QSettings& settings);
     void setLastOpenedDirectory(QSettings& settings, const QString filename);
 
+    void setSelectedSave(const int slot) {
+        selectedSlot = slot;
+    }
+
+    int getSelectedSave() const {
+        return selectedSlot;
+    }
+
+    void setIsBeginningOfStage(const bool isBeginningOfStage_) {
+        isBeginningOfStage = isBeginningOfStage_;
+    }
+
+    bool getIsBeginningOfStage() const {
+        return isBeginningOfStage;
+    }
+
+    void selectComboBoxOption(QComboBox& comboBox, const QVariant data);
+
 private:
     Ui::MainWindow* ui;
+    QLineEdit* hexBitflagLineEdits[NUM_EVENT_FLAGS] = {nullptr};
+
+    int selectedSlot = 0;
+    bool isBeginningOfStage = false;
 
     Ui::ComboBoxData comboBoxDataMap = {
         {{"Forest of Silence", 0}},

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>594</width>
-    <height>717</height>
+    <width>708</width>
+    <height>756</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,9 +20,9 @@
    <widget class="QWidget" name="gridLayoutWidget_8">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>620</y>
-      <width>294</width>
+      <x>200</x>
+      <y>660</y>
+      <width>295</width>
       <height>51</height>
      </rect>
     </property>
@@ -55,12 +55,12 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>571</width>
-      <height>591</height>
+      <width>701</width>
+      <height>621</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="pageEventFlags">
      <widget class="QWidget" name="verticalLayoutWidget_4">
@@ -68,8 +68,8 @@
        <rect>
         <x>500</x>
         <y>40</y>
-        <width>61</width>
-        <height>152</height>
+        <width>73</width>
+        <height>181</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="vlEventFlagPageSelect">
@@ -617,7 +617,7 @@
         <x>200</x>
         <y>30</y>
         <width>161</width>
-        <height>51</height>
+        <height>55</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridJewels">
@@ -856,8 +856,8 @@
        <rect>
         <x>20</x>
         <y>290</y>
-        <width>541</width>
-        <height>168</height>
+        <width>647</width>
+        <height>175</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridKeys">
@@ -1089,8 +1089,8 @@
        <rect>
         <x>170</x>
         <y>480</y>
-        <width>221</width>
-        <height>51</height>
+        <width>245</width>
+        <height>55</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridItemsUnused">
@@ -1135,10 +1135,10 @@
      <widget class="QWidget" name="gridLayoutWidget_2">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>190</x>
         <y>20</y>
         <width>294</width>
-        <height>51</height>
+        <height>55</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="glCharacter">
@@ -1216,8 +1216,8 @@
        <rect>
         <x>10</x>
         <y>290</y>
-        <width>541</width>
-        <height>51</height>
+        <width>671</width>
+        <height>55</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="glTime">
@@ -1365,8 +1365,8 @@
        <rect>
         <x>10</x>
         <y>220</y>
-        <width>561</width>
-        <height>51</height>
+        <width>677</width>
+        <height>55</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="glMisc">
@@ -1487,10 +1487,10 @@
      <widget class="QWidget" name="gridLayoutWidget_4">
       <property name="geometry">
        <rect>
-        <x>120</x>
+        <x>160</x>
         <y>150</y>
         <width>381</width>
-        <height>51</height>
+        <height>55</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="glMap">
@@ -1570,41 +1570,17 @@
         <x>60</x>
         <y>361</y>
         <width>281</width>
-        <height>211</height>
+        <height>241</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="glSaveFlags">
        <property name="sizeConstraint">
         <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
        </property>
-       <item row="7" column="0">
-        <widget class="QCheckBox" name="cboxUseAlternateCostume_2">
-         <property name="text">
-          <string>Use alternate costume</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QCheckBox" name="cboxHardMode">
-         <property name="text">
-          <string>Hard Mode unlocked</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QComboBox" name="cbDifficulty"/>
-       </item>
        <item row="4" column="0">
         <widget class="QCheckBox" name="cboxUseAlternateCostume">
          <property name="text">
           <string>Use alternate costume</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QCheckBox" name="cboxCarrieCostume">
-         <property name="text">
-          <string>Carrie alternate costume unlocked</string>
          </property>
         </widget>
        </item>
@@ -1615,7 +1591,14 @@
          </property>
         </widget>
        </item>
-       <item row="8" column="0">
+       <item row="6" column="0">
+        <widget class="QCheckBox" name="cboxCarrieCostume">
+         <property name="text">
+          <string>Carrie alternate costume unlocked</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
         <widget class="QCheckBox" name="cboxNitro">
          <property name="text">
           <string>Carrying Magical Nitro</string>
@@ -1638,6 +1621,16 @@
          </property>
         </widget>
        </item>
+       <item row="2" column="0">
+        <widget class="QComboBox" name="cbDifficulty"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QCheckBox" name="cboxHardMode">
+         <property name="text">
+          <string>Hard Mode unlocked</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="gridLayoutWidget_7">
@@ -1645,8 +1638,8 @@
        <rect>
         <x>380</x>
         <y>390</y>
-        <width>145</width>
-        <height>51</height>
+        <width>161</width>
+        <height>55</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="glEndings">
@@ -1687,23 +1680,23 @@
      <widget class="QWidget" name="gridLayoutWidget_3">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>140</x>
         <y>90</y>
-        <width>391</width>
-        <height>52</height>
+        <width>397</width>
+        <height>55</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="glLife">
        <property name="sizeConstraint">
         <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
        </property>
-       <item row="0" column="1">
-        <widget class="QLabel" name="labelGold">
+       <item row="0" column="2">
+        <widget class="QLabel" name="labelJewels">
          <property name="layoutDirection">
           <enum>Qt::LayoutDirection::LeftToRight</enum>
          </property>
          <property name="text">
-          <string>Gold</string>
+          <string>Red Jewels</string>
          </property>
          <property name="textFormat">
           <enum>Qt::TextFormat::AutoText</enum>
@@ -1729,6 +1722,39 @@
          </property>
         </widget>
        </item>
+       <item row="1" column="4">
+        <widget class="QComboBox" name="cbSubweapon"/>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="labelGold">
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Gold</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::TextFormat::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="leGold">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLineEdit" name="leLife">
+         <property name="text">
+          <string>100</string>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="labelLife">
          <property name="layoutDirection">
@@ -1745,64 +1771,8 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="4">
-        <widget class="QComboBox" name="cbSubweapon"/>
-       </item>
        <item row="1" column="2">
         <widget class="QLineEdit" name="leRedJewels">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="leLife">
-         <property name="text">
-          <string>100</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="leGold">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="labelJewels">
-         <property name="layoutDirection">
-          <enum>Qt::LayoutDirection::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>Red Jewels</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::TextFormat::AutoText</enum>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="5">
-        <widget class="QLabel" name="labelPowerup">
-         <property name="layoutDirection">
-          <enum>Qt::LayoutDirection::LeftToRight</enum>
-         </property>
-         <property name="text">
-          <string>Powerup Level</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::TextFormat::AutoText</enum>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="5">
-        <widget class="QLineEdit" name="lePowerup">
          <property name="text">
           <string>0</string>
          </property>
@@ -1816,7 +1786,7 @@
         <x>360</x>
         <y>450</y>
         <width>206</width>
-        <height>101</height>
+        <height>115</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="glPlayerStatus">
@@ -1867,8 +1837,8 @@
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>590</y>
+      <x>80</x>
+      <y>620</y>
       <width>541</width>
       <height>20</height>
      </rect>
@@ -1883,8 +1853,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>594</width>
-     <height>22</height>
+     <width>708</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1899,52 +1869,12 @@
      <addaction name="actionFrom_CouchDB"/>
     </widget>
     <addaction name="menuOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuSlot">
-    <property name="title">
-     <string>Slot</string>
-    </property>
-    <addaction name="actionSlot_1"/>
-    <addaction name="actionSlot2"/>
-    <addaction name="actionSlot_3"/>
-    <addaction name="actionSlot_4"/>
-   </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuSlot"/>
   </widget>
-  <action name="actionSlot_1">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Slot 1</string>
-   </property>
-  </action>
-  <action name="actionSlot2">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Slot 2</string>
-   </property>
-  </action>
-  <action name="actionSlot_3">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Slot 3</string>
-   </property>
-  </action>
-  <action name="actionSlot_4">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Slot 4</string>
-   </property>
-  </action>
   <action name="actionExit">
    <property name="icon">
     <iconset theme="QIcon::ThemeIcon::ApplicationExit"/>
@@ -1967,6 +1897,22 @@
    </property>
    <property name="text">
     <string>From CouchDB</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentSave"/>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentSaveAs"/>
+   </property>
+   <property name="text">
+    <string>Save As...</string>
    </property>
   </action>
  </widget>

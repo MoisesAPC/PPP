@@ -14,6 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // Avoid being able to maximize the window, as the layout looks worse
+    setWindowFlags(windowFlags() & ~Qt::WindowMaximizeButtonHint);
+
     // Initialize pages
     setupPageMain();
     setupPageItems();
@@ -38,7 +41,6 @@ void MainWindow::setupPageMain() {
     setupLineEditNumberUnsigned(ui->leLife, 1, 100);
     setupLineEditNumberUnsigned(ui->leGold, 0, 99999);
     setupLineEditNumberUnsigned(ui->leRedJewels, 0, 99);
-    setupLineEditNumberUnsigned(ui->lePowerup, 0, 2);
 
     setupLineEditNumberUnsigned(ui->leSpawn, 0, SHRT_MAX);
     setupLineEditNumberUnsigned(ui->leWhiteJewel, 0, UCHAR_MAX);
@@ -140,57 +142,57 @@ void MainWindow::setupPageItems() {
 void MainWindow::setupPageEventFlags() {
     /* Page 1 */
     ui->labelSet0->setText("Set 0 (Forest of Silence, Intro Narration Map, Test Grid)");
-    createGridFlag(ui->gridFlagSet0, 0);
+    hexBitflagLineEdits[0] = createGridFlag(ui->gridFlagSet0, 0);
 
     ui->labelSet1->setText("Set 1 (Villa Foyer, Villa Hallway)");
-    createGridFlag(ui->gridFlagSet1, 0);
+    hexBitflagLineEdits[1] = createGridFlag(ui->gridFlagSet1, 0);
 
     ui->labelSet2->setText("Set 2 (Underground Waterway, Castle Center - Top elevator room)");
-    createGridFlag(ui->gridFlagSet2, 0);
+    hexBitflagLineEdits[2] = createGridFlag(ui->gridFlagSet2, 0);
 
     /* Page 2 */
     ui->labelSet3->setText("Set 3 (Castle Center - Friendly lizard man, Castle Center - Nitro room)");
-    createGridFlag(ui->gridFlagSet3, 0);
+    hexBitflagLineEdits[3] = createGridFlag(ui->gridFlagSet3, 0);
 
     ui->labelSet4->setText("Set 4 (Tower of Execution, Tower of Sorcery, Duel Tower)");
-    createGridFlag(ui->gridFlagSet4, 0);
+    hexBitflagLineEdits[4] = createGridFlag(ui->gridFlagSet4, 0);
 
     ui->labelSet5->setText("Set 5 (Castle Keep - Stairs, Castle Keep, Clock Tower)");
-    createGridFlag(ui->gridFlagSet5, 0);
+    hexBitflagLineEdits[5] = createGridFlag(ui->gridFlagSet5, 0);
 
     /* Page 3 */
     ui->labelSet6->setText("Set 6 (Dracula Desert, Rose / Actriese room, Room of Clocks)");
-    createGridFlag(ui->gridFlagSet6, 0);
+    hexBitflagLineEdits[6] = createGridFlag(ui->gridFlagSet6, 0);
 
     ui->labelSet7->setText("Set 7 (Tower of Science - Turrets)");
-    createGridFlag(ui->gridFlagSet7, 0);
+    hexBitflagLineEdits[7] = createGridFlag(ui->gridFlagSet7, 0);
 
     ui->labelSet8->setText("Set 8 (Castle Center - Bottom Elevator, Castle Center - Gears room)");
-    createGridFlag(ui->gridFlagSet8, 0);
+    hexBitflagLineEdits[8] = createGridFlag(ui->gridFlagSet8, 0);
 
     /* Page 4 */
     ui->labelSet9->setText("Set 9 (Villa - Front Yard)");
-    createGridFlag(ui->gridFlagSet9, 0);
+    hexBitflagLineEdits[9] = createGridFlag(ui->gridFlagSet9, 0);
 
     ui->labelSet10->setText("Set 10 (Castle Wall - Main)");
-    createGridFlag(ui->gridFlagSet10, 0);
+    hexBitflagLineEdits[10] = createGridFlag(ui->gridFlagSet10, 0);
 
     ui->labelSet11->setText("Set 11 (Maze Garden, Castle Center - Library)");
-    createGridFlag(ui->gridFlagSet11, 0);
+    hexBitflagLineEdits[11] = createGridFlag(ui->gridFlagSet11, 0);
 
     /* Page 5 */
     ui->labelSet12->setText("Set 12 (Tunnel)");
-    createGridFlag(ui->gridFlagSet12, 0);
+    hexBitflagLineEdits[12] = createGridFlag(ui->gridFlagSet12, 0);
 
     ui->labelSet13->setText("Set 13 (Castle Center - Main)");
-    createGridFlag(ui->gridFlagSet13, 0);
+    hexBitflagLineEdits[13] = createGridFlag(ui->gridFlagSet13, 0);
 
     ui->labelSet14->setText("Set 14 (Castle Wall - Towers)");
-    createGridFlag(ui->gridFlagSet14, 0);
+    hexBitflagLineEdits[14] = createGridFlag(ui->gridFlagSet14, 0);
 
     /* Page 6 */
     ui->labelSet15->setText("Set 15 (Tower of Science)");
-    createGridFlag(ui->gridFlagSet15, 0);
+    hexBitflagLineEdits[15] = createGridFlag(ui->gridFlagSet15, 0);
 
 
     // Initialize pages and the buttons that travel to those pages
@@ -232,8 +234,88 @@ void MainWindow::setLastOpenedDirectory(QSettings& settings, const QString filen
     settings.setValue("lastOpenedDirectory", dir);
 }
 
-void MainWindow::populateMainWindow() {
+void MainWindow::populateMainWindow(const SaveData* save) {
+    if (save == nullptr) {
+        return;
+    }
 
+    // TODO: Add conditions for selecting which save index + if main or beginning of state
+    SaveData* saveData = &SaveManager::getInstance()->getSaves(0).main;
+
+    // Combo boxes
+    selectComboBoxOption(*ui->cbCharacter, saveData->character);
+    selectComboBoxOption(*ui->cbButtonConfig, saveData->button_config);
+    selectComboBoxOption(*ui->cbSoundMode, saveData->sound_mode);
+    selectComboBoxOption(*ui->cbSubweapon, saveData->subweapon);
+    selectComboBoxOption(*ui->cbMap, saveData->map);
+    selectComboBoxOption(*ui->cbSoundMode, saveData->sound_mode);
+    selectComboBoxOption(*ui->cbDifficulty, saveData->getFlag(SaveData::SAVE_FLAG_EASY | SaveData::SAVE_FLAG_NORMAL | SaveData::SAVE_FLAG_HARD));
+    selectComboBoxOption(*ui->cbReinhardtEnding, saveData->getFlag(SaveData::SAVE_FLAG_REINDHART_GOOD_ENDING | SaveData::SAVE_FLAG_REINDHART_BAD_ENDING));
+    selectComboBoxOption(*ui->cbReinhardtEnding, saveData->getFlag(SaveData::SAVE_FLAG_CARRIE_GOOD_ENDING | SaveData::SAVE_FLAG_CARRIE_BAD_ENDING));
+    selectComboBoxOption(*ui->cbSubweapon, saveData->subweapon);
+
+    // Numerical Line edits
+    ui->leLife->setText(QString::number(saveData->life));
+    ui->leGold->setText(QString::number(saveData->gold));
+    ui->leRedJewels->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_RED_JEWEL)));
+    ui->leSpawn->setText(QString::number(saveData->spawn));
+    ui->leWhiteJewel->setText(QString::number(saveData->save_crystal_number));
+    ui->leTimesSaved->setText(QString::number(saveData->time_saved_counter));
+    ui->leDeathCount->setText(QString::number(saveData->death_counter));
+    ui->leGoldRenon->setText(QString::number(saveData->gold_spent_on_Renon));
+    ui->leHourVamp->setText(QString::number(saveData->current_hour_VAMP));
+    ui->leHealthDepletionRate->setText(QString::number(saveData->health_depletion_rate_while_poisoned));
+    ui->leWeek->setText(QString::number(saveData->week));
+    ui->leDay->setText(QString::number(saveData->day));
+    ui->leMinutes->setText(QString::number(saveData->minute));
+    ui->leSeconds->setText(QString::number(saveData->seconds));
+    ui->leMilliseconds->setText(QString::number(saveData->milliseconds));
+    ui->leFrameCount->setText(QString::number(saveData->gameplay_framecount));
+
+    ui->leItemsSpecial1->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SPECIAL1)));
+    ui->leItemsSpecial2->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SPECIAL2)));
+    ui->leItemsRoastChicken->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ROAST_CHICKEN)));
+    ui->leItemsRoastBeef->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ROAST_BEEF)));
+    ui->leItemsHealingKit->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_HEALING_KIT)));
+    ui->leItemsPurifying->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_PURIFYING)));
+    ui->leItemsCureAmpoule->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_CURE_AMPOULE)));
+    ui->leItemsPoutPourri->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_POUT_POURRI)));
+    ui->leItemsSunCard->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SUN_CARD)));
+    ui->leItemsMoonCard->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_MOON_CARD)));
+    ui->leItemsNitro->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_MAGICAL_NITRO)));
+    ui->leItemsMandragora->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_MANDRAGORA)));
+    ui->leKeyArchives->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ARCHIVES_KEY)));
+    ui->leKeyLeftTower->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_LEFT_TOWER_KEY)));
+    ui->leKeyStoreroom->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_STOREROOM_KEY)));
+    ui->leKeyGarden->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_GARDEN_KEY)));
+    ui->leKeyCopper->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_COPPER_KEY)));
+    ui->leKeyChamber->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_CHAMBER_KEY)));
+    ui->leKeyExecution->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_EXECUTION_KEY)));
+    ui->leKeyScience1->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SCIENCE_KEY1)));
+    ui->leKeyScience2->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SCIENCE_KEY2)));
+    ui->leKeyScience3->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SCIENCE_KEY3)));
+    ui->leKeyClocktower1->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_CLOCKTOWER_KEY1)));
+    ui->leKeyClocktower2->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_CLOCKTOWER_KEY2)));
+    ui->leKeyClocktower3->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_CLOCKTOWER_KEY3)));
+    ui->leItemsER->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ENGAGEMENT_RING)));
+    ui->leItemsIG->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_INCANDESCENT_GAZE)));
+
+    // Checkboxes
+
+    ui->cboxHardMode->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_HARD_MODE_UNLOCKED));
+    ui->cboxUseAlternateCostume->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_COSTUME_IS_BEING_USED));
+    ui->cboxReinhardtCostume->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_HAVE_REINHARDT_ALT_COSTUME));
+    ui->cboxCarrieCostume->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_HAVE_CARRIE_ALT_COSTUME));
+    ui->cboxNitro->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_CAN_EXPLODE_ON_JUMPING));
+    ui->cboxVamp->setChecked(saveData->getFlag(SaveData::PLAYER_FLAG_VAMP));
+    ui->cboxPoison->setChecked(saveData->getFlag(SaveData::PLAYER_FLAG_POISON));
+    ui->cboxSto->setChecked(saveData->getFlag(SaveData::PLAYER_FLAG_STO));
+
+    // Event flag grids. We edit each of the line edits associated to the event flags to assign the hex value gotten
+    // from the save data. Then, the checkboxes will be ticked / unticked automatically
+    for (unsigned int i = 0; i < NUM_EVENT_FLAGS; i++) {
+        hexBitflagLineEdits[i]->setText(QString::number(saveData->getEventFlags(i)));
+    }
 }
 
 void MainWindow::openFile(const QString& filename) {
@@ -241,12 +323,13 @@ void MainWindow::openFile(const QString& filename) {
         QFile file(filename);
 
         if (file.open(QIODevice::ReadOnly)) {
-            SaveManager::getInstance()->parseNote(file);
+            SaveManager::getInstance()->parseAllSaveSlots(file, 0x30);
         }
         file.close();
     }
-
-    populateMainWindow();
+    //SaveManager::getInstance()->printAllSaves();
+    // Populate with the first slot by default (main save)
+    populateMainWindow(&SaveManager::getInstance()->getSaves(0).main);
 }
 
 void MainWindow::fileOpenMenu() {
@@ -277,7 +360,23 @@ void MainWindow::setupFileMenu() {
 }
 
 void MainWindow::setupSlotMenu() {
+    QMenu* menuSlot = menuBar()->addMenu("Slot");
 
+    for (int i = 0; i < NUM_SAVES; ++i) {
+        // Create a submenu for "Slot X"
+        QMenu* slotMenu = new QMenu(QString("Slot %1").arg(i + 1), this);
+        menuSlot->addMenu(slotMenu);
+
+        // Create "Main" action inside the Slot X menu
+        QAction* mainAction = new QAction("Main", this);
+        slotMenu->addAction(mainAction);
+        //connect(mainAction, &QAction::triggered, this, [this, i]() { handleMain(i); });
+
+        // Create "Beginning of Stage" action inside the Slot X menu
+        QAction* beginStageAction = new QAction("Beginning of Stage", this);
+        slotMenu->addAction(beginStageAction);
+        //connect(beginStageAction, &QAction::triggered, this, [this, i]() { handleBeginningOfStage(i); });
+    }
 }
 
 void MainWindow::handleNumberOnlyInputUnsigned() {
@@ -339,6 +438,14 @@ void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& arra
     }
 }
 
+void MainWindow::selectComboBoxOption(QComboBox& comboBox, const QVariant data) {
+    int index = comboBox.findData(data);
+
+    if (index != -1) {
+        comboBox.setCurrentIndex(index);
+    }
+}
+
 void MainWindow::onPageButtonClicked(QStackedWidget* stackedWidget, const QWidget* page) {
     switchPage(stackedWidget, page);
 }
@@ -363,7 +470,7 @@ void MainWindow::checkMandragoraAndNitroLineEdits() {
     }
 }
 
-void MainWindow::createGridFlag(QGridLayout* gridLayout, unsigned int flags) {
+QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, unsigned int flags) {
     QLineEdit* hexBitflagDisplay = new QLineEdit();
     hexBitflagDisplay->setAlignment(Qt::AlignRight);
     hexBitflagDisplay->setText(QString("0x%1").arg(flags, 8, 16, QChar('0')));
@@ -429,4 +536,7 @@ void MainWindow::createGridFlag(QGridLayout* gridLayout, unsigned int flags) {
             hexBitflagDisplay->setText("0xffffffff");
         }
     });
+
+    // We return "hexBitflagDisplay" so that we can access to it later for changing the event flag values by editing the lineEdit
+    return hexBitflagDisplay;
 }
