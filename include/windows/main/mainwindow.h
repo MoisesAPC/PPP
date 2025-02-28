@@ -64,12 +64,12 @@ private slots:
         return selectedSlot;
     }
 
-    void setIsBeginningOfStage(const bool isBeginningOfStage_) {
-        isBeginningOfStage = isBeginningOfStage_;
+    void setIsMain(const bool isMain_) {
+        isMain = isMain_;
     }
 
-    bool getIsBeginningOfStage() const {
-        return isBeginningOfStage;
+    bool getIsMain() const {
+        return isMain;
     }
 
     void selectComboBoxOption(QComboBox& comboBox, const QVariant data);
