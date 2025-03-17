@@ -407,7 +407,6 @@ void MainWindow::updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSa
 }
 
 void MainWindow::handleNumberOnlyInputUnsigned(std::function<void(unsigned int)> setter, QLineEdit* lineEdit) {
-    // Obtain the line edit object that called this function
     if (!lineEdit) {
         return;
     }
@@ -434,7 +433,6 @@ void MainWindow::handleNumberOnlyInputUnsigned(std::function<void(unsigned int)>
 
         lineEdit->setText(QString::number(value));
 
-        // Pass the value to the setter function as QVariant
         setter(value);
     }
 }
@@ -451,7 +449,6 @@ void MainWindow::setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned
     lineEdit->setProperty("minValue", minValue);
     lineEdit->setProperty("maxValue", maxValue);
 
-    // Use a lambda to capture setter and pass QVariant to the setter
     connect(lineEdit, &QLineEdit::editingFinished, this, [this, setter, lineEdit]() {
         handleNumberOnlyInputUnsigned(setter, lineEdit);
     });
