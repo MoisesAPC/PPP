@@ -43,7 +43,13 @@ void MainWindow::setupPageMain() {
             SaveManager::getInstance()->setLife(value);
         }
     );
-    /*setupLineEditNumberUnsigned(ui->leGold, 0, 99999);
+
+    setupLineEditNumberUnsigned(ui->leGold, 0, 99999,
+        [](unsigned int value) {
+            SaveManager::getInstance()->setGold(value);
+        }
+    );
+    /*
     setupLineEditNumberUnsigned(ui->leRedJewels, 0, 99);
 
     setupLineEditNumberUnsigned(ui->leSpawn, 0, SHRT_MAX);

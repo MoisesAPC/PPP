@@ -33,7 +33,8 @@ class SaveManager {
         void parseSaveSlot(QFile& file, SaveSlot& slot, long startOffset);
         void parseAllSaveSlots(QFile& file, long startOffset);
 
-        static void setLife(const short);
+        void setLife(const short);
+        void setGold(const unsigned int);
 
         template<typename T>
         T readData(QDataStream& inputStream, long offset) {

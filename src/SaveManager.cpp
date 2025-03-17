@@ -85,3 +85,7 @@ void SaveManager::parseAllSaveSlots(QFile& file, long startOffset) {
 void SaveManager::setLife(const short life) {
     getInstance()->getCurrentSave().life = life;
 }
+
+void SaveManager::setGold(const unsigned gold) {
+    getInstance()->getCurrentSave().gold = gold;
+}
