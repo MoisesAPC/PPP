@@ -49,25 +49,96 @@ void MainWindow::setupPageMain() {
             SaveManager::getInstance()->setGold(value);
         }
     );
-    /*
-    setupLineEditNumberUnsigned(ui->leRedJewels, 0, 99);
 
-    setupLineEditNumberUnsigned(ui->leSpawn, 0, SHRT_MAX);
-    setupLineEditNumberUnsigned(ui->leWhiteJewel, 0, UCHAR_MAX);
+    setupLineEditNumberUnsigned(ui->leRedJewels, 0, 99,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_RED_JEWEL, value);
+        }
+    );
 
-    setupLineEditNumberUnsigned(ui->leTimesSaved, 0, UINT_MAX);
-    setupLineEditNumberUnsigned(ui->leDeathCount, 0, UINT_MAX);
-    setupLineEditNumberUnsigned(ui->leGoldRenon, 0, UINT_MAX);
-    setupLineEditNumberUnsigned(ui->leHourVamp, 0, 23);
-    setupLineEditNumberUnsigned(ui->leHealthDepletionRate, 0, SHRT_MAX);
+    setupLineEditNumberUnsigned(ui->leSpawn, 0, SHRT_MAX,
+        [](short value) {
+            SaveManager::getInstance()->setSpawn(value);
+        }
+    );
 
-    setupLineEditNumberUnsigned(ui->leWeek, 0, SHRT_MAX);
-    setupLineEditNumberUnsigned(ui->leDay, 0, 7 - 1);
-    setupLineEditNumberUnsigned(ui->leHour, 0, 24 - 1);
-    setupLineEditNumberUnsigned(ui->leMinutes, 0, 60 - 1);
-    setupLineEditNumberUnsigned(ui->leSeconds, 0, 60 - 1);
-    setupLineEditNumberUnsigned(ui->leMilliseconds, 0, 600 - 1);
-    setupLineEditNumberUnsigned(ui->leFrameCount, 0, UINT_MAX);*/
+    setupLineEditNumberUnsigned(ui->leWhiteJewel, 0, UCHAR_MAX,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setWhiteJewel(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leTimesSaved, 0, UINT_MAX,
+        [](unsigned int value) {
+            SaveManager::getInstance()->setTimesSaved(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leDeathCount, 0, UINT_MAX,
+        [](unsigned int value) {
+            SaveManager::getInstance()->setDeathCount(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leGoldRenon, 0, UINT_MAX,
+        [](unsigned int value) {
+            SaveManager::getInstance()->setGoldRenon(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leHourVamp, 0, 23,
+        [](unsigned short value) {
+            SaveManager::getInstance()->setHourVamp(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leHealthDepletionRate, 0, SHRT_MAX,
+        [](unsigned short value) {
+            SaveManager::getInstance()->setHealthDepletionRate(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leWeek, 0, SHRT_MAX,
+        [](short value) {
+            SaveManager::getInstance()->setWeek(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leDay, 0, 7 - 1,
+        [](short value) {
+            SaveManager::getInstance()->setDay(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leHour, 0, 24 - 1,
+        [](short value) {
+            SaveManager::getInstance()->setHour(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leMinutes, 0, 60 - 1,
+        [](short value) {
+            SaveManager::getInstance()->setMinutes(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leSeconds, 0, 60 - 1,
+        [](short value) {
+            SaveManager::getInstance()->setSeconds(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leMilliseconds, 0, 600 - 1,
+        [](unsigned short value) {
+            SaveManager::getInstance()->setMilliseconds(value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leFrameCount, 0, UINT_MAX,
+        [](unsigned int value) {
+            SaveManager::getInstance()->setFramecount(value);
+        }
+    );
 
     // Initialize combo boxes and set their default values
     setupComboBox(ui->cbMap, comboBoxDataMap);
@@ -112,41 +183,165 @@ void MainWindow::setupPageMain() {
 
 void MainWindow::setupPageItems() {
     // Jewels
-    /*setupLineEditNumberUnsigned(ui->leItemsSpecial1, 0, 1);
-    setupLineEditNumberUnsigned(ui->leItemsSpecial2, 0, 1);
+    setupLineEditNumberUnsigned(ui->leItemsSpecial1, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_SPECIAL1, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leItemsSpecial2, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_SPECIAL2, value);
+        }
+    );
 
     // Healing and effect-cure items
-    setupLineEditNumberUnsigned(ui->leItemsRoastChicken, 0, 10);
-    setupLineEditNumberUnsigned(ui->leItemsRoastBeef, 0, 10);
-    setupLineEditNumberUnsigned(ui->leItemsHealingKit, 0, 10);
-    setupLineEditNumberUnsigned(ui->leItemsPurifying, 0, 10);
-    setupLineEditNumberUnsigned(ui->leItemsCureAmpoule, 0, 10);
-    setupLineEditNumberUnsigned(ui->leItemsPoutPourri, 0, 10);
+    setupLineEditNumberUnsigned(ui->leItemsRoastChicken, 0, 10,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_ROAST_CHICKEN, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leItemsRoastBeef, 0, 10,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_ROAST_BEEF, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leItemsPurifying, 0, 10,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_PURIFYING, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leItemsCureAmpoule, 0, 10,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_CURE_AMPOULE, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leItemsPoutPourri, 0, 10,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_POUT_POURRI, value);
+        }
+    );
 
     // Quest Items
-    setupLineEditNumberUnsigned(ui->leItemsSunCard, 0, 10);
-    setupLineEditNumberUnsigned(ui->leItemsMoonCard, 0, 10);
-    setupLineEditNumberUnsigned(ui->leItemsNitro, 0, 1);
-    setupLineEditNumberUnsigned(ui->leItemsMandragora, 0, 1);
+    setupLineEditNumberUnsigned(ui->leItemsSunCard, 0, 10,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_SUN_CARD, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leItemsMoonCard, 0, 10,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_MOON_CARD, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leItemsNitro, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_MAGICAL_NITRO, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leItemsMandragora, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_MANDRAGORA, value);
+        }
+    );
 
     // Keys
-    setupLineEditNumberUnsigned(ui->leKeyScience1, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyScience2, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyScience3, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyClocktower1, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyClocktower2, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyClocktower3, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyChamber, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyCopper, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyExecution, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyGarden, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyLeftTower, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyArchives, 0, 1);
-    setupLineEditNumberUnsigned(ui->leKeyStoreroom, 0, 1);
+    setupLineEditNumberUnsigned(ui->leKeyScience1, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_SCIENCE_KEY1, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyScience2, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_SCIENCE_KEY2, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyScience3, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_SCIENCE_KEY3, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyClocktower1, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_CLOCKTOWER_KEY1, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyClocktower2, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_CLOCKTOWER_KEY2, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyClocktower3, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_CLOCKTOWER_KEY3, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyChamber, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_CHAMBER_KEY, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyCopper, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_COPPER_KEY, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyExecution, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_EXECUTION_KEY, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyGarden, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_GARDEN_KEY, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyLeftTower, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_LEFT_TOWER_KEY, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyArchives, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_ARCHIVES_KEY, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leKeyStoreroom, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_STOREROOM_KEY, value);
+        }
+    );
 
     // Unused items
-    setupLineEditNumberUnsigned(ui->leItemsER, 0, 1);
-    setupLineEditNumberUnsigned(ui->leItemsIG, 0, 1);*/
+    setupLineEditNumberUnsigned(ui->leItemsER, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_ENGAGEMENT_RING, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leItemsIG, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_INCANDESCENT_GAZE, value);
+        }
+    );
 }
 
 void MainWindow::setupPageEventFlags() {
@@ -255,11 +450,9 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
     selectComboBoxOption(*ui->cbSoundMode, saveData->sound_mode);
     selectComboBoxOption(*ui->cbSubweapon, saveData->subweapon);
     selectComboBoxOption(*ui->cbMap, saveData->map);
-    selectComboBoxOption(*ui->cbSoundMode, saveData->sound_mode);
     selectComboBoxOption(*ui->cbDifficulty, saveData->getFlag(SaveData::SAVE_FLAG_EASY | SaveData::SAVE_FLAG_NORMAL | SaveData::SAVE_FLAG_HARD));
     selectComboBoxOption(*ui->cbReinhardtEnding, saveData->getFlag(SaveData::SAVE_FLAG_REINDHART_GOOD_ENDING | SaveData::SAVE_FLAG_REINDHART_BAD_ENDING));
-    selectComboBoxOption(*ui->cbReinhardtEnding, saveData->getFlag(SaveData::SAVE_FLAG_CARRIE_GOOD_ENDING | SaveData::SAVE_FLAG_CARRIE_BAD_ENDING));
-    selectComboBoxOption(*ui->cbSubweapon, saveData->subweapon);
+    selectComboBoxOption(*ui->cbCarrieEnding, saveData->getFlag(SaveData::SAVE_FLAG_CARRIE_GOOD_ENDING | SaveData::SAVE_FLAG_CARRIE_BAD_ENDING));
 
     // Numerical Line edits
     ui->leLife->setText(QString::number(saveData->life));

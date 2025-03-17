@@ -113,7 +113,7 @@ struct SaveData {
     enum eItemId {
         ITEM_ID_NOTHING           = 0,
         ITEM_ID_WHITE_JEWEL       = 1,
-        ITEM_ID_RED_JEWEL         = 2,  // @note We onyl used item ID 2 to reference the red jewels, and not 3
+        ITEM_ID_RED_JEWEL         = 2,  // @note We only used item ID 2 to reference the red jewels, and not 3
         ITEM_ID_SPECIAL1          = 4,
         ITEM_ID_SPECIAL2          = 5,
         ITEM_ID_ROAST_CHICKEN     = 6,

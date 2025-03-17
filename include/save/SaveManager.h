@@ -35,6 +35,28 @@ class SaveManager {
 
         void setLife(const short);
         void setGold(const unsigned int);
+        void setItem(const int, const unsigned char);
+        void setSpawn(const short);
+        void setWhiteJewel(const unsigned char);
+        void setTimesSaved(const unsigned int);
+        void setDeathCount(const unsigned int);
+        void setGoldRenon(const unsigned int);
+        void setHourVamp(const unsigned short);
+        void setHealthDepletionRate(const unsigned short);
+        void setWeek(const short);
+        void setDay(const short);
+        void setHour(const short);
+        void setMinutes(const short);
+        void setSeconds(const short);
+        void setMilliseconds(const unsigned short);
+        void setFramecount(const unsigned int);
+        void setCharacter(const short);
+        void setButtonConfig(const short);
+        void setSoundMode(const short);
+        void setSubweapon(const short);
+        void setMap(const short);
+        void setFlags(const unsigned int);
+        void unsetFlags(const unsigned int);
 
         template<typename T>
         T readData(QDataStream& inputStream, long offset) {
