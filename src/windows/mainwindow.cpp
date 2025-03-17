@@ -38,8 +38,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupPageMain() {
     // Initialize line edits
-    setupLineEditNumberUnsigned(ui->leLife, 1, 100);
-    setupLineEditNumberUnsigned(ui->leGold, 0, 99999);
+    setupLineEditNumberUnsigned(ui->leLife, 1, 100,
+        [](short value) {
+            SaveManager::getInstance()->setLife(value);
+        }
+    );
+    /*setupLineEditNumberUnsigned(ui->leGold, 0, 99999);
     setupLineEditNumberUnsigned(ui->leRedJewels, 0, 99);
 
     setupLineEditNumberUnsigned(ui->leSpawn, 0, SHRT_MAX);
@@ -57,7 +61,7 @@ void MainWindow::setupPageMain() {
     setupLineEditNumberUnsigned(ui->leMinutes, 0, 60 - 1);
     setupLineEditNumberUnsigned(ui->leSeconds, 0, 60 - 1);
     setupLineEditNumberUnsigned(ui->leMilliseconds, 0, 600 - 1);
-    setupLineEditNumberUnsigned(ui->leFrameCount, 0, UINT_MAX);
+    setupLineEditNumberUnsigned(ui->leFrameCount, 0, UINT_MAX);*/
 
     // Initialize combo boxes and set their default values
     setupComboBox(ui->cbMap, comboBoxDataMap);
@@ -102,7 +106,7 @@ void MainWindow::setupPageMain() {
 
 void MainWindow::setupPageItems() {
     // Jewels
-    setupLineEditNumberUnsigned(ui->leItemsSpecial1, 0, 1);
+    /*setupLineEditNumberUnsigned(ui->leItemsSpecial1, 0, 1);
     setupLineEditNumberUnsigned(ui->leItemsSpecial2, 0, 1);
 
     // Healing and effect-cure items
@@ -136,7 +140,7 @@ void MainWindow::setupPageItems() {
 
     // Unused items
     setupLineEditNumberUnsigned(ui->leItemsER, 0, 1);
-    setupLineEditNumberUnsigned(ui->leItemsIG, 0, 1);
+    setupLineEditNumberUnsigned(ui->leItemsIG, 0, 1);*/
 }
 
 void MainWindow::setupPageEventFlags() {
@@ -326,7 +330,7 @@ void MainWindow::openFile(const QString& filename) {
     }
     //SaveManager::getInstance()->printAllSaves();
     // Populate with the first slot by default + main save
-    populateMainWindow(&SaveManager::getInstance()->getSaves(0).main);
+    populateMainWindow(&SaveManager::getInstance()->getSaveSlot(0).main);
 }
 
 void MainWindow::fileOpenMenu() {
@@ -369,7 +373,7 @@ void MainWindow::setupSlotMenu() {
         slotMenuOptions[i].mainSaveOption->setCheckable(true);
         slotMenuOptions[i].slotOption->addAction(slotMenuOptions[i].mainSaveOption);
         connect(slotMenuOptions[i].mainSaveOption, &QAction::triggered, this, [this, i]() {
-            populateMainWindow(&SaveManager::getInstance()->getSaves(i).main);
+            populateMainWindow(&SaveManager::getInstance()->getSaveSlot(i).main);
             selectedSlot = i;
             isMain = true;
             updateSlotMenuCheckedState(i, true);
@@ -380,7 +384,7 @@ void MainWindow::setupSlotMenu() {
         slotMenuOptions[i].beginningOfStageSaveOption->setCheckable(true);
         slotMenuOptions[i].slotOption->addAction(slotMenuOptions[i].beginningOfStageSaveOption);
         connect(slotMenuOptions[i].beginningOfStageSaveOption, &QAction::triggered, this, [this, i]() {
-            populateMainWindow(&SaveManager::getInstance()->getSaves(i).beginningOfStage);
+            populateMainWindow(&SaveManager::getInstance()->getSaveSlot(i).beginningOfStage);
             selectedSlot = i;
             isMain = false;
             updateSlotMenuCheckedState(i, false);
@@ -391,15 +395,19 @@ void MainWindow::setupSlotMenu() {
 // When clicking on a slot option, check it, and *also uncheck* any other unselected options
 // This is done for the "Main" and "Beginning of Stage" slot menu options
 void MainWindow::updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave) {
+    SaveManager* saveManager = SaveManager::getInstance();
+
     for (unsigned int i = 0; i < NUM_SAVES; ++i) {
         slotMenuOptions[i].mainSaveOption->setChecked(i == selectedSlotIndex && isMainSave);
         slotMenuOptions[i].beginningOfStageSaveOption->setChecked(i == selectedSlotIndex && !isMainSave);
     }
+
+    saveManager->isMain = isMainSave;
+    saveManager->currentSave = selectedSlotIndex;
 }
 
-void MainWindow::handleNumberOnlyInputUnsigned() {
+void MainWindow::handleNumberOnlyInputUnsigned(std::function<void(unsigned int)> setter, QLineEdit* lineEdit) {
     // Obtain the line edit object that called this function
-    QLineEdit* lineEdit = qobject_cast<QLineEdit*>(sender());
     if (!lineEdit) {
         return;
     }
@@ -422,17 +430,18 @@ void MainWindow::handleNumberOnlyInputUnsigned() {
         value = qBound<unsigned int>(minValue, value, maxValue);
 
         // We call this function just before setting the text
-        // to update the values for the Mandragora and Nitro accordingly
-        // when editing either of those line edits
         checkMandragoraAndNitroLineEdits();
 
         lineEdit->setText(QString::number(value));
+
+        // Pass the value to the setter function as QVariant
+        setter(value);
     }
 }
 
 // With this function, we can have more control during lineEdit initialization.
 // In this case, we make it so that we can add a min and max value to each lineEdit without much copy-pasting
-void MainWindow::setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned int minValue, const unsigned int maxValue) {
+void MainWindow::setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned int minValue, const unsigned int maxValue, std::function<void(unsigned int)> setter) {
     // Using this regex, we can accept either only hex values (preceded "0x") or decimal values
     // of up to 8 digits long (to prevent them from overflowing the max int / uint)
     QRegularExpression acceptDecimalAndHexRegex(R"(^(\d{1,8}|0[xX][0-9A-Fa-f]{1,8})$)");
@@ -442,7 +451,10 @@ void MainWindow::setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned
     lineEdit->setProperty("minValue", minValue);
     lineEdit->setProperty("maxValue", maxValue);
 
-    connect(lineEdit, &QLineEdit::editingFinished, this, &MainWindow::handleNumberOnlyInputUnsigned);
+    // Use a lambda to capture setter and pass QVariant to the setter
+    connect(lineEdit, &QLineEdit::editingFinished, this, [this, setter, lineEdit]() {
+        handleNumberOnlyInputUnsigned(setter, lineEdit);
+    });
 }
 
 // Populate a Combo box given an array of name strings and their associated numeric value

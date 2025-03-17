@@ -41,8 +41,10 @@ private slots:
     void setupFileMenu();
     void setupSlotMenu();
 
-    void handleNumberOnlyInputUnsigned();
-    void setupLineEditNumberUnsigned(QLineEdit* lineEdit, unsigned int minValue, unsigned int maxValue);
+    void handleNumberOnlyInputUnsigned(std::function<void(unsigned int)> setter, QLineEdit* lineEdit);
+
+    void setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned int minValue, const unsigned int maxValue, std::function<void(unsigned int)> setter);
+
     void setupComboBox(QComboBox* comboBox, const std::vector<std::map<std::string, int> >& array);
     void onPageButtonClicked(QStackedWidget* stackedWidget, const QWidget* page);
     void switchPage(QStackedWidget* stackedWidgetPages, const QWidget* page);

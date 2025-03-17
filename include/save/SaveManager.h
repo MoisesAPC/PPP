@@ -26,9 +26,14 @@ class SaveManager {
             instance = nullptr;
         }
 
+        int currentSave = 0;
+        bool isMain = true;
+
         const SaveData& parseSaveData(QDataStream& inputStream, long startOffset);
         void parseSaveSlot(QFile& file, SaveSlot& slot, long startOffset);
         void parseAllSaveSlots(QFile& file, long startOffset);
+
+        static void setLife(const short);
 
         template<typename T>
         T readData(QDataStream& inputStream, long offset) {
@@ -49,8 +54,16 @@ class SaveManager {
             outputStream << qFromBigEndian(value);
         }
 
-        SaveSlot& getSaves(const int index) {
+        SaveSlot& getSaveSlot(const int index) {
             return saves[index];
+        }
+
+        SaveData& getSave(const int index, const bool isMain) {
+            return (isMain) ? getSaveSlot(index).main : getSaveSlot(index).beginningOfStage;
+        }
+
+        SaveData& getCurrentSave() {
+            return (isMain) ? getSaveSlot(currentSave).main : getSaveSlot(currentSave).beginningOfStage;
         }
 
         SaveSlot* getAllSaves() {

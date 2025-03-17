@@ -31,31 +31,31 @@ struct SaveData {
     /* 0x05E */ short subweapon;
     /* 0x060 */ unsigned int gold;
     /* 0x064 */ unsigned char items[SIZE_ITEMS_ARRAY];
-    /* 0xA4 */ unsigned int player_status;
-    /* 0xA8 */ short health_depletion_rate_while_poisoned;
+    /* 0x0A4 */ unsigned int player_status;
+    /* 0x0A8 */ short health_depletion_rate_while_poisoned;
     /**
     * If greater than 24 (midnight), the player turns into a vampire
     */
-    /* 0xAA */ unsigned short current_hour_VAMP;
-    /* 0xAC */ short map;
-    /* 0xAE */ short spawn;
-    /* 0xB0 */ unsigned char save_crystal_number;
-    /* 0xB1 */ unsigned char field50_0xb1;
-    /* 0xB2 */ unsigned char field51_0xb2;
-    /* 0xB3 */ unsigned char field52_0xb3;
-    /* 0xB4 */ unsigned int time_saved_counter;
-    /* 0xB8 */ unsigned int death_counter;
-    /* 0xBC */ int field55_0xbc;
-    /* 0xC0 */ int field59_0xc0;
-    /* 0xC4 */ int field63_0xc4;
-    /* 0xC8 */ short field67_0xc8;
-    /* 0xCA */ short field69_0xca;
-    /* 0xCC */ int field71_0xcc;
-    /* 0xD0 */ int field75_0xd0;
-    /* 0xD2 */ short field77_0xd2;
-    /* 0xD4 */ short field79_0xd4;
-    /* 0xD8 */ int field83_0xd8;
-    /* 0xDC */ unsigned int gold_spent_on_Renon;
+    /* 0x0AA */ unsigned short current_hour_VAMP;
+    /* 0x0AC */ short map;
+    /* 0x0AE */ short spawn;
+    /* 0x0B0 */ unsigned char save_crystal_number;
+    /* 0x0B1 */ unsigned char field50_0xb1;
+    /* 0x0B2 */ unsigned char field51_0xb2;
+    /* 0x0B3 */ unsigned char field52_0xb3;
+    /* 0x0B4 */ unsigned int time_saved_counter;
+    /* 0x0B8 */ unsigned int death_counter;
+    /* 0x0BC */ int field55_0xbc;
+    /* 0x0C0 */ int field59_0xc0;
+    /* 0x0C4 */ int field63_0xc4;
+    /* 0x0C8 */ short field67_0xc8;
+    /* 0x0CA */ short field69_0xca;
+    /* 0x0CC */ int field71_0xcc;
+    /* 0x0D0 */ int field75_0xd0;
+    /* 0x0D2 */ short field77_0xd2;
+    /* 0x0D4 */ short field79_0xd4;
+    /* 0x0D8 */ int field83_0xd8;
+    /* 0x0DC */ unsigned int gold_spent_on_Renon;
 
     SaveData& operator=(const SaveData& other) {
         if (this != &other) {
@@ -265,7 +265,7 @@ struct SaveData {
     inline unsigned int getEventFlags(int setIndex) {
         return event_flags[setIndex];
     }
-}; // Size = 0xE0 bytes
+}; // Size = 0x0E0 bytes
 
 struct SaveSlot {
     SaveData main;
@@ -282,6 +282,16 @@ struct SaveSlot {
 
         return* this;
     }
+
+    void clear() {
+        main = {0};
+        beginningOfStage = {0};
+        checksum1 = 0;
+        checksum2 = 0;
+        for (unsigned int i = 0; i < 56; i++) field_0x1C8[i] = 0;
+    }
+
+    SaveSlot() { clear(); }
 };
 
 #endif

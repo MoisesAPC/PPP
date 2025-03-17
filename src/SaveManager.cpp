@@ -81,3 +81,7 @@ void SaveManager::parseAllSaveSlots(QFile& file, long startOffset) {
         parseSaveSlot(file, saves[i], startOffset + (sizeof(SaveSlot) * i));
     }
 }
+
+void SaveManager::setLife(const short life) {
+    getInstance()->getCurrentSave().life = life;
+}
