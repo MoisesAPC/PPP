@@ -142,28 +142,13 @@ void MainWindow::setupPageMain() {
 
     // Initialize combo boxes and set their default values
     setupComboBox(ui->cbMap, comboBoxDataMap);
-    ui->cbMap->setCurrentIndex(0);
-
     setupComboBox(ui->cbCharacter, comboBoxDataCharacter);
-    ui->cbCharacter->setCurrentIndex(0);
-
     setupComboBox(ui->cbButtonConfig, comboBoxDataButtonConfig);
-    ui->cbButtonConfig->setCurrentIndex(0);
-
     setupComboBox(ui->cbSoundMode, comboBoxDataSoundMode);
-    ui->cbSoundMode->setCurrentIndex(0);
-
     setupComboBox(ui->cbSubweapon, comboBoxDataSubweapon);
-    ui->cbSubweapon->setCurrentIndex(0);
-
     setupComboBox(ui->cbDifficulty, comboBoxDataDifficulty);
-    ui->cbDifficulty->setCurrentIndex(0);
-
     setupComboBox(ui->cbReinhardtEnding, comboBoxDataEndingReinhardt);
-    ui->cbReinhardtEnding->setCurrentIndex(0);
-
     setupComboBox(ui->cbCarrieEnding, comboBoxDataEndingCarrie);
-    ui->cbCarrieEnding->setCurrentIndex(0);
 
     // Initialize pages and the buttons that travel to those pages
     // When each button is pressed, "onPageButtonClicked" will be called passing
@@ -179,6 +164,46 @@ void MainWindow::setupPageMain() {
     connect(ui->buttonEventFlags, &QPushButton::clicked, this, [this]() {
         onPageButtonClicked(ui->stackedWidgetPages, ui->pageEventFlags);
     });
+
+    setupCheckBox(ui->cboxHardMode, SaveData::SAVE_FLAG_HARD_MODE_UNLOCKED,
+        [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
+        [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
+    );
+
+    setupCheckBox(ui->cboxUseAlternateCostume, SaveData::SAVE_FLAG_COSTUME_IS_BEING_USED,
+        [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
+        [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
+    );
+
+    setupCheckBox(ui->cboxReinhardtCostume, SaveData::SAVE_FLAG_HAVE_REINHARDT_ALT_COSTUME,
+        [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
+        [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
+    );
+
+    setupCheckBox(ui->cboxCarrieCostume, SaveData::SAVE_FLAG_HAVE_CARRIE_ALT_COSTUME,
+        [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
+        [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
+    );
+
+    setupCheckBox(ui->cboxNitro, SaveData::SAVE_FLAG_CAN_EXPLODE_ON_JUMPING,
+        [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
+        [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
+    );
+
+    setupCheckBox(ui->cboxVamp, SaveData::PLAYER_FLAG_VAMP,
+        [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
+        [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
+    );
+
+    setupCheckBox(ui->cboxPoison, SaveData::PLAYER_FLAG_POISON,
+        [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
+        [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
+    );
+
+    setupCheckBox(ui->cboxSto, SaveData::PLAYER_FLAG_STO,
+        [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
+        [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
+    );
 }
 
 void MainWindow::setupPageItems() {
@@ -347,57 +372,57 @@ void MainWindow::setupPageItems() {
 void MainWindow::setupPageEventFlags() {
     /* Page 1 */
     ui->labelSet0->setText("Set 0 (Forest of Silence, Intro Narration Map, Test Grid)");
-    hexBitflagLineEdits[0] = createGridFlag(ui->gridFlagSet0, 0);
+    hexBitflagLineEdits[0] = createGridFlag(ui->gridFlagSet0, 0, 0);
 
     ui->labelSet1->setText("Set 1 (Villa Foyer, Villa Hallway)");
-    hexBitflagLineEdits[1] = createGridFlag(ui->gridFlagSet1, 0);
+    hexBitflagLineEdits[1] = createGridFlag(ui->gridFlagSet1, 1, 0);
 
     ui->labelSet2->setText("Set 2 (Underground Waterway, Castle Center - Top elevator room)");
-    hexBitflagLineEdits[2] = createGridFlag(ui->gridFlagSet2, 0);
+    hexBitflagLineEdits[2] = createGridFlag(ui->gridFlagSet2, 2, 0);
 
     /* Page 2 */
     ui->labelSet3->setText("Set 3 (Castle Center - Friendly lizard man, Castle Center - Nitro room)");
-    hexBitflagLineEdits[3] = createGridFlag(ui->gridFlagSet3, 0);
+    hexBitflagLineEdits[3] = createGridFlag(ui->gridFlagSet3, 3, 0);
 
     ui->labelSet4->setText("Set 4 (Tower of Execution, Tower of Sorcery, Duel Tower)");
-    hexBitflagLineEdits[4] = createGridFlag(ui->gridFlagSet4, 0);
+    hexBitflagLineEdits[4] = createGridFlag(ui->gridFlagSet4, 4, 0);
 
     ui->labelSet5->setText("Set 5 (Castle Keep - Stairs, Castle Keep, Clock Tower)");
-    hexBitflagLineEdits[5] = createGridFlag(ui->gridFlagSet5, 0);
+    hexBitflagLineEdits[5] = createGridFlag(ui->gridFlagSet5, 5, 0);
 
     /* Page 3 */
     ui->labelSet6->setText("Set 6 (Dracula Desert, Rose / Actriese room, Room of Clocks)");
-    hexBitflagLineEdits[6] = createGridFlag(ui->gridFlagSet6, 0);
+    hexBitflagLineEdits[6] = createGridFlag(ui->gridFlagSet6, 6, 0);
 
     ui->labelSet7->setText("Set 7 (Tower of Science - Turrets)");
-    hexBitflagLineEdits[7] = createGridFlag(ui->gridFlagSet7, 0);
+    hexBitflagLineEdits[7] = createGridFlag(ui->gridFlagSet7, 7, 0);
 
     ui->labelSet8->setText("Set 8 (Castle Center - Bottom Elevator, Castle Center - Gears room)");
-    hexBitflagLineEdits[8] = createGridFlag(ui->gridFlagSet8, 0);
+    hexBitflagLineEdits[8] = createGridFlag(ui->gridFlagSet8, 8, 0);
 
     /* Page 4 */
     ui->labelSet9->setText("Set 9 (Villa - Front Yard)");
-    hexBitflagLineEdits[9] = createGridFlag(ui->gridFlagSet9, 0);
+    hexBitflagLineEdits[9] = createGridFlag(ui->gridFlagSet9, 9, 0);
 
     ui->labelSet10->setText("Set 10 (Castle Wall - Main)");
-    hexBitflagLineEdits[10] = createGridFlag(ui->gridFlagSet10, 0);
+    hexBitflagLineEdits[10] = createGridFlag(ui->gridFlagSet10, 10, 0);
 
     ui->labelSet11->setText("Set 11 (Maze Garden, Castle Center - Library)");
-    hexBitflagLineEdits[11] = createGridFlag(ui->gridFlagSet11, 0);
+    hexBitflagLineEdits[11] = createGridFlag(ui->gridFlagSet11, 11, 0);
 
     /* Page 5 */
     ui->labelSet12->setText("Set 12 (Tunnel)");
-    hexBitflagLineEdits[12] = createGridFlag(ui->gridFlagSet12, 0);
+    hexBitflagLineEdits[12] = createGridFlag(ui->gridFlagSet12, 12, 0);
 
     ui->labelSet13->setText("Set 13 (Castle Center - Main)");
-    hexBitflagLineEdits[13] = createGridFlag(ui->gridFlagSet13, 0);
+    hexBitflagLineEdits[13] = createGridFlag(ui->gridFlagSet13, 13, 0);
 
     ui->labelSet14->setText("Set 14 (Castle Wall - Towers)");
-    hexBitflagLineEdits[14] = createGridFlag(ui->gridFlagSet14, 0);
+    hexBitflagLineEdits[14] = createGridFlag(ui->gridFlagSet14, 14, 0);
 
     /* Page 6 */
     ui->labelSet15->setText("Set 15 (Tower of Science)");
-    hexBitflagLineEdits[15] = createGridFlag(ui->gridFlagSet15, 0);
+    hexBitflagLineEdits[15] = createGridFlag(ui->gridFlagSet15, 15, 0);
 
 
     // Initialize pages and the buttons that travel to those pages
@@ -518,6 +543,17 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
     }
 }
 
+void MainWindow::setupCheckBox(QCheckBox* checkBox, unsigned int value, std::function<void(unsigned int)> setter, std::function<void(unsigned int)> unsetter) {
+    connect(checkBox, &QCheckBox::toggled, [setter, unsetter, value](bool checked) {
+        if (checked) {
+            setter(value);
+        }
+        else {
+            unsetter(value);
+        }
+    });
+}
+
 void MainWindow::openFile(const QString& filename) {
     if (!filename.isEmpty()) {
         QFile file(filename);
@@ -527,7 +563,7 @@ void MainWindow::openFile(const QString& filename) {
         }
         file.close();
     }
-    //SaveManager::getInstance()->printAllSaves();
+
     // Populate with the first slot by default + main save
     populateMainWindow(&SaveManager::getInstance()->getSaveSlot(0).main);
 }
@@ -572,10 +608,10 @@ void MainWindow::setupSlotMenu() {
         slotMenuOptions[i].mainSaveOption->setCheckable(true);
         slotMenuOptions[i].slotOption->addAction(slotMenuOptions[i].mainSaveOption);
         connect(slotMenuOptions[i].mainSaveOption, &QAction::triggered, this, [this, i]() {
-            populateMainWindow(&SaveManager::getInstance()->getSaveSlot(i).main);
             selectedSlot = i;
             isMain = true;
             updateSlotMenuCheckedState(i, true);
+            populateMainWindow(&SaveManager::getInstance()->getSaveSlot(i).main);
         });
 
         // Create "Beginning of Stage" action inside the Slot X menu
@@ -583,12 +619,17 @@ void MainWindow::setupSlotMenu() {
         slotMenuOptions[i].beginningOfStageSaveOption->setCheckable(true);
         slotMenuOptions[i].slotOption->addAction(slotMenuOptions[i].beginningOfStageSaveOption);
         connect(slotMenuOptions[i].beginningOfStageSaveOption, &QAction::triggered, this, [this, i]() {
-            populateMainWindow(&SaveManager::getInstance()->getSaveSlot(i).beginningOfStage);
             selectedSlot = i;
             isMain = false;
             updateSlotMenuCheckedState(i, false);
+            populateMainWindow(&SaveManager::getInstance()->getSaveSlot(i).beginningOfStage);
         });
     }
+
+    // Set default Slot option to Slot 1 -> Main.
+    // @note We must call this function after calling "populateMainWindow" in order to have the checkboxes
+    // ready. Otherwise the program will throw SIGSEV.
+    updateSlotMenuCheckedState(0, true);
 }
 
 // When clicking on a slot option, check it, and *also uncheck* any other unselected options
@@ -662,6 +703,8 @@ void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& arra
             comboBox->addItem(QString::fromStdString(entry.first), QVariant(entry.second));
         }
     }
+
+    comboBox->setCurrentIndex(0);
 }
 
 void MainWindow::selectComboBoxOption(QComboBox& comboBox, const QVariant data) {
@@ -696,7 +739,7 @@ void MainWindow::checkMandragoraAndNitroLineEdits() {
     }
 }
 
-QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, unsigned int flags) {
+QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsigned int flags) {
     QLineEdit* hexBitflagDisplay = new QLineEdit();
     hexBitflagDisplay->setAlignment(Qt::AlignRight);
     hexBitflagDisplay->setText(QString("0x%1").arg(flags, 8, 16, QChar('0')));
@@ -748,9 +791,11 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, unsigned int flag
 
     // Lastly, we connect the "hexBitflagDisplay" and add a handling function that will update all
     // checkboxes depending on the hex bitflag value passed in the "hexBitflagDisplay" line edit
-    connect(hexBitflagDisplay, &QLineEdit::textChanged, this, [checkBoxes, hexBitflagDisplay](const QString& text) {
+    connect(hexBitflagDisplay, &QLineEdit::textChanged, this, [checkBoxes, hexBitflagDisplay, flagSet](const QString& text) {
         bool ok = false;
         unsigned int newFlags = text.toUInt(&ok, 16);
+
+        SaveManager::getInstance()->setEventFlags(flagSet, newFlags);
 
         // Ensure we limit the input value up to 0xFFFFFFFF
         if (ok && newFlags <= 0xFFFFFFFF) {

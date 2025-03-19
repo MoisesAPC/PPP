@@ -177,3 +177,15 @@ void SaveManager::setFlags(const unsigned int flags) {
 void SaveManager::unsetFlags(const unsigned int flags) {
     BITS_UNSET(getInstance()->getCurrentSave().flags, flags);
 }
+
+void SaveManager::setEventFlags(const int flagSet, const unsigned int flags) {
+    getInstance()->getCurrentSave().event_flags[flagSet] = flags;
+}
+
+void SaveManager::assignEventFlags(const int flagSet, const unsigned int flags) {
+    BITS_SET(getInstance()->getCurrentSave().event_flags[flagSet], flags);
+}
+
+void SaveManager::unassignEventFlags(const int flagSet, const unsigned int flags) {
+    BITS_UNSET(getInstance()->getCurrentSave().event_flags[flagSet], flags);
+}

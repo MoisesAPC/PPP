@@ -57,6 +57,9 @@ class SaveManager {
         void setMap(const short);
         void setFlags(const unsigned int);
         void unsetFlags(const unsigned int);
+        void setEventFlags(const int, const unsigned int);
+        void assignEventFlags(const int, const unsigned int);
+        void unassignEventFlags(const int, const unsigned int);
 
         template<typename T>
         T readData(QDataStream& inputStream, long offset) {
