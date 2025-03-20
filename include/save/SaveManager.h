@@ -30,6 +30,7 @@ class SaveManager {
         int currentSave = 0;
         bool isMain = true;
 
+        void parseRegion(QFile& file);
         const SaveData& parseSaveData(QDataStream& inputStream, long startOffset);
         void parseSaveSlot(QFile& file, SaveSlot& slot, long startOffset);
         void parseAllSaveSlots(QFile& file, long startOffset);

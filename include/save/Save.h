@@ -23,7 +23,7 @@ struct SaveData {
     /* 0x056 */ short sound_mode;
 
     // PAL-only
-    /* 0x058 */ short language;
+    // /* 0x058 */ short language;
 
     /* 0x058 */ short character;
     /* 0x05A */ short life;
@@ -77,7 +77,7 @@ struct SaveData {
             gameplay_framecount = other.gameplay_framecount;
             button_config = other.button_config;
             sound_mode = other.sound_mode;
-            language = other.language;
+            //language = other.language;
             character = other.character;
             life = other.life;
             field_0x5C = other.field_0x5C;

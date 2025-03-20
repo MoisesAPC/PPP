@@ -67,6 +67,26 @@ const SaveData& SaveManager::parseSaveData(QDataStream& inputStream, long startO
         return *currentSave;
 }
 
+void SaveManager::parseRegion(QFile& file) {
+    QDataStream inputStream(&file);
+
+    unsigned char regionFromFile = readData<unsigned char>(inputStream, 0x13);
+
+    switch (regionFromFile) {
+        case 'E':
+            region = SaveData::USA;
+            break;
+
+        case 'J':
+            region = SaveData::JPN;
+            break;
+
+        case 'P':
+            region = SaveData::PAL;
+            break;
+    }
+}
+
 void SaveManager::parseSaveSlot(QFile& file, SaveSlot& slot, long startOffset) {
     QDataStream inputStream(&file);
 
@@ -90,10 +110,11 @@ void SaveManager::setRegion(const short region_) {
     region = region_;
 }
 
+/*
 void SaveManager::setLanguage(const short language) {
     getInstance()->getCurrentSave().language = language;
 }
-
+*/
 void SaveManager::setLife(const short life) {
     getInstance()->getCurrentSave().life = life;
 }
