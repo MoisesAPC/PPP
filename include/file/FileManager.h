@@ -37,8 +37,8 @@ class FileManager {
             return format;
         }
 
-        QString& getFilename() {
-            return *filename;
+        QString& getfilepath() {
+            return filepath;
         }
 
         QFile& getFile() {
@@ -49,21 +49,16 @@ class FileManager {
             return *loader;
         }
 
-        void openFile(const QString& filename);
+        void openFile(const QString& filepath_);
 
     private:
         static FileManager* instance;
 
-        FileManager() {
-            filename = new QString("");
+        FileManager()  {
+            filepath = "";
         }
 
         ~FileManager() {
-            if (filename != nullptr) {
-                delete filename;
-                filename = nullptr;
-            }
-
             if (file != nullptr) {
                 file->close();
 
@@ -78,12 +73,12 @@ class FileManager {
         }
 
         FileManager(const FileManager& obj) = delete; // Remove the copy constructor
-        void determineFormat(const QString& filename);
+        void determineFormat();
 
         int format = FORMAT_NOTE;
 
         QFile* file = nullptr;
-        QString* filename = nullptr;
+        QString filepath;
         FileLoader* loader = nullptr;
 };
 
