@@ -165,6 +165,41 @@ void MainWindow::setupPageMain() {
     setupComboBoxBitflag(ui->cbReinhardtEnding, comboBoxDataEndingReinhardt, *SaveManager::getInstance()->getFlagsPtr());
     setupComboBoxBitflag(ui->cbCarrieEnding, comboBoxDataEndingCarrie, *SaveManager::getInstance()->getFlagsPtr());
 
+    setupComboBox(ui->cbRegion, comboBoxDataRegion,
+        [this](int value) {
+            SaveManager::getInstance()->setRegion(value);
+
+        switch (value) {
+            default:
+            case SaveData::USA:
+                ui->cbLanguage->setEnabled(false);
+                ui->cbLanguage->setCurrentIndex(0);
+                ui->cbLanguage->setCurrentText("English");
+                break;
+
+            case SaveData::JPN:
+                ui->cbLanguage->setEnabled(false);
+                ui->cbLanguage->setCurrentIndex(0);
+                ui->cbLanguage->setCurrentText("Japanese");
+                break;
+
+            case SaveData::PAL:
+                ui->cbLanguage->setCurrentIndex(0);
+                ui->cbLanguage->setEnabled(true);
+                break;
+            }
+        }
+    );
+
+    setupComboBox(ui->cbLanguage, comboBoxDataLanguage,
+        [](int value) { SaveManager::getInstance()->setLanguage(value); }
+    );
+
+    // Initialize cbLanguage to USA values
+    ui->cbLanguage->setEnabled(false);
+    ui->cbLanguage->setCurrentIndex(0);
+    ui->cbLanguage->setCurrentText("English");
+
     // Initialize pages and the buttons that travel to those pages
     // When each button is pressed, "onPageButtonClicked" will be called passing
     // the desired page by arguments

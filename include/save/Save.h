@@ -21,6 +21,10 @@ struct SaveData {
     /* 0x050 */ unsigned int gameplay_framecount; // Updates at 60fps
     /* 0x054 */ short button_config;
     /* 0x056 */ short sound_mode;
+
+    // PAL-only
+    /* 0x058 */ short language;
+
     /* 0x058 */ short character;
     /* 0x05A */ short life;
     /**
@@ -73,6 +77,7 @@ struct SaveData {
             gameplay_framecount = other.gameplay_framecount;
             button_config = other.button_config;
             sound_mode = other.sound_mode;
+            language = other.language;
             character = other.character;
             life = other.life;
             field_0x5C = other.field_0x5C;
@@ -252,6 +257,20 @@ struct SaveData {
         SAVE_FLAG_CARRIE_BAD_ENDING          = BIT(20),
         SAVE_FLAG_COSTUME_IS_BEING_USED      = BIT(30),
         SAVE_FLAG_CAN_EXPLODE_ON_JUMPING     = BIT(31)
+    };
+
+    enum eRegion {
+        USA,    // Americas
+        JPN,    // Japan
+        PAL     // Europe
+    };
+
+    // Only has an effect in PAL saves
+    enum eLanguage {
+        ENGLISH = 0,
+        JAPANESE = 0,
+        GERMAN,
+        FRENCH
     };
 
     inline unsigned int getFlag(unsigned int bitFlagMask) {

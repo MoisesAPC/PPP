@@ -175,5 +175,17 @@ private:
         {{"Good", BIT(19)}},
         {{"Bad", BIT(20)}}
     };
+
+    Ui::ComboBoxData comboBoxDataRegion = {
+        {{"USA", SaveData::USA}},
+        {{"JPN", SaveData::JPN}},
+        {{"PAL", SaveData::PAL}}
+    };
+
+    Ui::ComboBoxData comboBoxDataLanguage = {
+        {{"English", SaveData::ENGLISH}},
+        {{"German", SaveData::GERMAN}},
+        {{"French", SaveData::FRENCH}}
+    };
 };
 #endif // MAINWINDOW_H

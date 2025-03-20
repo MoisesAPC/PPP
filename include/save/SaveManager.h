@@ -26,6 +26,7 @@ class SaveManager {
             instance = nullptr;
         }
 
+        short region = SaveData::USA;
         int currentSave = 0;
         bool isMain = true;
 
@@ -33,6 +34,9 @@ class SaveManager {
         void parseSaveSlot(QFile& file, SaveSlot& slot, long startOffset);
         void parseAllSaveSlots(QFile& file, long startOffset);
 
+        short getRegion() const;
+        void setRegion(const short);
+        void setLanguage(const short);
         void setLife(const short);
         void setGold(const unsigned int);
         void setItem(const int, const unsigned char);
@@ -102,42 +106,6 @@ class SaveManager {
         }
 
         void createSlotMenu();
-
-        void printAllSaves() {
-            SaveManager* saveManager = SaveManager::getInstance();
-            const SaveSlot* allSaves = saveManager->getAllSaves();
-
-            for (int i = 0; i < NUM_SAVES; i++) {
-                const SaveSlot& slot = allSaves[i];
-
-                std::cout << "Save Slot " << i + 1 << ":\n";
-                std::cout << "--------------------\n";
-
-                printSaveData(slot.main, "Main Save");
-
-                printSaveData(slot.beginningOfStage, "Beginning of Stage Save");
-
-                std::cout << "Checksum 1: " << slot.checksum1 << "\n";
-                std::cout << "Checksum 2: " << slot.checksum2 << "\n";
-
-                std::cout << "\n";
-            }
-        }
-
-        void printSaveData(const SaveData& data, const std::string& title) {
-            std::cout << title << ":\n";
-            std::cout << "  Character: " << (data.character == SaveData::REINHARDT ? "Reinhardt" : "Carrie") << "\n";
-            std::cout << "  Life: " << data.life << "\n";
-            std::cout << "  Subweapon: " << data.subweapon << "\n";
-            std::cout << "  Gold: " << data.gold << "\n";
-            std::cout << "  Map: " << data.map << "\n";
-            std::cout << "  Spawn: " << data.spawn << "\n";
-            std::cout << "  Time: " << data.week << "w " << data.day << "d "
-                      << data.hour << ":" << data.minute << ":" << data.seconds << "\n";
-            std::cout << "  Gameplay Frame Count: " << data.gameplay_framecount << "\n";
-            std::cout << "  Death Counter: " << data.death_counter << "\n";
-        }
-
 
     private:
         static SaveManager* instance;

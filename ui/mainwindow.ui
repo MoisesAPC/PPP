@@ -1832,6 +1832,56 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="gridLayoutWidget_14">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>40</y>
+        <width>101</width>
+        <height>115</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="glLocale">
+       <item row="2" column="0">
+        <widget class="QLabel" name="labelLanguage">
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Language</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::TextFormat::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelRegion">
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>Region</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::TextFormat::AutoText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QComboBox" name="cbLanguage"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QComboBox" name="cbRegion"/>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </widget>
    <widget class="Line" name="line">

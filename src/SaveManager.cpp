@@ -82,6 +82,18 @@ void SaveManager::parseAllSaveSlots(QFile& file, long startOffset) {
     }
 }
 
+short SaveManager::getRegion() const {
+    return region;
+}
+
+void SaveManager::setRegion(const short region_) {
+    region = region_;
+}
+
+void SaveManager::setLanguage(const short language) {
+    getInstance()->getCurrentSave().language = language;
+}
+
 void SaveManager::setLife(const short life) {
     getInstance()->getCurrentSave().life = life;
 }
