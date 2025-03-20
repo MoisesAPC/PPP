@@ -5,7 +5,6 @@
 
 #include <QFile>
 #include <QtEndian>
-#include <iostream>
 
 class SaveManager {
     public:
@@ -67,27 +66,12 @@ class SaveManager {
         void assignEventFlags(const int, const unsigned int);
         void unassignEventFlags(const int, const unsigned int);
 
-        template<typename T>
-        T readData(QDataStream& inputStream, long offset) {
-            inputStream.device()->seek(offset);
-
-            inputStream.setByteOrder(QDataStream::BigEndian);
-
-            T value;
-            inputStream.readRawData(reinterpret_cast<char*>(&value), sizeof(T));
-
-            // Ensure we're reading the data in big endian
-            return qFromBigEndian(value);
-        }
-
-        template<typename T>
-        void writeData(QDataStream& outputStream, const long offset, T value) {
-            outputStream.device()->seek(offset);
-            outputStream << qFromBigEndian(value);
-        }
-
         SaveSlot& getSaveSlot(const int index) {
             return saves[index];
+        }
+
+        SaveSlot& getCurrentSaveSlot() {
+            return saves[currentSave];
         }
 
         SaveData& getSave(const int index, const bool isMain) {

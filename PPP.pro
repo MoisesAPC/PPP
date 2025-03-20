@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     src/file/FileManager.cpp \
+    src/file/FileLoader.cpp \
     src/save/SaveManager.cpp \
     src/main.cpp \
     src/windows/mainwindow.cpp
@@ -17,6 +18,7 @@ SOURCES += \
 HEADERS += \
     include/bit.h \
     include/file/FileManager.h \
+    include/file/FileLoader.h \
     include/save/Save.h \
     include/save/SaveManager.h \
     include/windows/main/mainwindow.h \

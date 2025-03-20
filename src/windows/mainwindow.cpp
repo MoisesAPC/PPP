@@ -1,5 +1,6 @@
 #include "include\windows\main\mainwindow.h"
 #include "include\save\SaveManager.h"
+#include "include\file\FileManager.h"
 
 #include <QIntValidator>    // With "QIntValidator", we can validate the contents of an integer (see "handleNumberOnlyInput()")
 #include <QtGlobal>         // qBound()
@@ -607,15 +608,7 @@ void MainWindow::setupCheckBox(QCheckBox* checkBox, unsigned int value, std::fun
 }
 
 void MainWindow::openFile(const QString& filename) {
-    if (!filename.isEmpty()) {
-        QFile file(filename);
-
-        if (file.open(QIODevice::ReadOnly)) {
-            SaveManager::getInstance()->parseRegion(file);
-            SaveManager::getInstance()->parseAllSaveSlots(file, 0x30);
-        }
-        file.close();
-    }
+    FileManager::getInstance()->openFile(filename);
 
     // Populate with the first slot by default + main save
     populateMainWindow(&SaveManager::getInstance()->getSaveSlot(0).main);
