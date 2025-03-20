@@ -61,6 +61,7 @@ class FileManager {
 
         FileManager()  {
             filepath = "";
+            buffer = new QByteArray();
         }
 
         ~FileManager() {
@@ -75,6 +76,11 @@ class FileManager {
                 delete loader;
                 loader = nullptr;
             }
+
+            if (buffer != nullptr) {
+                delete buffer;
+                buffer = nullptr;
+            }
         }
 
         FileManager(const FileManager& obj) = delete; // Remove the copy constructor
@@ -83,6 +89,7 @@ class FileManager {
         int format = FORMAT_NOTE;
 
         QFile* file = nullptr;
+        QByteArray* buffer = nullptr;
         QString filepath;
         FileLoader* loader = nullptr;
 };

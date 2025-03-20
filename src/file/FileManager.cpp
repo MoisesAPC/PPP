@@ -27,11 +27,20 @@ void FileManager::openFile(const QString& filepath_) {
         file = new QFile(filepath);
 
         if (file->open(QIODevice::ReadOnly)) {
+            // First, write to the buffer
+            QDataStream inputStream(file);
+            inputStream.setByteOrder(QDataStream::BigEndian);
+
+            QByteArray fileData = file->readAll();
+            *buffer = file->readAll();
+            buffer->resize(fileData.size());
+            *buffer = fileData;
+
+            // Then, parse the contents of the file
             if (loader != nullptr) {
                 loader->parseRegion(*file);
                 loader->readAllSaveSlots(*file);
             }
-
         }
 
         file->close();
@@ -44,11 +53,14 @@ void FileManager::writeFile(const QString& filepath_) {
         determineFormat();
         file = new QFile(filepath);
 
-        if (file->open(QIODevice::WriteOnly)) {
+        if (file->open(QIODevice::ReadWrite)) {
+            // Copy the contents of the file buffer containing the previously unsaved data.
+            // Then, overwrite with the new data.
+            file->write(*buffer);
+
             if (loader != nullptr) {
                 loader->writeAllSaveSlots(*file);
             }
-
         }
 
         file->close();

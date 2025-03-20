@@ -16,13 +16,12 @@ struct FileLoader {
     void writeAllSaveSlots(QFile& file);
     virtual void parseRegion(QFile& file) {}
     const SaveData& parseSaveData(QDataStream& inputStream, unsigned int startOffset);
+    void writeSaveData(QDataStream& outputStream, const SaveData& saveData, unsigned int startOffset);
     virtual unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; };
     virtual unsigned int getRegionIdOffset() const { return regionIdOffset; };
 
     template<typename T>
     T readData(QDataStream& inputStream, long offset);
-    template<typename T>
-    void writeData(QDataStream& outputStream, const long offset, T value);
 };
 
 struct FileLoaderNote: public FileLoader {

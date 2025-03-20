@@ -11,13 +11,14 @@ void FileLoader::readSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOff
 }
 
 void FileLoader::writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset) {
-    QDataStream inputStream(&file);
+    SaveManager* saveManager = SaveManager::getInstance();
+    QDataStream outputStream(&file);
+    outputStream.setByteOrder(QDataStream::BigEndian);
 
-    /*slot.main = parseSaveData(inputStream, startOffset);
-    slot.beginningOfStage = parseSaveData(inputStream, inputStream.device()->pos());
-    slot.checksum1 = readData<unsigned int>(inputStream, inputStream.device()->pos());
-    slot.checksum2 = readData<unsigned int>(inputStream, inputStream.device()->pos());
-*/
+    writeSaveData(outputStream, slot.main, startOffset);
+    writeSaveData(outputStream, slot.beginningOfStage, outputStream.device()->pos());
+    outputStream << saveManager->calcFirstChecksum(reinterpret_cast<unsigned char*>(&slot.main));
+    outputStream << saveManager->calcSecondChecksum(reinterpret_cast<unsigned int*>(&slot.main));
 }
 
 void FileLoaderNote::parseRegion(QFile& file) {
@@ -116,6 +117,57 @@ const SaveData& FileLoader::parseSaveData(QDataStream& inputStream, unsigned int
     return *currentSave;
 }
 
+void FileLoader::writeSaveData(QDataStream& outputStream, const SaveData& saveData, unsigned int startOffset) {
+    outputStream.device()->seek(startOffset);
+
+    for (unsigned int i = 0; i < NUM_EVENT_FLAGS; i++) {
+        outputStream << saveData.event_flags[i];
+    }
+
+    outputStream << saveData.flags
+                 << saveData.week
+                 << saveData.day
+                 << saveData.hour
+                 << saveData.minute
+                 << saveData.seconds
+                 << saveData.milliseconds
+                 << saveData.gameplay_framecount
+                 << saveData.button_config
+                 << saveData.sound_mode
+                 << saveData.character
+                 << saveData.life
+                 << saveData.field_0x5C
+                 << saveData.subweapon
+                 << saveData.gold;
+
+    for (unsigned int j = 0; j < SIZE_ITEMS_ARRAY; j++) {
+        outputStream << saveData.items[j];
+    }
+
+    outputStream << saveData.player_status
+                 << saveData.health_depletion_rate_while_poisoned
+                 << saveData.current_hour_VAMP
+                 << saveData.map
+                 << saveData.spawn
+                 << saveData.save_crystal_number
+                 << saveData.field50_0xb1
+                 << saveData.field51_0xb2
+                 << saveData.field52_0xb3
+                 << saveData.time_saved_counter
+                 << saveData.death_counter
+                 << saveData.field55_0xbc
+                 << saveData.field59_0xc0
+                 << saveData.field63_0xc4
+                 << saveData.field67_0xc8
+                 << saveData.field69_0xca
+                 << saveData.field71_0xcc
+                 << saveData.field75_0xd0
+                 << saveData.field77_0xd2
+                 << saveData.field79_0xd4
+                 << saveData.field83_0xd8
+                 << saveData.gold_spent_on_Renon;
+}
+
 template<typename T>
 T FileLoader::readData(QDataStream& inputStream, long offset) {
     inputStream.device()->seek(offset);
@@ -127,10 +179,4 @@ T FileLoader::readData(QDataStream& inputStream, long offset) {
 
     // Ensure we're reading the data in big endian
     return qFromBigEndian(value);
-}
-
-template<typename T>
-void FileLoader::writeData(QDataStream& outputStream, const long offset, T value) {
-    outputStream.device()->seek(offset);
-    outputStream << qFromBigEndian(value);
 }

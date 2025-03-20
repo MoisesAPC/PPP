@@ -124,3 +124,29 @@ void SaveManager::assignEventFlags(const int flagSet, const unsigned int flags) 
 void SaveManager::unassignEventFlags(const int flagSet, const unsigned int flags) {
     BITS_UNSET(getInstance()->getCurrentSave().event_flags[flagSet], flags);
 }
+
+unsigned int SaveManager::calcFirstChecksum(unsigned char* dataFromFile) {
+    unsigned int checksum = 0;
+    unsigned int offset = 0;
+    unsigned char* data;
+
+    for (data = dataFromFile; offset != sizeof(SaveData); offset++) {
+        checksum = *data + checksum;
+        data++;
+    }
+
+    return checksum;
+}
+
+unsigned int SaveManager::calcSecondChecksum(unsigned int* dataFromFile) {
+    unsigned int checksum = 0;
+    unsigned int offset = 0;
+    unsigned int* data;
+
+    for (data = dataFromFile; offset != sizeof(SaveData) / sizeof(unsigned int); offset++) {
+        checksum = *data ^ checksum;
+        data++;
+    }
+
+    return checksum;
+}

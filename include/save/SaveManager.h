@@ -65,6 +65,8 @@ class SaveManager {
         void setEventFlags(const int, const unsigned int);
         void assignEventFlags(const int, const unsigned int);
         void unassignEventFlags(const int, const unsigned int);
+        unsigned int calcFirstChecksum(unsigned char*);
+        unsigned int calcSecondChecksum(unsigned int*);
 
         SaveSlot& getSaveSlot(const int index) {
             return saves[index];
