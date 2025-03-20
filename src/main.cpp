@@ -1,15 +1,27 @@
 #include "include\windows\main\mainwindow.h"
 #include "include/save/SaveManager.h"
+#include "include/file/FileManager.h"
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
 
 SaveManager* SaveManager::instance = nullptr;
+FileManager* FileManager::instance = nullptr;
+
+void createSingletons() {
+    SaveManager::createInstance();
+    FileManager::createInstance();
+}
+
+void destroySingletons() {
+    SaveManager::destroyInstance();
+    FileManager::destroyInstance();
+}
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
 
-    SaveManager::createInstance();
+    createSingletons();
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
@@ -25,7 +37,7 @@ int main(int argc, char *argv[]) {
 
     int result = a.exec();
 
-    SaveManager::destroyInstance();
+    destroySingletons();
 
     return result;
 }
