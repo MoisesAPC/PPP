@@ -3,6 +3,12 @@
 
 void FileManager::determineFormat() {
     if (!filepath.isEmpty()) {
+
+        if (loader != nullptr) {
+            delete loader;
+            loader = nullptr;
+        }
+
         QFileInfo fileInfo(filepath);
 
         QString fileExtension = fileInfo.suffix();
@@ -16,14 +22,33 @@ void FileManager::determineFormat() {
 
 void FileManager::openFile(const QString& filepath_) {
     if (!filepath_.isEmpty()) {
-        filepath = filepath_;
-
+        setFilePath(filepath_);
         determineFormat();
         file = new QFile(filepath);
 
         if (file->open(QIODevice::ReadOnly)) {
-            getLoader().parseRegion(*file);
-            getLoader().readAllSaveSlots(*file);
+            if (loader != nullptr) {
+                loader->parseRegion(*file);
+                loader->readAllSaveSlots(*file);
+            }
+
+        }
+
+        file->close();
+    }
+}
+
+void FileManager::writeFile(const QString& filepath_) {
+    if (!filepath_.isEmpty()) {
+        setFilePath(filepath_);
+        determineFormat();
+        file = new QFile(filepath);
+
+        if (file->open(QIODevice::WriteOnly)) {
+            if (loader != nullptr) {
+                loader->writeAllSaveSlots(*file);
+            }
+
         }
 
         file->close();

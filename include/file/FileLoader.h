@@ -11,9 +11,13 @@ struct FileLoader {
     virtual ~FileLoader() {}
 
     void readSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset);
-    virtual void readAllSaveSlots(QFile& file) = 0;
+    void readAllSaveSlots(QFile& file);
+    void writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset);
+    void writeAllSaveSlots(QFile& file);
     virtual void parseRegion(QFile& file) {}
     const SaveData& parseSaveData(QDataStream& inputStream, unsigned int startOffset);
+    virtual unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; };
+    virtual unsigned int getRegionIdOffset() const { return regionIdOffset; };
 
     template<typename T>
     T readData(QDataStream& inputStream, long offset);
@@ -27,8 +31,9 @@ struct FileLoaderNote: public FileLoader {
 
     FileLoaderNote() {}
     ~FileLoaderNote() {}
-    void readAllSaveSlots(QFile& file);
     void parseRegion(QFile& file);
+    unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; };
+    unsigned int getRegionIdOffset() const { return regionIdOffset; };
 };
 
 #endif

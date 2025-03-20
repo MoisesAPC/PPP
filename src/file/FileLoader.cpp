@@ -10,6 +10,16 @@ void FileLoader::readSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOff
     slot.checksum2 = readData<unsigned int>(inputStream, inputStream.device()->pos());
 }
 
+void FileLoader::writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset) {
+    QDataStream inputStream(&file);
+
+    /*slot.main = parseSaveData(inputStream, startOffset);
+    slot.beginningOfStage = parseSaveData(inputStream, inputStream.device()->pos());
+    slot.checksum1 = readData<unsigned int>(inputStream, inputStream.device()->pos());
+    slot.checksum2 = readData<unsigned int>(inputStream, inputStream.device()->pos());
+*/
+}
+
 void FileLoaderNote::parseRegion(QFile& file) {
     SaveManager* saveManager = SaveManager::getInstance();
     QDataStream inputStream(&file);
@@ -31,9 +41,15 @@ void FileLoaderNote::parseRegion(QFile& file) {
     }
 }
 
-void FileLoaderNote::readAllSaveSlots(QFile& file) {
+void FileLoader::readAllSaveSlots(QFile& file) {
     for (unsigned int i = 0; i < NUM_SAVES; i++) {
-        readSaveSlot(file, SaveManager::getInstance()->getSaveSlot(i), rawDataStartOffset + (sizeof(SaveSlot) * i));
+        readSaveSlot(file, SaveManager::getInstance()->getSaveSlot(i), getRawDataOffsetStart() + (sizeof(SaveSlot) * i));
+    }
+}
+
+void FileLoader::writeAllSaveSlots(QFile& file) {
+    for (unsigned int i = 0; i < NUM_SAVES; i++) {
+        writeSaveSlot(file, SaveManager::getInstance()->getSaveSlot(i), getRawDataOffsetStart() + (sizeof(SaveSlot) * i));
     }
 }
 

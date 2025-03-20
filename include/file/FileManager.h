@@ -37,8 +37,12 @@ class FileManager {
             return format;
         }
 
-        QString& getfilepath() {
+        QString& getFilepath() {
             return filepath;
+        }
+
+        void setFilePath(const QString& filepath_) {
+            filepath = filepath_;
         }
 
         QFile& getFile() {
@@ -50,6 +54,7 @@ class FileManager {
         }
 
         void openFile(const QString& filepath_);
+        void writeFile(const QString& filepath_);
 
     private:
         static FileManager* instance;

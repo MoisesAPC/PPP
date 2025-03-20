@@ -619,7 +619,7 @@ void MainWindow::fileOpenMenu() {
     QSettings settings("", "Castlevania 64 Save Editor");
 
     // Open file menu in the last opened directory by default
-    QString filename = QFileDialog::getOpenFileName(this, "Open File", getLastOpenedDirectory(settings),"All accepted filetypes (*.pak, *.mpak, *.note);;Individual note (*.note);;Controller Pak data (*.pak, *.mpak);;All Files (*)");
+    QString filename = QFileDialog::getOpenFileName(this, "Open File", getLastOpenedDirectory(settings), "All accepted filetypes (*.pak, *.mpak, *.note);;Individual note (*.note);;Controller Pak data (*.pak, *.mpak);;All Files (*)");
 
     if (!filename.isEmpty()) {
         openFile(filename);
@@ -627,9 +627,31 @@ void MainWindow::fileOpenMenu() {
     }
 }
 
+void MainWindow::fileSaveMenu() {
+    FileManager::getInstance()->writeFile(FileManager::getInstance()->getFilepath());
+
+    QMessageBox::information(this, "Save", "Saved successfully");
+}
+
+void MainWindow::fileSaveAsMenu() {
+    QString filepath = QFileDialog::getSaveFileName(this, "Save As...", QString(), "All accepted filetypes (*.pak, *.mpak, *.note);;Individual note (*.note);;Controller Pak data (*.pak, *.mpak);;All Files (*)");
+
+    if (!filepath.isEmpty()) {
+        FileManager::getInstance()->writeFile(filepath);
+    }
+
+    QMessageBox::information(this, "Save", "Saved successfully");
+}
+
 void MainWindow::setupFileMenu() {
     // Setup the "Open > From File" button
     connect(ui->actionFrom_File, &QAction::triggered, this, &MainWindow::fileOpenMenu);
+
+    // Setup the "Save" button
+    connect(ui->actionSave, &QAction::triggered, this, &MainWindow::fileSaveMenu);
+
+    // Setup the "Save As..." button
+    connect(ui->actionSave_As, &QAction::triggered, this, &MainWindow::fileSaveAsMenu);
 
     // Setup the "Exit" button
     connect(ui->actionExit, &QAction::triggered, this, []() {

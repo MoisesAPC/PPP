@@ -54,6 +54,8 @@ private slots:
     void setupCheckBox(QCheckBox* checkBox, unsigned int value, std::function<void(unsigned int)> setter, std::function<void(unsigned int)> unsetter);
 
     void fileOpenMenu();
+    void fileSaveMenu();
+    void fileSaveAsMenu();
     void populateMainWindow(SaveData* save);
     void updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave);
     void openFile(const QString& filename);
