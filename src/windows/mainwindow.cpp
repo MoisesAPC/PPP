@@ -141,14 +141,29 @@ void MainWindow::setupPageMain() {
     );
 
     // Initialize combo boxes and set their default values
-    setupComboBox(ui->cbMap, comboBoxDataMap);
-    setupComboBox(ui->cbCharacter, comboBoxDataCharacter);
-    setupComboBox(ui->cbButtonConfig, comboBoxDataButtonConfig);
-    setupComboBox(ui->cbSoundMode, comboBoxDataSoundMode);
-    setupComboBox(ui->cbSubweapon, comboBoxDataSubweapon);
-    setupComboBox(ui->cbDifficulty, comboBoxDataDifficulty);
-    setupComboBox(ui->cbReinhardtEnding, comboBoxDataEndingReinhardt);
-    setupComboBox(ui->cbCarrieEnding, comboBoxDataEndingCarrie);
+    setupComboBox(ui->cbMap, comboBoxDataMap,
+        [](int value) { SaveManager::getInstance()->setMap(value); }
+    );
+
+    setupComboBox(ui->cbCharacter, comboBoxDataCharacter,
+        [](int value) { SaveManager::getInstance()->setCharacter(value); }
+    );
+
+    setupComboBox(ui->cbButtonConfig, comboBoxDataButtonConfig,
+        [](int value) { SaveManager::getInstance()->setButtonConfig(value); }
+    );
+
+    setupComboBox(ui->cbSoundMode, comboBoxDataSoundMode,
+        [](int value) { SaveManager::getInstance()->setSoundMode(value); }
+    );
+
+    setupComboBox(ui->cbSubweapon, comboBoxDataSubweapon,
+        [](int value) { SaveManager::getInstance()->setSubweapon(value); }
+    );
+
+    setupComboBoxBitflag(ui->cbDifficulty, comboBoxDataDifficulty, *SaveManager::getInstance()->getFlagsPtr());
+    setupComboBoxBitflag(ui->cbReinhardtEnding, comboBoxDataEndingReinhardt, *SaveManager::getInstance()->getFlagsPtr());
+    setupComboBoxBitflag(ui->cbCarrieEnding, comboBoxDataEndingCarrie, *SaveManager::getInstance()->getFlagsPtr());
 
     // Initialize pages and the buttons that travel to those pages
     // When each button is pressed, "onPageButtonClicked" will be called passing
@@ -695,7 +710,7 @@ void MainWindow::setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned
 }
 
 // Populate a Combo box given an array of name strings and their associated numeric value
-void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array) {
+void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter) {
     comboBox->clear();
 
     for (const auto& map: array) {
@@ -703,6 +718,32 @@ void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& arra
             comboBox->addItem(QString::fromStdString(entry.first), QVariant(entry.second));
         }
     }
+
+    connect(comboBox, &QComboBox::currentIndexChanged, [comboBox, setter](int index) {
+        if (index >= 0) {
+            int value = comboBox->itemData(index).toInt();
+            setter(value);
+        }
+    });
+
+    comboBox->setCurrentIndex(0);
+}
+
+void MainWindow::setupComboBoxBitflag(QComboBox* comboBox, const Ui::ComboBoxData& array, unsigned int& variable) {
+    comboBox->clear();
+
+    for (const auto& map: array) {
+        for (const auto& entry: map) {
+            comboBox->addItem(QString::fromStdString(entry.first), QVariant(entry.second));
+        }
+    }
+
+    connect(comboBox, &QComboBox::currentIndexChanged, [this, comboBox, array, &variable](int index) {
+        if (index >= 0) {
+            int value = comboBox->itemData(index).toInt();
+            this->updateBitSelection(variable, value, array);
+        }
+    });
 
     comboBox->setCurrentIndex(0);
 }

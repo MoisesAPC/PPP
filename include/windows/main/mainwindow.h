@@ -45,7 +45,8 @@ private slots:
 
     void setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned int minValue, const unsigned int maxValue, std::function<void(unsigned int)> setter);
 
-    void setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array);
+    void setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter);
+    void setupComboBoxBitflag(QComboBox* comboBox, const Ui::ComboBoxData& array, unsigned int& variable);
     void onPageButtonClicked(QStackedWidget* stackedWidget, const QWidget* page);
     void switchPage(QStackedWidget* stackedWidgetPages, const QWidget* page);
     void checkMandragoraAndNitroLineEdits();
@@ -76,6 +77,18 @@ private slots:
     }
 
     void selectComboBoxOption(QComboBox& comboBox, const QVariant data);
+
+    // This function unsets all the comboBoxData values from "variable",
+    // and then sets the newValue into the variable
+    void updateBitSelection(unsigned int& variable, unsigned int newValue, const Ui::ComboBoxData& comboBoxData) {
+        for (const auto& data: comboBoxData) {
+            for (const auto& entry: data) {
+                BITS_UNSET(variable, entry.second);
+            }
+        }
+
+        BITS_SET(variable, newValue);
+    }
 
 private:
     Ui::MainWindow* ui;

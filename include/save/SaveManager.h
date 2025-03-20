@@ -55,6 +55,7 @@ class SaveManager {
         void setSoundMode(const short);
         void setSubweapon(const short);
         void setMap(const short);
+        unsigned int* getFlagsPtr();
         void setFlags(const unsigned int);
         void unsetFlags(const unsigned int);
         void setEventFlags(const int, const unsigned int);

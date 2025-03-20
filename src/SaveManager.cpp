@@ -170,6 +170,10 @@ void SaveManager::setMap(const short map) {
     getInstance()->getCurrentSave().map = map;
 }
 
+unsigned int* SaveManager::getFlagsPtr() {
+    return &getInstance()->getCurrentSave().flags;
+}
+
 void SaveManager::setFlags(const unsigned int flags) {
     BITS_SET(getInstance()->getCurrentSave().flags, flags);
 }
