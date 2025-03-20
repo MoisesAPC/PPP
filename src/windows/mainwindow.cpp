@@ -174,18 +174,19 @@ void MainWindow::setupPageMain() {
             case SaveData::USA:
                 ui->cbLanguage->setEnabled(false);
                 ui->cbLanguage->setCurrentIndex(0);
-                ui->cbLanguage->setCurrentText("English");
+                ui->cbLanguage->setItemText(0, "English");
                 break;
 
             case SaveData::JPN:
                 ui->cbLanguage->setEnabled(false);
                 ui->cbLanguage->setCurrentIndex(0);
-                ui->cbLanguage->setCurrentText("Japanese");
+                ui->cbLanguage->setItemText(0, "Japanese");
                 break;
 
             case SaveData::PAL:
-                ui->cbLanguage->setCurrentIndex(0);
                 ui->cbLanguage->setEnabled(true);
+                ui->cbLanguage->setCurrentIndex(0);
+                ui->cbLanguage->setItemText(0, "English");
                 break;
             }
         }
