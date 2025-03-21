@@ -63,7 +63,7 @@ void MainWindow::setupPageMain() {
         }
     );
 
-    setupLineEditNumberUnsigned(ui->leWhiteJewel, 0, UCHAR_MAX,
+    setupLineEditNumberUnsigned(ui->leWhiteJewel, 0, USHRT_MAX,
         [](unsigned char value) {
             SaveManager::getInstance()->setWhiteJewel(value);
         }
@@ -874,9 +874,9 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsi
         // To do so, we directly define a lambda function that does this for us. This is executed when pressing any of the checkboxes
         connect(checkBoxes[j], &QCheckBox::toggled, this, [checkBoxes, hexBitflagDisplay]() {
             unsigned int updatedFlags = 0;
-            for (int j = 0; j < 32; ++j) {
-                if (checkBoxes[j]->isChecked()) {
-                    updatedFlags |= (1 << j);
+            for (int m = 0; m < 32; ++m) {
+                if (checkBoxes[m]->isChecked()) {
+                    updatedFlags |= (1 << m);
                 }
             }
             hexBitflagDisplay->setText(QString("0x%1").arg(updatedFlags, 8, 16, QChar('0')));
@@ -887,14 +887,14 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsi
     // checkboxes depending on the hex bitflag value passed in the "hexBitflagDisplay" line edit
     connect(hexBitflagDisplay, &QLineEdit::textChanged, this, [checkBoxes, hexBitflagDisplay, flagSet](const QString& text) {
         bool ok = false;
-        unsigned int newFlags = text.toUInt(&ok, 16);
+        unsigned int newFlags = text.toUInt(&ok, 10);
 
         SaveManager::getInstance()->setEventFlags(flagSet, newFlags);
 
         // Ensure we limit the input value up to 0xFFFFFFFF
         if (ok && newFlags <= 0xFFFFFFFF) {
-            for (int j = 0; j < 32; ++j) {
-                checkBoxes[j]->setChecked(newFlags & (1 << j));
+            for (int k = 0; k < 32; ++k) {
+                checkBoxes[k]->setChecked(newFlags & (1 << k));
             }
         }
         else {

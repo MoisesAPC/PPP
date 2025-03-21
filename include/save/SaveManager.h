@@ -41,7 +41,7 @@ class SaveManager {
         void setGold(const unsigned int);
         void setItem(const int, const unsigned char);
         void setSpawn(const short);
-        void setWhiteJewel(const unsigned char);
+        void setWhiteJewel(const unsigned short);
         void setTimesSaved(const unsigned int);
         void setDeathCount(const unsigned int);
         void setGoldRenon(const unsigned int);

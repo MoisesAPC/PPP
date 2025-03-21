@@ -29,7 +29,6 @@ void FileManager::openFile(const QString& filepath_) {
         if (file->open(QIODevice::ReadOnly)) {
             // First, write to the buffer
             QDataStream inputStream(file);
-            inputStream.setByteOrder(QDataStream::BigEndian);
 
             QByteArray fileData = file->readAll();
             *buffer = file->readAll();

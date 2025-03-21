@@ -29,7 +29,7 @@ void SaveManager::setSpawn(const short spawn) {
     getInstance()->getCurrentSave().spawn = spawn;
 }
 
-void SaveManager::setWhiteJewel(const unsigned char save_crystal_number) {
+void SaveManager::setWhiteJewel(const unsigned short save_crystal_number) {
     getInstance()->getCurrentSave().save_crystal_number = save_crystal_number;
 }
 

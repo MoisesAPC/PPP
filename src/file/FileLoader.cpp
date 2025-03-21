@@ -1,5 +1,6 @@
 #include "include/file/FileLoader.h"
 #include <QDataStream>
+#include <QDebug>
 
 void FileLoader::readSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset) {
     QDataStream inputStream(&file);
@@ -13,11 +14,9 @@ void FileLoader::readSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOff
 void FileLoader::writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset) {
     SaveManager* saveManager = SaveManager::getInstance();
     QDataStream outputStream(&file);
-    outputStream.setByteOrder(QDataStream::BigEndian);
 
     writeSaveData(outputStream, slot.main, startOffset);
     writeSaveData(outputStream, slot.beginningOfStage, outputStream.device()->pos());
-
     unsigned int firstChecksum = saveManager->calcFirstChecksum(reinterpret_cast<unsigned char*>(&slot.main));
     unsigned int secondChecksum = saveManager->calcSecondChecksum(reinterpret_cast<unsigned int*>(&slot.main));
     outputStream << firstChecksum;
@@ -96,9 +95,8 @@ const SaveData& FileLoader::parseSaveData(QDataStream& inputStream, unsigned int
     currentSave->current_hour_VAMP = readData<unsigned short>(inputStream, inputStream.device()->pos());
     currentSave->map = readData<short>(inputStream, inputStream.device()->pos());
     currentSave->spawn = readData<short>(inputStream, inputStream.device()->pos());
-    currentSave->save_crystal_number = readData<unsigned char>(inputStream, inputStream.device()->pos());
+    currentSave->save_crystal_number = readData<unsigned short>(inputStream, inputStream.device()->pos());
 
-    currentSave->field50_0xb1 = readData<unsigned char>(inputStream, inputStream.device()->pos());
     currentSave->field51_0xb2 = readData<unsigned char>(inputStream, inputStream.device()->pos());
     currentSave->field52_0xb3 = readData<unsigned char>(inputStream, inputStream.device()->pos());
 
@@ -153,7 +151,6 @@ void FileLoader::writeSaveData(QDataStream& outputStream, const SaveData& saveDa
                  << saveData.map
                  << saveData.spawn
                  << saveData.save_crystal_number
-                 << saveData.field50_0xb1
                  << saveData.field51_0xb2
                  << saveData.field52_0xb3
                  << saveData.time_saved_counter
@@ -175,11 +172,8 @@ template<typename T>
 T FileLoader::readData(QDataStream& inputStream, long offset) {
     inputStream.device()->seek(offset);
 
-    inputStream.setByteOrder(QDataStream::BigEndian);
-
     T value;
     inputStream.readRawData(reinterpret_cast<char*>(&value), sizeof(T));
 
-    // Ensure we're reading the data in big endian
     return qFromBigEndian(value);
 }

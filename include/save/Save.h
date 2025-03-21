@@ -43,8 +43,7 @@ struct SaveData {
     /* 0x0AA */ unsigned short current_hour_VAMP;
     /* 0x0AC */ short map;
     /* 0x0AE */ short spawn;
-    /* 0x0B0 */ unsigned char save_crystal_number;
-    /* 0x0B1 */ unsigned char field50_0xb1;
+    /* 0x0B0 */ unsigned short save_crystal_number;
     /* 0x0B2 */ unsigned char field51_0xb2;
     /* 0x0B3 */ unsigned char field52_0xb3;
     /* 0x0B4 */ unsigned int time_saved_counter;
@@ -94,7 +93,6 @@ struct SaveData {
             map = other.map;
             spawn = other.spawn;
             save_crystal_number = other.save_crystal_number;
-            field50_0xb1 = other.field50_0xb1;
             field51_0xb2 = other.field51_0xb2;
             field52_0xb3 = other.field52_0xb3;
             time_saved_counter = other.time_saved_counter;
