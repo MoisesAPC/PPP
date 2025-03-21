@@ -836,7 +836,7 @@ void MainWindow::checkMandragoraAndNitroLineEdits() {
 QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsigned int flags) {
     QLineEdit* hexBitflagDisplay = new QLineEdit();
     hexBitflagDisplay->setAlignment(Qt::AlignRight);
-    hexBitflagDisplay->setText(QString("0x%1").arg(flags, 8, 16, QChar('0')));
+    hexBitflagDisplay->setText(QString("%1").arg(flags, 8, 10, QChar('0')));
 
     // Ensure that we're putting "hexBitflagDisplay" in the right most part of the checkboxes, on the 1st row, 8th column
     // @note We also add an extra row and column for printing the column / row number
@@ -879,7 +879,7 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsi
                     updatedFlags |= (1 << m);
                 }
             }
-            hexBitflagDisplay->setText(QString("0x%1").arg(updatedFlags, 8, 16, QChar('0')));
+            hexBitflagDisplay->setText(QString("%1").arg(updatedFlags, 8, 10, QChar('0')));
         });
     }
 
@@ -898,7 +898,7 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsi
             }
         }
         else {
-            hexBitflagDisplay->setText("0xffffffff");
+            hexBitflagDisplay->setText("0");
         }
     });
 
