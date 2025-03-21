@@ -17,8 +17,11 @@ void FileLoader::writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOf
 
     writeSaveData(outputStream, slot.main, startOffset);
     writeSaveData(outputStream, slot.beginningOfStage, outputStream.device()->pos());
-    outputStream << saveManager->calcFirstChecksum(reinterpret_cast<unsigned char*>(&slot.main));
-    outputStream << saveManager->calcSecondChecksum(reinterpret_cast<unsigned int*>(&slot.main));
+
+    unsigned int firstChecksum = saveManager->calcFirstChecksum(reinterpret_cast<unsigned char*>(&slot.main));
+    unsigned int secondChecksum = saveManager->calcSecondChecksum(reinterpret_cast<unsigned int*>(&slot.main));
+    outputStream << firstChecksum;
+    outputStream << secondChecksum;
 }
 
 void FileLoaderNote::parseRegion(QFile& file) {
