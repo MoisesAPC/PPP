@@ -9,6 +9,7 @@
 class FileManager {
 
     // The file format of the opened file
+    // TODO: Add DexDrive (.n64) and T64 save support
     enum eFormat {
         FORMAT_NOTE,        // .note
         FORMAT_PAK,         // .pak, .mpak
@@ -47,6 +48,10 @@ class FileManager {
 
         QFile& getFile() {
             return *file;
+        }
+
+        QByteArray& getBuffer() {
+            return *buffer;
         }
 
         FileLoader& getLoader() {

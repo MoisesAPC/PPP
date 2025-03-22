@@ -17,6 +17,10 @@ void FileManager::determineFormat() {
             loader = new FileLoaderNote();
             format = FORMAT_NOTE;
         }
+        else if (fileExtension == "eep") {
+            loader = new FileLoaderCartridge();
+            format = FORMAT_CARTRIDGE;
+        }
     }
 }
 

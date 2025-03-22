@@ -289,7 +289,6 @@ struct SaveSlot {
     SaveData beginningOfStage;
     unsigned int checksum1;
     unsigned int checksum2;
-    unsigned char field_0x1C8[56] = {0};
 
     SaveSlot& operator=(const SaveSlot& other) {
         main = other.main;
@@ -305,10 +304,11 @@ struct SaveSlot {
         beginningOfStage = {0};
         checksum1 = 0;
         checksum2 = 0;
-        for (unsigned int i = 0; i < 56; i++) field_0x1C8[i] = 0;
     }
 
+    static unsigned int getPaddedSize() { return 0x200; }
+
     SaveSlot() { clear(); }
-};
+};  // Size = 0x200 bytes (@note Its effective size is 0x1C8 bytes, but is padded to 0x200. See getPaddedSize())
 
 #endif

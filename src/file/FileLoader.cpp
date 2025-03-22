@@ -1,9 +1,16 @@
 #include "include/file/FileLoader.h"
+#include "include/file/FileManager.h"
 #include <QDataStream>
 #include <QDebug>
+#include <algorithm> // std::search, std::distance
 
 void FileLoader::readSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset) {
     QDataStream inputStream(&file);
+
+    // Return if we reached the end of the file
+    if (startOffset >= getMaxFileSize()) {
+        return;
+    }
 
     slot.main = parseSaveData(inputStream, startOffset);
     slot.beginningOfStage = parseSaveData(inputStream, inputStream.device()->pos());
@@ -27,7 +34,7 @@ void FileLoaderNote::parseRegion(QFile& file) {
     SaveManager* saveManager = SaveManager::getInstance();
     QDataStream inputStream(&file);
 
-    unsigned char regionFromFile = readData<unsigned char>(inputStream, 0x13);
+    unsigned char regionFromFile = readData<unsigned char>(inputStream, getRegionIdOffset());
 
     switch (regionFromFile) {
     case 'E':
@@ -46,7 +53,7 @@ void FileLoaderNote::parseRegion(QFile& file) {
 
 void FileLoader::readAllSaveSlots(QFile& file) {
     for (unsigned int i = 0; i < NUM_SAVES; i++) {
-        readSaveSlot(file, SaveManager::getInstance()->getSaveSlot(i), getRawDataOffsetStart() + (sizeof(SaveSlot) * i));
+        readSaveSlot(file, SaveManager::getInstance()->getSaveSlot(i), getRawDataOffsetStart() + (getSaveSlotPaddedSize() * i));
     }
 }
 
@@ -59,7 +66,6 @@ void FileLoader::writeAllSaveSlots(QFile& file) {
 const SaveData& FileLoader::parseSaveData(QDataStream& inputStream, unsigned int startOffset) {
     SaveData* currentSave = new SaveData();
 
-    // For .note files, the raw save data starts at offset 0x30. We start from there
     // Seek to the start of the save data
     inputStream.device()->seek(startOffset);
 
@@ -177,3 +183,142 @@ T FileLoader::readData(QDataStream& inputStream, long offset) {
 
     return qFromBigEndian(value);
 }
+
+// Header format information (https://github.com/bryc/mpkedit/wiki/Note-file-formats)
+// This implements the format last updated on Sep 29, 2023
+std::vector<unsigned char> FileLoaderNote::getHeaderBytes() const {
+    switch (SaveManager::getInstance()->getRegion()) {
+        case SaveData::USA:
+            return {
+                0x01, 0x4D, 0x50, 0x4B, 0x4E, 0x6F, 0x74, 0x65, 0x00, 0x00, 0x00, 0x67,
+                0x89, 0x7E, 0x56, 0x00, 0x4E, 0x44, 0x33, 0x45, 0x41, 0x34, 0xCA, 0xFE,
+                0x02, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1C, 0x1A, 0x2C, 0x2D,
+                0x25, 0x1E, 0x2F, 0x1A, 0x27, 0x22, 0x1A, 0x00, 0x00, 0x00, 0x00, 0x00
+            };
+
+        case SaveData::JPN:
+            return {
+                0x01, 0x4D, 0x50, 0x4B, 0x4E, 0x6F, 0x74, 0x65, 0x00, 0x00, 0x00, 0x67,
+                0x89, 0x7E, 0x56, 0x00, 0x4E, 0x44, 0x33, 0x4A, 0x41, 0x34, 0xCA, 0xFE,
+                0x02, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1C, 0x1A, 0x2C, 0x2D,
+                0x25, 0x1E, 0x2F, 0x1A, 0x27, 0x22, 0x1A, 0x00, 0x00, 0x00, 0x00, 0x00
+            };
+
+        case SaveData::PAL:
+            return {
+                0x01, 0x4D, 0x50, 0x4B, 0x4E, 0x6F, 0x74, 0x65, 0x00, 0x00, 0x00, 0x67,
+                0x89, 0x7E, 0x56, 0x00, 0x4E, 0x44, 0x33, 0x50, 0x41, 0x34, 0xCA, 0xFE,
+                0x02, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1C, 0x1A, 0x2C, 0x2D,
+                0x25, 0x1E, 0x2F, 0x1A, 0x27, 0x22, 0x1A, 0x00, 0x00, 0x00, 0x00, 0x00
+            };
+    }
+
+    return {};
+}
+
+// Cartridge saves are exclusive to the JPN version
+void FileLoaderCartridge::parseRegion(QFile& file) {
+    SaveManager::getInstance()->setRegion(SaveData::JPN);
+}
+
+std::vector<unsigned char> FileLoaderCartridge::getHeaderBytes() const {
+    return {
+        0x4B, 0x43, 0x45, 0x4B, 0x20, 0x46, 0x6F, 0x72, 0x6D, 0x61, 0x74, 0x20, 0x31, 0x32, 0x30, 0x39
+    };
+}
+
+unsigned int FileLoaderNote::getSaveSlotPaddedSize() const {
+    return sizeof(SaveSlot) + (SaveSlot::getPaddedSize() - sizeof(SaveSlot));
+}
+
+unsigned int FileLoaderNote::getMaxFileSize() const {
+    unsigned int headerSize = getHeaderBytes().size();
+    unsigned int maxFileSize = headerSize + (getSaveSlotPaddedSize() * NUM_SAVES) + getUnusedExtraSize();
+
+    return maxFileSize;
+};
+
+bool FileLoader::searchHexInFile(const QByteArray& data, const std::vector<unsigned char>& target) {
+    if (data.isEmpty() || target.empty()) {
+        return false;
+    }
+
+    // Convert QByteArray to std::vector<unsigned char>
+    std::vector<unsigned char> fileContents(data.begin(), data.end());
+
+    // Search for the target sequence
+    auto it = std::search(fileContents.begin(), fileContents.end(), target.begin(), target.end());
+
+    return it != fileContents.end(); // True if found, false otherwise
+}
+
+unsigned int FileLoaderNote::countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const {
+    if (data.isEmpty() || target.empty()) {
+        return 0;
+    }
+
+    // Convert QByteArray to std::vector<unsigned char>
+    std::vector<unsigned char> fileContents(data.begin(), data.end());
+
+    int count = 0;
+    auto it = fileContents.begin();
+
+    // Search for all occurrences
+    while (searchHexInFile(data, target)) {
+        ++count;
+        it += getSaveSlotPaddedSize(); // Move past this occurrence
+
+        // Break if the iterator reaches or exceeds the end of the buffer
+        if (std::distance(fileContents.begin(), it) >= fileContents.size()) {
+            break;
+        }
+    }
+
+    return count;
+}
+
+unsigned int FileLoaderCartridge::countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const {
+    if (data.isEmpty() || target.empty()) {
+        return 0;
+    }
+
+    // Convert QByteArray to std::vector<unsigned char>
+    std::vector<unsigned char> fileContents(data.begin(), data.end());
+
+    int count = 0;
+    auto it = fileContents.begin();
+
+    // Search for all occurrences
+    while (searchHexInFile(data, target)) {
+        ++count;
+        it += getSaveSlotPaddedSize(); // Move past this occurrence
+
+        // Break if the iterator reaches or exceeds the end of the buffer
+        if (std::distance(fileContents.begin(), it) >= fileContents.size()) {
+            break;
+        }
+    }
+
+    return count;
+}
+
+// Given a cartridge save (which has dynamic size), return the number of saves it currently has
+unsigned int FileLoaderCartridge::getCartridgeNumSaves() const {
+    // We search the number of times the cartridge header data has been found, which is equal to the number of saves the file has
+    return countHexOccurrences(FileManager::getInstance()->getBuffer(), getHeaderBytes());
+}
+
+unsigned int FileLoaderCartridge::getSaveSlotPaddedSize() const {
+    unsigned int headerSize = getHeaderBytes().size();
+
+    // The complete save slot ends at offset 0x1F0, not 0x200, so we remove -0x10 bytes from it.
+    // Besides, each slot now starts with the header data.
+    return headerSize + (sizeof(SaveSlot) + (SaveSlot::getPaddedSize() - sizeof(SaveSlot)) - 0x10);
+}
+
+// Cartridge saves have variable size
+unsigned int FileLoaderCartridge::getMaxFileSize() const {
+    unsigned int maxFileSize = getSaveSlotPaddedSize() * getCartridgeNumSaves();
+
+    return maxFileSize;
+};
