@@ -1882,6 +1882,19 @@
        </item>
       </layout>
      </widget>
+     <widget class="QCheckBox" name="cboxEnabled">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>81</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Enabled</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="Line" name="line">

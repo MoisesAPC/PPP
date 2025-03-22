@@ -44,6 +44,7 @@ void MainWindow::setupPageMain() {
             SaveManager::getInstance()->setLife(value);
         }
     );
+    ui->leLife->setText(QString::number(100));
 
     setupLineEditNumberUnsigned(ui->leGold, 0, 99999,
         [](unsigned int value) {
@@ -217,6 +218,18 @@ void MainWindow::setupPageMain() {
         onPageButtonClicked(ui->stackedWidgetPages, ui->pageEventFlags);
     });
 
+    setupCheckBox(ui->cboxEnabled, SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY,
+        [this](unsigned int value) {
+            SaveManager::getInstance()->setFlags(value);
+            enableUIComponents(true);
+        },
+
+        [this](unsigned int value) {
+            SaveManager::getInstance()->unsetFlags(value);
+            enableUIComponents(false);
+        }
+    );
+
     setupCheckBox(ui->cboxHardMode, SaveData::SAVE_FLAG_HARD_MODE_UNLOCKED,
         [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
         [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
@@ -256,6 +269,10 @@ void MainWindow::setupPageMain() {
         [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
         [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
     );
+
+    // Uncheck the "save enabled checkbox" when opening the program
+    ui->cboxEnabled->setChecked(false);
+    enableUIComponents(false);
 }
 
 void MainWindow::setupPageItems() {
@@ -580,6 +597,7 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
     ui->leItemsIG->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_INCANDESCENT_GAZE)));
 
     // Checkboxes
+    ui->cboxEnabled->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY));
     ui->cboxHardMode->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_HARD_MODE_UNLOCKED));
     ui->cboxUseAlternateCostume->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_COSTUME_IS_BEING_USED));
     ui->cboxReinhardtCostume->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_HAVE_REINHARDT_ALT_COSTUME));
@@ -904,4 +922,25 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsi
 
     // We return "hexBitflagDisplay" so that we can access to it later for changing the event flag values by editing the lineEdit
     return hexBitflagDisplay;
+}
+
+void MainWindow::enableUIComponents(bool enable) {
+    QList<QWidget*> widgets = this->findChildren<QWidget*>();
+
+    for (QWidget* widget : widgets) {
+        // Skip the "Enabled" checkbox and the menu bar, since those always need to be enabled
+        if (widget == ui->cboxEnabled || widget == menuBar()) {
+            continue;
+        }
+
+        widget->setEnabled(enable);
+    }
+
+    // Ensure the "Enabled" checkbox and the entire menuBar are always enabled
+    ui->cboxEnabled->setEnabled(true);
+
+    QList<QAction*> actions = menuBar()->actions();
+    for (QAction* action : actions) {
+        action->setEnabled(true);
+    }
 }

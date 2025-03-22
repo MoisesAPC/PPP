@@ -92,6 +92,8 @@ private slots:
         BITS_SET(variable, newValue);
     }
 
+    void enableUIComponents(bool);
+
 private:
     Ui::MainWindow* ui;
     QLineEdit* hexBitflagLineEdits[NUM_EVENT_FLAGS] = {};
