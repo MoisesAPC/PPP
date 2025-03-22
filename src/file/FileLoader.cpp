@@ -359,7 +359,7 @@ unsigned int FileLoaderControllerPak::initIndexData(QFile& file) {
         const unsigned int GAMEID_SIZE = 6;
         QByteArray gameId(GAMEID_SIZE, '\0');
 
-        inputStream.device()->seek(CONTROLLER_PAK_NOTE_TABLE_OFFSET + (CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE * i));
+        inputStream.device()->seek(CONTROLLER_PAK_NOTE_TABLE_OFFSET + (CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE * i));   // This is where the current entry data starts
         unsigned int bytesRead = inputStream.readRawData(gameId.data(), GAMEID_SIZE);
         inputStream.device()->seek(CONTROLLER_PAK_NOTE_TABLE_OFFSET + (CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE * i));   // Go back to where we were previously to reading gameId
 

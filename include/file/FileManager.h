@@ -7,16 +7,15 @@
 #include <QFileInfo>
 
 class FileManager {
-
-    // The file format of the opened file
-    // TODO: Add DexDrive (.n64) and T64 save support
-    enum eFormat {
-        FORMAT_NOTE,                  // .note
-        FORMAT_CONTROLLERPAK,         // .pak, .mpk
-        FORMAT_CARTRIDGE              // .eep
-    };
-
     public:
+        // The file format of the opened file
+        // TODO: Add DexDrive (.n64) and T64 save support
+        enum eFormat {
+            FORMAT_NOTE,                  // .note
+            FORMAT_CONTROLLERPAK,         // .pak, .mpk
+            FORMAT_CARTRIDGE              // .eep
+        };
+
         static FileManager* getInstance() {
             if (instance == nullptr) {
                 createInstance();
@@ -54,8 +53,8 @@ class FileManager {
             return *buffer;
         }
 
-        FileLoader& getLoader() {
-            return *loader;
+        FileLoader* getLoader() {
+            return loader;
         }
 
         int getControllerPakCurrentlySelectedSaveIndex() const {

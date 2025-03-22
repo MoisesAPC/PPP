@@ -70,12 +70,12 @@ struct FileLoaderCartridge: public FileLoader {
 };
 
 struct FileLoaderControllerPak: public FileLoader {
-    const unsigned int CONTROLLER_PAK_NOTE_TABLE_OFFSET = 0x300;
-    const unsigned int CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE = 0x20;
-    const unsigned int CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES = 16;
+    static const unsigned int CONTROLLER_PAK_NOTE_TABLE_OFFSET = 0x300;
+    static const unsigned int CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE = 0x20;
+    static const unsigned int CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES = 16;
 
     struct IndexData {
-        unsigned int index = 0;
+        int index = -1;
         short region = SaveData::USA;
         unsigned int rawDataStartOffset = 0;
     };

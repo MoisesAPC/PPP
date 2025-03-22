@@ -62,7 +62,15 @@ void FileManager::openFile(const QString& filepath_) {
 
                     // Open the selection window with the gathered Castlevania 64 saves
                     ControllerPakSelectionWindow* PakSaveSelectWindow = new ControllerPakSelectionWindow();
-                    PakSaveSelectWindow->show();
+                    int result = PakSaveSelectWindow->exec();
+
+                    // Return early if the user clicked on the X instead of on a button
+                    if (result == QDialog::Rejected) {
+                        buffer->clear();
+                        buffer->resize(0);
+                        file->close();
+                        return;
+                    }
                 }
 
                 loader->parseRegion(*file);
