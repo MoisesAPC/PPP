@@ -87,7 +87,7 @@ struct FileLoaderControllerPak: public FileLoader {
     void parseRegion(QFile& file);
     unsigned int countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const;
     unsigned int getRawDataOffsetStart() const;
-    unsigned int getRegionIdOffset() const;
+    unsigned int getRegionIdOffset() const { return 0; }
     unsigned int getMaxFileSize() const;
     unsigned int getUnusedExtraSize() const { return 0x100; };  // Unused extra 100 bytes at the end of notes
     unsigned int getSaveSlotPaddedSize() const;

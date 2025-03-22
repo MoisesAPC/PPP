@@ -32,6 +32,7 @@ void FileLoader::writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOf
 
 short FileLoader::getRegionEnumFromChar(const unsigned char regionFromFile) {
     switch (regionFromFile) {
+        default:
         case 'E':
             return SaveData::USA;
 
@@ -302,6 +303,31 @@ unsigned int FileLoaderCartridge::countHexOccurrences(const QByteArray& data, co
     return count;
 }
 
+unsigned int FileLoaderControllerPak::countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const {
+    if (data.isEmpty() || target.empty()) {
+        return 0;
+    }
+
+    // Convert QByteArray to std::vector<unsigned char>
+    std::vector<unsigned char> fileContents(data.begin(), data.end());
+
+    int count = 0;
+    auto it = fileContents.begin();
+
+    // Search for all occurrences
+    while (searchHexInFile(data, target)) {
+        ++count;
+        it += getSaveSlotPaddedSize(); // Move past this occurrence
+
+        // Break if the iterator reaches or exceeds the end of the buffer
+        if (std::distance(fileContents.begin(), it) >= fileContents.size()) {
+            break;
+        }
+    }
+
+    return count;
+}
+
 // Given a cartridge save (which has dynamic size), return the number of saves it currently has
 unsigned int FileLoaderCartridge::getCartridgeNumSaves() const {
     // We search the number of times the cartridge header data has been found, which is equal to the number of saves the file has
@@ -329,19 +355,20 @@ unsigned int FileLoaderControllerPak::initIndexData(QFile& file) {
     unsigned int numCV64Saves = 0;
     QDataStream inputStream(&file);
 
-    inputStream.device()->seek(CONTROLLER_PAK_NOTE_TABLE_OFFSET);
-
-    for (int i = 0; i < CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE * CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES; i += CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE) {
+    for (int i = 0; i < CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES; i++) {
         const unsigned int GAMEID_SIZE = 6;
         QByteArray gameId(GAMEID_SIZE, '\0');
 
+        inputStream.device()->seek(CONTROLLER_PAK_NOTE_TABLE_OFFSET + (CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE * i));
         unsigned int bytesRead = inputStream.readRawData(gameId.data(), GAMEID_SIZE);
+        inputStream.device()->seek(CONTROLLER_PAK_NOTE_TABLE_OFFSET + (CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE * i));   // Go back to where we were previously to reading gameId
+
         if (bytesRead != GAMEID_SIZE) {
-            return 0;  // If we couldn't read 6 bytes, return 0 (error condition)
+            return 0;
         }
 
         // If the game save stored doesn't belong to any of the Castlevania 64 versions, skip to the next save
-        if (!(gameId == "ND3EA4") || !(gameId == "ND3PA4") || !(gameId == "ND3JA4")) {
+        if (gameId != "ND3EA4" && gameId != "ND3PA4" && gameId != "ND3JA4") {
             continue;
         }
 
@@ -352,8 +379,8 @@ unsigned int FileLoaderControllerPak::initIndexData(QFile& file) {
         unsigned char regionFromFile = readData<unsigned char>(inputStream, inputStream.device()->pos() + 3);
         indexDataArray[i].region = getRegionEnumFromChar(regionFromFile);
 
-        // Parse the raw data start offset (at offset +4 after the region, and then multiplied by 0x100)
-        unsigned int rawDataStartOffsetByte = readData<unsigned char>(inputStream, inputStream.device()->pos() + 4);
+        // Parse the raw data start offset (at offset +3 after the region, and then multiplied by 0x100)
+        unsigned int rawDataStartOffsetByte = readData<unsigned char>(inputStream, inputStream.device()->pos() + 3);
         indexDataArray[i].rawDataStartOffset = rawDataStartOffsetByte * 0x100;
 
         ++numCV64Saves;
@@ -370,3 +397,14 @@ void FileLoaderControllerPak::parseRegion(QFile& file) {
 unsigned int FileLoaderControllerPak::getRawDataOffsetStart() const {
     return indexDataArray[FileManager::getInstance()->getControllerPakCurrentlySelectedSaveIndex()].rawDataStartOffset;
 }
+
+unsigned int FileLoaderControllerPak::getSaveSlotPaddedSize() const {
+    return sizeof(SaveSlot) + (SaveSlot::getPaddedSize() - sizeof(SaveSlot));
+}
+
+unsigned int FileLoaderControllerPak::getMaxFileSize() const {
+    unsigned int headerSize = getHeaderBytes().size();
+    unsigned int maxFileSize = headerSize + (getSaveSlotPaddedSize() * NUM_SAVES) + getUnusedExtraSize();
+
+    return maxFileSize;
+};

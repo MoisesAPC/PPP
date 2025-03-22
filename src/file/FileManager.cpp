@@ -1,5 +1,6 @@
 #include "include/file/FileManager.h"
 #include "include/save/SaveManager.h"
+#include "include\windows\controllerpakselection\controllerpakselectionwindow.h"
 
 void FileManager::determineFormat() {
     if (!filepath.isEmpty()) {
@@ -60,6 +61,8 @@ void FileManager::openFile(const QString& filepath_) {
                     }
 
                     // Open the selection window with the gathered Castlevania 64 saves
+                    ControllerPakSelectionWindow* PakSaveSelectWindow = new ControllerPakSelectionWindow();
+                    PakSaveSelectWindow->show();
                 }
 
                 loader->parseRegion(*file);

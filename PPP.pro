@@ -13,7 +13,8 @@ SOURCES += \
     src/file/FileLoader.cpp \
     src/save/SaveManager.cpp \
     src/main.cpp \
-    src/windows/mainwindow.cpp
+    src/windows/mainwindow.cpp \
+    src/windows/controllerpakselectionwindow.cpp
 
 HEADERS += \
     include/bit.h \
@@ -21,13 +22,14 @@ HEADERS += \
     include/file/FileLoader.h \
     include/save/Save.h \
     include/save/SaveManager.h \
+    include/windows/controllerpakselection/controllerpakselectionwindow.h \
     include/windows/main/mainwindow.h \
-    include/windows/main/slotMenu.h \
-    include/windows/main/slotMenu.h \
-    include/windows/main/slotmenu.h
+    include/windows/main/slotMenu.h
 
 FORMS += \
-    ui/mainwindow.ui
+    ui/mainwindow.ui \
+    ui/controllerpakselectionwindow.ui
+
 
 TRANSLATIONS += \
 
