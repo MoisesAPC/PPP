@@ -12,7 +12,7 @@ class FileManager {
     // TODO: Add DexDrive (.n64) and T64 save support
     enum eFormat {
         FORMAT_NOTE,        // .note
-        FORMAT_PAK,         // .pak, .mpak
+        FORMAT_PAK,         // .pak, .mpk
         FORMAT_CARTRIDGE    // .eep
     };
 

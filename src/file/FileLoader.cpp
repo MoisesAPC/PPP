@@ -59,7 +59,7 @@ void FileLoader::readAllSaveSlots(QFile& file) {
 
 void FileLoader::writeAllSaveSlots(QFile& file) {
     for (unsigned int i = 0; i < NUM_SAVES; i++) {
-        writeSaveSlot(file, SaveManager::getInstance()->getSaveSlot(i), getRawDataOffsetStart() + (sizeof(SaveSlot) * i));
+        writeSaveSlot(file, SaveManager::getInstance()->getSaveSlot(i), getRawDataOffsetStart() + (getSaveSlotPaddedSize() * i));
     }
 }
 
