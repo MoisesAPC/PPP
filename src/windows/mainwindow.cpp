@@ -619,7 +619,7 @@ void MainWindow::fileOpenMenu() {
     QSettings settings("", "Castlevania 64 Save Editor");
 
     // Open file menu in the last opened directory by default
-    QString filename = QFileDialog::getOpenFileName(this, "Open File", getLastOpenedDirectory(settings), "All accepted filetypes (*.pak, *.mpak, *.note, *.eep);;Individual note (*.note);;Controller Pak data (*.pak, *.mpak);;Cartridge (Japanese version only) (*.eep);;All Files (*)");
+    QString filename = QFileDialog::getOpenFileName(this, "Open File", getLastOpenedDirectory(settings), "All accepted filetypes (*.pak *.mpak *.note *.eep);;Individual note (*.note);;Controller Pak data (*.pak *.mpak);;Cartridge (Japanese version only) (*.eep);;All Files (*)");
 
     if (!filename.isEmpty()) {
         openFile(filename);
