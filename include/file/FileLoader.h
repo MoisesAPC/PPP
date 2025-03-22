@@ -27,6 +27,8 @@ struct FileLoader {
     virtual unsigned int getUnusedExtraSize() const { return 0; };
     virtual unsigned int getSaveSlotPaddedSize() const = 0;
     virtual std::vector<unsigned char> getHeaderBytes() const = 0;
+    short getRegionEnumFromChar(const unsigned char regionFromFile);
+    virtual unsigned int initIndexData(QFile& file) = 0;
 
     template<typename T>
     T readData(QDataStream& inputStream, long offset);
@@ -46,6 +48,7 @@ struct FileLoaderNote: public FileLoader {
     unsigned int getUnusedExtraSize() const { return 0x100; };  // Unused extra 100 bytes at the end of notes
     unsigned int getSaveSlotPaddedSize() const;
     std::vector<unsigned char> getHeaderBytes() const;
+    unsigned int initIndexData(QFile& file) { return 0; }
 };
 
 struct FileLoaderCartridge: public FileLoader {
@@ -63,6 +66,33 @@ struct FileLoaderCartridge: public FileLoader {
     unsigned int getSaveSlotPaddedSize() const;
     std::vector<unsigned char> getHeaderBytes() const;
     unsigned int getCartridgeNumSaves() const;
+    unsigned int initIndexData(QFile& file) { return 0; }
+};
+
+struct FileLoaderControllerPak: public FileLoader {
+    const unsigned int CONTROLLER_PAK_NOTE_TABLE_OFFSET = 0x300;
+    const unsigned int CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE = 0x20;
+    const unsigned int CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES = 16;
+
+    struct IndexData {
+        unsigned int index = 0;
+        short region = SaveData::USA;
+        unsigned int rawDataStartOffset = 0;
+    };
+
+    std::vector<IndexData> indexDataArray{CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES};
+
+    FileLoaderControllerPak() {}
+    ~FileLoaderControllerPak() {}
+    void parseRegion(QFile& file);
+    unsigned int countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const;
+    unsigned int getRawDataOffsetStart() const;
+    unsigned int getRegionIdOffset() const;
+    unsigned int getMaxFileSize() const;
+    unsigned int getUnusedExtraSize() const { return 0x100; };  // Unused extra 100 bytes at the end of notes
+    unsigned int getSaveSlotPaddedSize() const;
+    std::vector<unsigned char> getHeaderBytes() const { return {}; }
+    unsigned int initIndexData(QFile& file);
 };
 
 #endif

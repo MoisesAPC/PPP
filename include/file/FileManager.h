@@ -11,9 +11,9 @@ class FileManager {
     // The file format of the opened file
     // TODO: Add DexDrive (.n64) and T64 save support
     enum eFormat {
-        FORMAT_NOTE,        // .note
-        FORMAT_PAK,         // .pak, .mpk
-        FORMAT_CARTRIDGE    // .eep
+        FORMAT_NOTE,                  // .note
+        FORMAT_CONTROLLERPAK,         // .pak, .mpk
+        FORMAT_CARTRIDGE              // .eep
     };
 
     public:
@@ -58,6 +58,14 @@ class FileManager {
             return *loader;
         }
 
+        int getControllerPakCurrentlySelectedSaveIndex() const {
+            return controllerPakCurrentlySelectedSaveIndex;
+        }
+
+        void setControllerPakCurrentlySelectedSaveIndex(int controllerPakCurrentlySelectedSaveIndex_) {
+            controllerPakCurrentlySelectedSaveIndex = controllerPakCurrentlySelectedSaveIndex_;
+        }
+
         void openFile(const QString& filepath_);
         void writeFile(const QString& filepath_);
 
@@ -92,6 +100,7 @@ class FileManager {
         void determineFormat();
 
         int format = FORMAT_NOTE;
+        int controllerPakCurrentlySelectedSaveIndex = 0;    // The index of the currently selected save in a loaded Controller Pak
 
         QFile* file = nullptr;
         QByteArray* buffer = nullptr;

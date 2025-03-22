@@ -21,6 +21,10 @@ void FileManager::determineFormat() {
             loader = new FileLoaderCartridge();
             format = FORMAT_CARTRIDGE;
         }
+        else if (fileExtension == "mpk" || fileExtension == "pak") {
+            loader = new FileLoaderControllerPak();
+            format = FORMAT_CONTROLLERPAK;
+        }
     }
 }
 
@@ -41,6 +45,23 @@ void FileManager::openFile(const QString& filepath_) {
 
             // Then, parse the contents of the file
             if (loader != nullptr) {
+
+                // Initialize Controller Pak specific data
+                if (format == FORMAT_CONTROLLERPAK) {
+                    unsigned int numCV64Saves = loader->initIndexData(*file);
+
+                    // Stop opening the file if the Controller Pak doesn't have any Castlevania saves
+                    // previously stored on it
+                    if (numCV64Saves == 0) {
+                        buffer->clear();
+                        buffer->resize(0);
+                        file->close();
+                        return;
+                    }
+
+                    // Open the selection window with the gathered Castlevania 64 saves
+                }
+
                 loader->parseRegion(*file);
                 loader->readAllSaveSlots(*file);
             }

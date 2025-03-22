@@ -30,25 +30,25 @@ void FileLoader::writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOf
     outputStream << secondChecksum;
 }
 
+short FileLoader::getRegionEnumFromChar(const unsigned char regionFromFile) {
+    switch (regionFromFile) {
+        case 'E':
+            return SaveData::USA;
+
+        case 'J':
+            return SaveData::JPN;
+
+        case 'P':
+            return SaveData::PAL;
+    }
+}
+
 void FileLoaderNote::parseRegion(QFile& file) {
     SaveManager* saveManager = SaveManager::getInstance();
     QDataStream inputStream(&file);
 
     unsigned char regionFromFile = readData<unsigned char>(inputStream, getRegionIdOffset());
-
-    switch (regionFromFile) {
-    case 'E':
-        saveManager->setRegion(SaveData::USA);
-        break;
-
-    case 'J':
-        saveManager->setRegion(SaveData::JPN);
-        break;
-
-    case 'P':
-        saveManager->setRegion(SaveData::PAL);
-        break;
-    }
+    saveManager->setRegion(getRegionEnumFromChar(regionFromFile));
 }
 
 void FileLoader::readAllSaveSlots(QFile& file) {
@@ -322,3 +322,51 @@ unsigned int FileLoaderCartridge::getMaxFileSize() const {
 
     return maxFileSize;
 };
+
+// Initialize the FileLoaderControllerPak's "indexDataArray", in order to know extra information regarding each Castlevania save it has
+unsigned int FileLoaderControllerPak::initIndexData(QFile& file) {
+    SaveManager* saveManager = SaveManager::getInstance();
+    unsigned int numCV64Saves = 0;
+    QDataStream inputStream(&file);
+
+    inputStream.device()->seek(CONTROLLER_PAK_NOTE_TABLE_OFFSET);
+
+    for (int i = 0; i < CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE * CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES; i += CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE) {
+        const unsigned int GAMEID_SIZE = 6;
+        QByteArray gameId(GAMEID_SIZE, '\0');
+
+        unsigned int bytesRead = inputStream.readRawData(gameId.data(), GAMEID_SIZE);
+        if (bytesRead != GAMEID_SIZE) {
+            return 0;  // If we couldn't read 6 bytes, return 0 (error condition)
+        }
+
+        // If the game save stored doesn't belong to any of the Castlevania 64 versions, skip to the next save
+        if (!(gameId == "ND3EA4") || !(gameId == "ND3PA4") || !(gameId == "ND3JA4")) {
+            continue;
+        }
+
+        // Get the save index within the Controller Pak data
+        indexDataArray[i].index = i;
+
+        // Parse the region (at offset +3)
+        unsigned char regionFromFile = readData<unsigned char>(inputStream, inputStream.device()->pos() + 3);
+        indexDataArray[i].region = getRegionEnumFromChar(regionFromFile);
+
+        // Parse the raw data start offset (at offset +4 after the region, and then multiplied by 0x100)
+        unsigned int rawDataStartOffsetByte = readData<unsigned char>(inputStream, inputStream.device()->pos() + 4);
+        indexDataArray[i].rawDataStartOffset = rawDataStartOffsetByte * 0x100;
+
+        ++numCV64Saves;
+    }
+
+    return numCV64Saves;
+}
+
+void FileLoaderControllerPak::parseRegion(QFile& file) {
+    // Set the region of the currently selected Controller Pak save
+    SaveManager::getInstance()->setRegion(indexDataArray[FileManager::getInstance()->getControllerPakCurrentlySelectedSaveIndex()].region);
+}
+
+unsigned int FileLoaderControllerPak::getRawDataOffsetStart() const {
+    return indexDataArray[FileManager::getInstance()->getControllerPakCurrentlySelectedSaveIndex()].rawDataStartOffset;
+}
