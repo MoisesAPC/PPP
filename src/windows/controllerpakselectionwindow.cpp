@@ -8,8 +8,9 @@ ControllerPakSelectionWindow::ControllerPakSelectionWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // Make sure to only set this window up if we're working with Controller Pak saves
-    if ((FileManager::getInstance()->getFileFormat() == FileManager::FORMAT_CONTROLLERPAK) && (FileManager::getInstance()->getLoader() != nullptr)) {
+    // Make sure to only set this window up if we're working with Controller Pak or DexDrive saves
+    if (((FileManager::getInstance()->getFileFormat() == FileManager::FORMAT_CONTROLLERPAK) || (FileManager::getInstance()->getFileFormat() == FileManager::FORMAT_DEXDRIVE))
+        && (FileManager::getInstance()->getLoader() != nullptr)) {
         setupButtonBox();
     }
 }
@@ -35,8 +36,7 @@ QString ControllerPakSelectionWindow::getRegionName(const short region) const {
 
 void ControllerPakSelectionWindow::setupButtonBox() {
     // Get the Controller Pak Castlevania save array
-    FileLoaderControllerPak* loader = dynamic_cast<FileLoaderControllerPak*>(FileManager::getInstance()->getLoader());
-    std::vector<FileLoaderControllerPak::IndexData>* saveArray = &loader->indexDataArray;
+    std::vector<FileManager::ControllerPakIndexData>* saveArray = FileManager::getInstance()->getControllerPakIndexDataArray();
 
     for (unsigned int i = 0; i < saveArray->size(); i++) {
         int index = (*saveArray)[i].index;

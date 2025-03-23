@@ -9,12 +9,29 @@
 class FileManager {
     public:
         // The file format of the opened file
-        // TODO: Add DexDrive (.n64) and T64 save support
         enum eFormat {
             FORMAT_NOTE,                  // .note
             FORMAT_CONTROLLERPAK,         // .pak, .mpk
-            FORMAT_CARTRIDGE              // .eep
+            FORMAT_CARTRIDGE,             // .eep
+            FORMAT_DEXDRIVE               // .n64, .t64
         };
+
+        struct ControllerPakIndexData {
+            int index = -1;
+            short region = SaveData::USA;
+            unsigned int rawDataStartOffset = 0;
+
+            ControllerPakIndexData() { clearEntry(); }
+
+            void clearEntry() {
+                index = -1;
+                region = SaveData::USA;
+                rawDataStartOffset = 0;
+            }
+        };
+
+        const unsigned int CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE = 0x20;
+        const unsigned int CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES = 16;
 
         static FileManager* getInstance() {
             if (instance == nullptr) {
@@ -68,6 +85,18 @@ class FileManager {
         void openFile(const QString& filepath_);
         void writeFile(const QString& filepath_);
 
+        std::vector<ControllerPakIndexData>* getControllerPakIndexDataArray() {
+            return &indexDataArray;
+        }
+
+        unsigned int initIndexData(QFile& file);
+
+        void clearIndexData() {
+            for (int i = 0; i < indexDataArray.size(); i++) {
+                indexDataArray[i].clearEntry();
+            }
+        }
+
     private:
         static FileManager* instance;
 
@@ -105,6 +134,8 @@ class FileManager {
         QByteArray* buffer = nullptr;
         QString filepath;
         FileLoader* loader = nullptr;
+
+        std::vector<ControllerPakIndexData> indexDataArray{CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES};
 };
 
 #endif

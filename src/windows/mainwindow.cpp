@@ -640,7 +640,15 @@ void MainWindow::fileOpenMenu() {
     QSettings settings("", "Castlevania 64 Save Editor");
 
     // Open file menu in the last opened directory by default
-    QString filename = QFileDialog::getOpenFileName(this, "Open File", getLastOpenedDirectory(settings), "All accepted filetypes (*.pak *.mpk *.note *.eep);;Individual note (*.note);;Controller Pak data (*.pak *.mpk);;Cartridge (Japanese version only) (*.eep);;All Files (*)");
+    QString filename = QFileDialog::getOpenFileName(
+        this, "Open File", getLastOpenedDirectory(settings),
+        "All accepted filetypes (*.pak *.mpk *.note *.eep *.n64 *.t64);;"
+        "Individual note (*.note);;"
+        "Controller Pak data (*.pak *.mpk);;"
+        "Cartridge (Japanese version only) (*.eep);;"
+        "DexDrive saves (*.n64 *.t64);;"
+        "All Files (*)"
+    );
 
     if (!filename.isEmpty()) {
         openFile(filename);
@@ -655,7 +663,15 @@ void MainWindow::fileSaveMenu() {
 }
 
 void MainWindow::fileSaveAsMenu() {
-    QString filepath = QFileDialog::getSaveFileName(this, "Save As...", QString(), "All accepted filetypes (*.pak, *.mpk, *.note, *.eep);;Individual note (*.note);;Controller Pak data (*.pak, *.mpk);;Cartridge (Japanese version only) (*.eep);;All Files (*)");
+    QString filepath = QFileDialog::getOpenFileName(
+        this, "Save As...", QString(),
+        "All accepted filetypes (*.pak *.mpk *.note *.eep *.n64 *.t64);;"
+        "Individual note (*.note);;"
+        "Controller Pak data (*.pak *.mpk);;"
+        "Cartridge (Japanese version only) (*.eep);;"
+        "DexDrive saves (*.n64 *.t64);;"
+        "All Files (*)"
+    );
 
     if (!filepath.isEmpty()) {
         FileManager::getInstance()->writeFile(filepath);

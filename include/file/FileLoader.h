@@ -28,7 +28,10 @@ struct FileLoader {
     virtual unsigned int getSaveSlotPaddedSize() const = 0;
     virtual std::vector<unsigned char> getHeaderBytes() const = 0;
     short getRegionEnumFromChar(const unsigned char regionFromFile);
-    virtual unsigned int initIndexData(QFile& file) = 0;
+    virtual unsigned int getNoteTableOffset() const { return 0; }
+    virtual unsigned int getNoteTableEntrySize() const { return 0; }
+    virtual unsigned int getNoteTableNumEntries() const { return 0; }
+    virtual unsigned int getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const { return 0; };
 
     template<typename T>
     T readData(QDataStream& inputStream, long offset);
@@ -48,7 +51,6 @@ struct FileLoaderNote: public FileLoader {
     unsigned int getUnusedExtraSize() const { return 0x100; };  // Unused extra 100 bytes at the end of notes
     unsigned int getSaveSlotPaddedSize() const;
     std::vector<unsigned char> getHeaderBytes() const;
-    unsigned int initIndexData(QFile& file) { return 0; }
 };
 
 struct FileLoaderCartridge: public FileLoader {
@@ -66,21 +68,12 @@ struct FileLoaderCartridge: public FileLoader {
     unsigned int getSaveSlotPaddedSize() const;
     std::vector<unsigned char> getHeaderBytes() const;
     unsigned int getCartridgeNumSaves() const;
-    unsigned int initIndexData(QFile& file) { return 0; }
 };
 
 struct FileLoaderControllerPak: public FileLoader {
-    static const unsigned int CONTROLLER_PAK_NOTE_TABLE_OFFSET = 0x300;
-    static const unsigned int CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE = 0x20;
-    static const unsigned int CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES = 16;
-
-    struct IndexData {
-        int index = -1;
-        short region = SaveData::USA;
-        unsigned int rawDataStartOffset = 0;
-    };
-
-    std::vector<IndexData> indexDataArray{CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES};
+    const unsigned int CONTROLLER_PAK_NOTE_TABLE_OFFSET = 0x300;
+    const unsigned int CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE = 0x20;
+    const unsigned int CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES = 16;
 
     FileLoaderControllerPak() {}
     ~FileLoaderControllerPak() {}
@@ -92,7 +85,27 @@ struct FileLoaderControllerPak: public FileLoader {
     unsigned int getUnusedExtraSize() const { return 0x100; };  // Unused extra 100 bytes at the end of notes
     unsigned int getSaveSlotPaddedSize() const;
     std::vector<unsigned char> getHeaderBytes() const { return {}; }
-    unsigned int initIndexData(QFile& file);
+
+    unsigned int getNoteTableOffset() const { return CONTROLLER_PAK_NOTE_TABLE_OFFSET; }
+    unsigned int getNoteTableEntrySize() const { return CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE; }
+    unsigned int getNoteTableNumEntries() const { return CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES; }
+    unsigned int getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const { return rawDataStartOffsetByte * 0x100; };
+};
+
+struct FileLoaderDexDrive: public FileLoaderControllerPak {
+    // In DexDrive saves, the Controller Pak data actually starts at 0x1040
+    const unsigned int CONTROLLER_PAK_NOTE_TABLE_OFFSET = 0x300 + 0x1040;
+    const unsigned int CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE = 0x20;
+    const unsigned int CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES = 16;
+
+    FileLoaderDexDrive() {}
+    ~FileLoaderDexDrive() {}
+
+    unsigned int getMaxFileSize() const;
+    unsigned int getNoteTableOffset() const { return CONTROLLER_PAK_NOTE_TABLE_OFFSET; }
+    unsigned int getNoteTableEntrySize() const { return CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE; }
+    unsigned int getNoteTableNumEntries() const { return CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES; }
+    unsigned int getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const { return (rawDataStartOffsetByte * 0x100) + 0x1040; };
 };
 
 #endif

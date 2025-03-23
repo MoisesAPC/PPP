@@ -1,6 +1,7 @@
 #include "include/file/FileManager.h"
 #include "include/save/SaveManager.h"
 #include "include\windows\controllerpakselection\controllerpakselectionwindow.h"
+#include <QMessageBox>
 
 void FileManager::determineFormat() {
     if (!filepath.isEmpty()) {
@@ -26,6 +27,10 @@ void FileManager::determineFormat() {
             loader = new FileLoaderControllerPak();
             format = FORMAT_CONTROLLERPAK;
         }
+        else if (fileExtension == "n64" || fileExtension == "t64") {
+            loader = new FileLoaderDexDrive();
+            format = FORMAT_DEXDRIVE;
+        }
     }
 }
 
@@ -48,8 +53,8 @@ void FileManager::openFile(const QString& filepath_) {
             if (loader != nullptr) {
 
                 // Initialize Controller Pak specific data
-                if (format == FORMAT_CONTROLLERPAK) {
-                    unsigned int numCV64Saves = loader->initIndexData(*file);
+                if (format == FORMAT_CONTROLLERPAK || format == FORMAT_DEXDRIVE) {
+                    unsigned int numCV64Saves = initIndexData(*file);
 
                     // Stop opening the file if the Controller Pak doesn't have any Castlevania saves
                     // previously stored on it
@@ -57,6 +62,8 @@ void FileManager::openFile(const QString& filepath_) {
                         buffer->clear();
                         buffer->resize(0);
                         file->close();
+
+                        QMessageBox::critical(nullptr, "Error", "This file doesn't have any active, valid saves.");
                         return;
                     }
 
@@ -85,7 +92,6 @@ void FileManager::openFile(const QString& filepath_) {
 void FileManager::writeFile(const QString& filepath_) {
     if (!filepath_.isEmpty()) {
         setFilePath(filepath_);
-        determineFormat();
         file = new QFile(filepath);
 
         if (file->open(QIODevice::ReadWrite)) {
@@ -100,4 +106,57 @@ void FileManager::writeFile(const QString& filepath_) {
 
         file->close();
     }
+}
+
+// Initialize the FileManager's "indexDataArray", in order to know extra information regarding each Castlevania save it has
+unsigned int FileManager::initIndexData(QFile& file) {
+    unsigned int numCV64Saves = 0;
+
+    if (loader != nullptr && (format == FORMAT_CONTROLLERPAK || format == FORMAT_DEXDRIVE)) {
+        SaveManager* saveManager = SaveManager::getInstance();
+        QDataStream inputStream(&file);
+        std::vector<FileManager::ControllerPakIndexData>* indexDataArray = FileManager::getInstance()->getControllerPakIndexDataArray();
+
+        // If opening another Controller Pak file, make sure to clear the index data array first
+        clearIndexData();
+
+        for (int i = 0; i < loader->getNoteTableNumEntries(); i++) {
+            const unsigned int GAMEID_SIZE = 6;
+            QByteArray gameId(GAMEID_SIZE, '\0');
+
+            inputStream.device()->seek(loader->getNoteTableOffset() + (loader->getNoteTableEntrySize() * i));   // This is where the current entry data starts
+            unsigned int bytesRead = inputStream.readRawData(gameId.data(), GAMEID_SIZE);
+            inputStream.device()->seek(loader->getNoteTableOffset() + (loader->getNoteTableEntrySize() * i));   // Go back to where we were previously to reading gameId
+
+            if (bytesRead != GAMEID_SIZE) {
+                return 0;
+            }
+
+            // If the game save stored doesn't belong to any of the Castlevania 64 versions, skip to the next save
+            if (gameId != "ND3EA4" && gameId != "ND3PA4" && gameId != "ND3JA4") {
+                continue;
+            }
+
+            // Get the save index within the Controller Pak data
+            (*indexDataArray)[i].index = i;
+
+            // Parse the region (at offset +3)
+            unsigned char regionFromFile = loader->readData<unsigned char>(inputStream, inputStream.device()->pos() + 3);
+            (*indexDataArray)[i].region = loader->getRegionEnumFromChar(regionFromFile);
+
+            // Parse the raw data start offset (at offset +3 after the region, and then multiplied by 0x100)
+            // If this is 0, we skip over this save entry (acting as if it wasn't present), and go to the next one
+            unsigned int rawDataStartOffsetByte = loader->readData<unsigned char>(inputStream, inputStream.device()->pos() + 3);
+            if (rawDataStartOffsetByte == 0) {
+                (*indexDataArray)[i].clearEntry();
+                numCV64Saves--;
+                continue;
+            }
+            (*indexDataArray)[i].rawDataStartOffset = loader->getRawDataOffsetPerEntry(rawDataStartOffsetByte);
+
+            numCV64Saves++;
+        }
+    }
+
+    return numCV64Saves;
 }

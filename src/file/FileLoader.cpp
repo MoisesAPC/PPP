@@ -232,6 +232,7 @@ unsigned int FileLoaderNote::getSaveSlotPaddedSize() const {
     return sizeof(SaveSlot) + (SaveSlot::getPaddedSize() - sizeof(SaveSlot));
 }
 
+// Always 0x900 bytes in practice
 unsigned int FileLoaderNote::getMaxFileSize() const {
     unsigned int headerSize = getHeaderBytes().size();
     unsigned int maxFileSize = headerSize + (getSaveSlotPaddedSize() * NUM_SAVES) + getUnusedExtraSize();
@@ -349,62 +350,28 @@ unsigned int FileLoaderCartridge::getMaxFileSize() const {
     return maxFileSize;
 };
 
-// Initialize the FileLoaderControllerPak's "indexDataArray", in order to know extra information regarding each Castlevania save it has
-unsigned int FileLoaderControllerPak::initIndexData(QFile& file) {
-    SaveManager* saveManager = SaveManager::getInstance();
-    unsigned int numCV64Saves = 0;
-    QDataStream inputStream(&file);
-
-    for (int i = 0; i < CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES; i++) {
-        const unsigned int GAMEID_SIZE = 6;
-        QByteArray gameId(GAMEID_SIZE, '\0');
-
-        inputStream.device()->seek(CONTROLLER_PAK_NOTE_TABLE_OFFSET + (CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE * i));   // This is where the current entry data starts
-        unsigned int bytesRead = inputStream.readRawData(gameId.data(), GAMEID_SIZE);
-        inputStream.device()->seek(CONTROLLER_PAK_NOTE_TABLE_OFFSET + (CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE * i));   // Go back to where we were previously to reading gameId
-
-        if (bytesRead != GAMEID_SIZE) {
-            return 0;
-        }
-
-        // If the game save stored doesn't belong to any of the Castlevania 64 versions, skip to the next save
-        if (gameId != "ND3EA4" && gameId != "ND3PA4" && gameId != "ND3JA4") {
-            continue;
-        }
-
-        // Get the save index within the Controller Pak data
-        indexDataArray[i].index = i;
-
-        // Parse the region (at offset +3)
-        unsigned char regionFromFile = readData<unsigned char>(inputStream, inputStream.device()->pos() + 3);
-        indexDataArray[i].region = getRegionEnumFromChar(regionFromFile);
-
-        // Parse the raw data start offset (at offset +3 after the region, and then multiplied by 0x100)
-        unsigned int rawDataStartOffsetByte = readData<unsigned char>(inputStream, inputStream.device()->pos() + 3);
-        indexDataArray[i].rawDataStartOffset = rawDataStartOffsetByte * 0x100;
-
-        ++numCV64Saves;
-    }
-
-    return numCV64Saves;
-}
-
 void FileLoaderControllerPak::parseRegion(QFile& file) {
+    std::vector<FileManager::ControllerPakIndexData>* indexDataArray = FileManager::getInstance()->getControllerPakIndexDataArray();
+
     // Set the region of the currently selected Controller Pak save
-    SaveManager::getInstance()->setRegion(indexDataArray[FileManager::getInstance()->getControllerPakCurrentlySelectedSaveIndex()].region);
+    SaveManager::getInstance()->setRegion((*indexDataArray)[FileManager::getInstance()->getControllerPakCurrentlySelectedSaveIndex()].region);
 }
 
 unsigned int FileLoaderControllerPak::getRawDataOffsetStart() const {
-    return indexDataArray[FileManager::getInstance()->getControllerPakCurrentlySelectedSaveIndex()].rawDataStartOffset;
+    std::vector<FileManager::ControllerPakIndexData>* indexDataArray = FileManager::getInstance()->getControllerPakIndexDataArray();
+    return (*indexDataArray)[FileManager::getInstance()->getControllerPakCurrentlySelectedSaveIndex()].rawDataStartOffset;
 }
 
 unsigned int FileLoaderControllerPak::getSaveSlotPaddedSize() const {
     return sizeof(SaveSlot) + (SaveSlot::getPaddedSize() - sizeof(SaveSlot));
 }
 
+// Always 0x8000 bytes
 unsigned int FileLoaderControllerPak::getMaxFileSize() const {
-    unsigned int headerSize = getHeaderBytes().size();
-    unsigned int maxFileSize = headerSize + (getSaveSlotPaddedSize() * NUM_SAVES) + getUnusedExtraSize();
+    return 0x8000;
+};
 
-    return maxFileSize;
+// In DexDrive saves, the Controller Pak data actually starts at 0x1040
+unsigned int FileLoaderDexDrive::getMaxFileSize() const {
+    return 0x8000 + 0x1040;
 };
