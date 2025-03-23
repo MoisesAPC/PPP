@@ -930,13 +930,19 @@ void MainWindow::enableUIComponents(bool enable) {
     QList<QWidget*> widgets = this->findChildren<QWidget*>();
     QMenu* menuSlot = menuBar()->findChild<QMenu*>("Slot");
 
+    // Iterate over menuSlot's actions to find "Slot X" submenus.
+    // We put these on a list so that later we can just enable them all at once (see the next loop)
+    QList<QMenu*> slotSubMenus;
+    for (QAction* action : menuSlot->actions()) {
+        if (QMenu* submenu = action->menu()) {
+            slotSubMenus.append(submenu);
+        }
+    }
+
     for (QWidget* widget : widgets) {
-        // Skip the "Enabled" checkbox and the menu bar, since those always need to be enabled
+        // Skip essential components
         if (widget == ui->cboxEnabled || widget == ui->menuBar || widget == ui->menuFile || widget == ui->menuOpen ||
-            // Ensure the "Slot" menu and all its options are always enabled
-            widget == menuSlot || widget == menuSlot->findChild<QMenu*>("Slot 1") ||
-            widget == menuSlot->findChild<QMenu*>("Slot 2") || widget == menuSlot->findChild<QMenu*>("Slot 3") ||
-            widget == menuSlot->findChild<QMenu*>("Slot 4")) {
+            widget == menuSlot || slotSubMenus.contains(qobject_cast<QMenu*>(widget))) {
             continue;
         }
 
