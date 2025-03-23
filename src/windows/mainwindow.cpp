@@ -32,8 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
     switchPage(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage1);
 
     // Uncheck the "save enabled checkbox" when opening the program
-    ui->cboxEnabled->setChecked(false);
     enableUIComponents(false);
+    ui->cboxEnabled->setChecked(false);
 }
 
 MainWindow::~MainWindow()
@@ -222,6 +222,9 @@ void MainWindow::setupPageMain() {
         onPageButtonClicked(ui->stackedWidgetPages, ui->pageEventFlags);
     });
 
+    // In order to avoid the checkbox from being disabled,
+    // we ensure that its parent is MainWindow (since it's never disabled by the "enableUiComponents" function)
+    ui->cboxEnabled->setParent(this);
     setupCheckBox(ui->cboxEnabled, SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY,
         [this](unsigned int value) {
             SaveManager::getInstance()->setFlags(value);
