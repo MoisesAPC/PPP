@@ -30,6 +30,10 @@ MainWindow::MainWindow(QWidget *parent)
     // Ensure that we start in the "Main" page
     switchPage(ui->stackedWidgetPages, ui->pageMain);
     switchPage(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage1);
+
+    // Uncheck the "save enabled checkbox" when opening the program
+    ui->cboxEnabled->setChecked(false);
+    enableUIComponents(false);
 }
 
 MainWindow::~MainWindow()
@@ -269,10 +273,6 @@ void MainWindow::setupPageMain() {
         [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
         [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
     );
-
-    // Uncheck the "save enabled checkbox" when opening the program
-    ui->cboxEnabled->setChecked(false);
-    enableUIComponents(false);
 }
 
 void MainWindow::setupPageItems() {
@@ -683,11 +683,13 @@ void MainWindow::setupFileMenu() {
 
 void MainWindow::setupSlotMenu() {
     QMenu* menuSlot = menuBar()->addMenu("Slot");
+    menuSlot->setObjectName("Slot");
 
     for (int i = 0; i < NUM_SAVES; ++i) {
         // Create a submenu for "Slot X"
         slotMenuOptions[i].slotOption = new QMenu(QString("Slot %1").arg(i + 1), this);
         menuSlot->addMenu(slotMenuOptions[i].slotOption);
+        slotMenuOptions[i].slotOption->setObjectName(QString("Slot %1").arg(i + 1));
 
         // Create "Main" action inside the Slot X menu
         slotMenuOptions[i].mainSaveOption = new QAction("Main", this);
@@ -926,21 +928,18 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsi
 
 void MainWindow::enableUIComponents(bool enable) {
     QList<QWidget*> widgets = this->findChildren<QWidget*>();
+    QMenu* menuSlot = menuBar()->findChild<QMenu*>("Slot");
 
     for (QWidget* widget : widgets) {
         // Skip the "Enabled" checkbox and the menu bar, since those always need to be enabled
-        if (widget == ui->cboxEnabled || widget == menuBar()) {
+        if (widget == ui->cboxEnabled || widget == ui->menuBar || widget == ui->menuFile || widget == ui->menuOpen ||
+            // Ensure the "Slot" menu and all its options are always enabled
+            widget == menuSlot || widget == menuSlot->findChild<QMenu*>("Slot 1") ||
+            widget == menuSlot->findChild<QMenu*>("Slot 2") || widget == menuSlot->findChild<QMenu*>("Slot 3") ||
+            widget == menuSlot->findChild<QMenu*>("Slot 4")) {
             continue;
         }
 
         widget->setEnabled(enable);
-    }
-
-    // Ensure the "Enabled" checkbox and the entire menuBar are always enabled
-    ui->cboxEnabled->setEnabled(true);
-
-    QList<QAction*> actions = menuBar()->actions();
-    for (QAction* action : actions) {
-        action->setEnabled(true);
     }
 }
