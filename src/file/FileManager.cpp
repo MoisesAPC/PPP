@@ -3,7 +3,7 @@
 #include "include\windows\controllerpakselection\controllerpakselectionwindow.h"
 #include <QMessageBox>
 
-void FileManager::determineFormat() {
+int FileManager::determineFormat() {
     if (!filepath.isEmpty()) {
 
         if (loader != nullptr) {
@@ -31,13 +31,25 @@ void FileManager::determineFormat() {
             loader = new FileLoaderDexDrive();
             format = FORMAT_DEXDRIVE;
         }
+        else {
+            // Unsupported file
+            return -1;
+        }
+
+        return 0;
     }
+
+    return -1;
 }
 
-void FileManager::openFile(const QString& filepath_) {
+int FileManager::openFile(const QString& filepath_) {
     if (!filepath_.isEmpty()) {
         setFilePath(filepath_);
-        determineFormat();
+
+        if (determineFormat() == -1)  {
+            return -1;
+        }
+
         file = new QFile(filepath);
 
         if (file->open(QIODevice::ReadOnly)) {
@@ -64,7 +76,7 @@ void FileManager::openFile(const QString& filepath_) {
                         file->close();
 
                         QMessageBox::critical(nullptr, "Error", "This file doesn't have any active, valid saves.");
-                        return;
+                        return -1;
                     }
 
                     // Open the selection window with the gathered Castlevania 64 saves
@@ -76,7 +88,7 @@ void FileManager::openFile(const QString& filepath_) {
                         buffer->clear();
                         buffer->resize(0);
                         file->close();
-                        return;
+                        return -2;
                     }
                 }
 
@@ -84,14 +96,28 @@ void FileManager::openFile(const QString& filepath_) {
                 loader->readAllSaveSlots(*file);
             }
         }
+        else {
+            return -1;
+        }
 
         file->close();
     }
+
+    return 0;
 }
 
-void FileManager::writeFile(const QString& filepath_) {
+int FileManager::writeFile(const QString& filepath_) {
+    if (SaveManager::getInstance()->areAllSavesDisabled()) {
+        return -2;
+    }
+
     if (!filepath_.isEmpty()) {
         setFilePath(filepath_);
+
+        if (determineFormat() == -1)  {
+            return -1;
+        }
+
         file = new QFile(filepath);
 
         if (file->open(QIODevice::ReadWrite)) {
@@ -103,9 +129,16 @@ void FileManager::writeFile(const QString& filepath_) {
                 loader->writeAllSaveSlots(*file);
             }
         }
+        else {
+            return -1;
+        }
 
         file->close();
+
+        return 0;
     }
+
+    return -1;
 }
 
 // Initialize the FileManager's "indexDataArray", in order to know extra information regarding each Castlevania save it has

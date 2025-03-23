@@ -82,8 +82,8 @@ class FileManager {
             controllerPakCurrentlySelectedSaveIndex = controllerPakCurrentlySelectedSaveIndex_;
         }
 
-        void openFile(const QString& filepath_);
-        void writeFile(const QString& filepath_);
+        int openFile(const QString& filepath_);
+        int writeFile(const QString& filepath_);
 
         std::vector<ControllerPakIndexData>* getControllerPakIndexDataArray() {
             return &indexDataArray;
@@ -125,7 +125,7 @@ class FileManager {
         }
 
         FileManager(const FileManager& obj) = delete; // Remove the copy constructor
-        void determineFormat();
+        int determineFormat();
 
         int format = FORMAT_NOTE;
         int controllerPakCurrentlySelectedSaveIndex = 0;    // The index of the currently selected save in a loaded Controller Pak

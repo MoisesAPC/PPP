@@ -629,7 +629,12 @@ void MainWindow::setupCheckBox(QCheckBox* checkBox, unsigned int value, std::fun
 }
 
 void MainWindow::openFile(const QString& filename) {
-    FileManager::getInstance()->openFile(filename);
+    int result = FileManager::getInstance()->openFile(filename);
+
+    if (result == -1) {
+        QMessageBox::critical(this, "Error", "Couldn't open file.");
+        return;
+    }
 
     // Populate with the first slot by default + main save
     populateMainWindow(&SaveManager::getInstance()->getSaveSlot(0).main);
@@ -657,13 +662,24 @@ void MainWindow::fileOpenMenu() {
 }
 
 void MainWindow::fileSaveMenu() {
-    FileManager::getInstance()->writeFile(FileManager::getInstance()->getFilepath());
+    int result = FileManager::getInstance()->writeFile(FileManager::getInstance()->getFilepath());
+
+    switch (result) {
+        case -1:
+            QMessageBox::critical(this, "Error", "File could not be saved.\n"
+                                                 "Make sure to save it as one of the accepted filetypes.");
+            return;
+
+        case -2:
+            QMessageBox::critical(this, "Error", "Make sure that at least one save is enabled before saving.\n");
+            return;
+    }
 
     QMessageBox::information(this, "Save", "Saved successfully");
 }
 
 void MainWindow::fileSaveAsMenu() {
-    QString filepath = QFileDialog::getOpenFileName(
+    QString filepath = QFileDialog::getSaveFileName(
         this, "Save As...", QString(),
         "All accepted filetypes (*.pak *.mpk *.note *.eep *.n64 *.t64);;"
         "Individual note (*.note);;"
@@ -674,7 +690,21 @@ void MainWindow::fileSaveAsMenu() {
     );
 
     if (!filepath.isEmpty()) {
-        FileManager::getInstance()->writeFile(filepath);
+        int result = FileManager::getInstance()->writeFile(filepath);
+
+        switch (result) {
+            case -1:
+                QMessageBox::critical(this, "Error", "File could not be saved.\n"
+                                                     "Make sure to save it as one of the accepted filetypes.");
+                return;
+
+            case -2:
+                QMessageBox::critical(this, "Error", "Make sure that at least one save is enabled before saving.\n");
+                return;
+        }
+    }
+    else {
+        return;
     }
 
     QMessageBox::information(this, "Save", "Saved successfully");

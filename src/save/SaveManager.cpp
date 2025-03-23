@@ -150,3 +150,15 @@ unsigned int SaveManager::calcSecondChecksum(unsigned int* dataFromFile) {
 
     return checksum;
 }
+
+// If none of the saves are enabled, return true.
+// This allows us to prevent saving if none of the saves's "Enabled" checkbox are checked.
+bool SaveManager::areAllSavesDisabled() {
+    for (int i = 0; i < NUM_SAVES; i++) {
+        if (BITS_HAS(saves[i].main.flags, SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY)) {
+            return false;
+        }
+    }
+
+    return true;
+}

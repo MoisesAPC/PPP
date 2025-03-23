@@ -2,6 +2,7 @@
 #define SAVEMANAGER_H
 
 #include "Save.h"
+#include "include/bit.h"
 
 #include <QFile>
 #include <QtEndian>
@@ -67,6 +68,7 @@ class SaveManager {
         void unassignEventFlags(const int, const unsigned int);
         unsigned int calcFirstChecksum(unsigned char*);
         unsigned int calcSecondChecksum(unsigned int*);
+        bool areAllSavesDisabled();
 
         SaveSlot& getSaveSlot(const int index) {
             return saves[index];
