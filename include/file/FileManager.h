@@ -97,6 +97,10 @@ class FileManager {
             }
         }
 
+        bool wasFileOpened() const {
+            return fileOpened;
+        }
+
     private:
         static FileManager* instance;
 
@@ -134,6 +138,7 @@ class FileManager {
         QByteArray* buffer = nullptr;
         QString filepath;
         FileLoader* loader = nullptr;
+        bool fileOpened = false;    // A file was opened at least once. Used for knowing if we have to enable or disable the Save buttons
 
         std::vector<ControllerPakIndexData> indexDataArray{CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES};
 };

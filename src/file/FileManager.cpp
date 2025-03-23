@@ -103,6 +103,10 @@ int FileManager::openFile(const QString& filepath_) {
         file->close();
     }
 
+    if (fileOpened == false) {
+        fileOpened = true;
+    }
+
     return 0;
 }
 
