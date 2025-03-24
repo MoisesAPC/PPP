@@ -638,6 +638,11 @@ void MainWindow::openFile(const QString& filename) {
 
     // Populate with the first slot by default + main save
     populateMainWindow(&SaveManager::getInstance()->getSaveSlot(0).main);
+
+    // Set default Slot option to Slot 1 -> Main.
+    // @note We must call this function after calling "populateMainWindow" in order to have the checkboxes
+    // ready. Otherwise the program will throw SIGSEV.
+    //updateSlotMenuCheckedState(0, true);
 }
 
 void MainWindow::fileOpenMenu() {
@@ -647,9 +652,9 @@ void MainWindow::fileOpenMenu() {
     // Open file menu in the last opened directory by default
     QString filename = QFileDialog::getOpenFileName(
         this, "Open File", getLastOpenedDirectory(settings),
-        "All accepted filetypes (*.mpk, *.pak *.note *.eep *.n64 *.t64);;"
+        "All accepted filetypes (*.mpk *.pak *.note *.eep *.n64 *.t64);;"
         "Individual note (*.note);;"
-        "Controller Pak data (*.mpk, *.pak);;"
+        "Controller Pak data (*.mpk *.pak);;"
         "Cartridge (Japanese version only) (*.eep);;"
         "DexDrive saves (*.n64 *.t64);;"
         "All Files (*)"
@@ -696,7 +701,7 @@ void MainWindow::fileSaveAsMenu() {
             fileFilter = "Individual note (*.note)";
             break;
         case FileManager::FORMAT_CONTROLLERPAK:
-            fileFilter = "Controller Pak data (*.mpk, *.pak)";
+            fileFilter = "Controller Pak data (*.mpk *.pak)";
             break;
         case FileManager::FORMAT_CARTRIDGE:
             fileFilter = "Cartridge (Japanese version only) (*.eep)";
