@@ -35,6 +35,9 @@ struct FileLoader {
 
     template<typename T>
     T readData(QDataStream& inputStream, long offset);
+
+    template<typename T>
+    void writeData(QDataStream& outputStream, long offset, T value);
 };
 
 struct FileLoaderNote: public FileLoader {

@@ -197,11 +197,11 @@ void MainWindow::setupPageMain() {
             }
         }
     );
-/*
+
     setupComboBox(ui->cbLanguage, comboBoxDataLanguage,
         [](int value) { SaveManager::getInstance()->setLanguage(value); }
     );
-*/
+
     // Initialize cbLanguage to USA values
     ui->cbLanguage->setEnabled(false);
     ui->cbLanguage->setCurrentIndex(0);
@@ -551,7 +551,10 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
     selectComboBoxOption(*ui->cbReinhardtEnding, saveData->getFlag(SaveData::SAVE_FLAG_REINDHART_GOOD_ENDING | SaveData::SAVE_FLAG_REINDHART_BAD_ENDING));
     selectComboBoxOption(*ui->cbCarrieEnding, saveData->getFlag(SaveData::SAVE_FLAG_CARRIE_GOOD_ENDING | SaveData::SAVE_FLAG_CARRIE_BAD_ENDING));
     selectComboBoxOption(*ui->cbRegion, SaveManager::getInstance()->getRegion());
-    //selectComboBoxOption(*ui->cbLanguage, saveData->language);
+
+    if (SaveManager::getInstance()->getRegion() == SaveData::PAL) {
+        selectComboBoxOption(*ui->cbLanguage, saveData->language);
+    }
 
     // Numerical Line edits
     ui->leLife->setText(QString::number(saveData->life));

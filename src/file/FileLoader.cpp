@@ -86,6 +86,12 @@ const SaveData& FileLoader::parseSaveData(QDataStream& inputStream, unsigned int
 
     currentSave->button_config = readData<short>(inputStream, inputStream.device()->pos());
     currentSave->sound_mode = readData<short>(inputStream, inputStream.device()->pos());
+
+    if (SaveManager::getInstance()->getRegion() == SaveData::PAL) {
+        currentSave->language = readData<short>(inputStream, inputStream.device()->pos());
+        currentSave->padding5A_PAL = readData<short>(inputStream, inputStream.device()->pos());
+    }
+
     currentSave->character = readData<short>(inputStream, inputStream.device()->pos());
     currentSave->life = readData<short>(inputStream, inputStream.device()->pos());
     currentSave->field_0x5C = readData<short>(inputStream, inputStream.device()->pos());
@@ -129,50 +135,56 @@ void FileLoader::writeSaveData(QDataStream& outputStream, const SaveData& saveDa
     outputStream.device()->seek(startOffset);
 
     for (unsigned int i = 0; i < NUM_EVENT_FLAGS; i++) {
-        outputStream << saveData.event_flags[i];
+        writeData<unsigned int>(outputStream, outputStream.device()->pos(), saveData.event_flags[i]);
     }
 
-    outputStream << saveData.flags
-                 << saveData.week
-                 << saveData.day
-                 << saveData.hour
-                 << saveData.minute
-                 << saveData.seconds
-                 << saveData.milliseconds
-                 << saveData.gameplay_framecount
-                 << saveData.button_config
-                 << saveData.sound_mode
-                 << saveData.character
-                 << saveData.life
-                 << saveData.field_0x5C
-                 << saveData.subweapon
-                 << saveData.gold;
+    writeData<unsigned int>(outputStream, outputStream.device()->pos(), saveData.flags);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.week);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.day);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.hour);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.minute);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.seconds);
+    writeData<unsigned short>(outputStream, outputStream.device()->pos(), saveData.milliseconds);
+    writeData<unsigned int>(outputStream, outputStream.device()->pos(), saveData.gameplay_framecount);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.button_config);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.sound_mode);
+
+    if (SaveManager::getInstance()->getRegion() == SaveData::PAL) {
+        writeData<short>(outputStream, outputStream.device()->pos(), saveData.language);
+        writeData<short>(outputStream, outputStream.device()->pos(), saveData.padding5A_PAL);
+    }
+
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.character);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.life);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.field_0x5C);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.subweapon);
+    writeData<unsigned int>(outputStream, outputStream.device()->pos(), saveData.gold);
 
     for (unsigned int j = 0; j < SIZE_ITEMS_ARRAY; j++) {
-        outputStream << saveData.items[j];
+        writeData<unsigned char>(outputStream, outputStream.device()->pos(), saveData.items[j]);
     }
 
-    outputStream << saveData.player_status
-                 << saveData.health_depletion_rate_while_poisoned
-                 << saveData.current_hour_VAMP
-                 << saveData.map
-                 << saveData.spawn
-                 << saveData.save_crystal_number
-                 << saveData.field51_0xb2
-                 << saveData.field52_0xb3
-                 << saveData.time_saved_counter
-                 << saveData.death_counter
-                 << saveData.field55_0xbc
-                 << saveData.field59_0xc0
-                 << saveData.field63_0xc4
-                 << saveData.field67_0xc8
-                 << saveData.field69_0xca
-                 << saveData.field71_0xcc
-                 << saveData.field75_0xd0
-                 << saveData.field77_0xd2
-                 << saveData.field79_0xd4
-                 << saveData.field83_0xd8
-                 << saveData.gold_spent_on_Renon;
+    writeData<unsigned int>(outputStream, outputStream.device()->pos(), saveData.player_status);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.health_depletion_rate_while_poisoned);
+    writeData<unsigned short>(outputStream, outputStream.device()->pos(), saveData.current_hour_VAMP);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.map);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.spawn);
+    writeData<unsigned short>(outputStream, outputStream.device()->pos(), saveData.save_crystal_number);
+    writeData<unsigned char>(outputStream, outputStream.device()->pos(), saveData.field51_0xb2);
+    writeData<unsigned char>(outputStream, outputStream.device()->pos(), saveData.field52_0xb3);
+    writeData<unsigned int>(outputStream, outputStream.device()->pos(), saveData.time_saved_counter);
+    writeData<unsigned int>(outputStream, outputStream.device()->pos(), saveData.death_counter);
+    writeData<int>(outputStream, outputStream.device()->pos(), saveData.field55_0xbc);
+    writeData<int>(outputStream, outputStream.device()->pos(), saveData.field59_0xc0);
+    writeData<int>(outputStream, outputStream.device()->pos(), saveData.field63_0xc4);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.field67_0xc8);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.field69_0xca);
+    writeData<int>(outputStream, outputStream.device()->pos(), saveData.field71_0xcc);
+    writeData<int>(outputStream, outputStream.device()->pos(), saveData.field75_0xd0);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.field77_0xd2);
+    writeData<short>(outputStream, outputStream.device()->pos(), saveData.field79_0xd4);
+    writeData<int>(outputStream, outputStream.device()->pos(), saveData.field83_0xd8);
+    writeData<unsigned int>(outputStream, outputStream.device()->pos(), saveData.gold_spent_on_Renon);
 }
 
 template<typename T>
@@ -183,6 +195,14 @@ T FileLoader::readData(QDataStream& inputStream, long offset) {
     inputStream.readRawData(reinterpret_cast<char*>(&value), sizeof(T));
 
     return qFromBigEndian(value);
+}
+
+template<typename T>
+void FileLoader::writeData(QDataStream& outputStream, long offset, T value) {
+    outputStream.device()->seek(offset);
+
+    T bigEndianValue = qToBigEndian(value);
+    outputStream.writeRawData(reinterpret_cast<char*>(&bigEndianValue), sizeof(T));
 }
 
 // Header format information (https://github.com/bryc/mpkedit/wiki/Note-file-formats)

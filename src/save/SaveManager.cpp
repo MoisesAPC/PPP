@@ -8,11 +8,14 @@ void SaveManager::setRegion(const short region_) {
     region = region_;
 }
 
-/*
 void SaveManager::setLanguage(const short language) {
     getInstance()->getCurrentSave().language = language;
 }
-*/
+
+short SaveManager::getLanguage() const {
+    return getInstance()->getCurrentSave().language;
+}
+
 void SaveManager::setLife(const short life) {
     getInstance()->getCurrentSave().life = life;
 }

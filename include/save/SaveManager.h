@@ -38,6 +38,7 @@ class SaveManager {
         short getRegion() const;
         void setRegion(const short);
         void setLanguage(const short);
+        short getLanguage() const;
         void setLife(const short);
         void setGold(const unsigned int);
         void setItem(const int, const unsigned char);
