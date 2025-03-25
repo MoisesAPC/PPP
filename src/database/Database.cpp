@@ -1,6 +1,5 @@
 #include "include/database/Database.h"
 #include "include/database/DatabaseManager.h"
-#include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QEventLoop>
 #include <QJsonDocument>
@@ -14,10 +13,7 @@ bool DatabaseCouch::connectToDatabase() {
 
     QUrl url(QString("http://%1:%2/").arg(getHostname()).arg(getPort()));
     QNetworkRequest request(url);
-
-    // Authenticate the credentials. This is done by appending an "authorization" header with the credentials to the "GET" request
-    QString authHeader = "Basic " + QByteArray(QString("%1:%2").arg(databaseManager->getUsername()).arg(databaseManager->getPassword()).toUtf8()).toBase64();
-    request.setRawHeader("Authorization", authHeader.toUtf8());
+    createAuthorizationHeader(request);
 
     // Send the "GET" request and then wait for a responsed (loop.exec())
     // If no errors are gotten, we've connected successully
@@ -29,8 +25,6 @@ bool DatabaseCouch::connectToDatabase() {
     bool success = (reply->error() == QNetworkReply::NoError);
 
     if (!success) {
-        qDebug() << "Database connection failed: " << reply->errorString();
-        qDebug() << "Response: " << reply->readAll();
         QMessageBox::critical(nullptr, "Error", "An error has occurred while performing this operation.\n"
                                                 "Error:" + reply->errorString() + "\n" +
                                                 "Response:" + reply->readAll());
@@ -48,6 +42,7 @@ void DatabaseCouch::disconnectFromDatabase() {
 void DatabaseCouch::createEntry(const QString &id, const SaveData &saveData) {
     QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
     QNetworkRequest request(url);
+    createAuthorizationHeader(request);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
     // Send the "PUT" request with the JSON object (converted from the SaveData) and wait for the reply
@@ -86,7 +81,7 @@ QJsonObject DatabaseCouch::parseSaveDataToJSON(const SaveData& saveData) {
     QJsonArray itemsArray;
 
     for (unsigned int i = 0; i < NUM_EVENT_FLAGS; i++) {
-        eventFlagsArray.append(static_cast<int>(i));
+        eventFlagsArray.append(static_cast<int>(saveData.event_flags[i]));
     }
 
     json["event_flags"] = eventFlagsArray;
@@ -108,7 +103,7 @@ QJsonObject DatabaseCouch::parseSaveDataToJSON(const SaveData& saveData) {
     json["gold"] = static_cast<int>(saveData.gold);
 
     for (unsigned int j = 0; j < SIZE_ITEMS_ARRAY; j++) {
-        itemsArray.append(static_cast<int>(j));
+        eventFlagsArray.append(static_cast<int>(saveData.items[j]));
     }
 
     json["items"] = itemsArray;
@@ -123,4 +118,13 @@ QJsonObject DatabaseCouch::parseSaveDataToJSON(const SaveData& saveData) {
     json["gold_spent_on_Renon"] = static_cast<int>(saveData.gold_spent_on_Renon);
 
     return json;
+}
+
+// Call this function when doing GET, PUT, etc, so that you are authorized to enter the DB
+void DatabaseCouch::createAuthorizationHeader(QNetworkRequest& request) {
+    DatabaseManager* databaseManager = DatabaseManager::getInstance();
+
+    // Authenticate the credentials. This is done by appending an "authorization" header with the credentials to the "GET" request
+    QString authHeader = "Basic " + QByteArray(QString("%1:%2").arg(databaseManager->getUsername()).arg(databaseManager->getPassword()).toUtf8()).toBase64();
+    request.setRawHeader("Authorization", authHeader.toUtf8());
 }

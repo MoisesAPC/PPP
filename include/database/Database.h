@@ -4,6 +4,7 @@
 #include "include/save/SaveManager.h"
 #include <QObject>
 #include <QJsonObject>
+#include <QNetworkRequest>
 
 // We inherit from QObject in order to be able to use the "connect" function using this class
 struct Database: public QObject {
@@ -42,6 +43,7 @@ struct DatabaseCouch: public Database {
 
     void getDatabaseRequestReply();
     QJsonObject parseSaveDataToJSON(const SaveData&);
+    void createAuthorizationHeader(QNetworkRequest& request);
 };
 
 #endif
