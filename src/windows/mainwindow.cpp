@@ -1018,9 +1018,11 @@ void MainWindow::enableUIComponents(bool enable) {
     }
 
     for (QWidget* widget : widgets) {
-        // Skip essential components
+        // Skip essential components.
+        // Also ensure that the language doesn't get enabled the first time a USA or JPN save is loaded
         if (widget == ui->cboxEnabled || widget == ui->menuBar || widget == ui->menuFile || widget == ui->menuOpen ||
-            widget == menuSlot || slotSubMenus.contains(qobject_cast<QMenu*>(widget))) {
+            widget == menuSlot || slotSubMenus.contains(qobject_cast<QMenu*>(widget)) ||
+            widget == ui->cbLanguage) {
             continue;
         }
 
