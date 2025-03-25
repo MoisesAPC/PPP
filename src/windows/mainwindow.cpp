@@ -941,7 +941,7 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsi
     gridLayout->addWidget(hexBitflagDisplay, 0, 9, 5, 1);
     // Add numbers on top and to the right showing the column / row number respectively
     for (unsigned int i = 0; i < 8; ++i) {
-        QLabel* colLabel = new QLabel(QString::number(i));
+        QLabel* colLabel = new QLabel(QString::number(7 - i));
         colLabel->setAlignment(Qt::AlignCenter);  // Center the row numbers
         gridLayout->addWidget(colLabel, 0, i + 1);
     }
@@ -949,7 +949,7 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsi
     for (unsigned int i = 0; i < 4; ++i) {
         QLabel* rowLabel = new QLabel(QString::number(i));
         rowLabel->setAlignment(Qt::AlignCenter);  // Center the row numbers
-        gridLayout->addWidget(rowLabel, i + 1, 0);
+        gridLayout->addWidget(rowLabel, 4 - i, 0);
     }
 
     QVector<QCheckBox*> checkBoxes(32);
@@ -961,7 +961,9 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsi
         checkBox->setChecked(flags & (1 << i));
         // Add the checkbox to the grid layout. Then place it in a 4x8 grid
         // We add +1 so that we don't print the checkboxes in the same row / column as the numbers
-        gridLayout->addWidget(checkBox, (i / 8) + 1, (i % 8) + 1);
+        int row = 3 - (i / 8);
+        int col = 8 - (i % 8);
+        gridLayout->addWidget(checkBox, row + 1, col);
 
         checkBoxes[i] = checkBox;
     }
