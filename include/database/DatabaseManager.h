@@ -44,6 +44,22 @@ class DatabaseManager {
             return networkAcessManager;
         }
 
+        QString getUsername() const {
+            return username;
+        }
+
+        QString getPassword() const {
+            return password;
+        }
+
+        void setUsername(const QString& username_) {
+            username = username_;
+        }
+
+        void setPassword(const QString& password_) {
+            password = password_;
+        }
+
         void clearManager() {
             databaseType = DATABASE_NONE;
 
@@ -89,6 +105,8 @@ class DatabaseManager {
         int databaseType = DATABASE_NONE;
         Database* database = nullptr;
         QNetworkAccessManager* networkAcessManager = nullptr;
+        QString username = "";
+        QString password = "";
 };
 
 #endif

@@ -27,10 +27,15 @@ private:
         {{"CouchDB", DatabaseManager::DATABASE_COUCHDB}}
     };
 
+    void setupConnectMenu();
+    void setupSaveListMenu();
+
     void setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter);
     void setupLineEditHostname(QLineEdit* lineEdit);
     void switchPage(QStackedWidget* stackedWidget, const QWidget* page);
     void onConnectButtonPress();
+
+    void onUploadSaveButtonPress();
 };
 
 #endif // DATABASEACCESSWINDOW_H

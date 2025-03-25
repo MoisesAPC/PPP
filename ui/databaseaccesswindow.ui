@@ -26,10 +26,10 @@
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>40</y>
-       <width>321</width>
-       <height>385</height>
+       <x>110</x>
+       <y>0</y>
+       <width>371</width>
+       <height>481</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="vlAccess">
@@ -61,6 +61,52 @@
          <size>
           <width>20</width>
           <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelUsername">
+        <property name="text">
+         <string>Username</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="leUsername"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelPassword">
+        <property name="text">
+         <string>Password</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lePassword">
+        <property name="echoMode">
+         <enum>QLineEdit::EchoMode::Password</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="spacer3">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Policy::Minimum</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>60</height>
          </size>
         </property>
        </spacer>

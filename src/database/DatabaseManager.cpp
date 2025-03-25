@@ -14,6 +14,12 @@ void DatabaseManager::disconnectFromDatabase() {
     }
 }
 
+void DatabaseManager::createEntry(const QString &id, const SaveData &saveData) {
+    if (database != nullptr) {
+        database->createEntry(id, saveData);
+    }
+}
+
 void DatabaseManager::assignDatabase() {
     if (database != nullptr) {
         delete database;

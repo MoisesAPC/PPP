@@ -4,14 +4,20 @@
 #include <QNetworkReply>
 #include <QEventLoop>
 #include <QJsonDocument>
-#include <QJsonObject>
+#include <QMessageBox>
 #include <QUrl>
+#include <QJsonArray>
 
 bool DatabaseCouch::connectToDatabase() {
-    QNetworkAccessManager* networkManager = DatabaseManager::getInstance()->allocNetworkAccessManager();
+    DatabaseManager* databaseManager = DatabaseManager::getInstance()->getInstance();
+    QNetworkAccessManager* networkManager = databaseManager->allocNetworkAccessManager();
 
     QUrl url(QString("http://%1:%2/").arg(getHostname()).arg(getPort()));
     QNetworkRequest request(url);
+
+    // Authenticate the credentials. This is done by appending an "authorization" header with the credentials to the "GET" request
+    QString authHeader = "Basic " + QByteArray(QString("%1:%2").arg(databaseManager->getUsername()).arg(databaseManager->getPassword()).toUtf8()).toBase64();
+    request.setRawHeader("Authorization", authHeader.toUtf8());
 
     // Send the "GET" request and then wait for a responsed (loop.exec())
     // If no errors are gotten, we've connected successully
@@ -21,6 +27,15 @@ bool DatabaseCouch::connectToDatabase() {
     loop.exec();
 
     bool success = (reply->error() == QNetworkReply::NoError);
+
+    if (!success) {
+        qDebug() << "Database connection failed: " << reply->errorString();
+        qDebug() << "Response: " << reply->readAll();
+        QMessageBox::critical(nullptr, "Error", "An error has occurred while performing this operation.\n"
+                                                "Error:" + reply->errorString() + "\n" +
+                                                "Response:" + reply->readAll());
+    }
+
     reply->deleteLater();
 
     return success;
@@ -28,4 +43,84 @@ bool DatabaseCouch::connectToDatabase() {
 
 void DatabaseCouch::disconnectFromDatabase() {
     DatabaseManager::getInstance()->destroyNetworkAccessManager();
+}
+
+void DatabaseCouch::createEntry(const QString &id, const SaveData &saveData) {
+    QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
+    QNetworkRequest request(url);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    // Send the "PUT" request with the JSON object (converted from the SaveData) and wait for the reply
+    QJsonObject jsonDoc = parseSaveDataToJSON(saveData);
+    QNetworkReply* reply = DatabaseManager::getInstance()->getNetworkAccessManager()->put(request, QJsonDocument(jsonDoc).toJson());
+
+    // When the request is finished, call "getDatabaseRequestReply" to get the response (either success or error)
+    connect(reply, &QNetworkReply::finished, this, &DatabaseCouch::getDatabaseRequestReply);
+}
+
+void DatabaseCouch::getDatabaseRequestReply() {
+    QNetworkReply* reply = qobject_cast<QNetworkReply *>(sender());
+    if (reply == nullptr) {
+        QMessageBox::critical(nullptr, "", "An error has occurred while performing this operation.");
+        return;
+    }
+
+    QByteArray responseData = reply->readAll();
+    QJsonDocument jsonResponse = QJsonDocument::fromJson(responseData);
+    QString responseText = jsonResponse.isNull() ? QString(responseData) : jsonResponse.toJson(QJsonDocument::Indented);
+
+    if (reply->error() == QNetworkReply::NoError) {
+        QMessageBox::information(nullptr, "Success", "The operation was successful!");
+    }
+    else {
+        QMessageBox::critical(nullptr, "Error", "An error has occurred while performing this operation.\n"
+                                                "Response:\n" + responseText);
+    }
+
+    reply->deleteLater();
+}
+
+QJsonObject DatabaseCouch::parseSaveDataToJSON(const SaveData& saveData) {
+    QJsonObject json;
+    QJsonArray eventFlagsArray;
+    QJsonArray itemsArray;
+
+    for (unsigned int i = 0; i < NUM_EVENT_FLAGS; i++) {
+        eventFlagsArray.append(static_cast<int>(i));
+    }
+
+    json["event_flags"] = eventFlagsArray;
+    json["flags"] = static_cast<int>(saveData.flags);
+    json["week"] = saveData.week;
+    json["day"] = saveData.day;
+    json["hour"] = saveData.hour;
+    json["minute"] = saveData.minute;
+    json["seconds"] = saveData.seconds;
+    json["milliseconds"] = saveData.milliseconds;
+    json["gameplay_framecount"] = static_cast<int>(saveData.gameplay_framecount);
+    json["button_config"] = saveData.button_config;
+    json["sound_mode"] = saveData.sound_mode;
+    json["milliseconds"] = saveData.milliseconds;
+    json["language"] = saveData.language;
+    json["character"] = saveData.character;
+    json["life"] = saveData.life;
+    json["subweapon"] = saveData.subweapon;
+    json["gold"] = static_cast<int>(saveData.gold);
+
+    for (unsigned int j = 0; j < SIZE_ITEMS_ARRAY; j++) {
+        itemsArray.append(static_cast<int>(j));
+    }
+
+    json["items"] = itemsArray;
+    json["player_status"] = static_cast<int>(saveData.player_status);
+    json["health_depletion_rate_while_poisoned"] = saveData.health_depletion_rate_while_poisoned;
+    json["current_hour_VAMP"] = saveData.current_hour_VAMP;
+    json["map"] = saveData.map;
+    json["spawn"] = saveData.spawn;
+    json["save_crystal_number"] = saveData.save_crystal_number;
+    json["time_saved_counter"] = static_cast<int>(saveData.time_saved_counter);
+    json["death_counter"] = static_cast<int>(saveData.death_counter);
+    json["gold_spent_on_Renon"] = static_cast<int>(saveData.gold_spent_on_Renon);
+
+    return json;
 }

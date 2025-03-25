@@ -3,7 +3,9 @@
 
 #include "include/save/SaveManager.h"
 #include <QObject>
+#include <QJsonObject>
 
+// We inherit from QObject in order to be able to use the "connect" function using this class
 struct Database: public QObject {
     Q_OBJECT
 
@@ -27,6 +29,7 @@ struct Database: public QObject {
 
         virtual bool connectToDatabase() = 0;
         virtual void disconnectFromDatabase() = 0;
+        virtual void createEntry(const QString &id, const SaveData &saveData) = 0;
 };
 
 struct DatabaseCouch: public Database {
@@ -35,6 +38,10 @@ struct DatabaseCouch: public Database {
 
     bool connectToDatabase();
     void disconnectFromDatabase();
+    void createEntry(const QString &id, const SaveData &saveData);
+
+    void getDatabaseRequestReply();
+    QJsonObject parseSaveDataToJSON(const SaveData&);
 };
 
 #endif

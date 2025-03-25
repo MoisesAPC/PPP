@@ -1,6 +1,7 @@
 #include "include\windows\databaseaccess\databaseaccesswindow.h"
 #include "ui_databaseaccesswindow.h"
 #include <QMessageBox>
+#include <QInputDialog>
 
 DatabaseAccessWindow::DatabaseAccessWindow(QWidget *parent)
     : QDialog(parent)
@@ -8,12 +9,25 @@ DatabaseAccessWindow::DatabaseAccessWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    setupConnectMenu();
+    setupSaveListMenu();
+}
+
+void DatabaseAccessWindow::setupConnectMenu() {
     setupComboBox(ui->cbDatabase, comboBoxDataDatabaseTypes,
         [](int value) { DatabaseManager::getInstance()->setDatabaseType(value); }
     );
 
     setupLineEditHostname(ui->leHostname);
     ui->sbPort->setRange(0, 65535);
+
+    connect(ui->leUsername, &QLineEdit::editingFinished, this, [this]() {
+        DatabaseManager::getInstance()->setUsername(ui->leUsername->text());
+    });
+
+    connect(ui->lePassword, &QLineEdit::editingFinished, this, [this]() {
+        DatabaseManager::getInstance()->setPassword(ui->lePassword->text());
+    });
 
     // Setup default values for these fields
     // by using the default CouchDB values
@@ -26,7 +40,15 @@ DatabaseAccessWindow::DatabaseAccessWindow(QWidget *parent)
     });
 }
 
+void DatabaseAccessWindow::setupSaveListMenu() {
+    connect(ui->buttonUpload, &QPushButton::clicked, this, [this]() {
+        onUploadSaveButtonPress();
+    });
+}
+
 DatabaseAccessWindow::~DatabaseAccessWindow() {
+    DatabaseManager::getInstance()->getDatabase()->disconnectFromDatabase();
+
     delete ui;
 }
 
@@ -105,5 +127,20 @@ void DatabaseAccessWindow::onConnectButtonPress() {
         // Disconnect from the database on error
         QMessageBox::critical(this, "", "Error while connecting to the database.");
         DatabaseManager::getInstance()->getDatabase()->disconnectFromDatabase();
+    }
+}
+
+void DatabaseAccessWindow::onUploadSaveButtonPress() {
+    // Only allow enabled saves to be uploaded to the database
+    if (SaveManager::getInstance()->areAllSavesDisabled()) {
+        QMessageBox::critical(this, "", "The current save is empty, so it can't be added to the database");
+        return;
+    }
+
+    bool ok;
+    QString documentId = QInputDialog::getText(this, "Introduce name", "Enter an ID name for the save: ", QLineEdit::Normal, "", &ok);
+
+    if (ok && !documentId.isEmpty()) {
+        DatabaseManager::getInstance()->createEntry(documentId, SaveManager::getInstance()->getCurrentSave());
     }
 }
