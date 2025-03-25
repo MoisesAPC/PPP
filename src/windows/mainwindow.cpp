@@ -1,4 +1,5 @@
 #include "include\windows\main\mainwindow.h"
+#include "include\windows\databaseaccess\databaseaccesswindow.h"
 #include "include\save\SaveManager.h"
 #include "include\file\FileManager.h"
 
@@ -759,6 +760,9 @@ void MainWindow::setupFileMenu() {
             QApplication::exit();
         }
     });
+
+    // Setup the "Database" button
+    connect(ui->actionDatabase, &QAction::triggered, this, &MainWindow::databaseMenu);
 }
 
 void MainWindow::setupSlotMenu() {
@@ -1053,4 +1057,9 @@ void MainWindow::updateWindowVisibility(bool enable) {
     else {
         enableUIComponents(enable);
     }
+}
+
+void MainWindow::databaseMenu() {
+    DatabaseAccessWindow* databaseAccessWindow = new DatabaseAccessWindow();
+    databaseAccessWindow->exec();
 }

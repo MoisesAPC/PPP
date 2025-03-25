@@ -22,31 +22,49 @@ class DatabaseManager {
             instance = nullptr;
         }
 
-        int getServerType() const {
-            return serverType;
+        int getDatabaseType() const {
+            return databaseType;
         }
 
-        void setServerType(const int serverType_) {
-            serverType = serverType_;
+        void setDatabaseType(const int databaseType_) {
+            databaseType = databaseType_;
         }
 
         void clearManager() {
-            serverType = SERVER_NONE;
+            databaseType = DATABASE_NONE;
+
+            if (database != nullptr) {
+                delete database;
+                database = nullptr;
+            }
         }
+
+        void connect();
+        void closeConnection();
+
+        void findEntry(const QString& id);
+        void createEntry(const QString& id, const SaveData& saveData);
+        void updateEntry(const QString& id, const SaveData& saveData);
+        SaveData& getEntry(const QString& id, const SaveData& saveData) const;
+        void deleteEntry(const QString& id);
 
     private:
         static DatabaseManager* instance;
 
-        DatabaseManager() { clearManager(); }
-        ~DatabaseManager() {}
+        DatabaseManager() {
+            database = new Database();
+        }
+
+        ~DatabaseManager() { clearManager(); }
         DatabaseManager(const DatabaseManager& obj) = delete; // Remove the copy constructor
 
-        enum eServerType {
-            SERVER_COUCHDB,
-            SERVER_NONE = -1
+        enum eDatabaseType {
+            DATABASE_COUCHDB,
+            DATABASE_NONE = -1
         };
 
-        int serverType = SERVER_NONE;
+        int databaseType = DATABASE_NONE;
+        Database* database = nullptr;
 };
 
 #endif

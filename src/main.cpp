@@ -1,7 +1,7 @@
 #include "include\windows\main\mainwindow.h"
 #include "include/save/SaveManager.h"
 #include "include/file/FileManager.h"
-#include "include/server/DatabaseManager.h"
+#include "include/database/DatabaseManager.h"
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>

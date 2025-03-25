@@ -16,6 +16,7 @@ SOURCES += \
     src/save/SaveManager.cpp \
     src/main.cpp \
     src/windows/mainwindow.cpp \
+    src/windows/databaseaccesswindow.cpp \
     src/windows/controllerpakselectionwindow.cpp
 
 HEADERS += \
@@ -27,10 +28,12 @@ HEADERS += \
     include/save/Save.h \
     include/save/SaveManager.h \
     include/windows/controllerpakselection/controllerpakselectionwindow.h \
+    include/windows/databaseaccess/databaseaccesswindow.h \
     include/windows/main/mainwindow.h \
     include/windows/main/slotMenu.h
 
 FORMS += \
+    ui/databaseaccesswindow.ui \
     ui/mainwindow.ui \
     ui/controllerpakselectionwindow.ui
 

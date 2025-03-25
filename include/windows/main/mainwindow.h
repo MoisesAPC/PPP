@@ -56,6 +56,7 @@ private slots:
     void fileOpenMenu();
     void fileSaveMenu();
     void fileSaveAsMenu();
+    void databaseMenu();
     void populateMainWindow(SaveData* save);
     void updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave);
     void openFile(const QString& filename);
