@@ -15,8 +15,9 @@ DatabaseAccessWindow::DatabaseAccessWindow(QWidget *parent)
     setupLineEditHostname(ui->leHostname);
     ui->sbPort->setRange(0, 65535);
 
-    // Setup default values for both of these fields
+    // Setup default values for these fields
     // by using the default CouchDB values
+    DatabaseManager::getInstance()->setDatabaseType(DatabaseManager::DATABASE_COUCHDB);
     ui->leHostname->setText("localhost");
     ui->sbPort->setValue(5984);
 
@@ -78,6 +79,7 @@ void DatabaseAccessWindow::switchPage(QStackedWidget* stackedWidget, const QWidg
 }
 
 void DatabaseAccessWindow::onConnectButtonPress() {
+    DatabaseManager::getInstance()->assignDatabase();
     Database* database = DatabaseManager::getInstance()->getDatabase();
 
     // First, grab the parameters from the UI

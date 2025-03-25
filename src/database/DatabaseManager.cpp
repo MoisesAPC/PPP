@@ -13,3 +13,16 @@ void DatabaseManager::disconnectFromDatabase() {
         database->disconnectFromDatabase();
     }
 }
+
+void DatabaseManager::assignDatabase() {
+    if (database != nullptr) {
+        delete database;
+        database = nullptr;
+    }
+
+    switch (databaseType) {
+        case DATABASE_COUCHDB:
+            database = new DatabaseCouch();
+            break;
+    }
+}

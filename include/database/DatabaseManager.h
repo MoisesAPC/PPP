@@ -68,6 +68,8 @@ class DatabaseManager {
             }
         }
 
+        void assignDatabase();
+
         bool connectToDatabase();
         void disconnectFromDatabase();
 
