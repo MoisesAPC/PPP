@@ -27,5 +27,5 @@ bool DatabaseCouch::connectToDatabase() {
 }
 
 void DatabaseCouch::disconnectFromDatabase() {
-    DatabaseManager::getInstance()->disconnectFromDatabase();
+    DatabaseManager::getInstance()->destroyNetworkAccessManager();
 }
