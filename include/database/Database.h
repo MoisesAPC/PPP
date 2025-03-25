@@ -9,6 +9,7 @@ struct Database: public QObject {
 
     QString hostname = "";
     int port = 0;
+    QString databaseName = "";
 
     // @note Wee need to explicitly declare the constructor and virtual destructor as "public"
     // since "QObject" (needed for the "connect" function to work with this struct)
@@ -21,6 +22,8 @@ struct Database: public QObject {
         void setPort(const int port_) { port = port_; }
         QString getHostname() const { return hostname; }
         int getPort() const { return port; }
+        void setDatabaseName(const QString& databaseName_) { databaseName = databaseName_; }
+        QString getDatabaseName() const { return databaseName; }
 
         virtual bool connectToDatabase() = 0;
 };
