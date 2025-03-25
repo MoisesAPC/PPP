@@ -23,12 +23,29 @@ void FileLoader::writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOf
     SaveManager* saveManager = SaveManager::getInstance();
     QDataStream outputStream(&file);
 
+    unsigned int firstChecksumOffset = 0;
+    unsigned int secondChecksumOffset = 0;
+    unsigned int saveDataSize = 0;
+
+    if (SaveManager::getInstance()->getRegion() == SaveData::PAL) {
+        firstChecksumOffset = offsetof(SaveSlot, checksum1);
+        secondChecksumOffset = offsetof(SaveSlot, checksum2);
+        saveDataSize = sizeof(SaveData);
+    }
+    else {
+        // Since the PAL version of the SaveSlot added 4 extra bytes (and this project uses the PAL definition of the struct),
+        // we will remove those extra 4 bytes (plus 4 -> 8 bytes) from the offset to get the correct address to write the checksums to
+        firstChecksumOffset = offsetof(SaveSlot, checksum1) - 8;
+        secondChecksumOffset = offsetof(SaveSlot, checksum2) - 8;
+        saveDataSize = sizeof(SaveData) - 4;
+    }
+
     writeSaveData(outputStream, slot.main, startOffset);
     writeSaveData(outputStream, slot.beginningOfStage, outputStream.device()->pos());
 
     QIODevice* device = outputStream.device();
     device->seek(startOffset);
-    QByteArray rawData = device->read(sizeof(SaveData));
+    QByteArray rawData = device->read(saveDataSize);
 
     // Convert "rawData" to big-endian
     swapEndianness(&rawData);
@@ -36,20 +53,6 @@ void FileLoader::writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOf
     // Write the SaveSlot main's checksum at the specific offsets within the SaveSlot struct
     unsigned int firstChecksum = saveManager->calcFirstChecksum(rawData);
     unsigned int secondChecksum = saveManager->calcSecondChecksum(rawData);
-
-    unsigned int firstChecksumOffset = 0;
-    unsigned int secondChecksumOffset = 0;
-
-    if (SaveManager::getInstance()->getRegion() == SaveData::PAL) {
-        firstChecksumOffset = offsetof(SaveSlot, checksum1);
-        secondChecksumOffset = offsetof(SaveSlot, checksum2);
-    }
-    else {
-        // Since the PAL version of the SaveSlot added 4 extra bytes (and this project uses the PAL definition of the struct),
-        // we will remove those extra 4 bytes (plus 4 -> 8 bytes) from the offset to get the correct address to write the checksums to
-        firstChecksumOffset = offsetof(SaveSlot, checksum1) - 8;
-        secondChecksumOffset = offsetof(SaveSlot, checksum2) - 8;
-    }
 
     device->seek(startOffset + firstChecksumOffset);
     outputStream << firstChecksum;
