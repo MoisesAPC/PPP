@@ -14,11 +14,15 @@ struct Database {
     void setPort(const int port_) { port = port_; }
     QString getHostname() const { return hostname; }
     int getPort() const { return port; }
+
+    virtual bool connect() = 0;
 };
 
 struct DatabaseCouch: public Database {
     DatabaseCouch() {}
     ~DatabaseCouch() {}
+
+    bool connect();
 };
 
 #endif

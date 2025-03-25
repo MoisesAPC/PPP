@@ -2,6 +2,7 @@
 #define DATABASEMANAGER_H
 
 #include "include/database/Database.h"
+#include <QNetworkAccessManager>
 
 class DatabaseManager {
     public:
@@ -30,6 +31,14 @@ class DatabaseManager {
             databaseType = databaseType_;
         }
 
+        Database* getDatabase() {
+            return database;
+        }
+
+        QNetworkAccessManager* getNetworkAccessManager() {
+            return networkAcessManager;
+        }
+
         void clearManager() {
             databaseType = DATABASE_NONE;
 
@@ -37,9 +46,14 @@ class DatabaseManager {
                 delete database;
                 database = nullptr;
             }
+
+            if (networkAcessManager != nullptr) {
+                delete networkAcessManager;
+                networkAcessManager = nullptr;
+            }
         }
 
-        void connect();
+        bool connect();
         void closeConnection();
 
         void findEntry(const QString& id);
@@ -52,7 +66,7 @@ class DatabaseManager {
         static DatabaseManager* instance;
 
         DatabaseManager() {
-            database = new Database();
+            networkAcessManager = new QNetworkAccessManager();
         }
 
         ~DatabaseManager() { clearManager(); }
@@ -65,6 +79,7 @@ class DatabaseManager {
 
         int databaseType = DATABASE_NONE;
         Database* database = nullptr;
+        QNetworkAccessManager* networkAcessManager = nullptr;
 };
 
 #endif
