@@ -11,6 +11,8 @@ CONFIG += c++17
 SOURCES += \
     src/file/FileManager.cpp \
     src/file/FileLoader.cpp \
+    src/database/DatabaseManager.cpp \
+    src/database/Database.cpp \
     src/save/SaveManager.cpp \
     src/main.cpp \
     src/windows/mainwindow.cpp \
@@ -20,6 +22,8 @@ HEADERS += \
     include/bit.h \
     include/file/FileManager.h \
     include/file/FileLoader.h \
+    include/database/DatabaseManager.h \
+    include/database/Database.h \
     include/save/Save.h \
     include/save/SaveManager.h \
     include/windows/controllerpakselection/controllerpakselectionwindow.h \

@@ -104,7 +104,7 @@ class FileManager {
     private:
         static FileManager* instance;
 
-        FileManager()  {
+        FileManager() {
             filepath = "";
             buffer = new QByteArray();
         }
