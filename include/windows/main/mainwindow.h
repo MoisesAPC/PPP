@@ -93,6 +93,8 @@ private slots:
     }
 
     void enableUIComponents(bool);
+    void updateCheckboxEnabledVisibility();
+    void updateWindowVisibility(bool);
 
 private:
     Ui::MainWindow* ui;

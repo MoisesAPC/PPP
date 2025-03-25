@@ -228,12 +228,12 @@ void MainWindow::setupPageMain() {
     setupCheckBox(ui->cboxEnabled, SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY,
         [this](unsigned int value) {
             SaveManager::getInstance()->setFlags(value);
-            enableUIComponents(true);
+            updateWindowVisibility(true);
         },
 
         [this](unsigned int value) {
             SaveManager::getInstance()->unsetFlags(value);
-            enableUIComponents(false);
+            updateWindowVisibility(false);
         }
     );
 
@@ -604,6 +604,8 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
 
     // Checkboxes
     ui->cboxEnabled->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY));
+    updateCheckboxEnabledVisibility();
+
     ui->cboxHardMode->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_HARD_MODE_UNLOCKED));
     ui->cboxUseAlternateCostume->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_COSTUME_IS_BEING_USED));
     ui->cboxReinhardtCostume->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_HAVE_REINHARDT_ALT_COSTUME));
@@ -1013,13 +1015,13 @@ void MainWindow::enableUIComponents(bool enable) {
     // Iterate over menuSlot's actions to find "Slot X" submenus.
     // We put these on a list so that later we can just enable them all at once (see the next loop)
     QList<QMenu*> slotSubMenus;
-    for (QAction* action : menuSlot->actions()) {
+    for (QAction* action: menuSlot->actions()) {
         if (QMenu* submenu = action->menu()) {
             slotSubMenus.append(submenu);
         }
     }
 
-    for (QWidget* widget : widgets) {
+    for (QWidget* widget: widgets) {
         // Skip essential components.
         // Also ensure that the language doesn't get enabled the first time a USA or JPN save is loaded
         if (widget == ui->cboxEnabled || widget == ui->menuBar || widget == ui->menuFile || widget == ui->menuOpen ||
@@ -1029,5 +1031,26 @@ void MainWindow::enableUIComponents(bool enable) {
         }
 
         widget->setEnabled(enable);
+    }
+}
+
+// This function ensures that the "Enabled" checkbox is only visible for "Main" saves
+void MainWindow::updateCheckboxEnabledVisibility() {
+    if (!isMain) {
+        ui->cboxEnabled->hide();
+    }
+    else {
+        ui->cboxEnabled->show();
+    }
+}
+
+// Make sure to always have the "Beginning of Stage" save enabled only if the "Main" save is enabled
+void MainWindow::updateWindowVisibility(bool enable) {
+    if (BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().main.flags, SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY)
+        && !isMain) {
+        enableUIComponents(true);
+    }
+    else {
+        enableUIComponents(enable);
     }
 }
