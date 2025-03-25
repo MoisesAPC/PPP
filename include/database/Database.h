@@ -2,27 +2,34 @@
 #define DATABASE_H
 
 #include "include/save/SaveManager.h"
+#include <QObject>
 
-struct Database {
+struct Database: public QObject {
+    Q_OBJECT
+
     QString hostname = "";
     int port = 0;
 
-    Database() {}
-    virtual ~Database() {}
+    // @note Wee need to implicitly declare the constructor and virtual destructor as "public"
+    // since "QObject" (needed for the "connect" function to work with this struct)
+    // has a private destructor, which throws errors
+    public:
+        Database() {}
+        virtual ~Database() {}
 
-    void setHostname(const QString& hostname_) { hostname = hostname_; }
-    void setPort(const int port_) { port = port_; }
-    QString getHostname() const { return hostname; }
-    int getPort() const { return port; }
+        void setHostname(const QString& hostname_) { hostname = hostname_; }
+        void setPort(const int port_) { port = port_; }
+        QString getHostname() const { return hostname; }
+        int getPort() const { return port; }
 
-    virtual bool connect() = 0;
+        virtual bool connectToDatabase() = 0;
 };
 
 struct DatabaseCouch: public Database {
     DatabaseCouch() {}
     ~DatabaseCouch() {}
 
-    bool connect();
+    bool connectToDatabase();
 };
 
 #endif

@@ -1,8 +1,8 @@
 #include "include/database/DatabaseManager.h"
 
-bool DatabaseManager::connect() {
+bool DatabaseManager::connectToDatabase() {
     if (database != nullptr) {
-        return database->connect();
+        return database->connectToDatabase();
     }
 
     return false;

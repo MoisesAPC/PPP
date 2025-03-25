@@ -53,8 +53,8 @@ class DatabaseManager {
             }
         }
 
-        bool connect();
-        void closeConnection();
+        bool connectToDatabase();
+        void closeConnectionFromDatabase();
 
         void findEntry(const QString& id);
         void createEntry(const QString& id, const SaveData& saveData);
