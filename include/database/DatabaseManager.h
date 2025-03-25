@@ -6,6 +6,11 @@
 
 class DatabaseManager {
     public:
+        enum eDatabaseType {
+            DATABASE_COUCHDB,
+            DATABASE_NONE = -1
+        };
+
         static DatabaseManager* getInstance() {
             if (instance == nullptr) {
                 createInstance();
@@ -47,6 +52,16 @@ class DatabaseManager {
                 database = nullptr;
             }
 
+            destroyNetworkAccessManager();
+        }
+
+        QNetworkAccessManager* allocNetworkAccessManager() {
+            networkAcessManager = new QNetworkAccessManager();
+
+            return networkAcessManager;
+        }
+
+        void destroyNetworkAccessManager() {
             if (networkAcessManager != nullptr) {
                 delete networkAcessManager;
                 networkAcessManager = nullptr;
@@ -54,7 +69,7 @@ class DatabaseManager {
         }
 
         bool connectToDatabase();
-        void closeConnectionFromDatabase();
+        void disconnectFromDatabase();
 
         void findEntry(const QString& id);
         void createEntry(const QString& id, const SaveData& saveData);
@@ -65,17 +80,9 @@ class DatabaseManager {
     private:
         static DatabaseManager* instance;
 
-        DatabaseManager() {
-            networkAcessManager = new QNetworkAccessManager();
-        }
-
+        DatabaseManager() {}
         ~DatabaseManager() { clearManager(); }
         DatabaseManager(const DatabaseManager& obj) = delete; // Remove the copy constructor
-
-        enum eDatabaseType {
-            DATABASE_COUCHDB,
-            DATABASE_NONE = -1
-        };
 
         int databaseType = DATABASE_NONE;
         Database* database = nullptr;

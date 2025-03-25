@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network concurrent
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,7 +30,8 @@ HEADERS += \
     include/windows/controllerpakselection/controllerpakselectionwindow.h \
     include/windows/databaseaccess/databaseaccesswindow.h \
     include/windows/main/mainwindow.h \
-    include/windows/main/slotMenu.h
+    include/windows/main/slotMenu.h \
+    include/windows/ComboBoxData.h
 
 FORMS += \
     ui/databaseaccesswindow.ui \

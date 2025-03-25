@@ -89,7 +89,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lePort"/>
+       <widget class="QSpinBox" name="sbPort">
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLabel" name="labelDatabaseName">
@@ -105,7 +109,7 @@
        <widget class="QLineEdit" name="leDatabaseName"/>
       </item>
       <item>
-       <spacer name="spacer1_2">
+       <spacer name="spacer2">
         <property name="orientation">
          <enum>Qt::Orientation::Vertical</enum>
         </property>
@@ -121,7 +125,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="buttonConnect">
         <property name="text">
          <string>Connect</string>
         </property>

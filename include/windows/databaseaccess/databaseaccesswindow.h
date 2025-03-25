@@ -1,7 +1,12 @@
 #ifndef DATABASEACCESSWINDOW_H
 #define DATABASEACCESSWINDOW_H
 
+#include "include/windows/ComboBoxData.h"
+#include "include/database/DatabaseManager.h"
+
 #include <QDialog>
+#include <QComboBox>
+#include <QStackedWidget>
 
 namespace Ui {
 class DatabaseAccessWindow;
@@ -16,7 +21,17 @@ public:
     ~DatabaseAccessWindow();
 
 private:
-    Ui::DatabaseAccessWindow *ui;
+    Ui::DatabaseAccessWindow* ui;
+
+    Ui::ComboBoxData comboBoxDataDatabaseTypes = {
+        {{"CouchDB", DatabaseManager::DATABASE_COUCHDB}}
+    };
+
+    void setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter);
+    void setupLineEditHostname(QLineEdit* lineEdit);
+    void showLoadingBar(const QString& messageText, const QString& titleText, const QString& successMessage, const QString& errorMessage, std::function<bool()> workFunction);
+    void switchPage(QStackedWidget* stackedWidget, const QWidget* page);
+    void onConnectButtonPress();
 };
 
 #endif // DATABASEACCESSWINDOW_H

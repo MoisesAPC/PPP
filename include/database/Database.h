@@ -26,6 +26,7 @@ struct Database: public QObject {
         QString getDatabaseName() const { return databaseName; }
 
         virtual bool connectToDatabase() = 0;
+        virtual void disconnectFromDatabase() = 0;
 };
 
 struct DatabaseCouch: public Database {
@@ -33,6 +34,7 @@ struct DatabaseCouch: public Database {
     ~DatabaseCouch() {}
 
     bool connectToDatabase();
+    void disconnectFromDatabase();
 };
 
 #endif

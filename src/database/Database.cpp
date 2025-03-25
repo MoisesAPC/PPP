@@ -8,12 +8,14 @@
 #include <QUrl>
 
 bool DatabaseCouch::connectToDatabase() {
+    QNetworkAccessManager* networkManager = DatabaseManager::getInstance()->allocNetworkAccessManager();
+
     QUrl url(QString("http://%1:%2/").arg(getHostname()).arg(getPort()));
     QNetworkRequest request(url);
 
     // Send the "GET" request and then wait for a responsed (loop.exec())
     // If no errors are gotten, we've connected successully
-    QNetworkReply* reply = DatabaseManager::getInstance()->getNetworkAccessManager()->get(request);
+    QNetworkReply* reply = networkManager->get(request);
     QEventLoop loop;
     connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
     loop.exec();
@@ -22,4 +24,8 @@ bool DatabaseCouch::connectToDatabase() {
     reply->deleteLater();
 
     return success;
+}
+
+void DatabaseCouch::disconnectFromDatabase() {
+    DatabaseManager::getInstance()->disconnectFromDatabase();
 }

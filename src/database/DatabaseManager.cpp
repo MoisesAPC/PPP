@@ -7,3 +7,9 @@ bool DatabaseManager::connectToDatabase() {
 
     return false;
 }
+
+void DatabaseManager::disconnectFromDatabase() {
+    if (database != nullptr) {
+        database->disconnectFromDatabase();
+    }
+}
