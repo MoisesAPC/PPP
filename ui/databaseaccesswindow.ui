@@ -117,7 +117,50 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QWidget" name="page_2"/>
+   <widget class="QWidget" name="pageSaveList">
+    <widget class="QPushButton" name="buttonUpload">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>430</y>
+       <width>261</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Upload current save to database</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sbPageList">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>430</y>
+       <width>42</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>50</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonFind">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>430</y>
+       <width>93</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Find...</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>
