@@ -1,9 +1,6 @@
 #include "include\windows\databaseaccess\databaseaccesswindow.h"
 #include "ui_databaseaccesswindow.h"
-#include <QProgressDialog>
 #include <QMessageBox>
-#include <QtConcurrent>
-#include <QFuture>
 
 DatabaseAccessWindow::DatabaseAccessWindow(QWidget *parent)
     : QDialog(parent)
@@ -76,39 +73,6 @@ void DatabaseAccessWindow::setupLineEditHostname(QLineEdit* lineEdit) {
     });
 }
 
-// Shows a loading bar while it does the "workFunction" (passed as a function pointer)
-void DatabaseAccessWindow::showLoadingBar(const QString& messageText, const QString& titleText, const QString& successMessage, const QString& errorMessage, std::function<bool()> workFunction) {
-    bool result = 0;
-
-    QProgressDialog loadingBar(messageText, "", 0, 100, this);
-    loadingBar.setWindowModality(Qt::WindowModal);
-    loadingBar.setWindowTitle("Please Wait");
-    loadingBar.setMinimumDuration(0);
-    loadingBar.setValue(0);
-    loadingBar.show();
-
-    // We run the work function asynchronously,
-    // then wait until the function is finished executing
-    QFuture<bool> operation = QtConcurrent::run(workFunction);
-
-    while (!operation.isFinished()) {}
-
-    loadingBar.close();
-
-    // What's returned from the work function gets stored in the "result" variable
-    result = operation.result();
-    if (result == true) {
-        // Switch to the save list page
-        QMessageBox::information(this, "", successMessage);
-        switchPage(ui->stackedWidgetPages, ui->pageSaveList);
-    }
-    else {
-        // Disconnect from the database on error
-        QMessageBox::critical(this, "", errorMessage);
-        DatabaseManager::getInstance()->getDatabase()->disconnectFromDatabase();
-    }
-}
-
 void DatabaseAccessWindow::switchPage(QStackedWidget* stackedWidget, const QWidget* page) {
     stackedWidget->setCurrentIndex(stackedWidget->indexOf(page));
 }
@@ -127,7 +91,17 @@ void DatabaseAccessWindow::onConnectButtonPress() {
     }
 
     // Finally, try to connect to the database
-    showLoadingBar("Please wait...", "Connecting to database", "Successfully connected to the database!", "An error has occured while connecting.", []() -> bool {
-        return DatabaseManager::getInstance()->connectToDatabase();
-    });
+    // What's returned from the work function gets stored in the "result" variable
+    bool result = DatabaseManager::getInstance()->connectToDatabase();
+
+    if (result == true) {
+        // Switch to the save list page
+        QMessageBox::information(this, "", "Successfully connected to the database!");
+        switchPage(ui->stackedWidgetPages, ui->pageSaveList);
+    }
+    else {
+        // Disconnect from the database on error
+        QMessageBox::critical(this, "", "Error while connecting to the database.");
+        DatabaseManager::getInstance()->getDatabase()->disconnectFromDatabase();
+    }
 }

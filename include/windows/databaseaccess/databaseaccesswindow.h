@@ -29,7 +29,6 @@ private:
 
     void setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter);
     void setupLineEditHostname(QLineEdit* lineEdit);
-    void showLoadingBar(const QString& messageText, const QString& titleText, const QString& successMessage, const QString& errorMessage, std::function<bool()> workFunction);
     void switchPage(QStackedWidget* stackedWidget, const QWidget* page);
     void onConnectButtonPress();
 };
