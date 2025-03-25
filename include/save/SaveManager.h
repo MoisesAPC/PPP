@@ -67,8 +67,8 @@ class SaveManager {
         void setEventFlags(const int, const unsigned int);
         void assignEventFlags(const int, const unsigned int);
         void unassignEventFlags(const int, const unsigned int);
-        unsigned int calcFirstChecksum(unsigned char*);
-        unsigned int calcSecondChecksum(unsigned int*);
+        unsigned int calcFirstChecksum(const QByteArray&);
+        unsigned int calcSecondChecksum(const QByteArray&);
         bool areAllSavesDisabled();
 
         SaveSlot& getSaveSlot(const int index) {

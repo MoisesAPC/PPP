@@ -128,27 +128,27 @@ void SaveManager::unassignEventFlags(const int flagSet, const unsigned int flags
     BITS_UNSET(getInstance()->getCurrentSave().event_flags[flagSet], flags);
 }
 
-unsigned int SaveManager::calcFirstChecksum(unsigned char* dataFromFile) {
+unsigned int SaveManager::calcFirstChecksum(const QByteArray& dataFromFile) {
     unsigned int checksum = 0;
-    unsigned int offset = 0;
-    unsigned char* data;
 
-    for (data = dataFromFile; offset != sizeof(SaveData); offset++) {
-        checksum = *data + checksum;
-        data++;
+    unsigned int numElements = dataFromFile.size();
+    const unsigned char* data = reinterpret_cast<const unsigned char*>(dataFromFile.constData());
+
+    for (int i = 0; i < numElements; i++) {
+        checksum += data[i];
     }
 
     return checksum;
 }
 
-unsigned int SaveManager::calcSecondChecksum(unsigned int* dataFromFile) {
+unsigned int SaveManager::calcSecondChecksum(const QByteArray& dataFromFile) {
     unsigned int checksum = 0;
-    unsigned int offset = 0;
-    unsigned int* data;
 
-    for (data = dataFromFile; offset != sizeof(SaveData) / sizeof(unsigned int); offset++) {
-        checksum = *data ^ checksum;
-        data++;
+    unsigned int numElements = dataFromFile.size() / 4;
+    const unsigned int* data = reinterpret_cast<const unsigned int*>(dataFromFile.constData());
+
+    for (int i = 0; i < numElements; i++) {
+        checksum ^= data[i];
     }
 
     return checksum;

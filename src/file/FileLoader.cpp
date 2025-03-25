@@ -3,6 +3,7 @@
 #include <QDataStream>
 #include <QDebug>
 #include <algorithm> // std::search, std::distance
+#include <cstddef>   // offsetof
 
 void FileLoader::readSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset) {
     QDataStream inputStream(&file);
@@ -24,9 +25,35 @@ void FileLoader::writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOf
 
     writeSaveData(outputStream, slot.main, startOffset);
     writeSaveData(outputStream, slot.beginningOfStage, outputStream.device()->pos());
-    unsigned int firstChecksum = saveManager->calcFirstChecksum(reinterpret_cast<unsigned char*>(&slot.main));
-    unsigned int secondChecksum = saveManager->calcSecondChecksum(reinterpret_cast<unsigned int*>(&slot.main));
+
+    QIODevice* device = outputStream.device();
+    device->seek(startOffset);
+    QByteArray rawData = device->read(sizeof(SaveData));
+
+    // Convert "rawData" to big-endian
+    swapEndianness(&rawData);
+
+    // Write the SaveSlot main's checksum at the specific offsets within the SaveSlot struct
+    unsigned int firstChecksum = saveManager->calcFirstChecksum(rawData);
+    unsigned int secondChecksum = saveManager->calcSecondChecksum(rawData);
+
+    unsigned int firstChecksumOffset = 0;
+    unsigned int secondChecksumOffset = 0;
+
+    if (SaveManager::getInstance()->getRegion() == SaveData::PAL) {
+        firstChecksumOffset = offsetof(SaveSlot, checksum1);
+        secondChecksumOffset = offsetof(SaveSlot, checksum2);
+    }
+    else {
+        // Since the PAL version of the SaveSlot added 4 extra bytes (and this project uses the PAL definition of the struct),
+        // we will remove those extra 4 bytes (plus 4 -> 8 bytes) from the offset to get the correct address to write the checksums to
+        firstChecksumOffset = offsetof(SaveSlot, checksum1) - 8;
+        secondChecksumOffset = offsetof(SaveSlot, checksum2) - 8;
+    }
+
+    device->seek(startOffset + firstChecksumOffset);
     outputStream << firstChecksum;
+    device->seek(startOffset + secondChecksumOffset);
     outputStream << secondChecksum;
 }
 
@@ -395,3 +422,17 @@ unsigned int FileLoaderControllerPak::getMaxFileSize() const {
 unsigned int FileLoaderDexDrive::getMaxFileSize() const {
     return 0x8000 + 0x1040;
 };
+
+void FileLoader::swapEndianness(QByteArray* rawData) {
+    if (!rawData || rawData->size() < 4) {
+        return;
+    }
+
+    char* data = rawData->data();
+    int dataSize = rawData->size();
+
+    for (int i = 0; i + 3 < dataSize; i += 4) {
+        std::swap(data[i], data[i + 3]);
+        std::swap(data[i + 1], data[i + 2]);
+    }
+}

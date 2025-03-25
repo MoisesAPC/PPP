@@ -32,6 +32,7 @@ struct FileLoader {
     virtual unsigned int getNoteTableEntrySize() const { return 0; }
     virtual unsigned int getNoteTableNumEntries() const { return 0; }
     virtual unsigned int getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const { return 0; };
+    void swapEndianness(QByteArray*);
 
     template<typename T>
     T readData(QDataStream& inputStream, long offset);
