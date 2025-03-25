@@ -10,7 +10,7 @@ struct Database: public QObject {
     QString hostname = "";
     int port = 0;
 
-    // @note Wee need to implicitly declare the constructor and virtual destructor as "public"
+    // @note Wee need to explicitly declare the constructor and virtual destructor as "public"
     // since "QObject" (needed for the "connect" function to work with this struct)
     // has a private destructor, which throws errors
     public:
