@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QJsonObject>
 #include <QNetworkRequest>
+#include <QNetworkReply>
 
 // We inherit from QObject in order to be able to use the "connect" function using this class
 struct Database: public QObject {
@@ -18,10 +19,11 @@ struct Database: public QObject {
     // since "QObject" (needed for the "connect" function to work with this struct)
     // has a private destructor, which throws errors
     public:
-    struct SaveBasicInfo {
-        QString documentId = "";
-        int region = SaveData::USA;
-    };
+        struct SaveBasicInfo {
+            QString documentId = "";
+            QString rev = "";   // Revisional info needed for delete operations to work correctly
+            int region = SaveData::USA;
+        };
 
         Database() {}
         virtual ~Database() {}
@@ -36,8 +38,11 @@ struct Database: public QObject {
         virtual bool connectToDatabase() = 0;
         virtual void disconnectFromDatabase() = 0;
         virtual void createEntry(const QString &id, const SaveData &saveData) = 0;
+        virtual void deleteEntry(const QString& id, const QString& rev) = 0;
         virtual std::vector<Database::SaveBasicInfo> getAllEntries() = 0;
         virtual void parseGetAllEntriesResponse(const QByteArray& data, std::vector<Database::SaveBasicInfo>& entries) = 0;
+
+        void waitForEventToFinish(QNetworkReply* reply);
 };
 
 struct DatabaseCouch: public Database {
@@ -48,11 +53,12 @@ struct DatabaseCouch: public Database {
     void disconnectFromDatabase();
     void createEntry(const QString &id, const SaveData &saveData);
 
-    void getDatabaseRequestReply();
+    void getDatabaseRequestReply(QNetworkReply* reply);
     QJsonObject parseSaveDataToJSON(const SaveData&);
     void createAuthorizationHeader(QNetworkRequest& request);
     std::vector<Database::SaveBasicInfo> getAllEntries();
     void parseGetAllEntriesResponse(const QByteArray& data, std::vector<Database::SaveBasicInfo>& entries);
+    void deleteEntry(const QString& id, const QString& rev);
 };
 
 #endif

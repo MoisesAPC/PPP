@@ -50,22 +50,36 @@ void DatabaseAccessWindow::setupSaveListMenu() {
 }
 
 void DatabaseAccessWindow::createSaveListButtons() {
+    clearSaveList();
+
     for (int i = 0; i < saveEntries.size(); i++) {
         QPushButton* actionButton = new QPushButton();
 
-        setSaveListButtonProperties(actionButton, saveEntries[i].documentId, i + 1, saveEntries[i].region);
+        setSaveListButtonProperties(actionButton, saveEntries[i].documentId, i + 1, saveEntries[i].region, saveEntries[i].rev);
 
         ui->buttonListLayout->addWidget(actionButton);
 
         connect(actionButton, &QPushButton::clicked, this, [this, actionButton]() {
             QString documentId = actionButton->property("documentId").toString();
-            onActionButtonClicked(documentId);
+            QString rev = actionButton->property("rev").toString();
+            onActionButtonClicked(documentId, rev);
         });
     }
 }
 
-void DatabaseAccessWindow::setSaveListButtonProperties(QPushButton* button, const QString& documentId, const int listIndex, const int region) {
+// Removes all buttons from the save list
+void DatabaseAccessWindow::clearSaveList() {
+    while (QLayoutItem* item = ui->buttonListLayout->takeAt(0)) {
+        if (QWidget* widget = item->widget()) {
+            delete widget;
+        }
+        delete item;
+    }
+}
+
+void DatabaseAccessWindow::setSaveListButtonProperties(QPushButton* button, const QString& documentId, const int listIndex, const int region, const QString& rev) {
     button->setProperty("documentId", documentId);
+    button->setProperty("rev", rev);
     button->setProperty("listIndex", listIndex);
 
     QString regionString = "";
@@ -168,16 +182,21 @@ void DatabaseAccessWindow::onConnectButtonPress() {
         // Switch to the save list page
         QMessageBox::information(this, "", "Successfully connected to the database!");
 
-        // Retrieve save list entries from the database and construct the button list with the retrieved data
-        saveEntries = DatabaseManager::getInstance()->getAllEntries();
-        switchPage(ui->stackedWidgetPages, ui->pageSaveList);
-        createSaveListButtons();
+        createSaveList();
     }
     else {
         // Disconnect from the database on error
         QMessageBox::critical(this, "", "Error while connecting to the database.");
         DatabaseManager::getInstance()->getDatabase()->disconnectFromDatabase();
     }
+}
+
+// Retrieve save list entries from the database and construct the button list with the retrieved data
+void DatabaseAccessWindow::createSaveList() {
+    saveEntries.clear();
+    saveEntries = DatabaseManager::getInstance()->getAllEntries();
+    switchPage(ui->stackedWidgetPages, ui->pageSaveList);
+    createSaveListButtons();
 }
 
 void DatabaseAccessWindow::onUploadSaveButtonPress() {
@@ -192,10 +211,21 @@ void DatabaseAccessWindow::onUploadSaveButtonPress() {
 
     if (ok && !documentId.isEmpty()) {
         DatabaseManager::getInstance()->createEntry(documentId, SaveManager::getInstance()->getCurrentSave());
+        createSaveList();
     }
 }
 
-void DatabaseAccessWindow::onActionButtonClicked(const QString& docId) {
-    DatabaseSaveListActionWindow* actionWindow = new DatabaseSaveListActionWindow(docId);
+void DatabaseAccessWindow::onActionButtonClicked(const QString& docId, const QString& rev) {
+    // @note We have to pass "DatabaseAccessWindow" as a parent of "DatabaseSaveListActionWindow",
+    // in order for the "DatabaseSaveListActionWindow" signals to work
+    DatabaseSaveListActionWindow* actionWindow = new DatabaseSaveListActionWindow(docId, rev, this);
+
+    // If "reloadSaveList" is true, it means an item was deleted from the database, so we have to reload the save list
+    connect(actionWindow, &DatabaseSaveListActionWindow::deleteConfirmed, this, [this](bool reloadSaveList) {
+        if (reloadSaveList) {
+            createSaveList();
+        }
+    });
+
     actionWindow->exec();
 }

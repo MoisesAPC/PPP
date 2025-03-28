@@ -1,12 +1,19 @@
 #include "include/database/Database.h"
 #include "include/database/DatabaseManager.h"
-#include <QNetworkReply>
 #include <QEventLoop>
 #include <QJsonDocument>
 #include <QMessageBox>
 #include <QUrl>
 #include <QUrlQuery>
 #include <QJsonArray>
+
+// IMPORTANT: We need this code in order to ensure that the "reply" operation (for example, creating a new database entry, deleting, etc)
+// is finished BEFORE the code below gets executed (i.e. synchronously)
+void Database::waitForEventToFinish(QNetworkReply* reply) {
+    QEventLoop loop;
+    connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+    loop.exec();
+}
 
 bool DatabaseCouch::connectToDatabase() {
     DatabaseManager* databaseManager = DatabaseManager::getInstance()->getInstance();
@@ -50,12 +57,14 @@ void DatabaseCouch::createEntry(const QString &id, const SaveData &saveData) {
     QJsonObject jsonDoc = parseSaveDataToJSON(saveData);
     QNetworkReply* reply = DatabaseManager::getInstance()->getNetworkAccessManager()->put(request, QJsonDocument(jsonDoc).toJson());
 
+    waitForEventToFinish(reply);
     // When the request is finished, call "getDatabaseRequestReply" to get the response (either success or error)
-    connect(reply, &QNetworkReply::finished, this, &DatabaseCouch::getDatabaseRequestReply);
+    getDatabaseRequestReply(reply);
+
+    reply->deleteLater();
 }
 
-void DatabaseCouch::getDatabaseRequestReply() {
-    QNetworkReply* reply = qobject_cast<QNetworkReply *>(sender());
+void DatabaseCouch::getDatabaseRequestReply(QNetworkReply* reply) {
     if (reply == nullptr) {
         QMessageBox::critical(nullptr, "", "An error has occurred while performing this operation.");
         return;
@@ -167,8 +176,27 @@ void DatabaseCouch::parseGetAllEntriesResponse(const QByteArray& data, std::vect
 
         QJsonObject docObj = rowObj["doc"].toObject();
         if (!docObj.isEmpty()) {
+            QString rev = docObj["_rev"].toString();
             int region = docObj["region"].toInt();
-            entries.push_back({docId, region});
+            entries.push_back({docId, rev, region});
         }
     }
+}
+
+void DatabaseCouch::deleteEntry(const QString& id, const QString& rev) {
+    QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
+    // We need to add the "rev" field to ensure the deletion is properly made
+    QUrlQuery query;
+    query.addQueryItem("rev", rev);
+    url.setQuery(query);
+
+    QNetworkRequest request(url);
+    createAuthorizationHeader(request);
+    QNetworkReply* reply = DatabaseManager::getInstance()->getNetworkAccessManager()->deleteResource(request);
+
+    waitForEventToFinish(reply);
+    // When the request is finished, call "getDatabaseRequestReply" to get the response (either success or error)
+    getDatabaseRequestReply(reply);
+
+    reply->deleteLater();
 }

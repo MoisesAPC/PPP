@@ -94,7 +94,7 @@ class DatabaseManager {
         void createEntry(const QString& id, const SaveData& saveData);
         void updateEntry(const QString& id, const SaveData& saveData);
         SaveData& getEntry(const QString& id, const SaveData& saveData) const;
-        void deleteEntry(const QString& id);
+        void deleteEntry(const QString& id, const QString& rev);
 
     private:
         static DatabaseManager* instance;
