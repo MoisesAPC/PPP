@@ -29,7 +29,7 @@ private:
 
     void setupConnectMenu();
     void setupSaveListMenu();
-    void setupSaveListButtons();
+    void createSaveListButtons();
     void setSaveListButtonProperties(QPushButton* button, const QString& documentId, const int listIndex, const int region);
 
     void setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter);
@@ -39,6 +39,8 @@ private:
     void onActionButtonClicked(const QString& docId);
 
     void onUploadSaveButtonPress();
+
+    std::vector<Database::SaveBasicInfo> saveEntries;
 };
 
 #endif // DATABASEACCESSWINDOW_H

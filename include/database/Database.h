@@ -18,6 +18,11 @@ struct Database: public QObject {
     // since "QObject" (needed for the "connect" function to work with this struct)
     // has a private destructor, which throws errors
     public:
+    struct SaveBasicInfo {
+        QString documentId = "";
+        int region = SaveData::USA;
+    };
+
         Database() {}
         virtual ~Database() {}
 
@@ -31,6 +36,8 @@ struct Database: public QObject {
         virtual bool connectToDatabase() = 0;
         virtual void disconnectFromDatabase() = 0;
         virtual void createEntry(const QString &id, const SaveData &saveData) = 0;
+        virtual std::vector<Database::SaveBasicInfo> getAllEntries() = 0;
+        virtual void parseGetAllEntriesResponse(const QByteArray& data, std::vector<Database::SaveBasicInfo>& entries) = 0;
 };
 
 struct DatabaseCouch: public Database {
@@ -44,6 +51,8 @@ struct DatabaseCouch: public Database {
     void getDatabaseRequestReply();
     QJsonObject parseSaveDataToJSON(const SaveData&);
     void createAuthorizationHeader(QNetworkRequest& request);
+    std::vector<Database::SaveBasicInfo> getAllEntries();
+    void parseGetAllEntriesResponse(const QByteArray& data, std::vector<Database::SaveBasicInfo>& entries);
 };
 
 #endif

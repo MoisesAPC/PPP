@@ -88,6 +88,7 @@ class DatabaseManager {
 
         bool connectToDatabase();
         void disconnectFromDatabase();
+        std::vector<Database::SaveBasicInfo> getAllEntries();
 
         void findEntry(const QString& id);
         void createEntry(const QString& id, const SaveData& saveData);

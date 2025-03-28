@@ -20,6 +20,14 @@ void DatabaseManager::createEntry(const QString &id, const SaveData &saveData) {
     }
 }
 
+std::vector<Database::SaveBasicInfo> DatabaseManager::getAllEntries() {
+    if (database != nullptr) {
+        return database->getAllEntries();
+    }
+
+    return std::vector<Database::SaveBasicInfo>();
+}
+
 void DatabaseManager::assignDatabase() {
     if (database != nullptr) {
         delete database;

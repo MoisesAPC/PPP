@@ -5,6 +5,7 @@
 #include <QJsonDocument>
 #include <QMessageBox>
 #include <QUrl>
+#include <QUrlQuery>
 #include <QJsonArray>
 
 bool DatabaseCouch::connectToDatabase() {
@@ -116,6 +117,7 @@ QJsonObject DatabaseCouch::parseSaveDataToJSON(const SaveData& saveData) {
     json["time_saved_counter"] = static_cast<int>(saveData.time_saved_counter);
     json["death_counter"] = static_cast<int>(saveData.death_counter);
     json["gold_spent_on_Renon"] = static_cast<int>(saveData.gold_spent_on_Renon);
+    json["region"] = SaveManager::getInstance()->getRegion();
 
     return json;
 }
@@ -127,4 +129,46 @@ void DatabaseCouch::createAuthorizationHeader(QNetworkRequest& request) {
     // Authenticate the credentials. This is done by appending an "authorization" header with the credentials to the "GET" request
     QString authHeader = "Basic " + QByteArray(QString("%1:%2").arg(databaseManager->getUsername()).arg(databaseManager->getPassword()).toUtf8()).toBase64();
     request.setRawHeader("Authorization", authHeader.toUtf8());
+}
+
+std::vector<Database::SaveBasicInfo> DatabaseCouch::getAllEntries() {
+    std::vector<Database::SaveBasicInfo> entries;
+
+    QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg("_all_docs"));
+    QUrlQuery query;
+    query.addQueryItem("include_docs", "true"); // This line is needed to ensure we can get all documents from the database
+    url.setQuery(query);
+
+    QNetworkRequest request(url);
+    createAuthorizationHeader(request);
+
+    QNetworkReply* reply = DatabaseManager::getInstance()->getNetworkAccessManager()->get(request);
+    QEventLoop loop;
+    connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+    loop.exec();
+
+    if (reply->error() == QNetworkReply::NoError) {
+        QByteArray responseData = reply->readAll();
+        parseGetAllEntriesResponse(responseData, entries);
+    }
+
+    reply->deleteLater();
+    return entries;
+}
+
+void DatabaseCouch::parseGetAllEntriesResponse(const QByteArray& data, std::vector<Database::SaveBasicInfo>& entries) {
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(data);
+    QJsonObject jsonObj = jsonDoc.object();
+    QJsonArray rows = jsonObj["rows"].toArray();
+
+    for (const QJsonValue& value : rows) {
+        QJsonObject rowObj = value.toObject();
+        QString docId = rowObj["id"].toString();
+
+        QJsonObject docObj = rowObj["doc"].toObject();
+        if (!docObj.isEmpty()) {
+            int region = docObj["region"].toInt();
+            entries.push_back({docId, region});
+        }
+    }
 }

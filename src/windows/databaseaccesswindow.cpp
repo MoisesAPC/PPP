@@ -47,15 +47,13 @@ void DatabaseAccessWindow::setupSaveListMenu() {
     connect(ui->buttonUpload, &QPushButton::clicked, this, [this]() {
         onUploadSaveButtonPress();
     });
-
-    setupSaveListButtons();
 }
 
-void DatabaseAccessWindow::setupSaveListButtons() {
-    for (int i = 0; i < 5; ++i) {
+void DatabaseAccessWindow::createSaveListButtons() {
+    for (int i = 0; i < saveEntries.size(); i++) {
         QPushButton* actionButton = new QPushButton();
 
-        setSaveListButtonProperties(actionButton, QString("-1"), -1, SaveData::USA);
+        setSaveListButtonProperties(actionButton, saveEntries[i].documentId, i + 1, saveEntries[i].region);
 
         ui->buttonListLayout->addWidget(actionButton);
 
@@ -88,7 +86,7 @@ void DatabaseAccessWindow::setSaveListButtonProperties(QPushButton* button, cons
 
     button->setProperty("region", regionString);
 
-    button->setText(QString("%1\n%2\n%3")
+    button->setText(QString("Save (%1):\n%2\n%3")
                         .arg(listIndex)
                         .arg(documentId)
                         .arg(regionString));
@@ -169,7 +167,11 @@ void DatabaseAccessWindow::onConnectButtonPress() {
     if (result == true) {
         // Switch to the save list page
         QMessageBox::information(this, "", "Successfully connected to the database!");
+
+        // Retrieve save list entries from the database and construct the button list with the retrieved data
+        saveEntries = DatabaseManager::getInstance()->getAllEntries();
         switchPage(ui->stackedWidgetPages, ui->pageSaveList);
+        createSaveListButtons();
     }
     else {
         // Disconnect from the database on error
@@ -195,5 +197,5 @@ void DatabaseAccessWindow::onUploadSaveButtonPress() {
 
 void DatabaseAccessWindow::onActionButtonClicked(const QString& docId) {
     DatabaseSaveListActionWindow* actionWindow = new DatabaseSaveListActionWindow(docId);
-    int result = actionWindow->exec();
+    actionWindow->exec();
 }
