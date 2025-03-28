@@ -37,10 +37,12 @@ struct Database: public QObject {
 
         virtual bool connectToDatabase() = 0;
         virtual void disconnectFromDatabase() = 0;
-        virtual void createEntry(const QString &id, const SaveData &saveData) = 0;
+        virtual void createEntry(const QString& id, const SaveData& saveData, const QString& rev) = 0;
         virtual void deleteEntry(const QString& id, const QString& rev) = 0;
         virtual std::vector<Database::SaveBasicInfo> getAllEntries() = 0;
         virtual void parseGetAllEntriesResponse(const QByteArray& data, std::vector<Database::SaveBasicInfo>& entries) = 0;
+        virtual bool entryAlreadyExists(const QString& id) = 0;
+        virtual QString getDocumentRevision(const QString& documentId) = 0;
 
         void waitForEventToFinish(QNetworkReply* reply);
 };
@@ -51,7 +53,10 @@ struct DatabaseCouch: public Database {
 
     bool connectToDatabase();
     void disconnectFromDatabase();
-    void createEntry(const QString &id, const SaveData &saveData);
+    void createEntry(const QString& id, const SaveData& saveData, const QString& rev);
+    bool entryAlreadyExistsGivenRequest(const QNetworkRequest& request);
+    bool entryAlreadyExists(const QString& id);
+    QString getDocumentRevision(const QString& documentId);
 
     void getDatabaseRequestReply(QNetworkReply* reply);
     QJsonObject parseSaveDataToJSON(const SaveData&);

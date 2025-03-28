@@ -47,14 +47,34 @@ void DatabaseCouch::disconnectFromDatabase() {
     DatabaseManager::getInstance()->destroyNetworkAccessManager();
 }
 
-void DatabaseCouch::createEntry(const QString &id, const SaveData &saveData) {
+void DatabaseCouch::createEntry(const QString& id, const SaveData& saveData, const QString& rev) {
     QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
     QNetworkRequest request(url);
     createAuthorizationHeader(request);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
+    // Check if the given documentId already exists in the database
+    // If true, propmt the replacement window. If yes is selected, proceed with the replacement
+    if (entryAlreadyExistsGivenRequest(request)) {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(nullptr, "Confirm overwrite",
+                                      "This document ID already exists. Do you want to overwrite it?",
+                                      QMessageBox::Yes | QMessageBox::No);
+
+        if (reply == QMessageBox::No) {
+            return;
+        }
+    }
+
     // Send the "PUT" request with the JSON object (converted from the SaveData) and wait for the reply
     QJsonObject jsonDoc = parseSaveDataToJSON(saveData);
+
+    // When replacing (NOT creating) saves, ensure to pass "rev" in order to properly update the document.
+    // For newly created files, this is not needed.
+    if (!rev.isEmpty()) {
+        jsonDoc["_rev"] = rev;
+    }
+
     QNetworkReply* reply = DatabaseManager::getInstance()->getNetworkAccessManager()->put(request, QJsonDocument(jsonDoc).toJson());
 
     waitForEventToFinish(reply);
@@ -62,6 +82,25 @@ void DatabaseCouch::createEntry(const QString &id, const SaveData &saveData) {
     getDatabaseRequestReply(reply);
 
     reply->deleteLater();
+}
+
+bool DatabaseCouch::entryAlreadyExistsGivenRequest(const QNetworkRequest& request) {
+    QNetworkReply* checkReply = DatabaseManager::getInstance()->getNetworkAccessManager()->get(request);
+    waitForEventToFinish(checkReply);
+
+    bool documentExists = (checkReply->error() == QNetworkReply::NoError);
+    checkReply->deleteLater();
+
+    return documentExists;
+}
+
+bool DatabaseCouch::entryAlreadyExists(const QString& id) {
+    QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
+    QNetworkRequest request(url);
+    createAuthorizationHeader(request);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    return entryAlreadyExistsGivenRequest(request);
 }
 
 void DatabaseCouch::getDatabaseRequestReply(QNetworkReply* reply) {
@@ -199,4 +238,30 @@ void DatabaseCouch::deleteEntry(const QString& id, const QString& rev) {
     getDatabaseRequestReply(reply);
 
     reply->deleteLater();
+}
+
+// Obtains the document's associated "rev" given the documentId
+QString DatabaseCouch::getDocumentRevision(const QString& documentId) {
+    QUrl url(QString("http://%1:%2/%3/%4")
+                 .arg(getHostname())
+                 .arg(getPort())
+                 .arg(getDatabaseName())
+                 .arg(documentId));
+
+    QNetworkRequest request(url);
+    createAuthorizationHeader(request);
+
+    QNetworkReply* reply = DatabaseManager::getInstance()->getNetworkAccessManager()->get(request);
+    waitForEventToFinish(reply);
+
+    QString rev = "";
+    if (reply->error() == QNetworkReply::NoError) {
+        QJsonDocument jsonResponse = QJsonDocument::fromJson(reply->readAll());
+        if (jsonResponse.isObject() && jsonResponse.object().contains("_rev")) {
+            rev = jsonResponse.object()["_rev"].toString();
+        }
+    }
+
+    reply->deleteLater();
+    return rev;
 }

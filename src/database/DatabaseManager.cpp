@@ -14,10 +14,26 @@ void DatabaseManager::disconnectFromDatabase() {
     }
 }
 
-void DatabaseManager::createEntry(const QString& id, const SaveData& saveData) {
+void DatabaseManager::createEntry(const QString& id, const SaveData& saveData, const QString& rev) {
     if (database != nullptr) {
-        database->createEntry(id, saveData);
+        database->createEntry(id, saveData, rev);
     }
+}
+
+bool DatabaseManager::entryAlreadyExists(const QString& id) {
+    if (database != nullptr) {
+        return database->entryAlreadyExists(id);
+    }
+
+    return false;
+}
+
+QString DatabaseManager::getDocumentRevision(const QString& id) {
+    if (database != nullptr) {
+        return database->getDocumentRevision(id);
+    }
+
+    return "";
 }
 
 std::vector<Database::SaveBasicInfo> DatabaseManager::getAllEntries() {

@@ -219,9 +219,10 @@ void DatabaseAccessWindow::onUploadSaveButtonPress() {
 
     bool ok;
     QString documentId = QInputDialog::getText(this, "Introduce name", "Enter an ID name for the save: ", QLineEdit::Normal, "", &ok);
+    QString rev = DatabaseManager::getInstance()->getDocumentRevision(documentId);
 
     if (ok && !documentId.isEmpty()) {
-        DatabaseManager::getInstance()->createEntry(documentId, SaveManager::getInstance()->getCurrentSave());
+        DatabaseManager::getInstance()->createEntry(documentId, SaveManager::getInstance()->getCurrentSave(), rev);
         createSaveList();
     }
 }
