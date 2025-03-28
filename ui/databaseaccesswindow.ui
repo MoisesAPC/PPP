@@ -32,7 +32,7 @@
        <x>100</x>
        <y>20</y>
        <width>371</width>
-       <height>431</height>
+       <height>572</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="vlAccess">
@@ -187,7 +187,7 @@
     <widget class="QPushButton" name="buttonUpload">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>140</x>
        <y>430</y>
        <width>261</width>
        <height>29</height>
@@ -211,19 +211,6 @@
      </property>
      <property name="maximum">
       <number>50</number>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="buttonFind">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>430</y>
-       <width>93</width>
-       <height>29</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Find...</string>
      </property>
     </widget>
     <widget class="QWidget" name="verticalLayoutWidget_2">
