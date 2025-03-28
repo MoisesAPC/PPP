@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/windows/databasesavelistactionwindow.cpp \
     src/file/FileManager.cpp \
     src/file/FileLoader.cpp \
     src/database/DatabaseManager.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
     src/windows/controllerpakselectionwindow.cpp
 
 HEADERS += \
+    include/windows/databaseaccess/databasesavelistactionwindow.h \
     include/bit.h \
     include/file/FileManager.h \
     include/file/FileLoader.h \
@@ -34,6 +36,7 @@ HEADERS += \
     include/windows/ComboBoxData.h
 
 FORMS += \
+    ui/databasesavelistactionwindow.ui \
     ui/databaseaccesswindow.ui \
     ui/mainwindow.ui \
     ui/controllerpakselectionwindow.ui

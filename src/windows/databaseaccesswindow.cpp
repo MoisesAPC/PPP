@@ -1,4 +1,5 @@
 #include "include\windows\databaseaccess\databaseaccesswindow.h"
+#include "include\windows\databaseaccess\databasesavelistactionwindow.h"
 #include "ui_databaseaccesswindow.h"
 #include <QMessageBox>
 #include <QInputDialog>
@@ -8,6 +9,8 @@ DatabaseAccessWindow::DatabaseAccessWindow(QWidget *parent)
     , ui(new Ui::DatabaseAccessWindow)
 {
     ui->setupUi(this);
+
+    switchPage(ui->stackedWidgetPages, ui->pageAccess);
 
     setupConnectMenu();
     setupSaveListMenu();
@@ -44,6 +47,51 @@ void DatabaseAccessWindow::setupSaveListMenu() {
     connect(ui->buttonUpload, &QPushButton::clicked, this, [this]() {
         onUploadSaveButtonPress();
     });
+
+    setupSaveListButtons();
+}
+
+void DatabaseAccessWindow::setupSaveListButtons() {
+    for (int i = 0; i < 5; ++i) {
+        QPushButton* actionButton = new QPushButton();
+
+        setSaveListButtonProperties(actionButton, QString("-1"), -1, SaveData::USA);
+
+        ui->buttonListLayout->addWidget(actionButton);
+
+        connect(actionButton, &QPushButton::clicked, this, [this, actionButton]() {
+            QString documentId = actionButton->property("documentId").toString();
+            onActionButtonClicked(documentId);
+        });
+    }
+}
+
+void DatabaseAccessWindow::setSaveListButtonProperties(QPushButton* button, const QString& documentId, const int listIndex, const int region) {
+    button->setProperty("documentId", documentId);
+    button->setProperty("listIndex", listIndex);
+
+    QString regionString = "";
+    switch (region) {
+        default:
+        case SaveData::USA:
+            regionString = "USA";
+            break;
+
+        case SaveData::JPN:
+            regionString = "JPN";
+            break;
+
+        case SaveData::PAL:
+            regionString = "PAL";
+            break;
+    }
+
+    button->setProperty("region", regionString);
+
+    button->setText(QString("%1\n%2\n%3")
+                        .arg(listIndex)
+                        .arg(documentId)
+                        .arg(regionString));
 }
 
 DatabaseAccessWindow::~DatabaseAccessWindow() {
@@ -143,4 +191,9 @@ void DatabaseAccessWindow::onUploadSaveButtonPress() {
     if (ok && !documentId.isEmpty()) {
         DatabaseManager::getInstance()->createEntry(documentId, SaveManager::getInstance()->getCurrentSave());
     }
+}
+
+void DatabaseAccessWindow::onActionButtonClicked(const QString& docId) {
+    DatabaseSaveListActionWindow* actionWindow = new DatabaseSaveListActionWindow(docId);
+    int result = actionWindow->exec();
 }

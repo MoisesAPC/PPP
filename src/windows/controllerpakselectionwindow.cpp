@@ -24,13 +24,13 @@ QString ControllerPakSelectionWindow::getRegionName(const short region) const {
     switch (region) {
         default:
         case SaveData::USA:
-            return "Americas";
+            return "USA";
 
         case SaveData::JPN:
-            return "Japan";
+            return "JPN";
 
         case SaveData::PAL:
-            return "Europe";
+            return "PAL";
     }
 }
 

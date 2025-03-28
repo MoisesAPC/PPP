@@ -29,11 +29,14 @@ private:
 
     void setupConnectMenu();
     void setupSaveListMenu();
+    void setupSaveListButtons();
+    void setSaveListButtonProperties(QPushButton* button, const QString& documentId, const int listIndex, const int region);
 
     void setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter);
     void setupLineEditHostname(QLineEdit* lineEdit);
     void switchPage(QStackedWidget* stackedWidget, const QWidget* page);
     void onConnectButtonPress();
+    void onActionButtonClicked(const QString& docId);
 
     void onUploadSaveButtonPress();
 };
