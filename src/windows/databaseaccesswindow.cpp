@@ -3,6 +3,7 @@
 #include "ui_databaseaccesswindow.h"
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QtGlobal>
 
 DatabaseAccessWindow::DatabaseAccessWindow(QWidget *parent)
     : QDialog(parent)
@@ -44,19 +45,22 @@ void DatabaseAccessWindow::setupConnectMenu() {
 }
 
 void DatabaseAccessWindow::setupSaveListMenu() {
-    connect(ui->buttonUpload, &QPushButton::clicked, this, [this]() {
-        onUploadSaveButtonPress();
-    });
+    connect(ui->buttonUpload, &QPushButton::clicked, this, &DatabaseAccessWindow::onUploadSaveButtonPress);
+    connect(ui->sbPageList, &QSpinBox::valueChanged, this, &DatabaseAccessWindow::onPageSwitch);
 }
 
 void DatabaseAccessWindow::createSaveListButtons() {
+    // Depending on the value gotten from the spinbox, we decide what parts of the "saveEntries" array we have to render
+    // This is done to properly implement page switching using the spinbox
+    const int startIndex = (ui->sbPageList->value() - 1) * entriesPerPage;
+    const int endIndex = qMin(startIndex + entriesPerPage, static_cast<int>(saveEntries.size()));
+
     clearSaveList();
 
-    for (int i = 0; i < saveEntries.size(); i++) {
+    for (int i = startIndex; i < endIndex; i++) {
         QPushButton* actionButton = new QPushButton();
 
         setSaveListButtonProperties(actionButton, saveEntries[i].documentId, i + 1, saveEntries[i].region, saveEntries[i].rev);
-
         ui->buttonListLayout->addWidget(actionButton);
 
         connect(actionButton, &QPushButton::clicked, this, [this, actionButton]() {
@@ -195,6 +199,13 @@ void DatabaseAccessWindow::onConnectButtonPress() {
 void DatabaseAccessWindow::createSaveList() {
     saveEntries.clear();
     saveEntries = DatabaseManager::getInstance()->getAllEntries();
+
+    int maxPage = (saveEntries.size() + entriesPerPage - 1) / entriesPerPage;
+    ui->sbPageList->setMaximum(maxPage);
+
+    //Start on page 1
+    ui->sbPageList->setValue(1);
+
     switchPage(ui->stackedWidgetPages, ui->pageSaveList);
     createSaveListButtons();
 }
@@ -213,6 +224,10 @@ void DatabaseAccessWindow::onUploadSaveButtonPress() {
         DatabaseManager::getInstance()->createEntry(documentId, SaveManager::getInstance()->getCurrentSave());
         createSaveList();
     }
+}
+
+void DatabaseAccessWindow::onPageSwitch() {
+    createSaveListButtons();
 }
 
 void DatabaseAccessWindow::onActionButtonClicked(const QString& docId, const QString& rev) {

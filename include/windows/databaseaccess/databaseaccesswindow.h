@@ -17,6 +17,9 @@ class DatabaseAccessWindow : public QDialog
     Q_OBJECT
 
 public:
+    // The number of save buttons rendered on the list
+    const int entriesPerPage = 5;
+
     explicit DatabaseAccessWindow(QWidget *parent = nullptr);
     ~DatabaseAccessWindow();
 
@@ -33,6 +36,7 @@ private:
     void createSaveListButtons();
     void setSaveListButtonProperties(QPushButton* button, const QString& documentId, const int listIndex, const int region, const QString& rev);
     void clearSaveList();
+    void onPageSwitch();
 
     void setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter);
     void setupLineEditHostname(QLineEdit* lineEdit);
