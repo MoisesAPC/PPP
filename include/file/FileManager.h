@@ -54,6 +54,10 @@ class FileManager {
             return format;
         }
 
+        void setFileFormat(const int format_) {
+            format = format_;
+        }
+
         QString& getFilepath() {
             return filepath;
         }
@@ -99,6 +103,10 @@ class FileManager {
 
         bool wasFileOpened() const {
             return fileOpened;
+        }
+
+        void setFileOpened(const bool fileOpened_) {
+            fileOpened = fileOpened_;
         }
 
     private:

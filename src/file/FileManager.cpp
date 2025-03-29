@@ -94,6 +94,10 @@ int FileManager::openFile(const QString& filepath_) {
 
                 loader->parseRegion(*file);
                 loader->readAllSaveSlots(*file);
+
+                if (fileOpened == false) {
+                    fileOpened = true;
+                }
             }
         }
         else {
@@ -101,10 +105,6 @@ int FileManager::openFile(const QString& filepath_) {
         }
 
         file->close();
-    }
-
-    if (fileOpened == false) {
-        fileOpened = true;
     }
 
     return 0;

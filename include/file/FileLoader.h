@@ -15,7 +15,7 @@ struct FileLoader {
     void readSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset);
     void readAllSaveSlots(QFile& file);
     void writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset);
-    void writeAllSaveSlots(QFile& file);
+    virtual void writeAllSaveSlots(QFile& file);
     virtual void parseRegion(QFile& file) = 0;
     const SaveData& parseSaveData(QDataStream& inputStream, unsigned int startOffset);
     void writeSaveData(QDataStream& outputStream, const SaveData& saveData, unsigned int startOffset);
@@ -72,6 +72,8 @@ struct FileLoaderCartridge: public FileLoader {
     unsigned int getSaveSlotPaddedSize() const;
     std::vector<unsigned char> getHeaderBytes() const;
     unsigned int getCartridgeNumSaves() const;
+
+    void writeAllSaveSlots(QFile& file);
 };
 
 struct FileLoaderControllerPak: public FileLoader {

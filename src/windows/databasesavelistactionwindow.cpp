@@ -1,7 +1,8 @@
 #include "include/windows/databaseaccess/databasesavelistactionwindow.h"
 #include "ui_databasesavelistactionwindow.h"
-#include "include/database/DatabaseManager.h"
 #include "include\windows\main\mainwindow.h"
+#include "include/database/DatabaseManager.h"
+#include "include/file/FileManager.h"
 #include <QMessageBox>
 
 DatabaseSaveListActionWindow::DatabaseSaveListActionWindow(const QString& docId, const QString& revision, QWidget* parent)
@@ -35,6 +36,10 @@ void DatabaseSaveListActionWindow::onEditButton() {
             return;
         }
     }
+
+    // Ensure we can't use the regular "Save" button (since this save wasn't obtained by opening a file)
+    // Therefore, only the "Save As..." menu should be available
+    FileManager::getInstance()->setFileOpened(false);
 
     DatabaseManager::getInstance()->getEntry(documentId, entries);
 

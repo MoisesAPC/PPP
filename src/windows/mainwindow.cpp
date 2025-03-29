@@ -679,7 +679,11 @@ void MainWindow::fileOpenMenu() {
 
 void MainWindow::fileSaveMenu() {
     if (!FileManager::getInstance()->wasFileOpened()) {
-        QMessageBox::critical(this, "Error", "Open a file before trying to save.");
+        QMessageBox::critical(this, "Error", "Open a file in local before trying to save.");
+        return;
+    }
+    if (SaveManager::getInstance()->areAllSavesDisabled()) {
+        QMessageBox::critical(this, "Error", "This save is empty, so it can't be saved.");
         return;
     }
 
@@ -700,30 +704,15 @@ void MainWindow::fileSaveMenu() {
 }
 
 void MainWindow::fileSaveAsMenu() {
-    if (!FileManager::getInstance()->wasFileOpened()) {
-        QMessageBox::critical(this, "Error", "Open a file before trying to save.");
+    if (SaveManager::getInstance()->areAllSavesDisabled()) {
+        QMessageBox::critical(this, "Error", "This save is empty, so it can't be saved.");
         return;
     }
 
-    // Only try to "Save As" the file format of the previously opened file.
-    QString fileFilter = "";
-    switch (FileManager::getInstance()->getFileFormat()) {
-        case FileManager::FORMAT_NOTE:
-            fileFilter = "Individual note (*.note)";
-            break;
-        case FileManager::FORMAT_CONTROLLERPAK:
-            fileFilter = "Controller Pak data (*.mpk *.pak)";
-            break;
-        case FileManager::FORMAT_CARTRIDGE:
-            fileFilter = "Cartridge (Japanese version only) (*.eep)";
-            break;
-        case FileManager::FORMAT_DEXDRIVE:
-            fileFilter = "DexDrive saves (*.n64 *.t64)";
-            break;
-    }
-
-     QString filepath = QFileDialog::getSaveFileName(
-        this, "Asve As...", QString(), fileFilter
+    QString filepath = QFileDialog::getSaveFileName(
+        this, "Save As...", QString(),
+        "Individual note (*.note);;"
+        "Cartridge (Japanese version only) (*.eep)"
     );
 
     if (!filepath.isEmpty()) {
