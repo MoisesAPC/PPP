@@ -50,12 +50,15 @@ void DatabaseAccessWindow::setupSaveListMenu() {
 }
 
 void DatabaseAccessWindow::createSaveListButtons() {
+    clearSaveList();
+
+    if (saveEntries.empty()) {
+        return;
+    }
     // Depending on the value gotten from the spinbox, we decide what parts of the "saveEntries" array we have to render
     // This is done to properly implement page switching using the spinbox
     const int startIndex = (ui->sbPageList->value() - 1) * entriesPerPage;
     const int endIndex = qMin(startIndex + entriesPerPage, static_cast<int>(saveEntries.size()));
-
-    clearSaveList();
 
     for (int i = startIndex; i < endIndex; i++) {
         QPushButton* actionButton = new QPushButton();
@@ -207,10 +210,13 @@ void DatabaseAccessWindow::createSaveList() {
     ui->sbPageList->setValue(1);
 
     switchPage(ui->stackedWidgetPages, ui->pageSaveList);
+
     createSaveListButtons();
 }
 
 void DatabaseAccessWindow::onUploadSaveButtonPress() {
+    std::vector<SaveSlot> entries;
+
     // Only allow enabled saves to be uploaded to the database
     if (SaveManager::getInstance()->areAllSavesDisabled()) {
         QMessageBox::critical(this, "", "The current save is empty, so it can't be added to the database");
@@ -222,7 +228,11 @@ void DatabaseAccessWindow::onUploadSaveButtonPress() {
     QString rev = DatabaseManager::getInstance()->getDocumentRevision(documentId);
 
     if (ok && !documentId.isEmpty()) {
-        //DatabaseManager::getInstance()->createEntry(documentId, SaveManager::getInstance()->getCurrentSave(), rev);
+        for (int i = 0; i < NUM_SAVES; i++) {
+            entries.push_back(SaveManager::getInstance()->getSaveSlot(i));
+        }
+
+        DatabaseManager::getInstance()->createEntry(documentId, entries, rev);
         createSaveList();
     }
 }

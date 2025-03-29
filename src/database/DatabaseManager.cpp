@@ -14,9 +14,9 @@ void DatabaseManager::disconnectFromDatabase() {
     }
 }
 
-void DatabaseManager::createEntry(const QString& id, const SaveSlot& saveSlot, const QString& rev) {
+void DatabaseManager::createEntry(const QString& id, const std::vector<SaveSlot>& entries, const QString& rev) {
     if (database != nullptr) {
-        database->createEntry(id, saveSlot, rev);
+        database->createEntry(id, entries, rev);
     }
 }
 
@@ -63,8 +63,8 @@ void DatabaseManager::assignDatabase() {
     }
 }
 
-void DatabaseManager::getEntry(const QString& id, SaveSlot& saveSlot) {
+void DatabaseManager::getEntry(const QString& id, std::vector<SaveSlot>& entries) {
     if (database != nullptr) {
-        database->getEntry(id, saveSlot);
+        database->getEntry(id, entries);
     }
 }

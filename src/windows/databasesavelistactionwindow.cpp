@@ -32,7 +32,7 @@ void DatabaseSaveListActionWindow::onEditButton() {
     }
 
     for (int i = 0; i < NUM_SAVES; i++) {
-        DatabaseManager::getInstance()->getEntry(documentId, SaveManager::getInstance()->getSaveSlot(i));
+        //DatabaseManager::getInstance()->getEntry(documentId, SaveManager::getInstance()->getSaveSlot(i));
     }
 }
 

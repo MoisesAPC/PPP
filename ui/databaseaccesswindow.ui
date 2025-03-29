@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="pageAccess">
     <widget class="QWidget" name="verticalLayoutWidget">
@@ -32,7 +32,7 @@
        <x>100</x>
        <y>20</y>
        <width>371</width>
-       <height>572</height>
+       <height>431</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="vlAccess">

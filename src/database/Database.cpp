@@ -47,7 +47,7 @@ void DatabaseCouch::disconnectFromDatabase() {
     DatabaseManager::getInstance()->destroyNetworkAccessManager();
 }
 
-void DatabaseCouch::createEntry(const QString& id, const SaveSlot& saveSlot, const QString& rev) {
+void DatabaseCouch::createEntry(const QString& id, const std::vector<SaveSlot>& entries, const QString& rev) {
     QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
     QNetworkRequest request(url);
     createAuthorizationHeader(request);
@@ -67,7 +67,14 @@ void DatabaseCouch::createEntry(const QString& id, const SaveSlot& saveSlot, con
     }
 
     // Send the "PUT" request with the JSON object (converted from the SaveSlot) and wait for the reply
-    QJsonObject jsonDoc = parseSaveSlotToJSON(saveSlot);
+    QJsonArray jsonArray;
+    for (int i = 0; i < NUM_SAVES; i++) {
+        jsonArray.append(parseSaveSlotToJSON(entries[i]));
+    }
+
+    // Put the json array into the jsonObject "saves". This is what will be sent to the database.
+    QJsonObject jsonDoc;
+    jsonDoc["saves"] = jsonArray;
 
     // When replacing (NOT creating) saves, ensure to pass "rev" in order to properly update the document.
     // For newly created files, this is not needed.
@@ -245,6 +252,7 @@ void DatabaseCouch::createAuthorizationHeader(QNetworkRequest& request) {
 
 std::vector<Database::SaveBasicInfo> DatabaseCouch::getAllEntries() {
     std::vector<Database::SaveBasicInfo> entries;
+    entries.clear();
 
     QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg("_all_docs"));
     QUrlQuery query;
@@ -273,15 +281,20 @@ void DatabaseCouch::parseGetAllEntriesResponse(const QByteArray& data, std::vect
     QJsonObject jsonObj = jsonDoc.object();
     QJsonArray rows = jsonObj["rows"].toArray();
 
-    for (const QJsonValue& value : rows) {
+    for (const QJsonValue& value: rows) {
         QJsonObject rowObj = value.toObject();
         QString docId = rowObj["id"].toString();
 
         QJsonObject docObj = rowObj["doc"].toObject();
         if (!docObj.isEmpty()) {
             QString rev = docObj["_rev"].toString();
-            int region = docObj["region"].toInt();
-            entries.push_back({docId, rev, region});
+
+            QJsonArray savesArray = docObj["saves"].toArray();
+            if (!savesArray.isEmpty()) {
+                QJsonObject firstSave = savesArray.first().toObject();
+                int region = firstSave["region"].toInt();
+                entries.push_back({docId, rev, region});
+            }
         }
     }
 }
@@ -330,7 +343,9 @@ QString DatabaseCouch::getDocumentRevision(const QString& documentId) {
     return rev;
 }
 
-QJsonObject DatabaseCouch::getEntry(const QString& id) {
+void DatabaseCouch::getEntry(const QString& id, std::vector<SaveSlot>& array) {
+    array.clear();
+
     QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
     QNetworkRequest request(url);
     createAuthorizationHeader(request);
@@ -339,22 +354,21 @@ QJsonObject DatabaseCouch::getEntry(const QString& id) {
     QNetworkReply* reply = DatabaseManager::getInstance()->getNetworkAccessManager()->get(request);
     waitForEventToFinish(reply);
 
-    QJsonObject jsonObject;
-
     if (reply->error() == QNetworkReply::NoError) {
         QByteArray responseData = reply->readAll();
         QJsonDocument jsonDoc = QJsonDocument::fromJson(responseData);
 
         if (!jsonDoc.isNull() && jsonDoc.isObject()) {
-            jsonObject = jsonDoc.object();
+            QJsonObject jsonObject = jsonDoc.object();
+            QJsonArray savesArray = jsonObject["saves"].toArray();
+
+            for (const QJsonValue& saveSlot: savesArray) {
+                if (saveSlot.isObject()) {
+                    array.push_back(parseJSONToSaveSlot(saveSlot.toObject()));
+                }
+            }
         }
     }
 
     reply->deleteLater();
-    return jsonObject;
-}
-
-// "saveSlot" is where the result will be placed at
-void DatabaseCouch::getEntry(const QString& id, SaveSlot& saveSlot) {
-    saveSlot = parseJSONToSaveSlot(getEntry(id));
 }

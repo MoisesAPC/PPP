@@ -91,8 +91,8 @@ class DatabaseManager {
         std::vector<Database::SaveBasicInfo> getAllEntries();
 
         void findEntry(const QString& id);
-        void createEntry(const QString& id, const SaveSlot& saveSlot, const QString& rev);
-        void getEntry(const QString& id, SaveSlot& saveSlot);
+        void createEntry(const QString& id, const std::vector<SaveSlot>& entry, const QString& rev);
+        void getEntry(const QString& id, std::vector<SaveSlot>& array);
         void deleteEntry(const QString& id, const QString& rev);
         bool entryAlreadyExists(const QString& id);
         QString getDocumentRevision(const QString& documentId);
