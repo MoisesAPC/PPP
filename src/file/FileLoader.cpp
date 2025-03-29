@@ -444,7 +444,7 @@ void FileLoaderCartridge::writeAllSaveSlots(QFile& file) {
     file.seek(0);
 
     for (unsigned int i = 0; i < NUM_SAVES; i++) {
-        // First, write the cartridge save's header, then the saveslot data
+        // First, write the header, then the saveslot data
         std::vector<unsigned char> headerBytes = getHeaderBytes();
 
         if (!headerBytes.empty()) {
@@ -454,7 +454,59 @@ void FileLoaderCartridge::writeAllSaveSlots(QFile& file) {
         writeSaveSlot(file, SaveManager::getInstance()->getSaveSlot(i), getRawDataOffsetStart() + (getSaveSlotPaddedSize() * i));
 
         // Add padding bytes at the end of each saveslot
-        std::vector<unsigned char> paddingBytes(SaveSlot::getPaddedSize() - getHeaderBytes().size() - sizeof(SaveSlot) + 8, 0);
+        std::vector<unsigned char> paddingBytes(getSaveSlotPaddingBytesSize(), 0);
         file.write(reinterpret_cast<const char*>(paddingBytes.data()), paddingBytes.size());
+    }
+}
+
+void FileLoaderNote::writeAllSaveSlots(QFile& file) {
+    file.seek(0);
+
+    // First, write the header, then the saveslot data
+    std::vector<unsigned char> headerBytes = getHeaderBytes();
+    if (!headerBytes.empty()) {
+        file.write(reinterpret_cast<const char*>(headerBytes.data()), headerBytes.size());
+    }
+
+    for (unsigned int i = 0; i < NUM_SAVES; i++) {
+        writeSaveSlot(file, SaveManager::getInstance()->getSaveSlot(i), getRawDataOffsetStart() + (getSaveSlotPaddedSize() * i));
+
+        // Add padding bytes at the end of each saveslot
+        std::vector<unsigned char> paddingSlotBytes(getSaveSlotPaddingBytesSize(), 0);
+        file.write(reinterpret_cast<const char*>(paddingSlotBytes.data()), paddingSlotBytes.size());
+    }
+
+    // Add padding bytes at the end of the whole file
+    std::vector<unsigned char> paddingBytes(getUnusedExtraSize(), 0);
+    file.write(reinterpret_cast<const char*>(paddingBytes.data()), paddingBytes.size());
+}
+
+unsigned int FileLoaderNote::getSaveSlotPaddingBytesSize() const {
+    unsigned int paddingBytes = SaveSlot::getPaddedSize() - sizeof(SaveSlot);
+
+    switch (SaveManager::getInstance()->getRegion()) {
+        case SaveData::USA:
+        case SaveData::JPN:
+        default:
+            // Add the extra 8 bytes found in the PAL version of the saveslot
+            return paddingBytes + 8;
+
+        case SaveData::PAL:
+            return paddingBytes;
+    }
+}
+
+unsigned int FileLoaderCartridge::getSaveSlotPaddingBytesSize() const {
+    unsigned int paddingBytes = SaveSlot::getPaddedSize() - sizeof(SaveSlot) - getHeaderBytes().size();
+
+    switch (SaveManager::getInstance()->getRegion()) {
+    case SaveData::USA:
+    case SaveData::JPN:
+    default:
+        // Add the extra 8 bytes found in the PAL version of the saveslot
+        return paddingBytes + 8;
+
+    case SaveData::PAL:
+        return paddingBytes;
     }
 }

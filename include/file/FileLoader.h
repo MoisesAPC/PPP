@@ -23,9 +23,10 @@ struct FileLoader {
     virtual unsigned int countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const = 0;
     virtual unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; };
     virtual unsigned int getRegionIdOffset() const { return regionIdOffset; };
-    virtual unsigned int getMaxFileSize() const { return 0; };
-    virtual unsigned int getUnusedExtraSize() const { return 0; };
+    virtual unsigned int getMaxFileSize() const { return 0; }
+    virtual unsigned int getUnusedExtraSize() const { return 0; }
     virtual unsigned int getSaveSlotPaddedSize() const = 0;
+    virtual unsigned int getSaveSlotPaddingBytesSize() const { return 0; }
     virtual std::vector<unsigned char> getHeaderBytes() const = 0;
     short getRegionEnumFromChar(const unsigned char regionFromFile);
     virtual unsigned int getNoteTableOffset() const { return 0; }
@@ -55,6 +56,9 @@ struct FileLoaderNote: public FileLoader {
     unsigned int getUnusedExtraSize() const { return 0x100; };  // Unused extra 100 bytes at the end of notes
     unsigned int getSaveSlotPaddedSize() const;
     std::vector<unsigned char> getHeaderBytes() const;
+
+    void writeAllSaveSlots(QFile& file);
+    unsigned int getSaveSlotPaddingBytesSize() const;
 };
 
 struct FileLoaderCartridge: public FileLoader {
@@ -74,6 +78,7 @@ struct FileLoaderCartridge: public FileLoader {
     unsigned int getCartridgeNumSaves() const;
 
     void writeAllSaveSlots(QFile& file);
+    unsigned int getSaveSlotPaddingBytesSize() const;
 };
 
 struct FileLoaderControllerPak: public FileLoader {
