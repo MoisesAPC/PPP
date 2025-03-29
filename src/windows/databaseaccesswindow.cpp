@@ -253,5 +253,12 @@ void DatabaseAccessWindow::onActionButtonClicked(const QString& docId, const QSt
         }
     });
 
+    // If "backToMainWindow" is true, it means an item was deleted from the database, so we have to reload the save list
+    connect(actionWindow, &DatabaseSaveListActionWindow::editConfirmed, this, [this](bool backToMainWindow) {
+        if (backToMainWindow) {
+            this->close();
+        }
+    });
+
     actionWindow->exec();
 }

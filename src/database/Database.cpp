@@ -158,7 +158,7 @@ QJsonObject DatabaseCouch::parseSaveDataToJSON(const SaveData& saveData) {
     json["gold"] = static_cast<int>(saveData.gold);
 
     for (unsigned int j = 0; j < SIZE_ITEMS_ARRAY; j++) {
-        eventFlagsArray.append(static_cast<int>(saveData.items[j]));
+        itemsArray.append(static_cast<int>(saveData.items[j]));
     }
 
     json["items"] = itemsArray;

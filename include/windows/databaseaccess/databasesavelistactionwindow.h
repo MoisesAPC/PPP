@@ -22,6 +22,10 @@ signals:
     // Otherwise, "No" was pressed - dont exit this window
     void deleteConfirmed(bool goBackToSaveListMenu);
 
+    // If true, we confirmed that we want to edit the current save - go back to the main window
+    // Otherwise, "No" was pressed - dont exit this window
+    void editConfirmed(bool goBackToMainWindow);
+
 private:
     Ui::DatabaseSaveListActionWindow* ui;
     QString documentId = "";

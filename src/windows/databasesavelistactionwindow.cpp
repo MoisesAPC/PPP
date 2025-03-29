@@ -20,6 +20,9 @@ DatabaseSaveListActionWindow::~DatabaseSaveListActionWindow() {
 }
 
 void DatabaseSaveListActionWindow::onEditButton() {
+    std::vector<SaveSlot> entries;
+    entries.clear();
+
     // If the user was already editing a save (i.e. if at least one save is Enabled), prompt if they really want to overwrite
     // their changes with the save obtained from the database
     if (!SaveManager::getInstance()->areAllSavesDisabled()) {
@@ -27,13 +30,21 @@ void DatabaseSaveListActionWindow::onEditButton() {
                                                                                              "The unsaved changes will be lost.",
                                                                   QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::No) {
+            emit editConfirmed(false);
             return;
         }
     }
 
-    for (int i = 0; i < NUM_SAVES; i++) {
-        //DatabaseManager::getInstance()->getEntry(documentId, SaveManager::getInstance()->getSaveSlot(i));
+    DatabaseManager::getInstance()->getEntry(documentId, entries);
+
+    for (int i = 0; i < entries.size(); i++) {
+        SaveManager::getInstance()->setSave(entries[i], i);
     }
+
+    emit editConfirmed(true);
+    documentId = "";
+    rev = "";
+    close();
 }
 
 void DatabaseSaveListActionWindow::onDeleteButton() {
