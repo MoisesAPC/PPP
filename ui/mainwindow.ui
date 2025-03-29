@@ -60,7 +60,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="pageEventFlags">
      <widget class="QWidget" name="verticalLayoutWidget_4">
@@ -130,7 +130,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="EventFlagsPage1">
        <widget class="QWidget" name="verticalLayoutWidget">

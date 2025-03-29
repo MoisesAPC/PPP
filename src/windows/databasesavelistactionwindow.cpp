@@ -1,6 +1,7 @@
 #include "include/windows/databaseaccess/databasesavelistactionwindow.h"
 #include "ui_databasesavelistactionwindow.h"
 #include "include/database/DatabaseManager.h"
+#include "include\windows\main\mainwindow.h"
 #include <QMessageBox>
 
 DatabaseSaveListActionWindow::DatabaseSaveListActionWindow(const QString& docId, const QString& revision, QWidget* parent)
@@ -44,6 +45,9 @@ void DatabaseSaveListActionWindow::onEditButton() {
     emit editConfirmed(true);
     documentId = "";
     rev = "";
+
+    // Populate with the first slot by default + main save
+    MainWindow::instance->populateMainWindow(&SaveManager::getInstance()->getSaveSlot(0).mainSave);
     close();
 }
 

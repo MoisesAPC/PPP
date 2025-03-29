@@ -114,7 +114,11 @@ void DatabaseAccessWindow::setSaveListButtonProperties(QPushButton* button, cons
 }
 
 DatabaseAccessWindow::~DatabaseAccessWindow() {
-    DatabaseManager::getInstance()->getDatabase()->disconnectFromDatabase();
+    Database* database = DatabaseManager::getInstance()->getDatabase();
+
+    if (database != nullptr) {
+        database->disconnectFromDatabase();
+    }
 
     delete ui;
 }

@@ -21,6 +21,8 @@ class MainWindow: public QMainWindow
     Q_OBJECT
 
 public:
+    static MainWindow* instance;
+
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
@@ -30,6 +32,8 @@ public:
         QAction* mainSaveOption;
         QAction* beginningOfStageSaveOption;
     };
+
+    void populateMainWindow(SaveData* save);
 
 private slots:
     void setupPageMain();
@@ -50,13 +54,12 @@ private slots:
     void checkMandragoraAndNitroLineEdits();
     QLineEdit* createGridFlag(QGridLayout* gridLayout, int flagSet, unsigned int flags);
     void setupCheckBox(QCheckBox* checkBox, unsigned int value, std::function<void(unsigned int)> setter, std::function<void(unsigned int)> unsetter);
-
     void fileOpenMenu();
     void fileSaveMenu();
     void fileSaveAsMenu();
     void databaseMenu();
-    void populateMainWindow(SaveData* save);
     void updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave);
+
     void openFile(const QString& filename);
     const QString getLastOpenedDirectory(const QSettings& settings);
     void setLastOpenedDirectory(QSettings& settings, const QString filename);

@@ -10,10 +10,14 @@
 #include <QDir>             // QDir
 #include <QFileDialog>      // QFileDialog
 
+MainWindow* MainWindow::instance = nullptr;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    instance = this;
+
     ui->setupUi(this);
 
     // Avoid being able to maximize the window, as the layout looks worse
@@ -40,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    instance = nullptr;
 }
 
 void MainWindow::setupPageMain() {
@@ -1060,6 +1065,7 @@ void MainWindow::updateWindowVisibility(bool enable) {
 }
 
 void MainWindow::databaseMenu() {
-    DatabaseAccessWindow* databaseAccessWindow = new DatabaseAccessWindow();
+    DatabaseAccessWindow* databaseAccessWindow = new DatabaseAccessWindow(this);
     databaseAccessWindow->exec();
+    databaseAccessWindow->close();
 }
