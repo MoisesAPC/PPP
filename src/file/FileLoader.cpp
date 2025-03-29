@@ -13,7 +13,7 @@ void FileLoader::readSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOff
         return;
     }
 
-    slot.main = parseSaveData(inputStream, startOffset);
+    slot.mainSave = parseSaveData(inputStream, startOffset);
     slot.beginningOfStage = parseSaveData(inputStream, inputStream.device()->pos());
     slot.checksum1 = readData<unsigned int>(inputStream, inputStream.device()->pos());
     slot.checksum2 = readData<unsigned int>(inputStream, inputStream.device()->pos());
@@ -40,7 +40,7 @@ void FileLoader::writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOf
         saveDataSize = sizeof(SaveData) - 4;
     }
 
-    writeSaveData(outputStream, slot.main, startOffset);
+    writeSaveData(outputStream, slot.mainSave, startOffset);
     writeSaveData(outputStream, slot.beginningOfStage, outputStream.device()->pos());
 
     QIODevice* device = outputStream.device();

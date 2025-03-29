@@ -20,11 +20,25 @@ DatabaseSaveListActionWindow::~DatabaseSaveListActionWindow() {
 }
 
 void DatabaseSaveListActionWindow::onEditButton() {
+    // If the user was already editing a save (i.e. if at least one save is Enabled), prompt if they really want to overwrite
+    // their changes with the save obtained from the database
+    if (!SaveManager::getInstance()->areAllSavesDisabled()) {
+        QMessageBox::StandardButton reply = QMessageBox::question(this, "Overwrite changes", "Are you sure you want to edit this file?\n"
+                                                                                             "The unsaved changes will be lost.",
+                                                                  QMessageBox::Yes | QMessageBox::No);
+        if (reply == QMessageBox::No) {
+            return;
+        }
+    }
 
+    for (int i = 0; i < NUM_SAVES; i++) {
+        DatabaseManager::getInstance()->getEntry(documentId, SaveManager::getInstance()->getSaveSlot(i));
+    }
 }
 
 void DatabaseSaveListActionWindow::onDeleteButton() {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, "Delete", "Are you sure you want to delete?", QMessageBox::Yes | QMessageBox::No);
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "Delete", "Are you sure you want to delete?",
+                                                              QMessageBox::Yes | QMessageBox::No);
 
     if (reply == QMessageBox::Yes) {
         DatabaseManager::getInstance()->deleteEntry(documentId, rev);

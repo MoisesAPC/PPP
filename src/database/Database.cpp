@@ -47,7 +47,7 @@ void DatabaseCouch::disconnectFromDatabase() {
     DatabaseManager::getInstance()->destroyNetworkAccessManager();
 }
 
-void DatabaseCouch::createEntry(const QString& id, const SaveData& saveData, const QString& rev) {
+void DatabaseCouch::createEntry(const QString& id, const SaveSlot& saveSlot, const QString& rev) {
     QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
     QNetworkRequest request(url);
     createAuthorizationHeader(request);
@@ -66,8 +66,8 @@ void DatabaseCouch::createEntry(const QString& id, const SaveData& saveData, con
         }
     }
 
-    // Send the "PUT" request with the JSON object (converted from the SaveData) and wait for the reply
-    QJsonObject jsonDoc = parseSaveDataToJSON(saveData);
+    // Send the "PUT" request with the JSON object (converted from the SaveSlot) and wait for the reply
+    QJsonObject jsonDoc = parseSaveSlotToJSON(saveSlot);
 
     // When replacing (NOT creating) saves, ensure to pass "rev" in order to properly update the document.
     // For newly created files, this is not needed.
@@ -144,7 +144,6 @@ QJsonObject DatabaseCouch::parseSaveDataToJSON(const SaveData& saveData) {
     json["gameplay_framecount"] = static_cast<int>(saveData.gameplay_framecount);
     json["button_config"] = saveData.button_config;
     json["sound_mode"] = saveData.sound_mode;
-    json["milliseconds"] = saveData.milliseconds;
     json["language"] = saveData.language;
     json["character"] = saveData.character;
     json["life"] = saveData.life;
@@ -165,9 +164,74 @@ QJsonObject DatabaseCouch::parseSaveDataToJSON(const SaveData& saveData) {
     json["time_saved_counter"] = static_cast<int>(saveData.time_saved_counter);
     json["death_counter"] = static_cast<int>(saveData.death_counter);
     json["gold_spent_on_Renon"] = static_cast<int>(saveData.gold_spent_on_Renon);
+
+    return json;
+}
+
+SaveData DatabaseCouch::parseJSONToSaveData(const QJsonObject& json) {
+    SaveData saveData = {};
+
+    QJsonArray eventFlagsArray = json["event_flags"].toArray();
+    for (int i = 0; i < NUM_EVENT_FLAGS; i++) {
+        saveData.event_flags[i] = eventFlagsArray[i].toInt();
+    }
+
+    saveData.flags = json["flags"].toInt();
+    saveData.week = static_cast<short>(json["week"].toInt());
+    saveData.day = static_cast<short>(json["day"].toInt());
+    saveData.hour = static_cast<short>(json["hour"].toInt());
+    saveData.minute = static_cast<short>(json["minute"].toInt());
+    saveData.seconds = static_cast<short>(json["seconds"].toInt());
+    saveData.milliseconds = static_cast<unsigned short>(json["milliseconds"].toInt());
+    saveData.gameplay_framecount = json["gameplay_framecount"].toInt();
+    saveData.button_config = static_cast<short>(json["button_config"].toInt());
+    saveData.sound_mode = static_cast<short>(json["sound_mode"].toInt());
+    saveData.language = static_cast<short>(json["language"].toInt());
+    saveData.character = static_cast<short>(json["character"].toInt());
+    saveData.life = static_cast<short>(json["life"].toInt());
+    saveData.subweapon = static_cast<short>(json["subweapon"].toInt());
+    saveData.gold = static_cast<unsigned int>(json["gold"].toInt());
+
+    QJsonArray itemsArray = json["items"].toArray();
+    for (int j = 0; j < SIZE_ITEMS_ARRAY; j++) {
+        saveData.items[j] = static_cast<unsigned char>(itemsArray[j].toInt());
+    }
+
+    saveData.player_status = json["player_status"].toInt();
+    saveData.health_depletion_rate_while_poisoned = static_cast<short>(json["health_depletion_rate_while_poisoned"].toInt());
+    saveData.current_hour_VAMP = static_cast<unsigned short>(json["current_hour_VAMP"].toInt());
+    saveData.map = static_cast<short>(json["map"].toInt());
+    saveData.spawn = static_cast<short>(json["spawn"].toInt());
+    saveData.save_crystal_number = static_cast<unsigned short>(json["save_crystal_number"].toInt());
+    saveData.time_saved_counter = json["time_saved_counter"].toInt();
+    saveData.death_counter = json["death_counter"].toInt();
+    saveData.gold_spent_on_Renon = json["gold_spent_on_Renon"].toInt();
+
+    return saveData;
+}
+
+QJsonObject DatabaseCouch::parseSaveSlotToJSON(const SaveSlot& saveSlot) {
+    QJsonObject json;
+
+    json["mainSave"] = parseSaveDataToJSON(saveSlot.mainSave);
+    json["beginningOfStage"] = parseSaveDataToJSON(saveSlot.beginningOfStage);
+    json["checksum1"] = static_cast<int>(saveSlot.checksum1);
+    json["checksum2"] = static_cast<int>(saveSlot.checksum2);
     json["region"] = SaveManager::getInstance()->getRegion();
 
     return json;
+}
+
+SaveSlot DatabaseCouch::parseJSONToSaveSlot(const QJsonObject& json) {
+    SaveSlot saveSlot;
+
+    saveSlot.mainSave = parseJSONToSaveData(json["mainSave"].toObject());
+    saveSlot.beginningOfStage = parseJSONToSaveData(json["beginningOfStage"].toObject());
+    saveSlot.checksum1 = static_cast<unsigned int>(json["checksum1"].toInt());
+    saveSlot.checksum2 = static_cast<unsigned int>(json["checksum2"].toInt());
+    SaveManager::getInstance()->setRegion(static_cast<short>(json["region"].toInt()));
+
+    return saveSlot;
 }
 
 // Call this function when doing GET, PUT, etc, so that you are authorized to enter the DB
@@ -264,4 +328,33 @@ QString DatabaseCouch::getDocumentRevision(const QString& documentId) {
 
     reply->deleteLater();
     return rev;
+}
+
+QJsonObject DatabaseCouch::getEntry(const QString& id) {
+    QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
+    QNetworkRequest request(url);
+    createAuthorizationHeader(request);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    QNetworkReply* reply = DatabaseManager::getInstance()->getNetworkAccessManager()->get(request);
+    waitForEventToFinish(reply);
+
+    QJsonObject jsonObject;
+
+    if (reply->error() == QNetworkReply::NoError) {
+        QByteArray responseData = reply->readAll();
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(responseData);
+
+        if (!jsonDoc.isNull() && jsonDoc.isObject()) {
+            jsonObject = jsonDoc.object();
+        }
+    }
+
+    reply->deleteLater();
+    return jsonObject;
+}
+
+// "saveSlot" is where the result will be placed at
+void DatabaseCouch::getEntry(const QString& id, SaveSlot& saveSlot) {
+    saveSlot = parseJSONToSaveSlot(getEntry(id));
 }

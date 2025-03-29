@@ -80,11 +80,11 @@ class SaveManager {
         }
 
         SaveData& getSave(const int index, const bool isMain) {
-            return (isMain) ? getSaveSlot(index).main : getSaveSlot(index).beginningOfStage;
+            return (isMain) ? getSaveSlot(index).mainSave : getSaveSlot(index).beginningOfStage;
         }
 
         SaveData& getCurrentSave() {
-            return (isMain) ? getSaveSlot(currentSave).main : getSaveSlot(currentSave).beginningOfStage;
+            return (isMain) ? getSaveSlot(currentSave).mainSave : getSaveSlot(currentSave).beginningOfStage;
         }
 
         SaveSlot* getAllSaves() {

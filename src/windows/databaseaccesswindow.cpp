@@ -222,7 +222,7 @@ void DatabaseAccessWindow::onUploadSaveButtonPress() {
     QString rev = DatabaseManager::getInstance()->getDocumentRevision(documentId);
 
     if (ok && !documentId.isEmpty()) {
-        DatabaseManager::getInstance()->createEntry(documentId, SaveManager::getInstance()->getCurrentSave(), rev);
+        //DatabaseManager::getInstance()->createEntry(documentId, SaveManager::getInstance()->getCurrentSave(), rev);
         createSaveList();
     }
 }

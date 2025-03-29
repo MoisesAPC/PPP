@@ -14,9 +14,9 @@ void DatabaseManager::disconnectFromDatabase() {
     }
 }
 
-void DatabaseManager::createEntry(const QString& id, const SaveData& saveData, const QString& rev) {
+void DatabaseManager::createEntry(const QString& id, const SaveSlot& saveSlot, const QString& rev) {
     if (database != nullptr) {
-        database->createEntry(id, saveData, rev);
+        database->createEntry(id, saveSlot, rev);
     }
 }
 
@@ -60,5 +60,11 @@ void DatabaseManager::assignDatabase() {
         case DATABASE_COUCHDB:
             database = new DatabaseCouch();
             break;
+    }
+}
+
+void DatabaseManager::getEntry(const QString& id, SaveSlot& saveSlot) {
+    if (database != nullptr) {
+        database->getEntry(id, saveSlot);
     }
 }

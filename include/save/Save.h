@@ -286,22 +286,22 @@ struct SaveData {
 }; // Size = 0x0E0 bytes
 
 struct SaveSlot {
-    SaveData main;
+    SaveData mainSave;
     SaveData beginningOfStage;
     unsigned int checksum1;
     unsigned int checksum2;
 
     SaveSlot& operator=(const SaveSlot& other) {
-        main = other.main;
+        mainSave = other.mainSave;
         beginningOfStage = other.beginningOfStage;
         checksum1 = other.checksum1;
         checksum2 = other.checksum2;
 
-        return* this;
+        return *this;
     }
 
     void clear() {
-        main = {0};
+        mainSave = {0};
         beginningOfStage = {0};
         checksum1 = 0;
         checksum2 = 0;

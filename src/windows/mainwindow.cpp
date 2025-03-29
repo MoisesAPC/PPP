@@ -643,7 +643,7 @@ void MainWindow::openFile(const QString& filename) {
     }
 
     // Populate with the first slot by default + main save
-    populateMainWindow(&SaveManager::getInstance()->getSaveSlot(0).main);
+    populateMainWindow(&SaveManager::getInstance()->getSaveSlot(0).mainSave);
 
     // Set default Slot option to Slot 1 -> Main.
     // @note We must call this function after calling "populateMainWindow" in order to have the checkboxes
@@ -783,7 +783,7 @@ void MainWindow::setupSlotMenu() {
             selectedSlot = i;
             isMain = true;
             updateSlotMenuCheckedState(i, true);
-            populateMainWindow(&SaveManager::getInstance()->getSaveSlot(i).main);
+            populateMainWindow(&SaveManager::getInstance()->getSaveSlot(i).mainSave);
         });
 
         // Create "Beginning of Stage" action inside the Slot X menu
@@ -1050,7 +1050,7 @@ void MainWindow::updateCheckboxEnabledVisibility() {
 
 // Make sure to always have the "Beginning of Stage" save enabled only if the "Main" save is enabled
 void MainWindow::updateWindowVisibility(bool enable) {
-    if (BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().main.flags, SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY)
+    if (BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY)
         && !isMain) {
         enableUIComponents(true);
     }
