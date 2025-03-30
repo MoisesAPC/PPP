@@ -344,6 +344,12 @@ void MainWindow::setupPageItems() {
         }
     );
 
+    setupLineEditNumberUnsigned(ui->leItemsHealingKit, 0, 10,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_HEALING_KIT, value);
+        }
+    );
+
     // Quest Items
     setupLineEditNumberUnsigned(ui->leItemsSunCard, 0, 10,
         [](unsigned char value) {
