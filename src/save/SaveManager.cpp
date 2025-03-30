@@ -1,3 +1,12 @@
+/**
+ * @file SaveManager.cpp
+ * @brief SaveManager class source code file
+ *
+ * This file contains the source code for the SaveManager class
+ *
+ * @author Moisés Antonio Pestano Castro
+ */
+
 #include "include/save/SaveManager.h"
 
 short SaveManager::getRegion() const {
