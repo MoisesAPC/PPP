@@ -1,0 +1,25 @@
+var struct_database =
+[
+    [ "SaveBasicInfo", "struct_database_1_1_save_basic_info.html", "struct_database_1_1_save_basic_info" ],
+    [ "Database", "struct_database.html#a4703c80e6969d33565ea340f768fdadf", null ],
+    [ "~Database", "struct_database.html#a749d9987dd49d441d8e938f1706583db", null ],
+    [ "connectToDatabase", "struct_database.html#ac8f4e5a4802f0b1ac9c88f53ba8b1031", null ],
+    [ "createEntry", "struct_database.html#a1be1f3b488c20e369f7f1f8f7eefdd99", null ],
+    [ "deleteEntry", "struct_database.html#ad0c32bc4419258b00c16818bde2f57f2", null ],
+    [ "disconnectFromDatabase", "struct_database.html#a8ce9116f079d88fb008b3467098e51be", null ],
+    [ "entryAlreadyExists", "struct_database.html#a77882422156b5e65f1d5a43edd5014f2", null ],
+    [ "getAllEntries", "struct_database.html#abd39163c7e6b8a3444d73fd7dfda839a", null ],
+    [ "getDatabaseName", "struct_database.html#a19eaa19fe13beb9e39cdbc82edc190e3", null ],
+    [ "getDocumentRevision", "struct_database.html#a6728f904027be4aecf71f3a124b635df", null ],
+    [ "getEntry", "struct_database.html#ac39dabb26e5d1efa6254b078256506b5", null ],
+    [ "getHostname", "struct_database.html#aaac87182b5aa3142d2b5a9362307bd44", null ],
+    [ "getPort", "struct_database.html#a7d710f7602221a732865f11030396a90", null ],
+    [ "parseGetAllEntriesResponse", "struct_database.html#a5742f5067d9bf13c1e159a511f3767af", null ],
+    [ "setDatabaseName", "struct_database.html#a7393a4c04268eb2351a851436d06525e", null ],
+    [ "setHostname", "struct_database.html#ab63f3bc424013f250f0a498f9e178ff7", null ],
+    [ "setPort", "struct_database.html#a8f3e101df86363074792dafa6b6df4c8", null ],
+    [ "waitForEventToFinish", "struct_database.html#a76f19e4f9a4ec5d404d7890983b8073e", null ],
+    [ "databaseName", "struct_database.html#a59757b97fe6f6c438546922e5c880cf6", null ],
+    [ "hostname", "struct_database.html#aa9e3fbcfc27ab841a5ac72687590ad71", null ],
+    [ "port", "struct_database.html#a6557601838cc506cd59638f4c368f5c2", null ]
+];

@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['calcfirstchecksum_0',['calcFirstChecksum',['../class_save_manager.html#ab839949630cb62c5f88a05b18dfefc87',1,'SaveManager']]],
+  ['calcsecondchecksum_1',['calcSecondChecksum',['../class_save_manager.html#a17a4898c012168469d7f6e0cfa204ec5',1,'SaveManager']]],
+  ['checkmandragoraandnitrolineedits_2',['checkMandragoraAndNitroLineEdits',['../class_main_window.html#a34cd38c778def0655d511b31798d2f29',1,'MainWindow']]],
+  ['clear_3',['clear',['../struct_save_slot.html#adeef575ba788e4e632000745398ef599',1,'SaveSlot']]],
+  ['clearentry_4',['clearEntry',['../struct_file_manager_1_1_controller_pak_index_data.html#a00fade17601e18fcfa728f2ffcd2fa56',1,'FileManager::ControllerPakIndexData']]],
+  ['clearindexdata_5',['clearIndexData',['../class_file_manager.html#acef8d66684e60cf669795ef78b8ac87a',1,'FileManager']]],
+  ['clearmanager_6',['clearManager',['../class_database_manager.html#a2863d8a665122e4adf23a1e206a3547c',1,'DatabaseManager']]],
+  ['clearsavelist_7',['clearSaveList',['../class_database_access_window.html#a6793cba868b9be3028439eec81b900a8',1,'DatabaseAccessWindow']]],
+  ['closeevent_8',['closeEvent',['../class_controller_pak_selection_window.html#af3be39ad831c806c21128887ac60c5a3',1,'ControllerPakSelectionWindow']]],
+  ['connecttodatabase_9',['connectToDatabase',['../struct_database.html#ac8f4e5a4802f0b1ac9c88f53ba8b1031',1,'Database::connectToDatabase()'],['../struct_database_couch.html#ac83878f34d89f782869ef4d193bb0d97',1,'DatabaseCouch::connectToDatabase()'],['../class_database_manager.html#a6eb61705ccd1925062cdd6835afff7f4',1,'DatabaseManager::connectToDatabase()']]],
+  ['controllerpakindexdata_10',['ControllerPakIndexData',['../struct_file_manager_1_1_controller_pak_index_data.html#a477b2c5545132c01e262b518af52d9c0',1,'FileManager::ControllerPakIndexData']]],
+  ['controllerpakselectionwindow_11',['ControllerPakSelectionWindow',['../class_controller_pak_selection_window.html#ad1485691b673706519b3851f46db56a9',1,'ControllerPakSelectionWindow']]],
+  ['counthexoccurrences_12',['countHexOccurrences',['../struct_file_loader.html#a77e7a947e7ea8d5ecbf406c24f065dd4',1,'FileLoader::countHexOccurrences()'],['../struct_file_loader_note.html#a5cfd8b850d62a555be1b77c5606d5c66',1,'FileLoaderNote::countHexOccurrences()'],['../struct_file_loader_cartridge.html#a7627ea09823790141e45ae8729903120',1,'FileLoaderCartridge::countHexOccurrences()'],['../struct_file_loader_controller_pak.html#a9329525496fc6975a56fe9015dfaff9d',1,'FileLoaderControllerPak::countHexOccurrences()']]],
+  ['createauthorizationheader_13',['createAuthorizationHeader',['../struct_database_couch.html#a1485b6ea804d9aeee8d775eef14f3de4',1,'DatabaseCouch']]],
+  ['createentry_14',['createEntry',['../struct_database.html#a1be1f3b488c20e369f7f1f8f7eefdd99',1,'Database::createEntry()'],['../struct_database_couch.html#a3d71cc730f775645d9308a5fc4b571d4',1,'DatabaseCouch::createEntry()'],['../class_database_manager.html#a0beb1bd2c4e0b7e746d77c3316856f12',1,'DatabaseManager::createEntry()']]],
+  ['creategridflag_15',['createGridFlag',['../class_main_window.html#af577a6e5132e994c055a89a540385a7e',1,'MainWindow']]],
+  ['createinstance_16',['createInstance',['../class_database_manager.html#ad4734ac2e7d9afd5e0c8fcf45c3f9bf9',1,'DatabaseManager::createInstance()'],['../class_file_manager.html#afc3bc63a02de87b6a8c4d8ddd269f9ac',1,'FileManager::createInstance()'],['../class_save_manager.html#a284cd082ef52508bff499b94a9c41dba',1,'SaveManager::createInstance()']]],
+  ['createsavelist_17',['createSaveList',['../class_database_access_window.html#a52505e5df988372636c124efce924ded',1,'DatabaseAccessWindow']]],
+  ['createsavelistbuttons_18',['createSaveListButtons',['../class_database_access_window.html#a8263cb226b22f4bb31d975d2a5c27798',1,'DatabaseAccessWindow']]],
+  ['createsingletons_19',['createSingletons',['../main_8cpp.html#abc46a7fcf9d6547ba5f9886b5e5ca283',1,'main.cpp']]],
+  ['createslotmenu_20',['createSlotMenu',['../class_save_manager.html#aff96dcc4baa101dec8c6a9defdfcd6cc',1,'SaveManager']]]
+];
