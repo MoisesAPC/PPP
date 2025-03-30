@@ -217,24 +217,6 @@ void FileLoader::writeSaveData(QDataStream& outputStream, const SaveData& saveDa
     writeData<unsigned int>(outputStream, outputStream.device()->pos(), saveData.gold_spent_on_Renon);
 }
 
-template<typename T>
-T FileLoader::readData(QDataStream& inputStream, long offset) {
-    inputStream.device()->seek(offset);
-
-    T value;
-    inputStream.readRawData(reinterpret_cast<char*>(&value), sizeof(T));
-
-    return qFromBigEndian(value);
-}
-
-template<typename T>
-void FileLoader::writeData(QDataStream& outputStream, long offset, T value) {
-    outputStream.device()->seek(offset);
-
-    T bigEndianValue = qToBigEndian(value);
-    outputStream.writeRawData(reinterpret_cast<char*>(&bigEndianValue), sizeof(T));
-}
-
 // Header format information (https://github.com/bryc/mpkedit/wiki/Note-file-formats)
 // This implements the format last updated on Sep 29, 2023
 std::vector<unsigned char> FileLoaderNote::getHeaderBytes() const {

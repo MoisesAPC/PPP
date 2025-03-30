@@ -42,10 +42,22 @@ struct FileLoader {
     void swapEndianness(QByteArray*);
 
     template<typename T>
-    T readData(QDataStream& inputStream, long offset);
+    T readData(QDataStream& inputStream, long offset) {
+        inputStream.device()->seek(offset);
+
+        T value;
+        inputStream.readRawData(reinterpret_cast<char*>(&value), sizeof(T));
+
+        return qFromBigEndian(value);
+    }
 
     template<typename T>
-    void writeData(QDataStream& outputStream, long offset, T value);
+    void writeData(QDataStream& outputStream, long offset, T value) {
+        outputStream.device()->seek(offset);
+
+        T bigEndianValue = qToBigEndian(value);
+        outputStream.writeRawData(reinterpret_cast<char*>(&bigEndianValue), sizeof(T));
+    }
 };
 
 struct FileLoaderNote: public FileLoader {
