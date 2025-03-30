@@ -13,7 +13,7 @@ Proyecto de Desarrollo de aplicaciones multiplataforma de Moisés Antonio Pestan
 /PPP
   ├── build     # Ejecutable y artefactos de compilación.
   ├── docs      # Documentación (Doxygen)
-  ├── examples  # Ejemplos de ficheros de entrada validados por el programa.
+  ├── examples  # Ejemplos de ficheros binarios de entrada validados por el programa.
   ├── include   # Ficheros de cabecera en C / C++.
   ├── src       # Código fuente en C / C++.
   ├── ui        # Archivos de diseño de la interfaz de Qt.
