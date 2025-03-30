@@ -8,7 +8,7 @@ Proyecto de Desarrollo de aplicaciones multiplataforma de Moisés Antonio Pestan
 * [Estructura del proyecto](#estructura-del-proyecto)
 * [Documentación](#documentación)
 * [Fichero con la propuesta de desarrollo](https://docs.google.com/document/d/1ZHYAikIjYY18YQjFMotrN0AV_ZaOR0lpfGBYCWZqIyY/edit?usp=sharing)
-* [Documentación de desarrollo](https://docs.google.com/spreadsheets/d/1a-LlX0UmK2l04HHzsKKS6br2GuBsId14AkqSybdtL3A/edit?usp=sharing).
+* [Documentación de desarrollo](https://docs.google.com/document/d/1qw4rgYoQ6y2dBHWNrKZDMzAUaxLyvtd4ZV75yPZrpJs/edit?usp=sharing).
 * [Cronograma del proyecto](https://docs.google.com/spreadsheets/d/1a-LlX0UmK2l04HHzsKKS6br2GuBsId14AkqSybdtL3A/edit?usp=sharing).
 * [Repositorio GitHub](https://github.com/MoisesAPC/PPP).
 
