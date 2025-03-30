@@ -1,4 +1,4 @@
-#include "include\windows\main\mainwindow.h"
+#include "include/windows/main/MainWindow.h"
 #include "include/save/SaveManager.h"
 #include "include/file/FileManager.h"
 #include "include/database/DatabaseManager.h"

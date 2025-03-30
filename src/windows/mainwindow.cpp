@@ -1,7 +1,7 @@
-#include "include\windows\main\mainwindow.h"
-#include "include\windows\databaseaccess\databaseaccesswindow.h"
-#include "include\save\SaveManager.h"
-#include "include\file\FileManager.h"
+#include "include/windows/main/MainWindow.h"
+#include "include/windows/Database/DatabaseMainWindow.h"
+#include "include/save/SaveManager.h"
+#include "include/file/FileManager.h"
 
 #include <QIntValidator>    // With "QIntValidator", we can validate the contents of an integer (see "handleNumberOnlyInput()")
 #include <QtGlobal>         // qBound()

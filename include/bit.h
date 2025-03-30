@@ -1,7 +1,13 @@
-// Yoinked from: https://github.com/k64ret/cv64/blob/main/include/bit.h
-
 #ifndef BIT_H
 #define BIT_H
+
+/******************************************************************************
+ * bit.h
+ *
+ * This header file contains helper macros for bit-related manipulations.
+ *
+ * Yoinked from: https://github.com/k64ret/cv64/blob/main/include/bit.h
+ *****************************************************************************/
 
 #define BIT(num) (1 << (num))
 /**

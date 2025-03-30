@@ -1,6 +1,12 @@
 #ifndef DATABASEMANAGER_H
 #define DATABASEMANAGER_H
 
+/******************************************************************************
+ * DatabaseManager.h
+ *
+ * Header file for DatabaseManager.cpp
+ *****************************************************************************/
+
 #include "include/database/Database.h"
 #include <QNetworkAccessManager>
 

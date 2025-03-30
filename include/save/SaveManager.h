@@ -1,6 +1,12 @@
 #ifndef SAVEMANAGER_H
 #define SAVEMANAGER_H
 
+/******************************************************************************
+ * SaveManager.h
+ *
+ * Header file for SaveManager.cpp
+ *****************************************************************************/
+
 #include "Save.h"
 #include "include/bit.h"
 

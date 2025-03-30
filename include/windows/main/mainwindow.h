@@ -1,7 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "ui_mainwindow.h"
+/******************************************************************************
+ * MainWindow.h
+ *
+ * Header file for MainWindow.cpp
+ *****************************************************************************/
+
+#include "ui_MainWindow.h"
 #include "include/bit.h"
 #include "include/save/Save.h"
 #include "include/windows/ComboBoxData.h"

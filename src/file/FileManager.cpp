@@ -1,6 +1,6 @@
 #include "include/file/FileManager.h"
 #include "include/save/SaveManager.h"
-#include "include\windows\controllerpakselection\controllerpakselectionwindow.h"
+#include "include/windows/ControllerPakSelection/ControllerPakSelectionwindow.h"
 #include <QMessageBox>
 
 int FileManager::determineFormat() {

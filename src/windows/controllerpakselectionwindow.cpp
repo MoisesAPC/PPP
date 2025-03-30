@@ -1,5 +1,5 @@
-#include "include\windows\controllerpakselection\controllerpakselectionwindow.h"
-#include "include\file\FileManager.h"
+#include "include/windows/ControllerPakSelection/ControllerPakSelectionwindow.h"
+#include "include/file/FileManager.h"
 #include <QPushButton>
 
 ControllerPakSelectionWindow::ControllerPakSelectionWindow(QWidget *parent)

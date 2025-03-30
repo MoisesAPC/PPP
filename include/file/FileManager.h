@@ -1,6 +1,12 @@
 #ifndef FILEMANAGER_H
 #define FILEMANAGER_H
 
+/******************************************************************************
+ * FileManager.h
+ *
+ * Header file for FileManager.cpp
+ *****************************************************************************/
+
 #include "include/file/FileLoader.h"
 #include <QFile>
 #include <QtEndian>

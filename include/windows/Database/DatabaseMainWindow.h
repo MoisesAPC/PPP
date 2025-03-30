@@ -1,6 +1,12 @@
 #ifndef DATABASEACCESSWINDOW_H
 #define DATABASEACCESSWINDOW_H
 
+/******************************************************************************
+ * DatabaseMainWindow.h
+ *
+ * Header file for DatabaseMainWindow.cpp
+ *****************************************************************************/
+
 #include "include/windows/ComboBoxData.h"
 #include "include/database/DatabaseManager.h"
 

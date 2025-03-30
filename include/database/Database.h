@@ -1,6 +1,12 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 
+/******************************************************************************
+ * Database.h
+ *
+ * Header file for Database.cpp
+ *****************************************************************************/
+
 #include "include/save/SaveManager.h"
 #include <QObject>
 #include <QJsonObject>

@@ -1,6 +1,12 @@
 #ifndef DATABASESAVELISTACTIONWINDOW_H
 #define DATABASESAVELISTACTIONWINDOW_H
 
+/******************************************************************************
+ * DatabaseSaveListActionButtonWindow.h
+ *
+ * Header file for DatabaseSaveListActionButtonWindow.cpp
+ *****************************************************************************/
+
 #include <QDialog>
 
 namespace Ui {

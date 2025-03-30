@@ -3,6 +3,14 @@
 #ifndef SAVE_H
 #define SAVE_H
 
+/******************************************************************************
+ * Save.h
+ *
+ * This header file contains the definition of the main save game data structure.
+ *
+ * Yoinked from: https://github.com/k64ret/cv64/blob/main/include/game/save.h
+ *****************************************************************************/
+
 #include "include/bit.h"
 
 #define NUM_EVENT_FLAGS  16

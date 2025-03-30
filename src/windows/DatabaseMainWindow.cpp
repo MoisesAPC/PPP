@@ -1,6 +1,6 @@
-#include "include\windows\databaseaccess\databaseaccesswindow.h"
-#include "include\windows\databaseaccess\databasesavelistactionwindow.h"
-#include "ui_databaseaccesswindow.h"
+#include "include/windows/Database/DatabaseMainWindow.h"
+#include "include/windows/Database/DatabaseSaveListActionButtonWindow.h"
+#include "ui_DatabaseMainWindow.h"
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QtGlobal>

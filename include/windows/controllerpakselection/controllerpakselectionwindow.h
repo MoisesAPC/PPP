@@ -1,7 +1,13 @@
 #ifndef CONTROLLERPAKSELECTIONWINDOW_H
 #define CONTROLLERPAKSELECTIONWINDOW_H
 
-#include "ui_controllerpakselectionwindow.h"
+/******************************************************************************
+ * ControllerPakSelectionWindow.h
+ *
+ * Header file for ControllerPakSelectionWindow.cpp
+ *****************************************************************************/
+
+#include "ui_ControllerPakSelectionwindow.h"
 #include <QDialog>
 
 namespace Ui {

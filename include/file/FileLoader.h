@@ -1,6 +1,12 @@
 #ifndef FILELOADER_H
 #define FILELOADER_H
 
+/******************************************************************************
+ * FileLoader.h
+ *
+ * Header file for FileLoader.cpp
+ *****************************************************************************/
+
 #include "include/save/SaveManager.h"
 #include <vector>
 

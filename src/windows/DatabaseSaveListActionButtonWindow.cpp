@@ -1,6 +1,6 @@
-#include "include/windows/databaseaccess/databasesavelistactionwindow.h"
-#include "ui_databasesavelistactionwindow.h"
-#include "include\windows\main\mainwindow.h"
+#include "include/windows/Database/DatabaseSaveListActionButtonWindow.h"
+#include "ui_DatabaseSaveListActionButtonWindow.h"
+#include "include/windows/main/MainWindow.h"
 #include "include/database/DatabaseManager.h"
 #include "include/file/FileManager.h"
 #include <QMessageBox>
