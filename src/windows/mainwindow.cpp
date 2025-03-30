@@ -32,6 +32,9 @@ MainWindow::MainWindow(QWidget *parent)
     setupFileMenu();
     setupSlotMenu();
 
+    SaveManager::getInstance()->assignDefaultValues();
+    SaveManager::getInstance()->setRegion(SaveData::USA);
+
     // Ensure that we start in the "Main" page
     switchPage(ui->stackedWidgetPages, ui->pageMain);
     switchPage(ui->stackWidgetEventFlagsPages, ui->EventFlagsPage1);
@@ -653,7 +656,7 @@ void MainWindow::openFile(const QString& filename) {
     // Set default Slot option to Slot 1 -> Main.
     // @note We must call this function after calling "populateMainWindow" in order to have the checkboxes
     // ready. Otherwise the program will throw SIGSEV.
-    //updateSlotMenuCheckedState(0, true);
+    updateSlotMenuCheckedState(0, true);
 }
 
 void MainWindow::fileOpenMenu() {
@@ -934,7 +937,7 @@ void MainWindow::checkMandragoraAndNitroLineEdits() {
 QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsigned int flags) {
     QLineEdit* hexBitflagDisplay = new QLineEdit();
     hexBitflagDisplay->setAlignment(Qt::AlignRight);
-    hexBitflagDisplay->setText(QString("%1").arg(flags, 8, 10, QChar('0')));
+    hexBitflagDisplay->setText(QString("%1").arg(flags, 1, 10, QChar('0')));
 
     // Ensure that we're putting "hexBitflagDisplay" in the right most part of the checkboxes, on the 1st row, 8th column
     // @note We also add an extra row and column for printing the column / row number
@@ -979,7 +982,7 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsi
                     updatedFlags |= (1 << m);
                 }
             }
-            hexBitflagDisplay->setText(QString("%1").arg(updatedFlags, 8, 10, QChar('0')));
+            hexBitflagDisplay->setText(QString("%1").arg(updatedFlags, 1, 10, QChar('0')));
         });
     }
 

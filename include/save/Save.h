@@ -307,6 +307,17 @@ struct SaveSlot {
         checksum2 = 0;
     }
 
+    void assignDefaultValues() {
+        // Since most default values are 0 already, we call clear first,
+        // then only write to the values whose default values are non-zero
+        clear();
+
+        mainSave.life = 100;
+        beginningOfStage.life = 100;
+        mainSave.field_0x5C = 100;
+        beginningOfStage.field_0x5C = 100;
+    }
+
     static unsigned int getPaddedSize() { return 0x200; }
 
     SaveSlot() { clear(); }

@@ -165,3 +165,10 @@ bool SaveManager::areAllSavesDisabled() {
 
     return true;
 }
+
+// Assign default (i.e. new game) values to all fields
+void SaveManager::assignDefaultValues() {
+    for (int i = 0; i < NUM_SAVES; i++) {
+        saves[i].assignDefaultValues();
+    }
+}

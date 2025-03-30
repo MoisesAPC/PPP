@@ -96,6 +96,7 @@ class SaveManager {
         }
 
         void createSlotMenu();
+        void assignDefaultValues();
 
     private:
         static SaveManager* instance;
