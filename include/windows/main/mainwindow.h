@@ -67,8 +67,6 @@ private slots:
     void updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave);
 
     void openFile(const QString& filename);
-    const QString getLastOpenedDirectory(const QSettings& settings);
-    void setLastOpenedDirectory(QSettings& settings, const QString filename);
 
     void setSelectedSave(const int slot) {
         selectedSlot = slot;
