@@ -614,8 +614,8 @@
      <widget class="QWidget" name="gridLayoutWidget_9">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>30</y>
+        <x>260</x>
+        <y>20</y>
         <width>161</width>
         <height>55</height>
        </rect>
@@ -660,8 +660,8 @@
      <widget class="QWidget" name="gridLayoutWidget_10">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>110</y>
+        <x>80</x>
+        <y>130</y>
         <width>506</width>
         <height>61</height>
        </rect>
@@ -774,7 +774,7 @@
      <widget class="QWidget" name="gridLayoutWidget_11">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>80</x>
         <y>200</y>
         <width>506</width>
         <height>61</height>
@@ -851,244 +851,11 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="gridLayoutWidget_12">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>290</y>
-        <width>647</width>
-        <height>175</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridKeys">
-       <item row="4" column="6">
-        <widget class="QLineEdit" name="leKeyScience2">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="5">
-        <widget class="QLabel" name="labelStoreroom">
-         <property name="text">
-          <string>Storeroom Key</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="3">
-        <widget class="QLabel" name="labelExecution">
-         <property name="text">
-          <string>Execution Key</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="8">
-        <widget class="QLabel" name="labelChamber">
-         <property name="text">
-          <string>Chamber Key</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="5">
-        <widget class="QLineEdit" name="leKeyClocktower1">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QLabel" name="labelLeftTowerKey">
-         <property name="text">
-          <string>Left Tower Key</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="5">
-        <widget class="QLabel" name="labelClockTower1">
-         <property name="text">
-          <string>Clocktower Key 1</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="7">
-        <widget class="QLabel" name="labelScience3">
-         <property name="text">
-          <string>Science Key 3</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="6">
-        <widget class="QLabel" name="labelScience2">
-         <property name="text">
-          <string>Science Key 2</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="6">
-        <widget class="QLineEdit" name="leKeyGarden">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLabel" name="labelArchivesKey">
-         <property name="text">
-          <string>Archives Key</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="5">
-        <widget class="QLineEdit" name="leKeyStoreroom">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="7">
-        <widget class="QLineEdit" name="leKeyScience3">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="3">
-        <widget class="QLineEdit" name="leKeyLeftTower">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="5">
-        <widget class="QLineEdit" name="leKeyScience1">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="7">
-        <widget class="QLineEdit" name="leKeyCopper">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="7">
-        <widget class="QLineEdit" name="leKeyClocktower3">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="6">
-        <widget class="QLabel" name="labelClockTower2">
-         <property name="text">
-          <string>Clocktower Key 2</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="7">
-        <widget class="QLabel" name="labelClockTower3">
-         <property name="text">
-          <string>Clocktower Key 3</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="6">
-        <widget class="QLineEdit" name="leKeyClocktower2">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="5">
-        <widget class="QLabel" name="labelScience1">
-         <property name="text">
-          <string>Science Key 1</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="8">
-        <widget class="QLineEdit" name="leKeyChamber">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="leKeyArchives">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="3">
-        <widget class="QLineEdit" name="leKeyExecution">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="7">
-        <widget class="QLabel" name="labelCopper">
-         <property name="text">
-          <string>Copper Key</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="6">
-        <widget class="QLabel" name="labelGardenKey">
-         <property name="text">
-          <string>Garden Key</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
      <widget class="QWidget" name="gridLayoutWidget_13">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>480</y>
+        <x>220</x>
+        <y>550</y>
         <width>245</width>
         <height>55</height>
        </rect>
@@ -1129,6 +896,486 @@
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QLabel" name="labelTitleUnusedItems">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>530</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>**== Unused items ==**</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::MarkdownText</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelTitleJewels">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>0</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>**== Jewels ==**</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::MarkdownText</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelTitleQuestItems">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>300</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>**== Quest items ==**</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::MarkdownText</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>510</y>
+        <width>671</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>280</y>
+        <width>671</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="line_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>671</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelTitleUsableItems">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>100</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>**== Usable items ==**</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::MarkdownText</enum>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyGarden">
+      <property name="geometry">
+       <rect>
+        <x>341</x>
+        <y>348</y>
+        <width>114</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelCopper">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>320</y>
+        <width>77</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Copper Key</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelLeftTowerKey">
+      <property name="geometry">
+       <rect>
+        <x>115</x>
+        <y>321</y>
+        <width>97</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Left Tower Key</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelClockTower1">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>453</y>
+        <width>114</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Clocktower Key 1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelExecution">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>393</y>
+        <width>92</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Execution Key</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelScience1">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>390</y>
+        <width>90</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Science Key 1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelScience3">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>390</y>
+        <width>90</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Science Key 3</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelClockTower3">
+      <property name="geometry">
+       <rect>
+        <x>392</x>
+        <y>453</y>
+        <width>114</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Clocktower Key 3</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelClockTower2">
+      <property name="geometry">
+       <rect>
+        <x>271</x>
+        <y>453</y>
+        <width>114</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Clocktower Key 2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyChamber">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>348</y>
+        <width>97</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyArchives">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>348</y>
+        <width>97</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyClocktower2">
+      <property name="geometry">
+       <rect>
+        <x>271</x>
+        <y>480</y>
+        <width>114</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyCopper">
+      <property name="geometry">
+       <rect>
+        <x>462</x>
+        <y>348</y>
+        <width>114</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelGardenKey">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>320</y>
+        <width>76</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Garden Key</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelChamber">
+      <property name="geometry">
+       <rect>
+        <x>583</x>
+        <y>321</y>
+        <width>88</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Chamber Key</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyScience1">
+      <property name="geometry">
+       <rect>
+        <x>205</x>
+        <y>420</y>
+        <width>114</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyClocktower1">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>480</y>
+        <width>114</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyStoreroom">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>348</y>
+        <width>114</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelStoreroom">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>321</y>
+        <width>99</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Storeroom Key</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyScience2">
+      <property name="geometry">
+       <rect>
+        <x>326</x>
+        <y>420</y>
+        <width>114</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyLeftTower">
+      <property name="geometry">
+       <rect>
+        <x>115</x>
+        <y>348</y>
+        <width>98</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelScience2">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>390</y>
+        <width>90</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Science Key 2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyScience3">
+      <property name="geometry">
+       <rect>
+        <x>447</x>
+        <y>420</y>
+        <width>114</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelArchivesKey">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>321</y>
+        <width>83</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Archives Key</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyClocktower3">
+      <property name="geometry">
+       <rect>
+        <x>392</x>
+        <y>480</y>
+        <width>114</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="leKeyExecution">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>420</y>
+        <width>98</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="pageMain">
@@ -1900,9 +2147,9 @@
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>620</y>
-      <width>541</width>
+      <x>20</x>
+      <y>630</y>
+      <width>671</width>
       <height>20</height>
      </rect>
     </property>

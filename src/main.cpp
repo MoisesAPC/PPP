@@ -1,3 +1,12 @@
+/**
+ * @file main.cpp
+ * @brief Main source code file
+ *
+ * This file contains the main entrypoint function of the program.
+ *
+ * @author Moisés Antonio Pestano Castro
+ */
+
 #include "include/windows/main/MainWindow.h"
 #include "include/save/SaveManager.h"
 #include "include/file/FileManager.h"
@@ -6,6 +15,12 @@
 #include <QLocale>
 #include <QTranslator>
 
+/**
+ * This program uses the Singleton pattern to handle different kind of tasks
+ * from any part of the program.
+ *
+ * Since these are static, these will live for the entire lifetime of the application.
+ */
 SaveManager* SaveManager::instance = nullptr;
 FileManager* FileManager::instance = nullptr;
 DatabaseManager* DatabaseManager::instance = nullptr;
@@ -23,6 +38,7 @@ void destroySingletons() {
 }
 
 int main(int argc, char *argv[]) {
+    // Create the application and show the main window
     QApplication a(argc, argv);
 
     createSingletons();

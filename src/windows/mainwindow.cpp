@@ -1,3 +1,13 @@
+/**
+ * @file MainWindow.cpp
+ * @brief Main window source code file
+ *
+ * This file contains the source code for the main window of the application
+ * (the first window that opens up when booting the application).
+ *
+ * @author Moisés Antonio Pestano Castro
+ */
+
 #include "include/windows/main/MainWindow.h"
 #include "include/windows/Database/DatabaseMainWindow.h"
 #include "include/save/SaveManager.h"
@@ -10,6 +20,7 @@
 #include <QDir>             // QDir
 #include <QFileDialog>      // QFileDialog
 
+// Static instance for this window. We use this to access this window's functions in some parts of the code
 MainWindow* MainWindow::instance = nullptr;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -32,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     setupFileMenu();
     setupSlotMenu();
 
+    // Set default values to the savegame at boot
     SaveManager::getInstance()->assignDefaultValues();
     SaveManager::getInstance()->setRegion(SaveData::USA);
 
