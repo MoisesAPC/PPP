@@ -106,26 +106,20 @@ $(function(){initNavTree('bit_8h_source.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">bit.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="bit_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef BIT_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define BIT_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">/******************************************************************************</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * bit.h</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * This header file contains helper macros for bit-related manipulations.</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * Yoinked from: https://github.com/k64ret/cv64/blob/main/include/bit.h</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *****************************************************************************/</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="bit_8h.html#a6c4e5273222ae11ea8e76e63bd2b33f5">   12</a></span><span class="preprocessor">#define BIT(num) (1 &lt;&lt; (num))</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="bit_8h.html#a833194698fb57828fa34dd0fa0bb3836">   16</a></span><span class="preprocessor">#define BITS_MASK(value, mask) ((value) &amp; (mask))</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="bit_8h.html#a2db638177d81ad65a9d384f54159eb3a">   20</a></span><span class="preprocessor">#define BITS_ASSIGN_MASK(value, mask) ((value) &amp;= (mask))</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="bit_8h.html#a862991c73c16d71ab46078252230765b">   24</a></span><span class="preprocessor">#define BITS_HAS(value, bits) BITS_MASK(value, bits)</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="bit_8h.html#ae7da25797da3b763452291f3d7658967">   28</a></span><span class="preprocessor">#define BITS_NOT_HAS(value, bits) !BITS_HAS(value, bits)</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="bit_8h.html#a8a1563c9a68ebf93ead3e0af9624c8ba">   32</a></span><span class="preprocessor">#define BITS_SET(value, bits) ((value) |= (bits))</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="bit_8h.html#a5e3b92fa1927a515317c713efeec6988">   36</a></span><span class="preprocessor">#define BITS_UNSET(value, bits) ((value) &amp;= ~(bits))</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#endif</span></div>
+<a href="bit_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef BIT_H</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define BIT_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="bit_8h.html#a6c4e5273222ae11ea8e76e63bd2b33f5">   13</a></span><span class="preprocessor">#define BIT(num) (1 &lt;&lt; (num))</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="bit_8h.html#a833194698fb57828fa34dd0fa0bb3836">   17</a></span><span class="preprocessor">#define BITS_MASK(value, mask) ((value) &amp; (mask))</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="bit_8h.html#a2db638177d81ad65a9d384f54159eb3a">   21</a></span><span class="preprocessor">#define BITS_ASSIGN_MASK(value, mask) ((value) &amp;= (mask))</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="bit_8h.html#a862991c73c16d71ab46078252230765b">   25</a></span><span class="preprocessor">#define BITS_HAS(value, bits) BITS_MASK(value, bits)</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="bit_8h.html#ae7da25797da3b763452291f3d7658967">   29</a></span><span class="preprocessor">#define BITS_NOT_HAS(value, bits) !BITS_HAS(value, bits)</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="bit_8h.html#a8a1563c9a68ebf93ead3e0af9624c8ba">   33</a></span><span class="preprocessor">#define BITS_SET(value, bits) ((value) |= (bits))</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="bit_8h.html#a5e3b92fa1927a515317c713efeec6988">   37</a></span><span class="preprocessor">#define BITS_UNSET(value, bits) ((value) &amp;= ~(bits))</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

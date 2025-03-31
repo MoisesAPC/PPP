@@ -15,6 +15,7 @@ var class_save_manager =
     [ "getCurrentSave", "class_save_manager.html#a12a7d4326d6e14a4f996b433b05da0bd", null ],
     [ "getCurrentSaveSlot", "class_save_manager.html#a6bfa8dd1fd88829d3422dac2a05321b2", null ],
     [ "getFlagsPtr", "class_save_manager.html#a717baa8307dc08fb51664df15f058e29", null ],
+    [ "getFrameCount", "class_save_manager.html#a7864537c1104853cc03ecf351b05dad3", null ],
     [ "getInstance", "class_save_manager.html#ac14d18579e054a26571a0878ecd7cb8d", null ],
     [ "getLanguage", "class_save_manager.html#a2a7aab1f069bdace486e4265be8bd256", null ],
     [ "getRegion", "class_save_manager.html#a0460f8d33ab840c37b52812f2ffc9512", null ],
