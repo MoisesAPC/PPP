@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"struct_save_data.html#a3cba5a0b6ad663011014e6d3c859ecd6":[1,0,13,18],
 "struct_save_data.html#a3d62ad7ed1f4a231d7506cdc46803a0a":[1,0,13,17],
 "struct_save_data.html#a423091db95bf327ced4959a5123f4a09":[1,0,13,23],
 "struct_save_data.html#a4ea970b751789e6d1775151d729bb3c4":[1,0,13,44],

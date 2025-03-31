@@ -11,7 +11,7 @@ var searchData=
   ['map_8',['map',['../struct_save_data.html#aa4a666e50861a10862bd6ea244cc1926',1,'SaveData']]],
   ['map_5fnone_9',['MAP_NONE',['../struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a1f142d10e7ba849e9a713fdd9f95b6af',1,'SaveData']]],
   ['mapid_10',['MapID',['../struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99',1,'SaveData']]],
-  ['maxfilesize_11',['maxFileSize',['../struct_file_loader.html#ab94fa974e1086be8901aabd56a0c7458',1,'FileLoader']]],
+  ['maxfilesize_11',['maxFileSize',['../class_file_loader.html#ab94fa974e1086be8901aabd56a0c7458',1,'FileLoader']]],
   ['meiro_5fteien_12',['MEIRO_TEIEN',['../struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99ae60fab020c5f4d2a6aececd1841308c4',1,'SaveData']]],
   ['milliseconds_13',['milliseconds',['../struct_save_data.html#aa2bbb708fbffb2cf12441879e64a3a2a',1,'SaveData']]],
   ['minute_14',['minute',['../struct_save_data.html#ab235287977b99633b447f26a844c439d',1,'SaveData']]],

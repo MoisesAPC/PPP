@@ -2,12 +2,12 @@ var hierarchy =
 [
     [ "FileManager::ControllerPakIndexData", "struct_file_manager_1_1_controller_pak_index_data.html", null ],
     [ "DatabaseManager", "class_database_manager.html", null ],
-    [ "FileLoader", "struct_file_loader.html", [
-      [ "FileLoaderCartridge", "struct_file_loader_cartridge.html", null ],
+    [ "FileLoader", "class_file_loader.html", [
+      [ "FileLoaderCartridge", "class_file_loader_cartridge.html", null ],
       [ "FileLoaderControllerPak", "struct_file_loader_controller_pak.html", [
         [ "FileLoaderDexDrive", "struct_file_loader_dex_drive.html", null ]
       ] ],
-      [ "FileLoaderNote", "struct_file_loader_note.html", null ]
+      [ "FileLoaderNote", "class_file_loader_note.html", null ]
     ] ],
     [ "FileManager", "class_file_manager.html", null ],
     [ "QDialog", null, [
@@ -19,8 +19,8 @@ var hierarchy =
       [ "MainWindow", "class_main_window.html", null ]
     ] ],
     [ "QObject", null, [
-      [ "Database", "struct_database.html", [
-        [ "DatabaseCouch", "struct_database_couch.html", null ]
+      [ "Database", "class_database.html", [
+        [ "DatabaseCouch", "class_database_couch.html", null ]
       ] ]
     ] ],
     [ "Database::SaveBasicInfo", "struct_database_1_1_save_basic_info.html", null ],

@@ -121,8 +121,8 @@ $(function(){initNavTree('class_save_manager.html',''); initResizable(true); });
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abd50534474b601ccadb4d7a3504e1301" id="r_abd50534474b601ccadb4d7a3504e1301"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd50534474b601ccadb4d7a3504e1301">parseRegion</a> (QFile &amp;file)</td></tr>
 <tr class="separator:abd50534474b601ccadb4d7a3504e1301"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07343ea65a2db059df399e5a7e2225a7" id="r_a07343ea65a2db059df399e5a7e2225a7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_save_data.html">SaveData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07343ea65a2db059df399e5a7e2225a7">parseSaveData</a> (QDataStream &amp;inputStream, long startOffset)</td></tr>
-<tr class="separator:a07343ea65a2db059df399e5a7e2225a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4938428f9985fd146f840e602c21e035" id="r_a4938428f9985fd146f840e602c21e035"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_save_data.html">SaveData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4938428f9985fd146f840e602c21e035">readSaveData</a> (QDataStream &amp;inputStream, long startOffset)</td></tr>
+<tr class="separator:a4938428f9985fd146f840e602c21e035"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ca21631e98e0fd573940c4080ffad0a" id="r_a2ca21631e98e0fd573940c4080ffad0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ca21631e98e0fd573940c4080ffad0a">parseSaveSlot</a> (QFile &amp;file, <a class="el" href="struct_save_slot.html">SaveSlot</a> &amp;slot, long startOffset)</td></tr>
 <tr class="separator:a2ca21631e98e0fd573940c4080ffad0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75980a93edfee544f1ded8f8732bf0cb" id="r_a75980a93edfee544f1ded8f8732bf0cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75980a93edfee544f1ded8f8732bf0cb">parseAllSaveSlots</a> (QFile &amp;file, long startOffset)</td></tr>
@@ -746,27 +746,6 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a07343ea65a2db059df399e5a7e2225a7" name="a07343ea65a2db059df399e5a7e2225a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07343ea65a2db059df399e5a7e2225a7">&#9670;&#160;</a></span>parseSaveData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="struct_save_data.html">SaveData</a> &amp; SaveManager::parseSaveData </td>
-          <td>(</td>
-          <td class="paramtype">QDataStream &amp;</td>          <td class="paramname"><span class="paramname"><em>inputStream</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>startOffset</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a2ca21631e98e0fd573940c4080ffad0a" name="a2ca21631e98e0fd573940c4080ffad0a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2ca21631e98e0fd573940c4080ffad0a">&#9670;&#160;</a></span>parseSaveSlot()</h2>
 
@@ -782,6 +761,27 @@ Static Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_save_slot.html">SaveSlot</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>slot</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>startOffset</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4938428f9985fd146f840e602c21e035" name="a4938428f9985fd146f840e602c21e035"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4938428f9985fd146f840e602c21e035">&#9670;&#160;</a></span>readSaveData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_save_data.html">SaveData</a> &amp; SaveManager::readSaveData </td>
+          <td>(</td>
+          <td class="paramtype">QDataStream &amp;</td>          <td class="paramname"><span class="paramname"><em>inputStream</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

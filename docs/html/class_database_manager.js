@@ -18,7 +18,6 @@ var class_database_manager =
     [ "destroyNetworkAccessManager", "class_database_manager.html#aa51d25bb4c9349271c32a18abe5f9221", null ],
     [ "disconnectFromDatabase", "class_database_manager.html#abba6742a8fdc29295ff3d1706af7ddd9", null ],
     [ "entryAlreadyExists", "class_database_manager.html#adf96279ff131446aaa19e88191c12716", null ],
-    [ "findEntry", "class_database_manager.html#a95984e84a6cf5b80a7d89a2d40cd9ebf", null ],
     [ "getAllEntries", "class_database_manager.html#a74cb67658106bd47fd08b616e6c00fc5", null ],
     [ "getDatabase", "class_database_manager.html#a7915658a9a8f6084b7e2633a7f2964bf", null ],
     [ "getDatabaseType", "class_database_manager.html#a73b7e53fc3cdb1332167ae85c0daeee5", null ],

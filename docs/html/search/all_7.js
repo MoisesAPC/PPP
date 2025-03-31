@@ -10,6 +10,6 @@ var searchData=
   ['honmaru_5f4f_5fminami_7',['HONMARU_4F_MINAMI',['../struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a2d36151559925a04272d41dedf204f2f',1,'SaveData']]],
   ['honmaru_5f5f_8',['HONMARU_5F',['../struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a1161af854e4beb89c23091e110c60116',1,'SaveData']]],
   ['honmaru_5fb1f_9',['HONMARU_B1F',['../struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a3acfae8b95edc7759d23a720d56bc9dd',1,'SaveData']]],
-  ['hostname_10',['hostname',['../struct_database.html#aa9e3fbcfc27ab841a5ac72687590ad71',1,'Database']]],
+  ['hostname_10',['hostname',['../class_database.html#aa9e3fbcfc27ab841a5ac72687590ad71',1,'Database']]],
   ['hour_11',['hour',['../struct_save_data.html#a61a1721b087afdc6a37819a94bf411db',1,'SaveData']]]
 ];
