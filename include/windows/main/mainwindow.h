@@ -101,6 +101,7 @@ private slots:
     void enableUIComponents(bool);
     void updateCheckboxEnabledVisibility();
     void updateWindowVisibility(bool);
+    void convertFrameToTime(const unsigned int frameCount, QLabel* output);
 
 private:
     Ui::MainWindow* ui;

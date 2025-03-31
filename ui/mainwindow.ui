@@ -1441,7 +1441,7 @@
        <rect>
         <x>410</x>
         <y>360</y>
-        <width>91</width>
+        <width>101</width>
         <height>21</height>
        </rect>
       </property>
@@ -2140,6 +2140,33 @@
       </property>
       <property name="text">
        <string>Enabled</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelTitlePlaytime">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>360</y>
+        <width>63</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Playtime
+(h/m/s)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelPlaytime">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>400</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>00:00:00</string>
       </property>
      </widget>
     </widget>

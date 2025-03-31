@@ -162,8 +162,9 @@ void MainWindow::setupPageMain() {
     );
 
     setupLineEditNumberUnsigned(ui->leFrameCount, 0, UINT_MAX,
-        [](unsigned int value) {
+        [this](unsigned int value) {
             SaveManager::getInstance()->setFramecount(value);
+            convertFrameToTime(SaveManager::getInstance()->getFrameCount(), ui->labelPlaytime);
         }
     );
 
@@ -589,6 +590,7 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
     ui->leSeconds->setText(QString::number(saveData->seconds));
     ui->leMilliseconds->setText(QString::number(saveData->milliseconds));
     ui->leFrameCount->setText(QString::number(saveData->gameplay_framecount));
+    convertFrameToTime(saveData->gameplay_framecount, ui->labelPlaytime);
 
     ui->leItemsSpecial1->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SPECIAL1)));
     ui->leItemsSpecial2->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SPECIAL2)));
@@ -1088,4 +1090,16 @@ void MainWindow::databaseMenu() {
     DatabaseAccessWindow* databaseAccessWindow = new DatabaseAccessWindow(this);
     databaseAccessWindow->exec();
     databaseAccessWindow->close();
+}
+
+// Given a framecount (in 30fps), converts it from frames to hours, minutes and seconds
+void MainWindow::convertFrameToTime(const unsigned int frameCount, QLabel* output) {
+    int totalSeconds = frameCount / 30;
+    int hours = totalSeconds / 3600;
+    int minutes = (totalSeconds % 3600) / 60;
+    int seconds = totalSeconds % 60;
+
+    output->setText(QString("%1:%2:%3").arg(hours, 2, 10, QChar('0'))
+                        .arg(minutes, 2, 10, QChar('0'))
+                        .arg(seconds, 2, 10, QChar('0')));
 }

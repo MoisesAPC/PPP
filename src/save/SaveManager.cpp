@@ -93,6 +93,10 @@ void SaveManager::setFramecount(const unsigned int gameplay_framecount) {
     getInstance()->getCurrentSave().gameplay_framecount = gameplay_framecount;
 }
 
+unsigned int SaveManager::getFrameCount() const {
+    return getInstance()->getCurrentSave().gameplay_framecount;
+}
+
 void SaveManager::setCharacter(const short character) {
     getInstance()->getCurrentSave().character = character;
 }

@@ -62,6 +62,7 @@ class SaveManager {
         void setSeconds(const short);
         void setMilliseconds(const unsigned short);
         void setFramecount(const unsigned int);
+        unsigned int getFrameCount() const;
         void setCharacter(const short);
         void setButtonConfig(const short);
         void setSoundMode(const short);
