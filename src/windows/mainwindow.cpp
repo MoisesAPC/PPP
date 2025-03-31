@@ -659,13 +659,13 @@ void MainWindow::openFile(const QString& filename) {
         return;
     }
 
-    // Populate with the first slot by default + main save
-    populateMainWindow(&SaveManager::getInstance()->getSaveSlot(0).mainSave);
+    // Populate with the currently-selected save slot.
+    populateMainWindow(&SaveManager::getInstance()->getCurrentSave());
 
-    // Set default Slot option to Slot 1 -> Main.
+    // Set default Slot option to the currently selected save.
     // @note We must call this function after calling "populateMainWindow" in order to have the checkboxes
     // ready. Otherwise the program will throw SIGSEV.
-    updateSlotMenuCheckedState(0, true);
+    updateSlotMenuCheckedState(SaveManager::getInstance()->currentSave, SaveManager::getInstance()->isMain);
 }
 
 void MainWindow::fileOpenMenu() {
