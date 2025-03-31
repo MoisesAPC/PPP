@@ -131,7 +131,7 @@ void DatabaseCouch::getDatabaseRequestReply(QNetworkReply* reply) {
     reply->deleteLater();
 }
 
-QJsonObject DatabaseCouch::parseSaveDataToJSON(const SaveData& saveData) {
+QJsonObject DatabaseCouch::readSaveDataToJSON(const SaveData& saveData) {
     QJsonObject json;
     QJsonArray eventFlagsArray;
     QJsonArray itemsArray;
@@ -220,8 +220,8 @@ SaveData DatabaseCouch::parseJSONToSaveData(const QJsonObject& json) {
 QJsonObject DatabaseCouch::parseSaveSlotToJSON(const SaveSlot& saveSlot) {
     QJsonObject json;
 
-    json["mainSave"] = parseSaveDataToJSON(saveSlot.mainSave);
-    json["beginningOfStage"] = parseSaveDataToJSON(saveSlot.beginningOfStage);
+    json["mainSave"] = readSaveDataToJSON(saveSlot.mainSave);
+    json["beginningOfStage"] = readSaveDataToJSON(saveSlot.beginningOfStage);
     json["checksum1"] = static_cast<int>(saveSlot.checksum1);
     json["checksum2"] = static_cast<int>(saveSlot.checksum2);
     json["region"] = SaveManager::getInstance()->getRegion();

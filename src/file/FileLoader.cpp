@@ -13,8 +13,8 @@ void FileLoader::readSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOff
         return;
     }
 
-    slot.mainSave = parseSaveData(inputStream, startOffset);
-    slot.beginningOfStage = parseSaveData(inputStream, inputStream.device()->pos());
+    slot.mainSave = readSaveData(inputStream, startOffset);
+    slot.beginningOfStage = readSaveData(inputStream, inputStream.device()->pos());
     slot.checksum1 = readData<unsigned int>(inputStream, inputStream.device()->pos());
     slot.checksum2 = readData<unsigned int>(inputStream, inputStream.device()->pos());
 }
@@ -94,7 +94,7 @@ void FileLoader::writeAllSaveSlots(QFile& file) {
     }
 }
 
-const SaveData& FileLoader::parseSaveData(QDataStream& inputStream, unsigned int startOffset) {
+const SaveData& FileLoader::readSaveData(QDataStream& inputStream, unsigned int startOffset) {
     SaveData* currentSave = new SaveData();
 
     // Seek to the start of the save data

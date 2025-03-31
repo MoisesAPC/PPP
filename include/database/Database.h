@@ -36,7 +36,7 @@ class Database: public QObject {
     public:
         struct SaveBasicInfo {
             QString documentId = "";    /**< The entry's unique identifier in the database */
-            QString rev = "";           /**< Revisional info needed for delete operations to work correctly */
+            QString rev = "";           /**< Revisional info needed for update and delete operations to work correctly */
             int region = SaveData::USA; /**< Save region */
         };
 
@@ -108,7 +108,7 @@ class DatabaseCouch: public Database {
 
     private:
         // SaveData<->JSON parsing functions
-        QJsonObject parseSaveDataToJSON(const SaveData&);
+        QJsonObject readSaveDataToJSON(const SaveData& saveSlot);
         SaveData parseJSONToSaveData(const QJsonObject& json);
         QJsonObject parseSaveSlotToJSON(const SaveSlot& saveSlot);
         SaveSlot parseJSONToSaveSlot(const QJsonObject& json);
