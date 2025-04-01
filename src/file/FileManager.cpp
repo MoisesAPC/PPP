@@ -1,8 +1,20 @@
+/**
+ * @file FileManager.cpp
+ * @brief FileManager source code file
+ *
+ * This source code file contains the code for the FileManager singleton.
+ *
+ * @author Moisés Antonio Pestano Castro
+ */
+
 #include "include/file/FileManager.h"
 #include "include/save/SaveManager.h"
 #include "include/windows/ControllerPakSelection/ControllerPakSelectionwindow.h"
 #include <QMessageBox>
 
+/**
+ * @brief Given the loaded file format extension, it assigns the appropiate file-handling class.
+ */
 int FileManager::determineFormat() {
     if (!filepath.isEmpty()) {
 
@@ -92,6 +104,7 @@ int FileManager::openFile(const QString& filepath_) {
                     }
                 }
 
+                // Actually parse the contents from the file
                 loader->parseRegion(*file);
                 loader->readAllSaveSlots(*file);
 
@@ -145,7 +158,9 @@ int FileManager::writeFile(const QString& filepath_) {
     return -1;
 }
 
-// Initialize the FileManager's "noteTableArray", in order to know extra information regarding each Castlevania save it has
+/**
+ * @brief Initialize the FileManager's "noteTableArray", in order to know extra information regarding each Castlevania 64 save it has in Controller Pak-formatted files.
+ */
 unsigned int FileManager::initNoteTableData(QFile& file) {
     unsigned int numCV64Saves = 0;
 
@@ -157,6 +172,10 @@ unsigned int FileManager::initNoteTableData(QFile& file) {
         // If opening another Controller Pak file, make sure to clear the index data array first
         clearNoteTableData();
 
+        /**
+         * Find the note table data (by searching the game ID, like "ND3EA4").
+         * If found, it means a Castlevania 64 save is in the Controller Pak, so we can proceed to initialize the note table data.
+         */
         for (int i = 0; i < loader->getNoteTableNumEntries(); i++) {
             const unsigned int GAMEID_SIZE = 6;
             QByteArray gameId(GAMEID_SIZE, '\0');

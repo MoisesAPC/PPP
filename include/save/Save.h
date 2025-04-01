@@ -2,7 +2,7 @@
  * @file Save.h
  * @brief Raw save data structures
  *
- * @source https://github.com/k64ret/cv64/blob/main/include/game/save.h
+ * @note source: https://github.com/k64ret/cv64/blob/main/include/game/save.h
  */
 
 #ifndef SAVE_H

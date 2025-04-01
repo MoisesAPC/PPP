@@ -134,6 +134,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a03aa301c4ca66ff3a9ef184ee00729d0" id="r_a03aa301c4ca66ff3a9ef184ee00729d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03aa301c4ca66ff3a9ef184ee00729d0">parseRegion</a> (QFile &amp;file)</td></tr>
 <tr class="separator:a03aa301c4ca66ff3a9ef184ee00729d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a64534852d542ba560caa497b1dfd82" id="r_a5a64534852d542ba560caa497b1dfd82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a64534852d542ba560caa497b1dfd82">writeAllSaveSlots</a> (QFile &amp;file)</td></tr>
+<tr class="memdesc:a5a64534852d542ba560caa497b1dfd82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an entire save to the given file. The start offset for this data depends on the file format.  <br /></td></tr>
 <tr class="separator:a5a64534852d542ba560caa497b1dfd82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7627ea09823790141e45ae8729903120" id="r_a7627ea09823790141e45ae8729903120"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7627ea09823790141e45ae8729903120">countHexOccurrences</a> (const QByteArray &amp;data, const std::vector&lt; unsigned char &gt; &amp;target) const</td></tr>
 <tr class="separator:a7627ea09823790141e45ae8729903120"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,8 +152,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2ee5177455bfcd47bf4949c3e22a9443"><td class="mdescLeft">&#160;</td><td class="mdescRight">getHeaderBytes Get the raw bytes associated to the file's header, when applicable.  <br /></td></tr>
 <tr class="separator:a2ee5177455bfcd47bf4949c3e22a9443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68ae8bbd0bf44ef8415ae72e7a17fa18" id="r_a68ae8bbd0bf44ef8415ae72e7a17fa18"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68ae8bbd0bf44ef8415ae72e7a17fa18">getCartridgeNumSaves</a> () const</td></tr>
+<tr class="memdesc:a68ae8bbd0bf44ef8415ae72e7a17fa18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a cartridge save (which has dynamic size), return the number of saves it currently has.  <br /></td></tr>
 <tr class="separator:a68ae8bbd0bf44ef8415ae72e7a17fa18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0ac6e7ab97ae0529abc3018b5bb1dca" id="r_ac0ac6e7ab97ae0529abc3018b5bb1dca"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0ac6e7ab97ae0529abc3018b5bb1dca">getSaveSlotPaddingBytesSize</a> () const</td></tr>
+<tr class="memdesc:ac0ac6e7ab97ae0529abc3018b5bb1dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the padding data after the end of the actual save slot data.  <br /></td></tr>
 <tr class="separator:ac0ac6e7ab97ae0529abc3018b5bb1dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_file_loader"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_file_loader')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_file_loader.html">FileLoader</a></td></tr>
 <tr class="memitem:a51313b536560d1d89d8350475d2bc749 inherit pub_methods_class_file_loader" id="r_a51313b536560d1d89d8350475d2bc749"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#a51313b536560d1d89d8350475d2bc749">FileLoader</a> ()</td></tr>
@@ -160,14 +163,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3e9444022cd5cc90535917ae3687c69e inherit pub_methods_class_file_loader" id="r_a3e9444022cd5cc90535917ae3687c69e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#a3e9444022cd5cc90535917ae3687c69e">~FileLoader</a> ()</td></tr>
 <tr class="separator:a3e9444022cd5cc90535917ae3687c69e inherit pub_methods_class_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e25c93d14b2369e48eab8d1bbc0f083 inherit pub_methods_class_file_loader" id="r_a5e25c93d14b2369e48eab8d1bbc0f083"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#a5e25c93d14b2369e48eab8d1bbc0f083">readAllSaveSlots</a> (QFile &amp;file)</td></tr>
+<tr class="memdesc:a5e25c93d14b2369e48eab8d1bbc0f083 inherit pub_methods_class_file_loader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an entire save from the given file. The start offset for this data depends on the file format.  <br /></td></tr>
 <tr class="separator:a5e25c93d14b2369e48eab8d1bbc0f083 inherit pub_methods_class_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abab957ed87eb11df0f2df6f860708589 inherit pub_methods_class_file_loader" id="r_abab957ed87eb11df0f2df6f860708589"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#abab957ed87eb11df0f2df6f860708589">readSaveSlot</a> (QFile &amp;file, <a class="el" href="struct_save_slot.html">SaveSlot</a> &amp;slot, unsigned int startOffset)</td></tr>
+<tr class="memdesc:abab957ed87eb11df0f2df6f860708589 inherit pub_methods_class_file_loader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the data associated to a save slot from a file given the start offset within said file.  <br /></td></tr>
 <tr class="separator:abab957ed87eb11df0f2df6f860708589 inherit pub_methods_class_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a5fbd15b377d95bbfe921594dcc747a inherit pub_methods_class_file_loader" id="r_a8a5fbd15b377d95bbfe921594dcc747a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#a8a5fbd15b377d95bbfe921594dcc747a">writeSaveSlot</a> (QFile &amp;file, <a class="el" href="struct_save_slot.html">SaveSlot</a> &amp;slot, unsigned int startOffset)</td></tr>
+<tr class="memdesc:a8a5fbd15b377d95bbfe921594dcc747a inherit pub_methods_class_file_loader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the data associated from a save slot to a file at the start offset within said file.  <br /></td></tr>
 <tr class="separator:a8a5fbd15b377d95bbfe921594dcc747a inherit pub_methods_class_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01e49e7356759294aa1faedd54b24131 inherit pub_methods_class_file_loader" id="r_a01e49e7356759294aa1faedd54b24131"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_save_data.html">SaveData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#a01e49e7356759294aa1faedd54b24131">readSaveData</a> (QDataStream &amp;inputStream, unsigned int startOffset)</td></tr>
+<tr class="memdesc:a01e49e7356759294aa1faedd54b24131 inherit pub_methods_class_file_loader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a save data entry from the given data stream. The start offset for this data depends on the file format.  <br /></td></tr>
 <tr class="separator:a01e49e7356759294aa1faedd54b24131 inherit pub_methods_class_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f6eba00efd3aae50631976b093d67a7 inherit pub_methods_class_file_loader" id="r_a6f6eba00efd3aae50631976b093d67a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#a6f6eba00efd3aae50631976b093d67a7">writeSaveData</a> (QDataStream &amp;outputStream, const <a class="el" href="struct_save_data.html">SaveData</a> &amp;saveData, unsigned int startOffset)</td></tr>
+<tr class="memdesc:a6f6eba00efd3aae50631976b093d67a7 inherit pub_methods_class_file_loader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a save data entry to the given data stream. The start offset for this data depends on the file format.  <br /></td></tr>
 <tr class="separator:a6f6eba00efd3aae50631976b093d67a7 inherit pub_methods_class_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa11da2471443d7c9def7f1f8db1a58c0 inherit pub_methods_class_file_loader" id="r_aa11da2471443d7c9def7f1f8db1a58c0"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#aa11da2471443d7c9def7f1f8db1a58c0">getNoteTableOffset</a> () const</td></tr>
 <tr class="separator:aa11da2471443d7c9def7f1f8db1a58c0 inherit pub_methods_class_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,8 +187,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac0c2886bac87f4ede9d268fff254ae7a inherit pub_methods_class_file_loader"><td class="mdescLeft">&#160;</td><td class="mdescRight">getRawDataOffsetPerEntry  <br /></td></tr>
 <tr class="separator:ac0c2886bac87f4ede9d268fff254ae7a inherit pub_methods_class_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a771287ce55fb02a818398c1ad4428a3c inherit pub_methods_class_file_loader" id="r_a771287ce55fb02a818398c1ad4428a3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#a771287ce55fb02a818398c1ad4428a3c">swapEndianness</a> (QByteArray *)</td></tr>
+<tr class="memdesc:a771287ce55fb02a818398c1ad4428a3c inherit pub_methods_class_file_loader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given an byte array, it swaps the endianness between little endian&lt;-&gt;big endian.  <br /></td></tr>
 <tr class="separator:a771287ce55fb02a818398c1ad4428a3c inherit pub_methods_class_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6321a8623f4150630957457206ebb0ad inherit pub_methods_class_file_loader" id="r_a6321a8623f4150630957457206ebb0ad"><td class="memItemLeft" align="right" valign="top">short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_loader.html#a6321a8623f4150630957457206ebb0ad">getRegionEnumFromChar</a> (const unsigned char regionFromFile)</td></tr>
+<tr class="memdesc:a6321a8623f4150630957457206ebb0ad inherit pub_methods_class_file_loader"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the region numeric ID given its equivalent character ID.  <br /></td></tr>
 <tr class="separator:a6321a8623f4150630957457206ebb0ad inherit pub_methods_class_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addfb14b25cd464fd852db8eb832fa00d inherit pub_methods_class_file_loader" id="r_addfb14b25cd464fd852db8eb832fa00d"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:addfb14b25cd464fd852db8eb832fa00d inherit pub_methods_class_file_loader"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_file_loader.html#addfb14b25cd464fd852db8eb832fa00d">readData</a> (QDataStream &amp;inputStream, long offset)</td></tr>
@@ -304,6 +314,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Given a cartridge save (which has dynamic size), return the number of saves it currently has. </p>
+
 </div>
 </div>
 <a id="a2ee5177455bfcd47bf4949c3e22a9443" name="a2ee5177455bfcd47bf4949c3e22a9443"></a>
@@ -357,6 +369,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section note"><dt>Note</dt><dd>Cartridge saves have variable size. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_file_loader.html#ade3ab6e541f629b87e1f0b2e87b809a7">FileLoader</a>.</p>
 
@@ -466,6 +479,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Get the size of the padding data after the end of the actual save slot data. </p>
+
 <p>Reimplemented from <a class="el" href="class_file_loader.html#ad743dc8157ddc83cee1330f653c9824a">FileLoader</a>.</p>
 
 </div>
@@ -519,6 +534,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section note"><dt>Note</dt><dd>Cartridge saves are exclusive to the Japanese version. </dd></dl>
 
 <p>Implements <a class="el" href="class_file_loader.html#adf67b2f3e29096a3f1d62e3c092e5016">FileLoader</a>.</p>
 
@@ -546,6 +562,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Writes an entire save to the given file. The start offset for this data depends on the file format. </p>
 
 <p>Reimplemented from <a class="el" href="class_file_loader.html#ab637c13de72fd64cabd6851d95983473">FileLoader</a>.</p>
 

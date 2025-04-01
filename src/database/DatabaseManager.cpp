@@ -1,3 +1,12 @@
+/**
+ * @file DatabaseManager.cpp
+ * @brief DatabaseManager source code file
+ *
+ * This source code file contains the code for the DatabaseManager singleton.
+ *
+ * @author Moisés Antonio Pestano Castro
+ */
+
 #include "include/database/DatabaseManager.h"
 
 bool DatabaseManager::connectToDatabase() {

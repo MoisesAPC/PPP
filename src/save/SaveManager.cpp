@@ -2,7 +2,7 @@
  * @file SaveManager.cpp
  * @brief SaveManager class source code file
  *
- * This file contains the source code for the SaveManager class
+ * This file contains the source code for the SaveManager singleton.
  *
  * @author Moisés Antonio Pestano Castro
  */
@@ -129,18 +129,32 @@ void SaveManager::unsetFlags(const unsigned int flags) {
     BITS_UNSET(getInstance()->getCurrentSave().flags, flags);
 }
 
+/**
+ * @brief Set a whole event flag word
+ */
 void SaveManager::setEventFlags(const int flagSet, const unsigned int flags) {
     getInstance()->getCurrentSave().event_flags[flagSet] = flags;
 }
 
+/**
+ * @brief Assign individual flags to an event flag word.
+ */
 void SaveManager::assignEventFlags(const int flagSet, const unsigned int flags) {
     BITS_SET(getInstance()->getCurrentSave().event_flags[flagSet], flags);
 }
 
+/**
+ * @brief Remove individual flags from an event flag word.
+ */
 void SaveManager::unassignEventFlags(const int flagSet, const unsigned int flags) {
     BITS_UNSET(getInstance()->getCurrentSave().event_flags[flagSet], flags);
 }
 
+/**
+ * @brief Calculates the save file's first checksum
+ *
+ * @note source: https://decomp.me/scratch/6UIVU
+ */
 unsigned int SaveManager::calcFirstChecksum(const QByteArray& dataFromFile) {
     unsigned int checksum = 0;
 
@@ -154,6 +168,11 @@ unsigned int SaveManager::calcFirstChecksum(const QByteArray& dataFromFile) {
     return checksum;
 }
 
+/**
+ * @brief Calculates the save file's second checksum
+ *
+ * @note source: https://decomp.me/scratch/oi0s4
+ */
 unsigned int SaveManager::calcSecondChecksum(const QByteArray& dataFromFile) {
     unsigned int checksum = 0;
 
@@ -167,8 +186,10 @@ unsigned int SaveManager::calcSecondChecksum(const QByteArray& dataFromFile) {
     return checksum;
 }
 
-// If none of the saves are enabled, return true.
-// This allows us to prevent saving if none of the saves's "Enabled" checkbox are checked.
+/**
+ * If none of the saves are enabled, return true.
+ * This allows us, for example, to prevent saving if none of the saves's "Enabled" checkbox are checked.
+ */
 bool SaveManager::areAllSavesDisabled() {
     for (int i = 0; i < NUM_SAVES; i++) {
         if (BITS_HAS(saves[i].mainSave.flags, SaveData::SAVE_FLAG_ENABLE_SAVE)) {
@@ -179,7 +200,9 @@ bool SaveManager::areAllSavesDisabled() {
     return true;
 }
 
-// Assign default (i.e. new game) values to all fields
+/**
+ * @brief Assign default (i.e. new game) values to all save game fields.
+ */
 void SaveManager::assignDefaultValues() {
     for (int i = 0; i < NUM_SAVES; i++) {
         saves[i].assignDefaultValues();
