@@ -2,6 +2,7 @@ var struct_file_loader_controller_pak =
 [
     [ "FileLoaderControllerPak", "struct_file_loader_controller_pak.html#ad6c36b32c36c1d17b6cd983d0e0c3252", null ],
     [ "~FileLoaderControllerPak", "struct_file_loader_controller_pak.html#a772b8af9618fa18ed6090642bba0bc67", null ],
+    [ "checkFileOpenErrors", "struct_file_loader_controller_pak.html#ab9be9a7b306dde132acaec7f5b21975d", null ],
     [ "countHexOccurrences", "struct_file_loader_controller_pak.html#a9329525496fc6975a56fe9015dfaff9d", null ],
     [ "getHeaderBytes", "struct_file_loader_controller_pak.html#a0b6189e811042486ae008acdf4330ba6", null ],
     [ "getMaxFileSize", "struct_file_loader_controller_pak.html#a42b74b4417f1e8cd76a86dcfc70b3b1f", null ],

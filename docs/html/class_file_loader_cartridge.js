@@ -2,6 +2,7 @@ var class_file_loader_cartridge =
 [
     [ "FileLoaderCartridge", "class_file_loader_cartridge.html#a557c31fd2afe14b14d9202270943b822", null ],
     [ "~FileLoaderCartridge", "class_file_loader_cartridge.html#acbc95f1d69c37d9287297eac32e27d8e", null ],
+    [ "checkFileOpenErrors", "class_file_loader_cartridge.html#a5565b2089a1eb30f5410a4bbe87466bf", null ],
     [ "countHexOccurrences", "class_file_loader_cartridge.html#a7627ea09823790141e45ae8729903120", null ],
     [ "getCartridgeNumSaves", "class_file_loader_cartridge.html#a68ae8bbd0bf44ef8415ae72e7a17fa18", null ],
     [ "getHeaderBytes", "class_file_loader_cartridge.html#a2ee5177455bfcd47bf4949c3e22a9443", null ],

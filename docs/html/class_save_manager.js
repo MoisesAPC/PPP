@@ -40,7 +40,7 @@ var class_save_manager =
     [ "setMilliseconds", "class_save_manager.html#a9fa36bf5d4f1b1aa8613a2f38abd0b14", null ],
     [ "setMinutes", "class_save_manager.html#a6bdde009019cab456ef233d2b3244a41", null ],
     [ "setRegion", "class_save_manager.html#a8fa9280ba013631098e2fcc6b126d531", null ],
-    [ "setSave", "class_save_manager.html#ad4dbe55938418ed2174fbb877c1e7f0e", null ],
+    [ "setSaveSlot", "class_save_manager.html#a3a63f64ee2a723dc0d8ec17e6e818ee2", null ],
     [ "setSeconds", "class_save_manager.html#afdbb9542b7b91471b15c6d298a3369fa", null ],
     [ "setSoundMode", "class_save_manager.html#a6bb830b4666b8e4a51fdf603efd3f987", null ],
     [ "setSpawn", "class_save_manager.html#ac61eca8099057b5b44027e41aadf3878", null ],

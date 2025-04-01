@@ -97,7 +97,7 @@ var struct_save_data =
       [ "PLAYER_FLAG_POISON", "struct_save_data.html#acee1873b009042d499f5ea197c28c75daef4ba11b47833a0e9f15f83cc2b4336e", null ]
     ] ],
     [ "SaveFlag", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcf", [
-      [ "SAVE_FLAG_ENABLE_SAVE", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971", null ],
+      [ "SAVE_FLAG_ACTIVE", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfac04aa522d25ece46d631fcc4c06b995a", null ],
       [ "SAVE_FLAG_EASY", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca", null ],
       [ "SAVE_FLAG_NORMAL", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02", null ],
       [ "SAVE_FLAG_HARD", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05", null ],

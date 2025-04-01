@@ -158,6 +158,8 @@ Private Slots</h2></td></tr>
 <tr class="separator:abbef0fd765240e301926c130a94a7949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a830e7d3c286db15af827a6a482b44e" id="r_a1a830e7d3c286db15af827a6a482b44e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a830e7d3c286db15af827a6a482b44e">setupSlotMenu</a> ()</td></tr>
 <tr class="separator:a1a830e7d3c286db15af827a6a482b44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c17e66411a66bed8faa592e7a89d25d" id="r_a6c17e66411a66bed8faa592e7a89d25d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c17e66411a66bed8faa592e7a89d25d">setupEditMenu</a> ()</td></tr>
+<tr class="separator:a6c17e66411a66bed8faa592e7a89d25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d184758cb8a12e837b5ffb4456304db" id="r_a2d184758cb8a12e837b5ffb4456304db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d184758cb8a12e837b5ffb4456304db">handleNumberOnlyInputUnsigned</a> (std::function&lt; void(unsigned int)&gt; setter, QLineEdit *lineEdit)</td></tr>
 <tr class="memdesc:a2d184758cb8a12e837b5ffb4456304db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows both decimal and hexadecimal numbers to be innputted.  <br /></td></tr>
 <tr class="separator:a2d184758cb8a12e837b5ffb4456304db"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,6 +189,15 @@ Private Slots</h2></td></tr>
 <tr class="separator:aab3b747fab6fc27fb9c94ac5f6e9a64f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62d0ef52c06bf628ab32c71f90f63720" id="r_a62d0ef52c06bf628ab32c71f90f63720"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62d0ef52c06bf628ab32c71f90f63720">openFile</a> (const QString &amp;filename)</td></tr>
 <tr class="separator:a62d0ef52c06bf628ab32c71f90f63720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bef41faa222a2d1401e94db4f08fba3" id="r_a6bef41faa222a2d1401e94db4f08fba3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bef41faa222a2d1401e94db4f08fba3">onCopy</a> (QWidget *parent)</td></tr>
+<tr class="memdesc:a6bef41faa222a2d1401e94db4f08fba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the currently-opened save slot to another slot.  <br /></td></tr>
+<tr class="separator:a6bef41faa222a2d1401e94db4f08fba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f29a7235acf922406190b6477167a80" id="r_a3f29a7235acf922406190b6477167a80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f29a7235acf922406190b6477167a80">onDelete</a> ()</td></tr>
+<tr class="memdesc:a3f29a7235acf922406190b6477167a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear a the currently opened save slot.  <br /></td></tr>
+<tr class="separator:a3f29a7235acf922406190b6477167a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb96252099e4a50cadb09778d5b69e70" id="r_aeb96252099e4a50cadb09778d5b69e70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb96252099e4a50cadb09778d5b69e70">onDeleteAll</a> ()</td></tr>
+<tr class="memdesc:aeb96252099e4a50cadb09778d5b69e70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all save slots within the current save file.  <br /></td></tr>
+<tr class="separator:aeb96252099e4a50cadb09778d5b69e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b7360f461dc4d169ba03937ce10f8e6" id="r_a9b7360f461dc4d169ba03937ce10f8e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b7360f461dc4d169ba03937ce10f8e6">switchPage</a> (QStackedWidget *stackedWidgetPages, const QWidget *page)</td></tr>
 <tr class="separator:a9b7360f461dc4d169ba03937ce10f8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34cd38c778def0655d511b31798d2f29" id="r_a34cd38c778def0655d511b31798d2f29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34cd38c778def0655d511b31798d2f29">checkMandragoraAndNitroLineEdits</a> ()</td></tr>
@@ -586,6 +597,87 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a6bef41faa222a2d1401e94db4f08fba3" name="a6bef41faa222a2d1401e94db4f08fba3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bef41faa222a2d1401e94db4f08fba3">&#9670;&#160;</a></span>onCopy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::onCopy </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy the currently-opened save slot to another slot. </p>
+
+</div>
+</div>
+<a id="a3f29a7235acf922406190b6477167a80" name="a3f29a7235acf922406190b6477167a80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f29a7235acf922406190b6477167a80">&#9670;&#160;</a></span>onDelete</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::onDelete </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clear a the currently opened save slot. </p>
+
+</div>
+</div>
+<a id="aeb96252099e4a50cadb09778d5b69e70" name="aeb96252099e4a50cadb09778d5b69e70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb96252099e4a50cadb09778d5b69e70">&#9670;&#160;</a></span>onDeleteAll</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::onDeleteAll </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clear all save slots within the current save file. </p>
+
+</div>
+</div>
 <a id="aab3b747fab6fc27fb9c94ac5f6e9a64f" name="aab3b747fab6fc27fb9c94ac5f6e9a64f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab3b747fab6fc27fb9c94ac5f6e9a64f">&#9670;&#160;</a></span>onPageButtonClicked</h2>
 
@@ -847,6 +939,31 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Same as "setupComboBox", but this is meant for comboboxes which are supposed to assign bitflags to a value instead, such as the combo box for setting the game's difficulty </p>
+
+</div>
+</div>
+<a id="a6c17e66411a66bed8faa592e7a89d25d" name="a6c17e66411a66bed8faa592e7a89d25d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c17e66411a66bed8faa592e7a89d25d">&#9670;&#160;</a></span>setupEditMenu</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::setupEditMenu </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

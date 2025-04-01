@@ -193,6 +193,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a04ccac001da70f4f8ea5d8a5debef41d" id="r_a04ccac001da70f4f8ea5d8a5debef41d"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:a04ccac001da70f4f8ea5d8a5debef41d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a04ccac001da70f4f8ea5d8a5debef41d">writeData</a> (QDataStream &amp;outputStream, long offset, T value)</td></tr>
 <tr class="separator:a04ccac001da70f4f8ea5d8a5debef41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb075fa1b58d71a9f0c4dff5d20d5de4" id="r_aeb075fa1b58d71a9f0c4dff5d20d5de4"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb075fa1b58d71a9f0c4dff5d20d5de4">checkFileOpenErrors</a> ()=0</td></tr>
+<tr class="separator:aeb075fa1b58d71a9f0c4dff5d20d5de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -263,6 +265,35 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aeb075fa1b58d71a9f0c4dff5d20d5de4" name="aeb075fa1b58d71a9f0c4dff5d20d5de4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb075fa1b58d71a9f0c4dff5d20d5de4">&#9670;&#160;</a></span>checkFileOpenErrors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int FileLoader::checkFileOpenErrors </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Error verification when opening a file.</p>
+<dl class="section return"><dt>Returns</dt><dd>-1 on fail. 0 on success. </dd></dl>
+
+<p>Implemented in <a class="el" href="class_file_loader_cartridge.html#a5565b2089a1eb30f5410a4bbe87466bf">FileLoaderCartridge</a>, <a class="el" href="struct_file_loader_controller_pak.html#ab9be9a7b306dde132acaec7f5b21975d">FileLoaderControllerPak</a>, and <a class="el" href="class_file_loader_note.html#a31507dac1abcaa97235546eabb41cd81">FileLoaderNote</a>.</p>
+
+</div>
+</div>
 <a id="a77e7a947e7ea8d5ecbf406c24f065dd4" name="a77e7a947e7ea8d5ecbf406c24f065dd4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a77e7a947e7ea8d5ecbf406c24f065dd4">&#9670;&#160;</a></span>countHexOccurrences()</h2>
 

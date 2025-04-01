@@ -150,6 +150,7 @@
 <section title="FileLoader" ref="class_file_loader.html">
 <section title="FileLoader" ref="class_file_loader.html#a51313b536560d1d89d8350475d2bc749"/>
 <section title="~FileLoader" ref="class_file_loader.html#a3e9444022cd5cc90535917ae3687c69e"/>
+<section title="checkFileOpenErrors" ref="class_file_loader.html#aeb075fa1b58d71a9f0c4dff5d20d5de4"/>
 <section title="countHexOccurrences" ref="class_file_loader.html#a77e7a947e7ea8d5ecbf406c24f065dd4"/>
 <section title="getHeaderBytes" ref="class_file_loader.html#af1f70ab6f3eb3766aa76268e92018d26"/>
 <section title="getMaxFileSize" ref="class_file_loader.html#ade3ab6e541f629b87e1f0b2e87b809a7"/>
@@ -181,6 +182,7 @@
 <section title="FileLoaderCartridge" ref="class_file_loader_cartridge.html">
 <section title="FileLoaderCartridge" ref="class_file_loader_cartridge.html#a557c31fd2afe14b14d9202270943b822"/>
 <section title="~FileLoaderCartridge" ref="class_file_loader_cartridge.html#acbc95f1d69c37d9287297eac32e27d8e"/>
+<section title="checkFileOpenErrors" ref="class_file_loader_cartridge.html#a5565b2089a1eb30f5410a4bbe87466bf"/>
 <section title="countHexOccurrences" ref="class_file_loader_cartridge.html#a7627ea09823790141e45ae8729903120"/>
 <section title="getCartridgeNumSaves" ref="class_file_loader_cartridge.html#a68ae8bbd0bf44ef8415ae72e7a17fa18"/>
 <section title="getHeaderBytes" ref="class_file_loader_cartridge.html#a2ee5177455bfcd47bf4949c3e22a9443"/>
@@ -198,6 +200,7 @@
 <section title="FileLoaderControllerPak" ref="struct_file_loader_controller_pak.html">
 <section title="FileLoaderControllerPak" ref="struct_file_loader_controller_pak.html#ad6c36b32c36c1d17b6cd983d0e0c3252"/>
 <section title="~FileLoaderControllerPak" ref="struct_file_loader_controller_pak.html#a772b8af9618fa18ed6090642bba0bc67"/>
+<section title="checkFileOpenErrors" ref="struct_file_loader_controller_pak.html#ab9be9a7b306dde132acaec7f5b21975d"/>
 <section title="countHexOccurrences" ref="struct_file_loader_controller_pak.html#a9329525496fc6975a56fe9015dfaff9d"/>
 <section title="getHeaderBytes" ref="struct_file_loader_controller_pak.html#a0b6189e811042486ae008acdf4330ba6"/>
 <section title="getMaxFileSize" ref="struct_file_loader_controller_pak.html#a42b74b4417f1e8cd76a86dcfc70b3b1f"/>
@@ -229,6 +232,7 @@
 <section title="FileLoaderNote" ref="class_file_loader_note.html">
 <section title="FileLoaderNote" ref="class_file_loader_note.html#a2327fa085887b3282378bbbad49651ab"/>
 <section title="~FileLoaderNote" ref="class_file_loader_note.html#a7c26440b1693347ec8701b2ce06968ee"/>
+<section title="checkFileOpenErrors" ref="class_file_loader_note.html#a31507dac1abcaa97235546eabb41cd81"/>
 <section title="countHexOccurrences" ref="class_file_loader_note.html#a5cfd8b850d62a555be1b77c5606d5c66"/>
 <section title="getHeaderBytes" ref="class_file_loader_note.html#adae722a19e9e251009162f6f85ec88e5"/>
 <section title="getMaxFileSize" ref="class_file_loader_note.html#ae524a83ccd32f694419b39cbe3829778"/>
@@ -310,6 +314,9 @@
 <section title="getIsMain" ref="class_main_window.html#aab85b427f5d9f93ba28336253953459a"/>
 <section title="getSelectedSave" ref="class_main_window.html#a8d291689a2407ba98ea2615c93da9dcd"/>
 <section title="handleNumberOnlyInputUnsigned" ref="class_main_window.html#a2d184758cb8a12e837b5ffb4456304db"/>
+<section title="onCopy" ref="class_main_window.html#a6bef41faa222a2d1401e94db4f08fba3"/>
+<section title="onDelete" ref="class_main_window.html#a3f29a7235acf922406190b6477167a80"/>
+<section title="onDeleteAll" ref="class_main_window.html#aeb96252099e4a50cadb09778d5b69e70"/>
 <section title="onPageButtonClicked" ref="class_main_window.html#aab3b747fab6fc27fb9c94ac5f6e9a64f"/>
 <section title="openFile" ref="class_main_window.html#a62d0ef52c06bf628ab32c71f90f63720"/>
 <section title="populateMainWindow" ref="class_main_window.html#ab275c51cd486ba87b36da8b00f66da35"/>
@@ -319,6 +326,7 @@
 <section title="setupCheckBox" ref="class_main_window.html#a4c3fa6917b681b3f1bd532ffd5a35c3c"/>
 <section title="setupComboBox" ref="class_main_window.html#a67fe40f4eade51246ce8d15e2e21625e"/>
 <section title="setupComboBoxBitflag" ref="class_main_window.html#a95aa48c55dd2e279dfea5dfa485b578f"/>
+<section title="setupEditMenu" ref="class_main_window.html#a6c17e66411a66bed8faa592e7a89d25d"/>
 <section title="setupFileMenu" ref="class_main_window.html#abbef0fd765240e301926c130a94a7949"/>
 <section title="setupLineEditNumberUnsigned" ref="class_main_window.html#a485780b29edadb78b1cf2b8db7f86b82"/>
 <section title="setupPageEventFlags" ref="class_main_window.html#af927e3a1e9e0eadf1b507e8a3b97aa2a"/>
@@ -445,7 +453,7 @@
 <section title="PLAYER_FLAG_POISON" ref="struct_save_data.html#acee1873b009042d499f5ea197c28c75daef4ba11b47833a0e9f15f83cc2b4336e"/>
 </section>
 <section title="SaveFlag" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcf">
-<section title="SAVE_FLAG_ENABLE_SAVE" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971"/>
+<section title="SAVE_FLAG_ACTIVE" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfac04aa522d25ece46d631fcc4c06b995a"/>
 <section title="SAVE_FLAG_EASY" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca"/>
 <section title="SAVE_FLAG_NORMAL" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02"/>
 <section title="SAVE_FLAG_HARD" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05"/>
@@ -551,7 +559,7 @@
 <section title="setMilliseconds" ref="class_save_manager.html#a9fa36bf5d4f1b1aa8613a2f38abd0b14"/>
 <section title="setMinutes" ref="class_save_manager.html#a6bdde009019cab456ef233d2b3244a41"/>
 <section title="setRegion" ref="class_save_manager.html#a8fa9280ba013631098e2fcc6b126d531"/>
-<section title="setSave" ref="class_save_manager.html#ad4dbe55938418ed2174fbb877c1e7f0e"/>
+<section title="setSaveSlot" ref="class_save_manager.html#a3a63f64ee2a723dc0d8ec17e6e818ee2"/>
 <section title="setSeconds" ref="class_save_manager.html#afdbb9542b7b91471b15c6d298a3369fa"/>
 <section title="setSoundMode" ref="class_save_manager.html#a6bb830b4666b8e4a51fdf603efd3f987"/>
 <section title="setSpawn" ref="class_save_manager.html#ac61eca8099057b5b44027e41aadf3878"/>
@@ -762,6 +770,7 @@
 <section title="FileLoader" ref="class_file_loader.html">
 <section title="FileLoader" ref="class_file_loader.html#a51313b536560d1d89d8350475d2bc749"/>
 <section title="~FileLoader" ref="class_file_loader.html#a3e9444022cd5cc90535917ae3687c69e"/>
+<section title="checkFileOpenErrors" ref="class_file_loader.html#aeb075fa1b58d71a9f0c4dff5d20d5de4"/>
 <section title="countHexOccurrences" ref="class_file_loader.html#a77e7a947e7ea8d5ecbf406c24f065dd4"/>
 <section title="getHeaderBytes" ref="class_file_loader.html#af1f70ab6f3eb3766aa76268e92018d26"/>
 <section title="getMaxFileSize" ref="class_file_loader.html#ade3ab6e541f629b87e1f0b2e87b809a7"/>
@@ -793,6 +802,7 @@
 <section title="FileLoaderNote" ref="class_file_loader_note.html">
 <section title="FileLoaderNote" ref="class_file_loader_note.html#a2327fa085887b3282378bbbad49651ab"/>
 <section title="~FileLoaderNote" ref="class_file_loader_note.html#a7c26440b1693347ec8701b2ce06968ee"/>
+<section title="checkFileOpenErrors" ref="class_file_loader_note.html#a31507dac1abcaa97235546eabb41cd81"/>
 <section title="countHexOccurrences" ref="class_file_loader_note.html#a5cfd8b850d62a555be1b77c5606d5c66"/>
 <section title="getHeaderBytes" ref="class_file_loader_note.html#adae722a19e9e251009162f6f85ec88e5"/>
 <section title="getMaxFileSize" ref="class_file_loader_note.html#ae524a83ccd32f694419b39cbe3829778"/>
@@ -809,6 +819,7 @@
 <section title="FileLoaderCartridge" ref="class_file_loader_cartridge.html">
 <section title="FileLoaderCartridge" ref="class_file_loader_cartridge.html#a557c31fd2afe14b14d9202270943b822"/>
 <section title="~FileLoaderCartridge" ref="class_file_loader_cartridge.html#acbc95f1d69c37d9287297eac32e27d8e"/>
+<section title="checkFileOpenErrors" ref="class_file_loader_cartridge.html#a5565b2089a1eb30f5410a4bbe87466bf"/>
 <section title="countHexOccurrences" ref="class_file_loader_cartridge.html#a7627ea09823790141e45ae8729903120"/>
 <section title="getCartridgeNumSaves" ref="class_file_loader_cartridge.html#a68ae8bbd0bf44ef8415ae72e7a17fa18"/>
 <section title="getHeaderBytes" ref="class_file_loader_cartridge.html#a2ee5177455bfcd47bf4949c3e22a9443"/>
@@ -826,6 +837,7 @@
 <section title="FileLoaderControllerPak" ref="struct_file_loader_controller_pak.html">
 <section title="FileLoaderControllerPak" ref="struct_file_loader_controller_pak.html#ad6c36b32c36c1d17b6cd983d0e0c3252"/>
 <section title="~FileLoaderControllerPak" ref="struct_file_loader_controller_pak.html#a772b8af9618fa18ed6090642bba0bc67"/>
+<section title="checkFileOpenErrors" ref="struct_file_loader_controller_pak.html#ab9be9a7b306dde132acaec7f5b21975d"/>
 <section title="countHexOccurrences" ref="struct_file_loader_controller_pak.html#a9329525496fc6975a56fe9015dfaff9d"/>
 <section title="getHeaderBytes" ref="struct_file_loader_controller_pak.html#a0b6189e811042486ae008acdf4330ba6"/>
 <section title="getMaxFileSize" ref="struct_file_loader_controller_pak.html#a42b74b4417f1e8cd76a86dcfc70b3b1f"/>
@@ -1014,7 +1026,7 @@
 <section title="PLAYER_FLAG_POISON" ref="struct_save_data.html#acee1873b009042d499f5ea197c28c75daef4ba11b47833a0e9f15f83cc2b4336e"/>
 </section>
 <section title="SaveFlag" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcf">
-<section title="SAVE_FLAG_ENABLE_SAVE" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971"/>
+<section title="SAVE_FLAG_ACTIVE" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfac04aa522d25ece46d631fcc4c06b995a"/>
 <section title="SAVE_FLAG_EASY" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca"/>
 <section title="SAVE_FLAG_NORMAL" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02"/>
 <section title="SAVE_FLAG_HARD" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05"/>
@@ -1135,7 +1147,7 @@
 <section title="setMilliseconds" ref="class_save_manager.html#a9fa36bf5d4f1b1aa8613a2f38abd0b14"/>
 <section title="setMinutes" ref="class_save_manager.html#a6bdde009019cab456ef233d2b3244a41"/>
 <section title="setRegion" ref="class_save_manager.html#a8fa9280ba013631098e2fcc6b126d531"/>
-<section title="setSave" ref="class_save_manager.html#ad4dbe55938418ed2174fbb877c1e7f0e"/>
+<section title="setSaveSlot" ref="class_save_manager.html#a3a63f64ee2a723dc0d8ec17e6e818ee2"/>
 <section title="setSeconds" ref="class_save_manager.html#afdbb9542b7b91471b15c6d298a3369fa"/>
 <section title="setSoundMode" ref="class_save_manager.html#a6bb830b4666b8e4a51fdf603efd3f987"/>
 <section title="setSpawn" ref="class_save_manager.html#ac61eca8099057b5b44027e41aadf3878"/>
@@ -1227,6 +1239,9 @@
 <section title="getIsMain" ref="class_main_window.html#aab85b427f5d9f93ba28336253953459a"/>
 <section title="getSelectedSave" ref="class_main_window.html#a8d291689a2407ba98ea2615c93da9dcd"/>
 <section title="handleNumberOnlyInputUnsigned" ref="class_main_window.html#a2d184758cb8a12e837b5ffb4456304db"/>
+<section title="onCopy" ref="class_main_window.html#a6bef41faa222a2d1401e94db4f08fba3"/>
+<section title="onDelete" ref="class_main_window.html#a3f29a7235acf922406190b6477167a80"/>
+<section title="onDeleteAll" ref="class_main_window.html#aeb96252099e4a50cadb09778d5b69e70"/>
 <section title="onPageButtonClicked" ref="class_main_window.html#aab3b747fab6fc27fb9c94ac5f6e9a64f"/>
 <section title="openFile" ref="class_main_window.html#a62d0ef52c06bf628ab32c71f90f63720"/>
 <section title="populateMainWindow" ref="class_main_window.html#ab275c51cd486ba87b36da8b00f66da35"/>
@@ -1236,6 +1251,7 @@
 <section title="setupCheckBox" ref="class_main_window.html#a4c3fa6917b681b3f1bd532ffd5a35c3c"/>
 <section title="setupComboBox" ref="class_main_window.html#a67fe40f4eade51246ce8d15e2e21625e"/>
 <section title="setupComboBoxBitflag" ref="class_main_window.html#a95aa48c55dd2e279dfea5dfa485b578f"/>
+<section title="setupEditMenu" ref="class_main_window.html#a6c17e66411a66bed8faa592e7a89d25d"/>
 <section title="setupFileMenu" ref="class_main_window.html#abbef0fd765240e301926c130a94a7949"/>
 <section title="setupLineEditNumberUnsigned" ref="class_main_window.html#a485780b29edadb78b1cf2b8db7f86b82"/>
 <section title="setupPageEventFlags" ref="class_main_window.html#af927e3a1e9e0eadf1b507e8a3b97aa2a"/>
@@ -1356,6 +1372,10 @@
 <keyword name="calcSecondChecksum(const QByteArray &amp;)" id="SaveManager::calcSecondChecksum_a17a4898c012168469d7f6e0cfa204ec5" ref="class_save_manager.html#a17a4898c012168469d7f6e0cfa204ec5"/>
 <keyword name="CARRIE" id="SaveData::CARRIE_a00f3de3c7e3a06729545089a71e59687a643f6078829275a1eebadd3c3563a789" ref="struct_save_data.html#a00f3de3c7e3a06729545089a71e59687a643f6078829275a1eebadd3c3563a789"/>
 <keyword name="character" id="SaveData::character_aaa36fd4c04e7ce5a6c9513b824bc16c6" ref="struct_save_data.html#aaa36fd4c04e7ce5a6c9513b824bc16c6"/>
+<keyword name="checkFileOpenErrors()=0" id="FileLoader::checkFileOpenErrors_aeb075fa1b58d71a9f0c4dff5d20d5de4" ref="class_file_loader.html#aeb075fa1b58d71a9f0c4dff5d20d5de4"/>
+<keyword name="checkFileOpenErrors()" id="FileLoaderNote::checkFileOpenErrors_a31507dac1abcaa97235546eabb41cd81" ref="class_file_loader_note.html#a31507dac1abcaa97235546eabb41cd81"/>
+<keyword name="checkFileOpenErrors()" id="FileLoaderCartridge::checkFileOpenErrors_a5565b2089a1eb30f5410a4bbe87466bf" ref="class_file_loader_cartridge.html#a5565b2089a1eb30f5410a4bbe87466bf"/>
+<keyword name="checkFileOpenErrors()" id="FileLoaderControllerPak::checkFileOpenErrors_ab9be9a7b306dde132acaec7f5b21975d" ref="struct_file_loader_controller_pak.html#ab9be9a7b306dde132acaec7f5b21975d"/>
 <keyword name="checkMandragoraAndNitroLineEdits()" id="MainWindow::checkMandragoraAndNitroLineEdits_a34cd38c778def0655d511b31798d2f29" ref="class_main_window.html#a34cd38c778def0655d511b31798d2f29"/>
 <keyword name="checksum1" id="SaveSlot::checksum1_ae47d34da3a573453a4c75b65f0470c8d" ref="struct_save_slot.html#ae47d34da3a573453a4c75b65f0470c8d"/>
 <keyword name="checksum2" id="SaveSlot::checksum2_ae629eb78b47514880fa21d4ddef90fba" ref="struct_save_slot.html#ae629eb78b47514880fa21d4ddef90fba"/>
@@ -1749,6 +1769,9 @@
 <keyword name="onActionButtonClicked(const QString &amp;docId, const QString &amp;rev)" id="DatabaseMainWindow::onActionButtonClicked_a9d9d8dce8f167f32deb3736d5498d34b" ref="class_database_main_window.html#a9d9d8dce8f167f32deb3736d5498d34b"/>
 <keyword name="onButtonClicked(int saveIndex)" id="ControllerPakSelectionWindow::onButtonClicked_a328faf7634b9c5f6c256db13a7530432" ref="class_controller_pak_selection_window.html#a328faf7634b9c5f6c256db13a7530432"/>
 <keyword name="onConnectButtonPress()" id="DatabaseMainWindow::onConnectButtonPress_ac63ccc1429bc7b8eade28837f8057ce0" ref="class_database_main_window.html#ac63ccc1429bc7b8eade28837f8057ce0"/>
+<keyword name="onCopy(QWidget *parent)" id="MainWindow::onCopy_a6bef41faa222a2d1401e94db4f08fba3" ref="class_main_window.html#a6bef41faa222a2d1401e94db4f08fba3"/>
+<keyword name="onDelete()" id="MainWindow::onDelete_a3f29a7235acf922406190b6477167a80" ref="class_main_window.html#a3f29a7235acf922406190b6477167a80"/>
+<keyword name="onDeleteAll()" id="MainWindow::onDeleteAll_aeb96252099e4a50cadb09778d5b69e70" ref="class_main_window.html#aeb96252099e4a50cadb09778d5b69e70"/>
 <keyword name="onDeleteButton()" id="DatabaseSaveListActionWindow::onDeleteButton_a85a26bffd1c771c0649851d9a1589409" ref="class_database_save_list_action_window.html#a85a26bffd1c771c0649851d9a1589409"/>
 <keyword name="onEditButton()" id="DatabaseSaveListActionWindow::onEditButton_afecd380258dbafbc0dd7421094c84588" ref="class_database_save_list_action_window.html#afecd380258dbafbc0dd7421094c84588"/>
 <keyword name="onPageButtonClicked(QStackedWidget *stackedWidget, const QWidget *page)" id="MainWindow::onPageButtonClicked_aab3b747fab6fc27fb9c94ac5f6e9a64f" ref="class_main_window.html#aab3b747fab6fc27fb9c94ac5f6e9a64f"/>
@@ -1802,12 +1825,12 @@
 <keyword name="rev" id="DatabaseSaveListActionWindow::rev_a2bb6bff765eddae42a67c647a563e781" ref="class_database_save_list_action_window.html#a2bb6bff765eddae42a67c647a563e781"/>
 <keyword name="ROSE" id="SaveData::ROSE_a6f7b040f15df3a993ebf9373a1e0ad99ac8022a7bd6cd23516d3dfa0849d6621b" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99ac8022a7bd6cd23516d3dfa0849d6621b"/>
 <keyword name="save_crystal_number" id="SaveData::save_crystal_number_aef8950ba769a3d336c00ab60b33b7b1b" ref="struct_save_data.html#aef8950ba769a3d336c00ab60b33b7b1b"/>
+<keyword name="SAVE_FLAG_ACTIVE" id="SaveData::SAVE_FLAG_ACTIVE_a5e441fbc2ceabdb42800e49837699fcfac04aa522d25ece46d631fcc4c06b995a" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfac04aa522d25ece46d631fcc4c06b995a"/>
 <keyword name="SAVE_FLAG_CAN_EXPLODE_ON_JUMPING" id="SaveData::SAVE_FLAG_CAN_EXPLODE_ON_JUMPING_a5e441fbc2ceabdb42800e49837699fcfa61159950bf16ca112691a994ad1cd45a" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa61159950bf16ca112691a994ad1cd45a"/>
 <keyword name="SAVE_FLAG_CARRIE_BAD_ENDING" id="SaveData::SAVE_FLAG_CARRIE_BAD_ENDING_a5e441fbc2ceabdb42800e49837699fcfa9779b59ee004b094a01d04da068b1f06" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa9779b59ee004b094a01d04da068b1f06"/>
 <keyword name="SAVE_FLAG_CARRIE_GOOD_ENDING" id="SaveData::SAVE_FLAG_CARRIE_GOOD_ENDING_a5e441fbc2ceabdb42800e49837699fcfa2d5a8b3dd9dfd7634269d7ba705620bd" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa2d5a8b3dd9dfd7634269d7ba705620bd"/>
 <keyword name="SAVE_FLAG_COSTUME_IS_BEING_USED" id="SaveData::SAVE_FLAG_COSTUME_IS_BEING_USED_a5e441fbc2ceabdb42800e49837699fcfa196ac996197e7e7396792edb0c7acaad" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa196ac996197e7e7396792edb0c7acaad"/>
 <keyword name="SAVE_FLAG_EASY" id="SaveData::SAVE_FLAG_EASY_a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca"/>
-<keyword name="SAVE_FLAG_ENABLE_SAVE" id="SaveData::SAVE_FLAG_ENABLE_SAVE_a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971"/>
 <keyword name="SAVE_FLAG_HARD" id="SaveData::SAVE_FLAG_HARD_a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05"/>
 <keyword name="SAVE_FLAG_HARD_MODE_UNLOCKED" id="SaveData::SAVE_FLAG_HARD_MODE_UNLOCKED_a5e441fbc2ceabdb42800e49837699fcfa0abc0dd391ed49f1c5b71908a7c6a76a" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0abc0dd391ed49f1c5b71908a7c6a76a"/>
 <keyword name="SAVE_FLAG_HAVE_CARRIE_ALT_COSTUME" id="SaveData::SAVE_FLAG_HAVE_CARRIE_ALT_COSTUME_a5e441fbc2ceabdb42800e49837699fcfa0f7559cc9938c1f7e762ef9cb5f045aa" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0f7559cc9938c1f7e762ef9cb5f045aa"/>
@@ -1817,7 +1840,7 @@
 <keyword name="SAVE_FLAG_REINDHART_GOOD_ENDING" id="SaveData::SAVE_FLAG_REINDHART_GOOD_ENDING_a5e441fbc2ceabdb42800e49837699fcfa8730b3ac4591263e3a2ec555a880dbaa" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa8730b3ac4591263e3a2ec555a880dbaa"/>
 <keyword name="saveEntries" id="DatabaseMainWindow::saveEntries_a3c2c8d18a24a7b57129af40756696bb3" ref="class_database_main_window.html#a3c2c8d18a24a7b57129af40756696bb3"/>
 <keyword name="SaveFlag" id="SaveData::SaveFlag_a5e441fbc2ceabdb42800e49837699fcf" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcf"/>
-<keyword name="SAVE_FLAG_ENABLE_SAVE" id="SaveData::SAVE_FLAG_ENABLE_SAVE_a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971"/>
+<keyword name="SAVE_FLAG_ACTIVE" id="SaveData::SAVE_FLAG_ACTIVE_a5e441fbc2ceabdb42800e49837699fcfac04aa522d25ece46d631fcc4c06b995a" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfac04aa522d25ece46d631fcc4c06b995a"/>
 <keyword name="SAVE_FLAG_EASY" id="SaveData::SAVE_FLAG_EASY_a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca"/>
 <keyword name="SAVE_FLAG_NORMAL" id="SaveData::SAVE_FLAG_NORMAL_a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02"/>
 <keyword name="SAVE_FLAG_HARD" id="SaveData::SAVE_FLAG_HARD_a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05"/>
@@ -1867,8 +1890,8 @@
 <keyword name="setPassword(const QString &amp;password_)" id="DatabaseManager::setPassword_a9f484cdbe59efe1241b07e493a2361ce" ref="class_database_manager.html#a9f484cdbe59efe1241b07e493a2361ce"/>
 <keyword name="setPort(const int port_)" id="Database::setPort_a8f3e101df86363074792dafa6b6df4c8" ref="class_database.html#a8f3e101df86363074792dafa6b6df4c8"/>
 <keyword name="setRegion(const short)" id="SaveManager::setRegion_a8fa9280ba013631098e2fcc6b126d531" ref="class_save_manager.html#a8fa9280ba013631098e2fcc6b126d531"/>
-<keyword name="setSave(const SaveSlot &amp;save, const int index)" id="SaveManager::setSave_ad4dbe55938418ed2174fbb877c1e7f0e" ref="class_save_manager.html#ad4dbe55938418ed2174fbb877c1e7f0e"/>
 <keyword name="setSaveListButtonProperties(QPushButton *button, const QString &amp;documentId, const int listIndex, const int region, const QString &amp;rev)" id="DatabaseMainWindow::setSaveListButtonProperties_a30a1901e9899ac489bb8d0297e872bc0" ref="class_database_main_window.html#a30a1901e9899ac489bb8d0297e872bc0"/>
+<keyword name="setSaveSlot(const SaveSlot &amp;save, const int index)" id="SaveManager::setSaveSlot_a3a63f64ee2a723dc0d8ec17e6e818ee2" ref="class_save_manager.html#a3a63f64ee2a723dc0d8ec17e6e818ee2"/>
 <keyword name="setSeconds(const short)" id="SaveManager::setSeconds_afdbb9542b7b91471b15c6d298a3369fa" ref="class_save_manager.html#afdbb9542b7b91471b15c6d298a3369fa"/>
 <keyword name="setSelectedSave(const int slot)" id="MainWindow::setSelectedSave_ab5eaf8a5d2863a5834778d3fe6b8a46b" ref="class_main_window.html#ab5eaf8a5d2863a5834778d3fe6b8a46b"/>
 <keyword name="setSoundMode(const short)" id="SaveManager::setSoundMode_a6bb830b4666b8e4a51fdf603efd3f987" ref="class_save_manager.html#a6bb830b4666b8e4a51fdf603efd3f987"/>
@@ -1881,6 +1904,7 @@
 <keyword name="setupComboBox(QComboBox *comboBox, const Ui::ComboBoxData &amp;array, std::function&lt; void(int)&gt; setter)" id="MainWindow::setupComboBox_a67fe40f4eade51246ce8d15e2e21625e" ref="class_main_window.html#a67fe40f4eade51246ce8d15e2e21625e"/>
 <keyword name="setupComboBoxBitflag(QComboBox *comboBox, const Ui::ComboBoxData &amp;array, unsigned int &amp;variable)" id="MainWindow::setupComboBoxBitflag_a95aa48c55dd2e279dfea5dfa485b578f" ref="class_main_window.html#a95aa48c55dd2e279dfea5dfa485b578f"/>
 <keyword name="setupConnectMenu()" id="DatabaseMainWindow::setupConnectMenu_afda8ad017308aec76d4201aaac2b4a22" ref="class_database_main_window.html#afda8ad017308aec76d4201aaac2b4a22"/>
+<keyword name="setupEditMenu()" id="MainWindow::setupEditMenu_a6c17e66411a66bed8faa592e7a89d25d" ref="class_main_window.html#a6c17e66411a66bed8faa592e7a89d25d"/>
 <keyword name="setupFileMenu()" id="MainWindow::setupFileMenu_abbef0fd765240e301926c130a94a7949" ref="class_main_window.html#abbef0fd765240e301926c130a94a7949"/>
 <keyword name="setupLineEditHostname(QLineEdit *lineEdit)" id="DatabaseMainWindow::setupLineEditHostname_a1db172379f4be2ef5d8f152f8750a28b" ref="class_database_main_window.html#a1db172379f4be2ef5d8f152f8750a28b"/>
 <keyword name="setupLineEditNumberUnsigned(QLineEdit *lineEdit, const unsigned int minValue, const unsigned int maxValue, std::function&lt; void(unsigned int)&gt; setter)" id="MainWindow::setupLineEditNumberUnsigned_a485780b29edadb78b1cf2b8db7f86b82" ref="class_main_window.html#a485780b29edadb78b1cf2b8db7f86b82"/>

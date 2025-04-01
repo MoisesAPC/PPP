@@ -2,6 +2,7 @@ var class_file_loader =
 [
     [ "FileLoader", "class_file_loader.html#a51313b536560d1d89d8350475d2bc749", null ],
     [ "~FileLoader", "class_file_loader.html#a3e9444022cd5cc90535917ae3687c69e", null ],
+    [ "checkFileOpenErrors", "class_file_loader.html#aeb075fa1b58d71a9f0c4dff5d20d5de4", null ],
     [ "countHexOccurrences", "class_file_loader.html#a77e7a947e7ea8d5ecbf406c24f065dd4", null ],
     [ "getHeaderBytes", "class_file_loader.html#af1f70ab6f3eb3766aa76268e92018d26", null ],
     [ "getMaxFileSize", "class_file_loader.html#ade3ab6e541f629b87e1f0b2e87b809a7", null ],
