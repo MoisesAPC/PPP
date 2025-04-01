@@ -1,3 +1,13 @@
+/**
+ * @file ControllerPakSelectionWindow.cpp
+ * @brief ControllerPakSelectionWindow class source code file
+ *
+ * This file contains the source code for the Controller Pak save selection window
+ * (shown when opening a Controller Pak-formatted file)
+ *
+ * @author Moisés Antonio Pestano Castro
+ */
+
 #include "include/windows/ControllerPakSelection/ControllerPakSelectionwindow.h"
 #include "include/file/FileManager.h"
 #include <QPushButton>
@@ -34,8 +44,11 @@ QString ControllerPakSelectionWindow::getRegionName(const short region) const {
     }
 }
 
+/**
+ * @brief Setup the list containing each button corresponding to each save file.
+ */
 void ControllerPakSelectionWindow::setupButtonBox() {
-    // Get the Controller Pak Castlevania save array
+    // Get the Controller Pak Castlevania 64 save array
     std::vector<FileManager::ControllerPakNotetableData>* saveArray = FileManager::getInstance()->getControllerPakNotetableDataArray();
 
     for (unsigned int i = 0; i < saveArray->size(); i++) {
@@ -59,6 +72,9 @@ void ControllerPakSelectionWindow::setupButtonBox() {
     }
 }
 
+/**
+ * @brief Runs when clicking one of the save list buttons.
+ */
 void ControllerPakSelectionWindow::onButtonClicked(int saveIndex) {
     // Set the save index needed for knowing what save file to load
     // (see FileLoaderControllerPak::getRawDataOffsetStart())

@@ -1,3 +1,13 @@
+/**
+ * @file DatabaseMainWindow.cpp
+ * @brief DatabaseMainWindow class source code file
+ *
+ * This file contains the source code for the main Database window
+ * (the one that opens up when clicking on File > Database)
+ *
+ * @author Moisés Antonio Pestano Castro
+ */
+
 #include "include/windows/Database/DatabaseMainWindow.h"
 #include "include/windows/Database/DatabaseSaveListActionButtonWindow.h"
 #include "ui_DatabaseMainWindow.h"
@@ -55,6 +65,7 @@ void DatabaseMainWindow::createSaveListButtons() {
     if (saveEntries.empty()) {
         return;
     }
+
     // Depending on the value gotten from the spinbox, we decide what parts of the "saveEntries" array we have to render
     // This is done to properly implement page switching using the spinbox
     const int startIndex = (ui->sbPageList->value() - 1) * entriesPerPage;
@@ -74,7 +85,9 @@ void DatabaseMainWindow::createSaveListButtons() {
     }
 }
 
-// Removes all buttons from the save list
+/**
+ * @brief Removes all buttons from the save list
+ */
 void DatabaseMainWindow::clearSaveList() {
     while (QLayoutItem* item = ui->buttonListLayout->takeAt(0)) {
         if (QWidget* widget = item->widget()) {
@@ -123,7 +136,9 @@ DatabaseMainWindow::~DatabaseMainWindow() {
     delete ui;
 }
 
-// Populate a Combo box given an array of name strings and their associated numeric value
+/**
+ * @brief Populate a Combo box given an array of name strings and their associated numeric value
+ */
 void DatabaseMainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter) {
     comboBox->clear();
 
@@ -143,7 +158,9 @@ void DatabaseMainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxDa
     comboBox->setCurrentIndex(0);
 }
 
-// This function ensures that the line edit can only accept certain hostnames based on the rules below
+/**
+ * @brief This function ensures that the line edit can only accept certain hostnames based on the rules below.
+ */
 void DatabaseMainWindow::setupLineEditHostname(QLineEdit* lineEdit) {
     // Regular expression to validate hostnames:
     // - Allowed characters: letters (a-z, A-Z), numbers (0-9), hyphens (-), and periods (.).
@@ -241,10 +258,17 @@ void DatabaseMainWindow::onUploadSaveButtonPress() {
     }
 }
 
+/**
+ * @brief Runs when switching page numbers
+ */
 void DatabaseMainWindow::onPageSwitch() {
+    // Recreate the save list with the new page's buttons
     createSaveListButtons();
 }
 
+/**
+ * @brief Clicked on a save list button.
+ */
 void DatabaseMainWindow::onActionButtonClicked(const QString& docId, const QString& rev) {
     // @note We have to pass "DatabaseMainWindow" as a parent of "DatabaseSaveListActionWindow",
     // in order for the "DatabaseSaveListActionWindow" signals to work

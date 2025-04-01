@@ -1,3 +1,13 @@
+/**
+ * @file DatabaseSaveListActionButtonWindow.cpp
+ * @brief DatabaseSaveListActionButtonWindow class source code file
+ *
+ * This file contains the source code for the small window that opens
+ * when selecting a save file in the database main window.
+ *
+ * @author Moisés Antonio Pestano Castro
+ */
+
 #include "include/windows/Database/DatabaseSaveListActionButtonWindow.h"
 #include "ui_DatabaseSaveListActionButtonWindow.h"
 #include "include/windows/main/MainWindow.h"
@@ -63,6 +73,8 @@ void DatabaseSaveListActionWindow::onDeleteButton() {
     if (reply == QMessageBox::Yes) {
         DatabaseManager::getInstance()->deleteEntry(documentId, rev);
 
+        // Tell the parent (the database main window), that we've successfully deleted a file,
+        // so it can reload the database save list
         emit deleteConfirmed(true);
         documentId = "";
         rev = "";
