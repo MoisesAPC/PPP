@@ -138,6 +138,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae98d00a93bc118200eeef9f9bba1dba7" id="r_ae98d00a93bc118200eeef9f9bba1dba7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a> ()</td></tr>
 <tr class="separator:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab275c51cd486ba87b36da8b00f66da35" id="r_ab275c51cd486ba87b36da8b00f66da35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab275c51cd486ba87b36da8b00f66da35">populateMainWindow</a> (<a class="el" href="struct_save_data.html">SaveData</a> *save)</td></tr>
+<tr class="memdesc:ab275c51cd486ba87b36da8b00f66da35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a save data struct, fill all the UI components with the data from the save.  <br /></td></tr>
 <tr class="separator:ab275c51cd486ba87b36da8b00f66da35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
@@ -158,16 +159,19 @@ Private Slots</h2></td></tr>
 <tr class="memitem:a1a830e7d3c286db15af827a6a482b44e" id="r_a1a830e7d3c286db15af827a6a482b44e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a830e7d3c286db15af827a6a482b44e">setupSlotMenu</a> ()</td></tr>
 <tr class="separator:a1a830e7d3c286db15af827a6a482b44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d184758cb8a12e837b5ffb4456304db" id="r_a2d184758cb8a12e837b5ffb4456304db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d184758cb8a12e837b5ffb4456304db">handleNumberOnlyInputUnsigned</a> (std::function&lt; void(unsigned int)&gt; setter, QLineEdit *lineEdit)</td></tr>
+<tr class="memdesc:a2d184758cb8a12e837b5ffb4456304db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows both decimal and hexadecimal numbers to be innputted.  <br /></td></tr>
 <tr class="separator:a2d184758cb8a12e837b5ffb4456304db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a485780b29edadb78b1cf2b8db7f86b82" id="r_a485780b29edadb78b1cf2b8db7f86b82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a485780b29edadb78b1cf2b8db7f86b82">setupLineEditNumberUnsigned</a> (QLineEdit *lineEdit, const unsigned int minValue, const unsigned int maxValue, std::function&lt; void(unsigned int)&gt; setter)</td></tr>
 <tr class="separator:a485780b29edadb78b1cf2b8db7f86b82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67fe40f4eade51246ce8d15e2e21625e" id="r_a67fe40f4eade51246ce8d15e2e21625e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67fe40f4eade51246ce8d15e2e21625e">setupComboBox</a> (QComboBox *comboBox, const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> &amp;array, std::function&lt; void(int)&gt; setter)</td></tr>
+<tr class="memdesc:a67fe40f4eade51246ce8d15e2e21625e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate a Combo box given an array of name strings and their associated numeric value.  <br /></td></tr>
 <tr class="separator:a67fe40f4eade51246ce8d15e2e21625e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95aa48c55dd2e279dfea5dfa485b578f" id="r_a95aa48c55dd2e279dfea5dfa485b578f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95aa48c55dd2e279dfea5dfa485b578f">setupComboBoxBitflag</a> (QComboBox *comboBox, const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> &amp;array, unsigned int &amp;variable)</td></tr>
 <tr class="separator:a95aa48c55dd2e279dfea5dfa485b578f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c3fa6917b681b3f1bd532ffd5a35c3c" id="r_a4c3fa6917b681b3f1bd532ffd5a35c3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c3fa6917b681b3f1bd532ffd5a35c3c">setupCheckBox</a> (QCheckBox *checkBox, unsigned int value, std::function&lt; void(unsigned int)&gt; setter, std::function&lt; void(unsigned int)&gt; unsetter)</td></tr>
 <tr class="separator:a4c3fa6917b681b3f1bd532ffd5a35c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af577a6e5132e994c055a89a540385a7e" id="r_af577a6e5132e994c055a89a540385a7e"><td class="memItemLeft" align="right" valign="top">QLineEdit *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af577a6e5132e994c055a89a540385a7e">createGridFlag</a> (QGridLayout *gridLayout, int flagSet, unsigned int flags)</td></tr>
+<tr class="memdesc:af577a6e5132e994c055a89a540385a7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the event flag grid dynamically.  <br /></td></tr>
 <tr class="separator:af577a6e5132e994c055a89a540385a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4f788f509252c0bf83befa7611776e0" id="r_ad4f788f509252c0bf83befa7611776e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4f788f509252c0bf83befa7611776e0">fileOpenMenu</a> ()</td></tr>
 <tr class="separator:ad4f788f509252c0bf83befa7611776e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,10 +196,13 @@ Private Slots</h2></td></tr>
 <tr class="memitem:a762bc1282ce6ec461cff148a713a0ff1" id="r_a762bc1282ce6ec461cff148a713a0ff1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a762bc1282ce6ec461cff148a713a0ff1">enableUIComponents</a> (bool)</td></tr>
 <tr class="separator:a762bc1282ce6ec461cff148a713a0ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78e8d1405b468249d8fd826d9e7a9726" id="r_a78e8d1405b468249d8fd826d9e7a9726"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78e8d1405b468249d8fd826d9e7a9726">updateCheckboxEnabledVisibility</a> ()</td></tr>
+<tr class="memdesc:a78e8d1405b468249d8fd826d9e7a9726"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function ensures that the "Enabled" checkbox is only visible for "Main" saves.  <br /></td></tr>
 <tr class="separator:a78e8d1405b468249d8fd826d9e7a9726"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0298ff25e59884a08e9cb20809ec9b0a" id="r_a0298ff25e59884a08e9cb20809ec9b0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0298ff25e59884a08e9cb20809ec9b0a">updateWindowVisibility</a> (bool)</td></tr>
+<tr class="memdesc:a0298ff25e59884a08e9cb20809ec9b0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure to always have the "Beginning of Stage" save enabled only if the "Main" save is enabled.  <br /></td></tr>
 <tr class="separator:a0298ff25e59884a08e9cb20809ec9b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6a39c3cb3ed2638a20c9140f5b8048f" id="r_ac6a39c3cb3ed2638a20c9140f5b8048f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6a39c3cb3ed2638a20c9140f5b8048f">convertFrameToTime</a> (const unsigned int frameCount, QLabel *output)</td></tr>
+<tr class="memdesc:ac6a39c3cb3ed2638a20c9140f5b8048f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a framecount (in 30fps), converts it from frames to hours, minutes and seconds.  <br /></td></tr>
 <tr class="separator:ac6a39c3cb3ed2638a20c9140f5b8048f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5eaf8a5d2863a5834778d3fe6b8a46b" id="r_ab5eaf8a5d2863a5834778d3fe6b8a46b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5eaf8a5d2863a5834778d3fe6b8a46b">setSelectedSave</a> (const int slot)</td></tr>
 <tr class="separator:ab5eaf8a5d2863a5834778d3fe6b8a46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -302,6 +309,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The player can only have a Mandragora <em>OR</em> a Magical Nitro at the same time. This function checks if both Mandragora and Nitro have an amount larger than 0 at the same time. If so, set the amount for both items back to 0 </p>
 
 </div>
 </div>
@@ -331,6 +339,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Given a framecount (in 30fps), converts it from frames to hours, minutes and seconds. </p>
 
 </div>
 </div>
@@ -365,6 +375,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates the event flag grid dynamically. </p>
 
 </div>
 </div>
@@ -570,6 +582,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Allows both decimal and hexadecimal numbers to be innputted. </p>
+
 </div>
 </div>
 <a id="aab3b747fab6fc27fb9c94ac5f6e9a64f" name="aab3b747fab6fc27fb9c94ac5f6e9a64f"></a>
@@ -640,6 +654,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Given a save data struct, fill all the UI components with the data from the save. </p>
 <dl class="section note"><dt>Note</dt><dd>This is public so that we can use this inside the database save list action button menu, when clicking on the "Edit" option. </dd></dl>
 
 </div>
@@ -759,6 +775,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>When we press on a checkbox, a setter function will be called that will set a certain value. Likewise, when we uncheck them, an unsetter function will be called which will remove the value setted in the setter. </p>
 
 </div>
 </div>
@@ -794,6 +811,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Populate a Combo box given an array of name strings and their associated numeric value. </p>
+
 </div>
 </div>
 <a id="a95aa48c55dd2e279dfea5dfa485b578f" name="a95aa48c55dd2e279dfea5dfa485b578f"></a>
@@ -827,6 +846,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Same as "setupComboBox", but this is meant for comboboxes which are supposed to assign bitflags to a value instead, such as the combo box for setting the game's difficulty </p>
 
 </div>
 </div>
@@ -891,6 +911,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>With this function, we can have more control during lineEdit initialization. In this case, we make it so that we can add a min and max value to each lineEdit without much copy-pasting </p>
 
 </div>
 </div>
@@ -1081,6 +1102,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>This function ensures that the "Enabled" checkbox is only visible for "Main" saves. </p>
+
 </div>
 </div>
 <a id="ad38be884314eb7763925dee610f34542" name="ad38be884314eb7763925dee610f34542"></a>
@@ -1109,6 +1132,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>When clicking on a slot option, check it, and <em>also uncheck</em> any other unselected options This is done for the "Main" and "Beginning of Stage" slot menu options </p>
 
 </div>
 </div>
@@ -1134,6 +1158,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Make sure to always have the "Beginning of Stage" save enabled only if the "Main" save is enabled. </p>
 
 </div>
 </div>

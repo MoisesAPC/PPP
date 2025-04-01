@@ -553,6 +553,9 @@ void MainWindow::setupPageEventFlags() {
     });
 }
 
+/**
+ * @brief Given a save data struct, fill all the UI components with the data from the save.
+ */
 void MainWindow::populateMainWindow(SaveData* saveData) {
     if (saveData == nullptr) {
         return;
@@ -640,6 +643,10 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
     }
 }
 
+/**
+ * When we press on a checkbox, a setter function will be called that will set a certain value.
+ * Likewise, when we uncheck them, an unsetter function will be called which will remove the value setted in the setter.
+ */
 void MainWindow::setupCheckBox(QCheckBox* checkBox, unsigned int value, std::function<void(unsigned int)> setter, std::function<void(unsigned int)> unsetter) {
     connect(checkBox, &QCheckBox::toggled, [setter, unsetter, value](bool checked) {
         if (checked) {
@@ -662,9 +669,9 @@ void MainWindow::openFile(const QString& filename) {
     // Populate with the currently-selected save slot.
     populateMainWindow(&SaveManager::getInstance()->getCurrentSave());
 
-    // Set default Slot option to the currently selected save.
-    // @note We must call this function after calling "populateMainWindow" in order to have the checkboxes
-    // ready. Otherwise the program will throw SIGSEV.
+    /// Set default Slot option to the currently selected save.
+    /// @note We must call this function after calling "populateMainWindow" in order to have the checkboxes
+    /// ready. Otherwise the program will throw SIGSEV.
     updateSlotMenuCheckedState(SaveManager::getInstance()->currentSave, SaveManager::getInstance()->isMain);
 }
 
@@ -689,11 +696,11 @@ void MainWindow::fileOpenMenu() {
     if (!filename.isEmpty()) {
         openFile(filename);
 
-        // Store the directory of the opened file
-        // @note If on Linux, the settings are saved at
-        // ~/.config/PPP/Castlevania 64 Save Editor.conf
-        // In Windows, the dir is stored at this registry:
-        // HKEY_CURRENT_USER\Software\PPP\Castlevania 64 Save Editor
+        /// Store the directory of the opened file
+        /// @note If on Linux, the settings are saved at
+        /// ~/.config/PPP/Castlevania 64 Save Editor.conf
+        /// In Windows, the dir is stored at this registry:
+        /// HKEY_CURRENT_USER\Software\PPP\Castlevania 64 Save Editor
         QFileInfo fileInfo(filename);
         settings.setValue("lastOpenedDir", fileInfo.absolutePath());
     }
@@ -759,11 +766,11 @@ void MainWindow::fileSaveAsMenu() {
         return;
     }
 
-    // Store the directory of the saved file
-    // @note If on Linux, the settings are saved at
-    // ~/.config/PPP/Castlevania 64 Save Editor.conf
-    // In Windows, the dir is stored at this registry:
-    // HKEY_CURRENT_USER\Software\PPP\Castlevania 64 Save Editor
+    /// Store the directory of the saved file
+    /// @note If on Linux, the settings are saved at
+    /// ~/.config/PPP/Castlevania 64 Save Editor.conf
+    /// In Windows, the dir is stored at this registry:
+    /// HKEY_CURRENT_USER\Software\PPP\Castlevania 64 Save Editor
     QFileInfo fileInfo(filepath);
     settings.setValue("lastSaveDir", fileInfo.absolutePath());
     QMessageBox::information(this, "Save", "Saved successfully");
@@ -825,14 +832,14 @@ void MainWindow::setupSlotMenu() {
         });
     }
 
-    // Set default Slot option to Slot 1 -> Main.
-    // @note We must call this function after calling "populateMainWindow" in order to have the checkboxes
-    // ready. Otherwise the program will throw SIGSEV.
+    /// Set default Slot option to Slot 1 -> Main.
+    /// @note We must call this function after calling "populateMainWindow" in order to have the checkboxes
+    /// ready. Otherwise the program will throw SIGSEV.
     updateSlotMenuCheckedState(0, true);
 }
 
-// When clicking on a slot option, check it, and *also uncheck* any other unselected options
-// This is done for the "Main" and "Beginning of Stage" slot menu options
+/// When clicking on a slot option, check it, and *also uncheck* any other unselected options
+/// This is done for the "Main" and "Beginning of Stage" slot menu options
 void MainWindow::updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave) {
     SaveManager* saveManager = SaveManager::getInstance();
 
@@ -845,6 +852,9 @@ void MainWindow::updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSa
     saveManager->currentSave = selectedSlotIndex;
 }
 
+/**
+ * @brief Allows both decimal and hexadecimal numbers to be innputted.
+ */
 void MainWindow::handleNumberOnlyInputUnsigned(std::function<void(unsigned int)> setter, QLineEdit* lineEdit) {
     if (!lineEdit) {
         return;
@@ -876,8 +886,8 @@ void MainWindow::handleNumberOnlyInputUnsigned(std::function<void(unsigned int)>
     }
 }
 
-// With this function, we can have more control during lineEdit initialization.
-// In this case, we make it so that we can add a min and max value to each lineEdit without much copy-pasting
+/// With this function, we can have more control during lineEdit initialization.
+/// In this case, we make it so that we can add a min and max value to each lineEdit without much copy-pasting
 void MainWindow::setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned int minValue, const unsigned int maxValue, std::function<void(unsigned int)> setter) {
     // Using this regex, we can accept either only hex values (preceded "0x") or decimal values
     // of up to 8 digits long (to prevent them from overflowing the max int / uint)
@@ -893,7 +903,7 @@ void MainWindow::setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned
     });
 }
 
-// Populate a Combo box given an array of name strings and their associated numeric value
+/// Populate a Combo box given an array of name strings and their associated numeric value
 void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter) {
     comboBox->clear();
 
@@ -913,6 +923,8 @@ void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& arra
     comboBox->setCurrentIndex(0);
 }
 
+/// Same as "setupComboBox", but this is meant for comboboxes which are supposed to assign bitflags to a value instead,
+/// such as the combo box for setting the game's difficulty
 void MainWindow::setupComboBoxBitflag(QComboBox* comboBox, const Ui::ComboBoxData& array, unsigned int& variable) {
     comboBox->clear();
 
@@ -948,9 +960,9 @@ void MainWindow::switchPage(QStackedWidget* stackedWidget, const QWidget* page) 
     stackedWidget->setCurrentIndex(stackedWidget->indexOf(page));
 }
 
-// The player can only have a Mandragora *OR* a Magical Nitro at the same time.
-// This function checks if both Mandragora and Nitro have an amount larger than 0 at the same time.
-// If so, set the amount for both items back to 0
+/// The player can only have a Mandragora *OR* a Magical Nitro at the same time.
+/// This function checks if both Mandragora and Nitro have an amount larger than 0 at the same time.
+/// If so, set the amount for both items back to 0
 void MainWindow::checkMandragoraAndNitroLineEdits() {
     QLineEdit* mandragoraLineEdit = ui->leItemsMandragora;
     QLineEdit* nitroLineEdit = ui->leItemsNitro;
@@ -964,13 +976,16 @@ void MainWindow::checkMandragoraAndNitroLineEdits() {
     }
 }
 
+/**
+ * @brief Creates the event flag grid dynamically.
+ */
 QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsigned int flags) {
     QLineEdit* hexBitflagDisplay = new QLineEdit();
     hexBitflagDisplay->setAlignment(Qt::AlignRight);
     hexBitflagDisplay->setText(QString("%1").arg(flags, 1, 10, QChar('0')));
 
-    // Ensure that we're putting "hexBitflagDisplay" in the right most part of the checkboxes, on the 1st row, 8th column
-    // @note We also add an extra row and column for printing the column / row number
+    /// Ensure that we're putting "hexBitflagDisplay" in the right most part of the checkboxes, on the 1st row, 8th column
+    /// @note We also add an extra row and column for printing the column / row number
     gridLayout->addWidget(hexBitflagDisplay, 0, 9, 5, 1);
     // Add numbers on top and to the right showing the column / row number respectively
     for (unsigned int i = 0; i < 8; ++i) {
@@ -1065,7 +1080,7 @@ void MainWindow::enableUIComponents(bool enable) {
     }
 }
 
-// This function ensures that the "Enabled" checkbox is only visible for "Main" saves
+/// This function ensures that the "Enabled" checkbox is only visible for "Main" saves
 void MainWindow::updateCheckboxEnabledVisibility() {
     if (!isMain) {
         ui->cboxEnabled->hide();
@@ -1075,7 +1090,7 @@ void MainWindow::updateCheckboxEnabledVisibility() {
     }
 }
 
-// Make sure to always have the "Beginning of Stage" save enabled only if the "Main" save is enabled
+/// Make sure to always have the "Beginning of Stage" save enabled only if the "Main" save is enabled
 void MainWindow::updateWindowVisibility(bool enable) {
     if (BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_ENABLE_SAVE)
         && !isMain) {
@@ -1092,7 +1107,7 @@ void MainWindow::databaseMenu() {
     databaseAccessWindow->close();
 }
 
-// Given a framecount (in 30fps), converts it from frames to hours, minutes and seconds
+/// Given a framecount (in 30fps), converts it from frames to hours, minutes and seconds
 void MainWindow::convertFrameToTime(const unsigned int frameCount, QLabel* output) {
     int totalSeconds = frameCount / 30;
     int hours = totalSeconds / 3600;
