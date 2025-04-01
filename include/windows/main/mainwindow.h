@@ -58,6 +58,7 @@ private slots:
     void setupPageEventFlags();
     void setupFileMenu();
     void setupSlotMenu();
+    void setupEditMenu();
     void handleNumberOnlyInputUnsigned(std::function<void(unsigned int)> setter, QLineEdit* lineEdit);
     void setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned int minValue, const unsigned int maxValue, std::function<void(unsigned int)> setter);
     void setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter);
@@ -73,6 +74,9 @@ private slots:
     void updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave);
     void onPageButtonClicked(QStackedWidget* stackedWidget, const QWidget* page);
     void openFile(const QString& filename);
+    void onCopy(QWidget* parent);
+    void onDelete();
+    void onDeleteAll();
 
     // Helper functions
     void switchPage(QStackedWidget* stackedWidgetPages, const QWidget* page);

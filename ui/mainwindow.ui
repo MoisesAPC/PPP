@@ -2210,7 +2210,16 @@
     <addaction name="actionDatabase"/>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionCopy"/>
+    <addaction name="actionDelete"/>
+    <addaction name="actionDelete_All"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
   </widget>
   <action name="actionExit">
    <property name="icon">
@@ -2258,6 +2267,21 @@
    </property>
    <property name="text">
     <string>Database</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+  </action>
+  <action name="actionDelete_All">
+   <property name="text">
+    <string>Delete All</string>
    </property>
   </action>
  </widget>

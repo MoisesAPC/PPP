@@ -101,7 +101,7 @@ class SaveManager {
             return saves;
         }
 
-        void setSave(const SaveSlot& save, const int index) {
+        void setSaveSlot(const SaveSlot& save, const int index) {
             saves[index] = save;
         }
 

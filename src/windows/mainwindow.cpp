@@ -19,6 +19,7 @@
 #include <QMessageBox>      // QMessageBox
 #include <QDir>             // QDir
 #include <QFileDialog>      // QFileDialog
+#include <QSpinBox>         // QSpinBox
 
 // Static instance for this window. We use this to access this window's functions in some parts of the code
 MainWindow* MainWindow::instance = nullptr;
@@ -42,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Initialize toolbar options
     setupFileMenu();
     setupSlotMenu();
+    setupEditMenu();
 
     // Set default values to the savegame at boot
     SaveManager::getInstance()->assignDefaultValues();
@@ -247,7 +249,7 @@ void MainWindow::setupPageMain() {
     // In order to avoid the checkbox from being disabled,
     // we ensure that its parent is MainWindow (since it's never disabled by the "enableUiComponents" function)
     ui->cboxEnabled->setParent(this);
-    setupCheckBox(ui->cboxEnabled, SaveData::SAVE_FLAG_ENABLE_SAVE,
+    setupCheckBox(ui->cboxEnabled, SaveData::SAVE_FLAG_ACTIVE,
         [this](unsigned int value) {
             SaveManager::getInstance()->setFlags(value);
             updateWindowVisibility(true);
@@ -624,7 +626,7 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
     ui->leItemsIG->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_INCANDESCENT_GAZE)));
 
     // Checkboxes
-    ui->cboxEnabled->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_ENABLE_SAVE));
+    ui->cboxEnabled->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_ACTIVE));
     updateCheckboxEnabledVisibility();
 
     ui->cboxHardMode->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_HARD_MODE_UNLOCKED));
@@ -850,6 +852,14 @@ void MainWindow::updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSa
 
     saveManager->isMain = isMainSave;
     saveManager->currentSave = selectedSlotIndex;
+}
+
+void MainWindow::setupEditMenu() {
+    connect(ui->actionCopy, &QAction::triggered, this, [this]() {
+        onCopy(this);
+    });
+    connect(ui->actionDelete, &QAction::triggered, this, &MainWindow::onDelete);
+    connect(ui->actionDelete_All, &QAction::triggered, this, &MainWindow::onDeleteAll);
 }
 
 /**
@@ -1092,7 +1102,7 @@ void MainWindow::updateCheckboxEnabledVisibility() {
 
 /// Make sure to always have the "Beginning of Stage" save enabled only if the "Main" save is enabled
 void MainWindow::updateWindowVisibility(bool enable) {
-    if (BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_ENABLE_SAVE)
+    if (BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_ACTIVE)
         && !isMain) {
         enableUIComponents(true);
     }
@@ -1117,4 +1127,74 @@ void MainWindow::convertFrameToTime(const unsigned int frameCount, QLabel* outpu
     output->setText(QString("%1:%2:%3").arg(hours, 2, 10, QChar('0'))
                         .arg(minutes, 2, 10, QChar('0'))
                         .arg(seconds, 2, 10, QChar('0')));
+}
+
+/**
+ * @brief Copy the currently-opened save slot to another slot.
+ */
+void MainWindow::onCopy(QWidget* parent) {
+    SaveManager* saveManager = SaveManager::getInstance();
+    // The save slot where the data will be copied over
+    unsigned int destSaveSlot = 0;
+
+    // Dynamically create the window
+    QDialog dialog(parent);
+    dialog.setWindowTitle("Copy");
+    QVBoxLayout layout(&dialog);
+    QLabel label("Select a save:", &dialog);
+    layout.addWidget(&label);
+
+    // Create the save slot ID selection spinbox
+    QSpinBox spinBox(&dialog);
+    spinBox.setRange(1, 4);
+    layout.addWidget(&spinBox);
+
+    QDialogButtonBox buttonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+    layout.addWidget(&buttonBox);
+
+    QObject::connect(&buttonBox, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+    QObject::connect(&buttonBox, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+
+    if (dialog.exec() == QDialog::Accepted) {
+        // If trying to copy the current save slot into an slot marked as "Enabled", then ask first if the user
+        // wants to overwrite the data.
+        if (BITS_HAS(saveManager->getSaveSlot(destSaveSlot).mainSave.flags, SaveData::SAVE_FLAG_ACTIVE)) {
+            QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Clear All", "An existing save exists on the destination slot\n"
+                                                                                            "Do you want to replace it?", QMessageBox::Yes | QMessageBox::No);
+
+            if (reply == QMessageBox::No) {
+                return;
+            }
+        }
+
+        destSaveSlot = spinBox.value() - 1;
+        saveManager->setSaveSlot(saveManager->getCurrentSaveSlot(), destSaveSlot);
+        populateMainWindow(&SaveManager::getInstance()->getCurrentSave());
+    }
+}
+
+/**
+ * @brief Clear a the currently opened save slot.
+ */
+void MainWindow::onDelete() {
+    QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Clear", "Are you sure you want to clear the current save?", QMessageBox::Yes | QMessageBox::No);
+
+    if (reply == QMessageBox::Yes) {
+        SaveManager::getInstance()->getCurrentSaveSlot().assignDefaultValues();
+        populateMainWindow(&SaveManager::getInstance()->getCurrentSave());
+    }
+}
+
+/**
+ * @brief Clear all save slots within the current save file.
+ */
+void MainWindow::onDeleteAll() {
+    QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Clear All", "Are you sure you want to clear all saves?", QMessageBox::Yes | QMessageBox::No);
+
+    if (reply == QMessageBox::Yes) {
+        for (int i = 0; i < NUM_SAVES; i++) {
+            SaveManager::getInstance()->getSaveSlot(i).assignDefaultValues();
+            populateMainWindow(&SaveManager::getInstance()->getCurrentSave());
+        }
+    }
 }

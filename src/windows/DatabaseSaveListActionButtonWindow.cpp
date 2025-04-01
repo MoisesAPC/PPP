@@ -54,7 +54,7 @@ void DatabaseSaveListActionWindow::onEditButton() {
     DatabaseManager::getInstance()->getEntry(documentId, entries);
 
     for (int i = 0; i < entries.size(); i++) {
-        SaveManager::getInstance()->setSave(entries[i], i);
+        SaveManager::getInstance()->setSaveSlot(entries[i], i);
     }
 
     emit editConfirmed(true);

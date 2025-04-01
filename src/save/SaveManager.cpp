@@ -192,7 +192,7 @@ unsigned int SaveManager::calcSecondChecksum(const QByteArray& dataFromFile) {
  */
 bool SaveManager::areAllSavesDisabled() {
     for (int i = 0; i < NUM_SAVES; i++) {
-        if (BITS_HAS(saves[i].mainSave.flags, SaveData::SAVE_FLAG_ENABLE_SAVE)) {
+        if (BITS_HAS(saves[i].mainSave.flags, SaveData::SAVE_FLAG_ACTIVE)) {
             return false;
         }
     }

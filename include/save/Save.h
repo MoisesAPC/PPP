@@ -199,7 +199,7 @@ struct SaveData {
     };
 
     enum SaveFlag {
-        SAVE_FLAG_ENABLE_SAVE                = BIT(0),
+        SAVE_FLAG_ACTIVE                = BIT(0),
         SAVE_FLAG_EASY                       = BIT(4),
         SAVE_FLAG_NORMAL                     = BIT(5),
         SAVE_FLAG_HARD                       = BIT(6),
@@ -264,8 +264,8 @@ struct SaveSlot {
     unsigned int checksum2;
 
     void clear() {
-        mainSave = {0};
-        beginningOfStage = {0};
+        mainSave = {};
+        beginningOfStage = {};
         checksum1 = 0;
         checksum2 = 0;
     }
