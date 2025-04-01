@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"struct_save_data.html#a268f0152cb39497500c64bff04416714":[1,0,13,50],
 "struct_save_data.html#a29267bc006339d11996ba6ba2f7918d5":[1,0,13,27],
 "struct_save_data.html#a33c0045b508f92210e82f12364a23480":[1,0,13,33],
 "struct_save_data.html#a3cba5a0b6ad663011014e6d3c859ecd6":[1,0,13,17],
@@ -146,12 +147,11 @@ var NAVTREEINDEX2 =
 "struct_save_data.html#af6e5e5b8d4d35c0488b7354801fb6ed9":[1,0,13,19],
 "struct_save_data.html#afaee0d3ba9fa2b9e272498a542109bd8":[1,0,13,10],
 "struct_save_slot.html":[1,0,15],
-"struct_save_slot.html#a216c78a366a000005f8ac5f743e2ef36":[1,0,15,3],
 "struct_save_slot.html#a466490bc9edbaee0d2acc69c4317c4aa":[1,0,15,0],
-"struct_save_slot.html#a86b4accf7977b33a9a056b5f1ee6f077":[1,0,15,7],
+"struct_save_slot.html#a86b4accf7977b33a9a056b5f1ee6f077":[1,0,15,6],
 "struct_save_slot.html#a8f81b2a9783b01e22349d8d8ee4cfdc1":[1,0,15,1],
-"struct_save_slot.html#acee13edca857fdd9a92e45a7dd1692ff":[1,0,15,4],
+"struct_save_slot.html#acee13edca857fdd9a92e45a7dd1692ff":[1,0,15,3],
 "struct_save_slot.html#adeef575ba788e4e632000745398ef599":[1,0,15,2],
-"struct_save_slot.html#ae47d34da3a573453a4c75b65f0470c8d":[1,0,15,5],
-"struct_save_slot.html#ae629eb78b47514880fa21d4ddef90fba":[1,0,15,6]
+"struct_save_slot.html#ae47d34da3a573453a4c75b65f0470c8d":[1,0,15,4],
+"struct_save_slot.html#ae629eb78b47514880fa21d4ddef90fba":[1,0,15,5]
 };

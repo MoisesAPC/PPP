@@ -123,7 +123,7 @@ class FileManager {
 
         // Functions for the main file operations
         int openFile(const QString& filepath_);
-        int writeFile(const QString& filepath_);
+        int writeFile(const QString& filepath_, bool isReplacingOldFile);
 
         // Functions or handling the note table data array
         unsigned int initNoteTableData(QFile& file);

@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"class_file_manager.html#ac8a6de1d1eb61fcb320aa5141145ca8f":[1,0,11,25],
 "class_file_manager.html#ad16bce57e386fe3e158ba4bf909fed2f":[1,0,11,11],
 "class_file_manager.html#ad457a2267a9e807f50bdac8726aff360":[1,0,11,14],
 "class_file_manager.html#ad514efca3d35b41cf6998f0b14274b9c":[1,0,11,21],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "struct_save_data.html#a04a2f10b794e85fcbc01ead082b509a0":[1,0,13,46],
 "struct_save_data.html#a09b159eeae41a86c8acfdc357a3f69d0":[1,0,13,26],
 "struct_save_data.html#a0e3c0105aba815ab20a43feba6d3ac7c":[1,0,13,25],
-"struct_save_data.html#a13cbfcd55d60f959cf6f097e6cb165f0":[1,0,13,47],
-"struct_save_data.html#a268f0152cb39497500c64bff04416714":[1,0,13,50]
+"struct_save_data.html#a13cbfcd55d60f959cf6f097e6cb165f0":[1,0,13,47]
 };

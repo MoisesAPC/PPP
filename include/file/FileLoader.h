@@ -44,12 +44,13 @@ class FileLoader {
         virtual unsigned int countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const = 0;
 
         // Getter functions related to file-handling tasks
-        virtual unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; };
-        virtual unsigned int getRegionIdOffset() const { return regionIdOffset; };
+        virtual unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; }
+        virtual unsigned int getRegionIdOffset() const { return regionIdOffset; }
         virtual unsigned int getMaxFileSize() const { return 0; }
         virtual unsigned int getUnusedExtraSize() const { return 0; }
         virtual unsigned int getSaveSlotPaddedSize() const = 0;
         virtual unsigned int getSaveSlotPaddingBytesSize() const { return 0; }
+        virtual unsigned int getSavePaddedSize() const { return 0x200; }
 
         /**
          * @brief getHeaderBytes
@@ -69,7 +70,7 @@ class FileLoader {
          * For example, for Controller Paks, if the raw data byte is associated to a given save is 0x05,
          * then the actual offset where the raw data for that save starts is at 0x05 * 0x100 = 0x500
          */
-        virtual unsigned int getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const { return 0; };
+        virtual unsigned int getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const { return 0; }
 
         void swapEndianness(QByteArray*);
 
@@ -130,10 +131,10 @@ class FileLoaderNote: public FileLoader {
 
         // Getter functions related to file-handling tasks
         unsigned int countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const;
-        unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; };
-        unsigned int getRegionIdOffset() const { return regionIdOffset; };
+        unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; }
+        unsigned int getRegionIdOffset() const { return regionIdOffset; }
         unsigned int getMaxFileSize() const;
-        unsigned int getUnusedExtraSize() const { return 0x100; };  // Unused extra 100 bytes at the end of notes
+        unsigned int getUnusedExtraSize() const { return 0x100; }  // Unused extra 100 bytes at the end of notes
         unsigned int getSaveSlotPaddedSize() const;
         std::vector<unsigned char> getHeaderBytes() const;
         unsigned int getSaveSlotPaddingBytesSize() const;
@@ -164,10 +165,10 @@ class FileLoaderCartridge: public FileLoader {
 
         // Getter functions related to file-handling tasks
         unsigned int countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const;
-        unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; };
-        unsigned int getRegionIdOffset() const { return 0; };   // Not needed for cartridge saves, so we return 0
+        unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; }
+        unsigned int getRegionIdOffset() const { return 0; }   // Not needed for cartridge saves, so we return 0
         unsigned int getMaxFileSize() const;
-        unsigned int getUnusedExtraSize() const { return 0; };
+        unsigned int getUnusedExtraSize() const { return 0; }
         unsigned int getSaveSlotPaddedSize() const;
         std::vector<unsigned char> getHeaderBytes() const;
         unsigned int getCartridgeNumSaves() const;
@@ -202,13 +203,13 @@ struct FileLoaderControllerPak: public FileLoader {
         unsigned int getRawDataOffsetStart() const;
         unsigned int getRegionIdOffset() const { return 0; }
         unsigned int getMaxFileSize() const;
-        unsigned int getUnusedExtraSize() const { return 0x100; };  // Unused extra 100 bytes at the end of notes
+        unsigned int getUnusedExtraSize() const { return 0x100; }  // Unused extra 100 bytes at the end of notes
         unsigned int getSaveSlotPaddedSize() const;
         std::vector<unsigned char> getHeaderBytes() const { return {}; }
         unsigned int getNoteTableOffset() const { return CONTROLLER_PAK_NOTE_TABLE_OFFSET; }
         unsigned int getNoteTableEntrySize() const { return CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE; }
         unsigned int getNoteTableNumEntries() const { return CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES; }
-        unsigned int getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const { return rawDataStartOffsetByte * 0x100; };
+        unsigned int getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const { return rawDataStartOffsetByte * 0x100; }
         int checkFileOpenErrors();
 };
 
@@ -237,7 +238,7 @@ struct FileLoaderDexDrive: public FileLoaderControllerPak {
         unsigned int getNoteTableOffset() const { return CONTROLLER_PAK_NOTE_TABLE_OFFSET; }
         unsigned int getNoteTableEntrySize() const { return CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE; }
         unsigned int getNoteTableNumEntries() const { return CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES; }
-        unsigned int getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const { return (rawDataStartOffsetByte * 0x100) + 0x1040; };
+        unsigned int getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const { return (rawDataStartOffsetByte * 0x100) + 0x1040; }
 };
 
 #endif

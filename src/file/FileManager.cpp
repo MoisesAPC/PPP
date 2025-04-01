@@ -126,7 +126,7 @@ int FileManager::openFile(const QString& filepath_) {
     return 0;
 }
 
-int FileManager::writeFile(const QString& filepath_) {
+int FileManager::writeFile(const QString& filepath_, bool isReplacingOldFile) {
     if (SaveManager::getInstance()->areAllSavesDisabled()) {
         return -2;
     }
@@ -141,9 +141,16 @@ int FileManager::writeFile(const QString& filepath_) {
         file = new QFile(filepath);
 
         if (file->open(QIODevice::ReadWrite)) {
-            // Copy the contents of the file buffer containing the previously unsaved data.
-            // Then, overwrite with the new data.
-            file->write(*buffer);
+            if (isReplacingOldFile) {
+                // If we're replacing a file (i.e. when using the "Save As..." feature),
+                // ensure that we clear the file before proceeding.
+                file->resize(0);
+            }
+            else {
+                // Copy the contents of the file buffer containing the previously unsaved data.
+                // Then, overwrite with the new data.
+                file->write(*buffer);
+            }
 
             if (loader != nullptr) {
                 loader->writeAllSaveSlots(*file);

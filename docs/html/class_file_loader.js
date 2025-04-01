@@ -13,6 +13,7 @@ var class_file_loader =
     [ "getRawDataOffsetStart", "class_file_loader.html#ae1f66b10d4e58b9fdd272af95b82b3e7", null ],
     [ "getRegionEnumFromChar", "class_file_loader.html#a6321a8623f4150630957457206ebb0ad", null ],
     [ "getRegionIdOffset", "class_file_loader.html#a691404e5493a647c7ccaae49a9cd7cac", null ],
+    [ "getSavePaddedSize", "class_file_loader.html#a235f3e8cf10e649dda392f3ee3771ee5", null ],
     [ "getSaveSlotPaddedSize", "class_file_loader.html#af001521a0ebb4b0158391e39f4624e25", null ],
     [ "getSaveSlotPaddingBytesSize", "class_file_loader.html#ad743dc8157ddc83cee1330f653c9824a", null ],
     [ "getUnusedExtraSize", "class_file_loader.html#af8dc3ad3cac7f06873b944d5d050850c", null ],

@@ -310,7 +310,7 @@ std::vector<unsigned char> FileLoaderCartridge::getHeaderBytes() const {
  * @brief Get the raw save slot size + its padding.
  */
 unsigned int FileLoaderNote::getSaveSlotPaddedSize() const {
-    return sizeof(SaveSlot) + (SaveSlot::getPaddedSize() - sizeof(SaveSlot));
+    return sizeof(SaveSlot) + (getSavePaddedSize() - sizeof(SaveSlot));
 }
 
 /**
@@ -428,7 +428,7 @@ unsigned int FileLoaderCartridge::getSaveSlotPaddedSize() const {
 
     // The complete save slot ends at offset 0x1F0, not 0x200, so we remove -0x10 bytes from it.
     // Besides, each slot now starts with the header data.
-    return headerSize + (sizeof(SaveSlot) + (SaveSlot::getPaddedSize() - sizeof(SaveSlot)) - 0x10);
+    return headerSize + (sizeof(SaveSlot) + (getSavePaddedSize() - sizeof(SaveSlot)));
 }
 
 /**
@@ -454,7 +454,7 @@ unsigned int FileLoaderControllerPak::getRawDataOffsetStart() const {
 }
 
 unsigned int FileLoaderControllerPak::getSaveSlotPaddedSize() const {
-    return sizeof(SaveSlot) + (SaveSlot::getPaddedSize() - sizeof(SaveSlot));
+    return sizeof(SaveSlot) + (getSavePaddedSize() - sizeof(SaveSlot));
 }
 
 /**
@@ -533,7 +533,7 @@ void FileLoaderNote::writeAllSaveSlots(QFile& file) {
  * @brief Get the size of the padding data after the end of the actual save slot data.
  */
 unsigned int FileLoaderNote::getSaveSlotPaddingBytesSize() const {
-    unsigned int paddingBytes = SaveSlot::getPaddedSize() - sizeof(SaveSlot);
+    unsigned int paddingBytes = getSavePaddedSize() - sizeof(SaveSlot);
 
     switch (SaveManager::getInstance()->getRegion()) {
         case SaveData::USA:
@@ -551,18 +551,14 @@ unsigned int FileLoaderNote::getSaveSlotPaddingBytesSize() const {
  * @brief Get the size of the padding data after the end of the actual save slot data.
  */
 unsigned int FileLoaderCartridge::getSaveSlotPaddingBytesSize() const {
-    unsigned int paddingBytes = SaveSlot::getPaddedSize() - sizeof(SaveSlot) - getHeaderBytes().size();
+    short region = SaveManager::getInstance()->getRegion();
 
-    switch (SaveManager::getInstance()->getRegion()) {
-    case SaveData::USA:
-    case SaveData::JPN:
-    default:
-        // Add the extra 8 bytes found in the PAL version of the saveslot
-        return paddingBytes + 8;
+    // Remove the extra 8 bytes found in the PAL version of the saveslot
+    // (when applicable)
+    unsigned int extraByteData = (region == SaveData::PAL) ? 0 : 8;
+    unsigned int paddingBytes = getSavePaddedSize() - (sizeof(SaveSlot) - extraByteData) - getHeaderBytes().size();
 
-    case SaveData::PAL:
-        return paddingBytes;
-    }
+    return paddingBytes;
 }
 
 int FileLoaderNote::checkFileOpenErrors() {

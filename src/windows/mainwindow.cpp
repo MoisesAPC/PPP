@@ -718,7 +718,7 @@ void MainWindow::fileSaveMenu() {
         return;
     }
 
-    int result = FileManager::getInstance()->writeFile(FileManager::getInstance()->getFilepath());
+    int result = FileManager::getInstance()->writeFile(FileManager::getInstance()->getFilepath(), false);
 
     switch (result) {
         case -1:
@@ -751,7 +751,7 @@ void MainWindow::fileSaveAsMenu() {
     );
 
     if (!filepath.isEmpty()) {
-        int result = FileManager::getInstance()->writeFile(filepath);
+        int result = FileManager::getInstance()->writeFile(filepath, true);
 
         switch (result) {
             case -1:

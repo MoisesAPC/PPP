@@ -281,8 +281,6 @@ struct SaveSlot {
         beginningOfStage.field_0x5C = 100;
     }
 
-    static unsigned int getPaddedSize() { return 0x200; }
-
     SaveSlot() { clear(); }
 };  /// Size = 0x200 bytes. @note Its effective size is 0x1C8 bytes, but is padded to 0x200.
 

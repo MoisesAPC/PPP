@@ -161,6 +161,7 @@
 <section title="getRawDataOffsetStart" ref="class_file_loader.html#ae1f66b10d4e58b9fdd272af95b82b3e7"/>
 <section title="getRegionEnumFromChar" ref="class_file_loader.html#a6321a8623f4150630957457206ebb0ad"/>
 <section title="getRegionIdOffset" ref="class_file_loader.html#a691404e5493a647c7ccaae49a9cd7cac"/>
+<section title="getSavePaddedSize" ref="class_file_loader.html#a235f3e8cf10e649dda392f3ee3771ee5"/>
 <section title="getSaveSlotPaddedSize" ref="class_file_loader.html#af001521a0ebb4b0158391e39f4624e25"/>
 <section title="getSaveSlotPaddingBytesSize" ref="class_file_loader.html#ad743dc8157ddc83cee1330f653c9824a"/>
 <section title="getUnusedExtraSize" ref="class_file_loader.html#af8dc3ad3cac7f06873b944d5d050850c"/>
@@ -282,7 +283,7 @@
 <section title="setFileOpened" ref="class_file_manager.html#ad514efca3d35b41cf6998f0b14274b9c"/>
 <section title="setFilePath" ref="class_file_manager.html#af880be04cf812c28f163ce7f9458a86a"/>
 <section title="wasFileOpened" ref="class_file_manager.html#a5c16abdd7d339479b8919d5abf40c12b"/>
-<section title="writeFile" ref="class_file_manager.html#a57a0da1c7b4231b2b374128105c33a78"/>
+<section title="writeFile" ref="class_file_manager.html#a0fbd01e49d6c74263211b24c2f4f3720"/>
 <section title="buffer" ref="class_file_manager.html#ac8a6de1d1eb61fcb320aa5141145ca8f"/>
 <section title="CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE" ref="class_file_manager.html#aafcee137c99d883ce5bab3dc840968fb"/>
 <section title="CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES" ref="class_file_manager.html#a44fba90dd4a1c17e61d842cff7e48dc2"/>
@@ -579,7 +580,6 @@
 <section title="SaveSlot" ref="struct_save_slot.html#a466490bc9edbaee0d2acc69c4317c4aa"/>
 <section title="assignDefaultValues" ref="struct_save_slot.html#a8f81b2a9783b01e22349d8d8ee4cfdc1"/>
 <section title="clear" ref="struct_save_slot.html#adeef575ba788e4e632000745398ef599"/>
-<section title="getPaddedSize" ref="struct_save_slot.html#a216c78a366a000005f8ac5f743e2ef36"/>
 <section title="beginningOfStage" ref="struct_save_slot.html#acee13edca857fdd9a92e45a7dd1692ff"/>
 <section title="checksum1" ref="struct_save_slot.html#ae47d34da3a573453a4c75b65f0470c8d"/>
 <section title="checksum2" ref="struct_save_slot.html#ae629eb78b47514880fa21d4ddef90fba"/>
@@ -781,6 +781,7 @@
 <section title="getRawDataOffsetStart" ref="class_file_loader.html#ae1f66b10d4e58b9fdd272af95b82b3e7"/>
 <section title="getRegionEnumFromChar" ref="class_file_loader.html#a6321a8623f4150630957457206ebb0ad"/>
 <section title="getRegionIdOffset" ref="class_file_loader.html#a691404e5493a647c7ccaae49a9cd7cac"/>
+<section title="getSavePaddedSize" ref="class_file_loader.html#a235f3e8cf10e649dda392f3ee3771ee5"/>
 <section title="getSaveSlotPaddedSize" ref="class_file_loader.html#af001521a0ebb4b0158391e39f4624e25"/>
 <section title="getSaveSlotPaddingBytesSize" ref="class_file_loader.html#ad743dc8157ddc83cee1330f653c9824a"/>
 <section title="getUnusedExtraSize" ref="class_file_loader.html#af8dc3ad3cac7f06873b944d5d050850c"/>
@@ -904,7 +905,7 @@
 <section title="setFileOpened" ref="class_file_manager.html#ad514efca3d35b41cf6998f0b14274b9c"/>
 <section title="setFilePath" ref="class_file_manager.html#af880be04cf812c28f163ce7f9458a86a"/>
 <section title="wasFileOpened" ref="class_file_manager.html#a5c16abdd7d339479b8919d5abf40c12b"/>
-<section title="writeFile" ref="class_file_manager.html#a57a0da1c7b4231b2b374128105c33a78"/>
+<section title="writeFile" ref="class_file_manager.html#a0fbd01e49d6c74263211b24c2f4f3720"/>
 <section title="buffer" ref="class_file_manager.html#ac8a6de1d1eb61fcb320aa5141145ca8f"/>
 <section title="CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE" ref="class_file_manager.html#aafcee137c99d883ce5bab3dc840968fb"/>
 <section title="CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES" ref="class_file_manager.html#a44fba90dd4a1c17e61d842cff7e48dc2"/>
@@ -1095,7 +1096,6 @@
 <section title="SaveSlot" ref="struct_save_slot.html#a466490bc9edbaee0d2acc69c4317c4aa"/>
 <section title="assignDefaultValues" ref="struct_save_slot.html#a8f81b2a9783b01e22349d8d8ee4cfdc1"/>
 <section title="clear" ref="struct_save_slot.html#adeef575ba788e4e632000745398ef599"/>
-<section title="getPaddedSize" ref="struct_save_slot.html#a216c78a366a000005f8ac5f743e2ef36"/>
 <section title="beginningOfStage" ref="struct_save_slot.html#acee13edca857fdd9a92e45a7dd1692ff"/>
 <section title="checksum1" ref="struct_save_slot.html#ae47d34da3a573453a4c75b65f0470c8d"/>
 <section title="checksum2" ref="struct_save_slot.html#ae629eb78b47514880fa21d4ddef90fba"/>
@@ -1617,7 +1617,6 @@
 <keyword name="getNoteTableOffset() const" id="FileLoader::getNoteTableOffset_aa11da2471443d7c9def7f1f8db1a58c0" ref="class_file_loader.html#aa11da2471443d7c9def7f1f8db1a58c0"/>
 <keyword name="getNoteTableOffset() const" id="FileLoaderControllerPak::getNoteTableOffset_a9a826bacf8a6e79e8e79a7d3d7e4ead7" ref="struct_file_loader_controller_pak.html#a9a826bacf8a6e79e8e79a7d3d7e4ead7"/>
 <keyword name="getNoteTableOffset() const" id="FileLoaderDexDrive::getNoteTableOffset_ab615c68e86e3a044d8dc29c12b7df5a0" ref="struct_file_loader_dex_drive.html#ab615c68e86e3a044d8dc29c12b7df5a0"/>
-<keyword name="getPaddedSize()" id="SaveSlot::getPaddedSize_a216c78a366a000005f8ac5f743e2ef36" ref="struct_save_slot.html#a216c78a366a000005f8ac5f743e2ef36"/>
 <keyword name="getPassword() const" id="DatabaseManager::getPassword_af3c3e5826b2d725274bf5422fc0218f1" ref="class_database_manager.html#af3c3e5826b2d725274bf5422fc0218f1"/>
 <keyword name="getPort() const" id="Database::getPort_a7d710f7602221a732865f11030396a90" ref="class_database.html#a7d710f7602221a732865f11030396a90"/>
 <keyword name="getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const" id="FileLoader::getRawDataOffsetPerEntry_ac0c2886bac87f4ede9d268fff254ae7a" ref="class_file_loader.html#ac0c2886bac87f4ede9d268fff254ae7a"/>
@@ -1635,6 +1634,7 @@
 <keyword name="getRegionIdOffset() const" id="FileLoaderControllerPak::getRegionIdOffset_ac07564c102be64c474ba305104324185" ref="struct_file_loader_controller_pak.html#ac07564c102be64c474ba305104324185"/>
 <keyword name="getRegionName(const short region) const" id="ControllerPakSelectionWindow::getRegionName_aab2b50b01ee6adf952c513df12b9351f" ref="class_controller_pak_selection_window.html#aab2b50b01ee6adf952c513df12b9351f"/>
 <keyword name="getSave(const int index, const bool isMain)" id="SaveManager::getSave_a60fa114130f37cd17201516a9012ac0b" ref="class_save_manager.html#a60fa114130f37cd17201516a9012ac0b"/>
+<keyword name="getSavePaddedSize() const" id="FileLoader::getSavePaddedSize_a235f3e8cf10e649dda392f3ee3771ee5" ref="class_file_loader.html#a235f3e8cf10e649dda392f3ee3771ee5"/>
 <keyword name="getSaveSlot(const int index)" id="SaveManager::getSaveSlot_a343d4b26fc5112fdb6f8c480ed10e5df" ref="class_save_manager.html#a343d4b26fc5112fdb6f8c480ed10e5df"/>
 <keyword name="getSaveSlotPaddedSize() const =0" id="FileLoader::getSaveSlotPaddedSize_af001521a0ebb4b0158391e39f4624e25" ref="class_file_loader.html#af001521a0ebb4b0158391e39f4624e25"/>
 <keyword name="getSaveSlotPaddedSize() const" id="FileLoaderNote::getSaveSlotPaddedSize_a7f4f3c3d194c02048d0492d6e9efd9d2" ref="class_file_loader_note.html#a7f4f3c3d194c02048d0492d6e9efd9d2"/>
@@ -1964,7 +1964,7 @@
 <keyword name="writeAllSaveSlots(QFile &amp;file)" id="FileLoaderNote::writeAllSaveSlots_a7b0cfc37f944e74099d6d314ffdb0ead" ref="class_file_loader_note.html#a7b0cfc37f944e74099d6d314ffdb0ead"/>
 <keyword name="writeAllSaveSlots(QFile &amp;file)" id="FileLoaderCartridge::writeAllSaveSlots_a5a64534852d542ba560caa497b1dfd82" ref="class_file_loader_cartridge.html#a5a64534852d542ba560caa497b1dfd82"/>
 <keyword name="writeData(QDataStream &amp;outputStream, long offset, T value)" id="FileLoader::writeData_a04ccac001da70f4f8ea5d8a5debef41d" ref="class_file_loader.html#a04ccac001da70f4f8ea5d8a5debef41d"/>
-<keyword name="writeFile(const QString &amp;filepath_)" id="FileManager::writeFile_a57a0da1c7b4231b2b374128105c33a78" ref="class_file_manager.html#a57a0da1c7b4231b2b374128105c33a78"/>
+<keyword name="writeFile(const QString &amp;filepath_, bool isReplacingOldFile)" id="FileManager::writeFile_a0fbd01e49d6c74263211b24c2f4f3720" ref="class_file_manager.html#a0fbd01e49d6c74263211b24c2f4f3720"/>
 <keyword name="writeSaveData(QDataStream &amp;outputStream, const SaveData &amp;saveData, unsigned int startOffset)" id="FileLoader::writeSaveData_a6f6eba00efd3aae50631976b093d67a7" ref="class_file_loader.html#a6f6eba00efd3aae50631976b093d67a7"/>
 <keyword name="writeSaveSlot(QFile &amp;file, SaveSlot &amp;slot, unsigned int startOffset)" id="FileLoader::writeSaveSlot_a8a5fbd15b377d95bbfe921594dcc747a" ref="class_file_loader.html#a8a5fbd15b377d95bbfe921594dcc747a"/>
 <keyword name="~ControllerPakSelectionWindow()" id="ControllerPakSelectionWindow::~ControllerPakSelectionWindow_a52248a587cf6911c75859493a631e699" ref="class_controller_pak_selection_window.html#a52248a587cf6911c75859493a631e699"/>
