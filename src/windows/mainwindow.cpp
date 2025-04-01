@@ -779,8 +779,8 @@ void MainWindow::fileSaveAsMenu() {
 }
 
 void MainWindow::setupFileMenu() {
-    // Setup the "Open > From File" button
-    connect(ui->actionFrom_File, &QAction::triggered, this, &MainWindow::fileOpenMenu);
+    // Setup the "Open" button
+    connect(ui->actionOpenFile, &QAction::triggered, this, &MainWindow::fileOpenMenu);
 
     // Setup the "Save" button
     connect(ui->actionSave, &QAction::triggered, this, &MainWindow::fileSaveMenu);
@@ -1080,7 +1080,7 @@ void MainWindow::enableUIComponents(bool enable) {
     for (QWidget* widget: widgets) {
         // Skip essential components.
         // Also ensure that the language doesn't get enabled the first time a USA or JPN save is loaded
-        if (widget == ui->cboxEnabled || widget == ui->menuBar || widget == ui->menuFile || widget == ui->menuOpen ||
+        if (widget == ui->cboxEnabled || widget == ui->menuBar || widget == ui->menuFile ||
             widget == menuSlot || slotSubMenus.contains(qobject_cast<QMenu*>(widget)) ||
             widget == ui->cbLanguage) {
             continue;
