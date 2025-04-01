@@ -33,13 +33,13 @@ class FileLoader {
         virtual void parseRegion(QFile& file) = 0;
         void readAllSaveSlots(QFile& file);
         virtual void writeAllSaveSlots(QFile& file);
-    private:
         void readSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset);
         void writeSaveSlot(QFile& file, SaveSlot& slot, unsigned int startOffset);
         const SaveData& readSaveData(QDataStream& inputStream, unsigned int startOffset);
         void writeSaveData(QDataStream& outputStream, const SaveData& saveData, unsigned int startOffset);
 
         // Search-related functions
+        // Search occurences of an array of bytes in a QByteArray, and count its occurences, respectively.
         static bool searchHexInFile(const QByteArray& data, const std::vector<unsigned char>& target);
         virtual unsigned int countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const = 0;
 
@@ -56,7 +56,6 @@ class FileLoader {
          * Get the raw bytes associated to the file's header, when applicable.
          */
         virtual std::vector<unsigned char> getHeaderBytes() const = 0;
-        short getRegionEnumFromChar(const unsigned char regionFromFile);
         virtual unsigned int getNoteTableOffset() const { return 0; }
         virtual unsigned int getNoteTableEntrySize() const { return 0; }
         virtual unsigned int getNoteTableNumEntries() const { return 0; }
@@ -74,7 +73,8 @@ class FileLoader {
 
         void swapEndianness(QByteArray*);
 
-    public:
+        short getRegionEnumFromChar(const unsigned char regionFromFile);
+
         /**
          * Reads a value of type T at the given offset within the input stream's raw data.
          */
@@ -121,7 +121,6 @@ class FileLoaderNote: public FileLoader {
         void parseRegion(QFile& file);
         void writeAllSaveSlots(QFile& file);
 
-    private:
         // Getter functions related to file-handling tasks
         unsigned int countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const;
         unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; };
@@ -155,7 +154,6 @@ class FileLoaderCartridge: public FileLoader {
         void parseRegion(QFile& file);
         void writeAllSaveSlots(QFile& file);
 
-    private:
         // Getter functions related to file-handling tasks
         unsigned int countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const;
         unsigned int getRawDataOffsetStart() const { return rawDataStartOffset; };
@@ -190,7 +188,6 @@ struct FileLoaderControllerPak: public FileLoader {
         // Main file read and write functions
         void parseRegion(QFile& file);
 
-    private:
         // Getter functions related to file-handling tasks
         unsigned int countHexOccurrences(const QByteArray& data, const std::vector<unsigned char>& target) const;
         unsigned int getRawDataOffsetStart() const;
@@ -225,7 +222,6 @@ struct FileLoaderDexDrive: public FileLoaderControllerPak {
         FileLoaderDexDrive() {}
         ~FileLoaderDexDrive() {}
 
-    private:
         // Getter functions related to file-handling tasks
         unsigned int getMaxFileSize() const;
         unsigned int getNoteTableOffset() const { return CONTROLLER_PAK_NOTE_TABLE_OFFSET; }

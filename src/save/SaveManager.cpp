@@ -171,7 +171,7 @@ unsigned int SaveManager::calcSecondChecksum(const QByteArray& dataFromFile) {
 // This allows us to prevent saving if none of the saves's "Enabled" checkbox are checked.
 bool SaveManager::areAllSavesDisabled() {
     for (int i = 0; i < NUM_SAVES; i++) {
-        if (BITS_HAS(saves[i].mainSave.flags, SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY)) {
+        if (BITS_HAS(saves[i].mainSave.flags, SaveData::SAVE_FLAG_ENABLE_SAVE)) {
             return false;
         }
     }

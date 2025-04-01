@@ -247,7 +247,7 @@ void MainWindow::setupPageMain() {
     // In order to avoid the checkbox from being disabled,
     // we ensure that its parent is MainWindow (since it's never disabled by the "enableUiComponents" function)
     ui->cboxEnabled->setParent(this);
-    setupCheckBox(ui->cboxEnabled, SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY,
+    setupCheckBox(ui->cboxEnabled, SaveData::SAVE_FLAG_ENABLE_SAVE,
         [this](unsigned int value) {
             SaveManager::getInstance()->setFlags(value);
             updateWindowVisibility(true);
@@ -621,7 +621,7 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
     ui->leItemsIG->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_INCANDESCENT_GAZE)));
 
     // Checkboxes
-    ui->cboxEnabled->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY));
+    ui->cboxEnabled->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_ENABLE_SAVE));
     updateCheckboxEnabledVisibility();
 
     ui->cboxHardMode->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_HARD_MODE_UNLOCKED));
@@ -1077,7 +1077,7 @@ void MainWindow::updateCheckboxEnabledVisibility() {
 
 // Make sure to always have the "Beginning of Stage" save enabled only if the "Main" save is enabled
 void MainWindow::updateWindowVisibility(bool enable) {
-    if (BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY)
+    if (BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_ENABLE_SAVE)
         && !isMain) {
         enableUIComponents(true);
     }
@@ -1087,7 +1087,7 @@ void MainWindow::updateWindowVisibility(bool enable) {
 }
 
 void MainWindow::databaseMenu() {
-    DatabaseAccessWindow* databaseAccessWindow = new DatabaseAccessWindow(this);
+    DatabaseMainWindow* databaseAccessWindow = new DatabaseMainWindow(this);
     databaseAccessWindow->exec();
     databaseAccessWindow->close();
 }

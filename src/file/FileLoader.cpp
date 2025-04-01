@@ -383,15 +383,15 @@ unsigned int FileLoaderCartridge::getMaxFileSize() const {
 };
 
 void FileLoaderControllerPak::parseRegion(QFile& file) {
-    std::vector<FileManager::ControllerPakIndexData>* indexDataArray = FileManager::getInstance()->getControllerPakIndexDataArray();
+    std::vector<FileManager::ControllerPakNotetableData>* noteTableArray = FileManager::getInstance()->getControllerPakNotetableDataArray();
 
     // Set the region of the currently selected Controller Pak save
-    SaveManager::getInstance()->setRegion((*indexDataArray)[FileManager::getInstance()->getControllerPakCurrentlySelectedSaveIndex()].region);
+    SaveManager::getInstance()->setRegion((*noteTableArray)[FileManager::getInstance()->getControllerPakCurrentlySelectedSaveIndex()].region);
 }
 
 unsigned int FileLoaderControllerPak::getRawDataOffsetStart() const {
-    std::vector<FileManager::ControllerPakIndexData>* indexDataArray = FileManager::getInstance()->getControllerPakIndexDataArray();
-    return (*indexDataArray)[FileManager::getInstance()->getControllerPakCurrentlySelectedSaveIndex()].rawDataStartOffset;
+    std::vector<FileManager::ControllerPakNotetableData>* noteTableArray = FileManager::getInstance()->getControllerPakNotetableDataArray();
+    return (*noteTableArray)[FileManager::getInstance()->getControllerPakCurrentlySelectedSaveIndex()].rawDataStartOffset;
 }
 
 unsigned int FileLoaderControllerPak::getSaveSlotPaddedSize() const {

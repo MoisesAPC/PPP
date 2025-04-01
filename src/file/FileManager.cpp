@@ -66,7 +66,7 @@ int FileManager::openFile(const QString& filepath_) {
 
                 // Initialize Controller Pak specific data
                 if (format == FORMAT_CONTROLLERPAK || format == FORMAT_DEXDRIVE) {
-                    unsigned int numCV64Saves = initIndexData(*file);
+                    unsigned int numCV64Saves = initNoteTableData(*file);
 
                     // Stop opening the file if the Controller Pak doesn't have any Castlevania saves
                     // previously stored on it
@@ -145,17 +145,17 @@ int FileManager::writeFile(const QString& filepath_) {
     return -1;
 }
 
-// Initialize the FileManager's "indexDataArray", in order to know extra information regarding each Castlevania save it has
-unsigned int FileManager::initIndexData(QFile& file) {
+// Initialize the FileManager's "noteTableArray", in order to know extra information regarding each Castlevania save it has
+unsigned int FileManager::initNoteTableData(QFile& file) {
     unsigned int numCV64Saves = 0;
 
     if (loader != nullptr && (format == FORMAT_CONTROLLERPAK || format == FORMAT_DEXDRIVE)) {
         SaveManager* saveManager = SaveManager::getInstance();
         QDataStream inputStream(&file);
-        std::vector<FileManager::ControllerPakIndexData>* indexDataArray = FileManager::getInstance()->getControllerPakIndexDataArray();
+        std::vector<FileManager::ControllerPakNotetableData>* noteTableArray = FileManager::getInstance()->getControllerPakNotetableDataArray();
 
         // If opening another Controller Pak file, make sure to clear the index data array first
-        clearIndexData();
+        clearNoteTableData();
 
         for (int i = 0; i < loader->getNoteTableNumEntries(); i++) {
             const unsigned int GAMEID_SIZE = 6;
@@ -175,21 +175,21 @@ unsigned int FileManager::initIndexData(QFile& file) {
             }
 
             // Get the save index within the Controller Pak data
-            (*indexDataArray)[i].index = i;
+            (*noteTableArray)[i].index = i;
 
             // Parse the region (at offset +3)
             unsigned char regionFromFile = loader->readData<unsigned char>(inputStream, inputStream.device()->pos() + 3);
-            (*indexDataArray)[i].region = loader->getRegionEnumFromChar(regionFromFile);
+            (*noteTableArray)[i].region = loader->getRegionEnumFromChar(regionFromFile);
 
             // Parse the raw data start offset (at offset +3 after the region, and then multiplied by 0x100)
             // If this is 0, we skip over this save entry (acting as if it wasn't present), and go to the next one
             unsigned int rawDataStartOffsetByte = loader->readData<unsigned char>(inputStream, inputStream.device()->pos() + 3);
             if (rawDataStartOffsetByte == 0) {
-                (*indexDataArray)[i].clearEntry();
+                (*noteTableArray)[i].clearEntry();
                 numCV64Saves--;
                 continue;
             }
-            (*indexDataArray)[i].rawDataStartOffset = loader->getRawDataOffsetPerEntry(rawDataStartOffsetByte);
+            (*noteTableArray)[i].rawDataStartOffset = loader->getRawDataOffsetPerEntry(rawDataStartOffsetByte);
 
             numCV64Saves++;
         }

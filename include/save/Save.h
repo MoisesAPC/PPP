@@ -1,22 +1,25 @@
-// Yoinked from: https://github.com/k64ret/cv64/blob/main/include/game/save.h
+/**
+ * @file Save.h
+ * @brief Raw save data structures
+ *
+ * @source https://github.com/k64ret/cv64/blob/main/include/game/save.h
+ */
 
 #ifndef SAVE_H
 #define SAVE_H
 
-/******************************************************************************
- * Save.h
- *
- * This header file contains the definition of the main save game data structure.
- *
- * Yoinked from: https://github.com/k64ret/cv64/blob/main/include/game/save.h
- *****************************************************************************/
-
 #include "include/bit.h"
 
 #define NUM_EVENT_FLAGS  16
-#define SIZE_ITEMS_ARRAY 64 // Size of the whole items array
+#define SIZE_ITEMS_ARRAY 64
 #define NUM_SAVES 4
 
+/**
+ * @class SaveData
+ * @brief The main save data structure
+ *
+ * This structure contains the gameplay variables from one single save inside the game.
+ */
 struct SaveData {
     /* 0x000 */ unsigned int event_flags[NUM_EVENT_FLAGS];
     /* 0x040 */ unsigned int flags;
@@ -38,7 +41,6 @@ struct SaveData {
     /* 0x05A */ short life;
     /**
      * Only set to 100, like the life, and never used otherwise.
-     * Maybe related to the scrapped S / E meter?
      */
     /* 0x05C */ short field_0x5C;
     /* 0x05E */ short subweapon;
@@ -69,63 +71,10 @@ struct SaveData {
     /* 0x0D8 */ int field83_0xd8;
     /* 0x0DC */ unsigned int gold_spent_on_Renon;
 
-    SaveData& operator=(const SaveData& other) {
-        if (this != &other) {
-            for (unsigned int i = 0; i < NUM_EVENT_FLAGS; i++) {
-                event_flags[i] = other.event_flags[i];
-            }
-
-            flags = other.flags;
-            week = other.week;
-            day = other.day;
-            hour = other.hour;
-            minute = other.minute;
-            seconds = other.seconds;
-            milliseconds = other.milliseconds;
-            gameplay_framecount = other.gameplay_framecount;
-            button_config = other.button_config;
-            sound_mode = other.sound_mode;
-            language = other.language;
-            character = other.character;
-            life = other.life;
-            field_0x5C = other.field_0x5C;
-            subweapon = other.subweapon;
-            gold = other.gold;
-
-            for (unsigned int j = 0; j < SIZE_ITEMS_ARRAY; j++) {
-                items[j] = other.items[j];
-            }
-
-            player_status = other.player_status;
-            health_depletion_rate_while_poisoned = other.health_depletion_rate_while_poisoned;
-            current_hour_VAMP = other.current_hour_VAMP;
-            map = other.map;
-            spawn = other.spawn;
-            save_crystal_number = other.save_crystal_number;
-            field51_0xb2 = other.field51_0xb2;
-            field52_0xb3 = other.field52_0xb3;
-            time_saved_counter = other.time_saved_counter;
-            death_counter = other.death_counter;
-            field55_0xbc = other.field55_0xbc;
-            field59_0xc0 = other.field59_0xc0;
-            field63_0xc4 = other.field63_0xc4;
-            field67_0xc8 = other.field67_0xc8;
-            field69_0xca = other.field69_0xca;
-            field71_0xcc = other.field71_0xcc;
-            field75_0xd0 = other.field75_0xd0;
-            field77_0xd2 = other.field77_0xd2;
-            field79_0xd4 = other.field79_0xd4;
-            field83_0xd8 = other.field83_0xd8;
-            gold_spent_on_Renon = other.gold_spent_on_Renon;
-        }
-
-        return* this;
-    }
-
     enum eItemId {
         ITEM_ID_NOTHING           = 0,
         ITEM_ID_WHITE_JEWEL       = 1,
-        ITEM_ID_RED_JEWEL         = 2,  // @note We only used item ID 2 to reference the red jewels, and not 3
+        ITEM_ID_RED_JEWEL         = 2,  /// @note We only used item ID 2 to reference the red jewels, and not 3
         ITEM_ID_SPECIAL1          = 4,
         ITEM_ID_SPECIAL2          = 5,
         ITEM_ID_ROAST_CHICKEN     = 6,
@@ -133,21 +82,21 @@ struct SaveData {
         ITEM_ID_HEALING_KIT       = 8,
         ITEM_ID_PURIFYING         = 9,
         ITEM_ID_CURE_AMPOULE      = 10,
-        ITEM_ID_POUT_POURRI       = 11, // Unused
+        ITEM_ID_POUT_POURRI       = 11,
         ITEM_ID_POWERUP           = 12,
         ITEM_ID_KNIFE             = 13,
         ITEM_ID_HOLY_WATER        = 14,
         ITEM_ID_CROSS             = 15,
         ITEM_ID_AXE               = 16,
-        ITEM_ID_WOODEN_STAKE      = 17, // Unused
-        ITEM_ID_ROSE              = 18, // Unused
+        ITEM_ID_WOODEN_STAKE      = 17,
+        ITEM_ID_ROSE              = 18,
         ITEM_ID_THE_CONTRACT      = 19,
-        ITEM_ID_ENGAGEMENT_RING   = 20, // Unused
+        ITEM_ID_ENGAGEMENT_RING   = 20,
         ITEM_ID_MAGICAL_NITRO     = 21,
         ITEM_ID_MANDRAGORA        = 22,
         ITEM_ID_SUN_CARD          = 23,
         ITEM_ID_MOON_CARD         = 24,
-        ITEM_ID_INCANDESCENT_GAZE = 25, // Unused
+        ITEM_ID_INCANDESCENT_GAZE = 25,
         ITEM_ID_ARCHIVES_KEY      = 26,
         ITEM_ID_LEFT_TOWER_KEY    = 27,
         ITEM_ID_STOREROOM_KEY     = 28,
@@ -244,14 +193,13 @@ struct SaveData {
     };
 
     enum PlayerStatus {
-        PLAYER_FLAG_STO                   = BIT(22),
-        PLAYER_FLAG_VAMP                  = BIT(27),
-        PLAYER_FLAG_POISON                = BIT(28)
+        PLAYER_FLAG_STO                      = BIT(22),
+        PLAYER_FLAG_VAMP                     = BIT(27),
+        PLAYER_FLAG_POISON                   = BIT(28)
     };
 
     enum SaveFlag {
-        // Save flags
-        SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY    = BIT(0),
+        SAVE_FLAG_ENABLE_SAVE                = BIT(0),
         SAVE_FLAG_EASY                       = BIT(4),
         SAVE_FLAG_NORMAL                     = BIT(5),
         SAVE_FLAG_HARD                       = BIT(6),
@@ -272,7 +220,7 @@ struct SaveData {
         PAL     // Europe
     };
 
-    // Only has an effect in PAL saves
+    /// @note Only has an effect in PAL saves
     enum eLanguage {
         ENGLISH = 0,
         JAPANESE = 0,
@@ -291,22 +239,29 @@ struct SaveData {
     inline unsigned int getEventFlags(int setIndex) {
         return event_flags[setIndex];
     }
-}; // Size = 0x0E0 bytes
+}; /// @note Size = 0x0E0 bytes
 
+/**
+ * @class SaveSlot
+ * @brief Save slot container struct
+ *
+ * This structure contains all the save data associated to one single slot / file.
+ *
+ * It consists of the following variables:
+ *     - mainSave: This is the save data that contains the variables mostly used throughout the game.
+ *
+ *     - beginningOfStage: The game only saves to this save when entering a stage / map for the first time.
+ *                         It is used as a sort of "backup" in case the player gets stuck in the mainSave.
+ *
+ *     - checksum1: First checksum value for the save. Used for checking if the file was tampered with or corrupted.
+ *
+ *     - checksum2: Second checksum value for the save. Used for checking if the file was tampered with or corrupted.
+ */
 struct SaveSlot {
     SaveData mainSave;
     SaveData beginningOfStage;
     unsigned int checksum1;
     unsigned int checksum2;
-
-    SaveSlot& operator=(const SaveSlot& other) {
-        mainSave = other.mainSave;
-        beginningOfStage = other.beginningOfStage;
-        checksum1 = other.checksum1;
-        checksum2 = other.checksum2;
-
-        return *this;
-    }
 
     void clear() {
         mainSave = {0};
@@ -329,6 +284,6 @@ struct SaveSlot {
     static unsigned int getPaddedSize() { return 0x200; }
 
     SaveSlot() { clear(); }
-};  // Size = 0x200 bytes (@note Its effective size is 0x1C8 bytes, but is padded to 0x200. See getPaddedSize())
+};  /// Size = 0x200 bytes. @note Its effective size is 0x1C8 bytes, but is padded to 0x200.
 
 #endif

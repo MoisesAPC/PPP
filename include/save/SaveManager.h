@@ -1,20 +1,27 @@
 #ifndef SAVEMANAGER_H
 #define SAVEMANAGER_H
 
-/******************************************************************************
- * SaveManager.h
+/**
+ * @file SaveManager.h
+ * @brief SaveManager header file
  *
- * Header file for SaveManager.cpp
- *****************************************************************************/
+ * @author Moisés Antonio Pestano Castro
+ */
 
 #include "Save.h"
-#include "include/bit.h"
 
 #include <QFile>
 #include <QtEndian>
 
+/**
+ * @class SaveManager
+ * @brief SaveManager singleton class definition
+ *
+ * This singleton handles save-related operations.
+ */
 class SaveManager {
     public:
+        // Singleton-related functions
         static SaveManager* getInstance() {
             if (instance == nullptr) {
                 createInstance();
@@ -32,15 +39,11 @@ class SaveManager {
             instance = nullptr;
         }
 
-        short region = SaveData::USA;
         int currentSave = 0;
         bool isMain = true;
 
+        // Getters, setters and helper functions
         void parseRegion(QFile& file);
-        const SaveData& readSaveData(QDataStream& inputStream, long startOffset);
-        void parseSaveSlot(QFile& file, SaveSlot& slot, long startOffset);
-        void parseAllSaveSlots(QFile& file, long startOffset);
-
         short getRegion() const;
         void setRegion(const short);
         void setLanguage(const short);
@@ -102,17 +105,18 @@ class SaveManager {
             saves[index] = save;
         }
 
-        void createSlotMenu();
         void assignDefaultValues();
 
     private:
         static SaveManager* instance;
 
+        // Constructors and destructor
         SaveManager() {}
         ~SaveManager() {}
         SaveManager(const SaveManager& obj) = delete; // Remove the copy constructor
 
         SaveSlot saves[NUM_SAVES];
+        short region = SaveData::USA;
 };
 
 #endif

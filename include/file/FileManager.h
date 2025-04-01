@@ -1,20 +1,31 @@
 #ifndef FILEMANAGER_H
 #define FILEMANAGER_H
 
-/******************************************************************************
- * FileManager.h
+/**
+ * @file FileManager.h
+ * @brief FileManager header file
  *
- * Header file for FileManager.cpp
- *****************************************************************************/
+ * @author Moisés Antonio Pestano Castro
+ */
 
 #include "include/file/FileLoader.h"
 #include <QFile>
 #include <QtEndian>
 #include <QFileInfo>
 
+/**
+ * @class FileManager
+ * @brief FileManager singleton class definition
+ *
+ * This singleton handles file-related operations.
+ * This class is a wrapper for file tasks. The specific operations are handled
+ * by the pre-assigned file parser (see the "loader" member variable).
+ */
 class FileManager {
     public:
-        // The file format of the opened file
+        /**
+         * @brief The file format of the opened file
+         */
         enum eFormat {
             FORMAT_NOTE,                  // .note
             FORMAT_CONTROLLERPAK,         // .pak, .mpk
@@ -22,12 +33,16 @@ class FileManager {
             FORMAT_DEXDRIVE               // .n64, .t64
         };
 
-        struct ControllerPakIndexData {
+        /**
+         * Helper struct that contains variables needed for identifying
+         * individual saves inside Controller Pak-formatted files.
+         */
+        struct ControllerPakNotetableData {
             int index = -1;
             short region = SaveData::USA;
             unsigned int rawDataStartOffset = 0;
 
-            ControllerPakIndexData() { clearEntry(); }
+            ControllerPakNotetableData() { clearEntry(); }
 
             void clearEntry() {
                 index = -1;
@@ -36,9 +51,10 @@ class FileManager {
             }
         };
 
-        const unsigned int CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE = 0x20;
-        const unsigned int CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES = 16;
+        const unsigned int CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE = 0x20;  /**< Size of each entry in the note table */
+        const unsigned int CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES = 16;   /**< Total number of elements in the note table */
 
+        // Singleton-related functions
         static FileManager* getInstance() {
             if (instance == nullptr) {
                 createInstance();
@@ -56,68 +72,72 @@ class FileManager {
             instance = nullptr;
         }
 
-        int getFileFormat() const {
+        // Inline getters and setters
+        inline int getFileFormat() const {
             return format;
         }
 
-        void setFileFormat(const int format_) {
+        inline void setFileFormat(const int format_) {
             format = format_;
         }
 
-        QString& getFilepath() {
+        inline QString& getFilepath() {
             return filepath;
         }
 
-        void setFilePath(const QString& filepath_) {
+        inline void setFilePath(const QString& filepath_) {
             filepath = filepath_;
         }
 
-        QFile& getFile() {
+        inline QFile& getFile() {
             return *file;
         }
 
-        QByteArray& getBuffer() {
+        inline QByteArray& getBuffer() {
             return *buffer;
         }
 
-        FileLoader* getLoader() {
+        inline FileLoader* getLoader() {
             return loader;
         }
 
-        int getControllerPakCurrentlySelectedSaveIndex() const {
+        inline int getControllerPakCurrentlySelectedSaveIndex() const {
             return controllerPakCurrentlySelectedSaveIndex;
         }
 
-        void setControllerPakCurrentlySelectedSaveIndex(int controllerPakCurrentlySelectedSaveIndex_) {
+        inline void setControllerPakCurrentlySelectedSaveIndex(int controllerPakCurrentlySelectedSaveIndex_) {
             controllerPakCurrentlySelectedSaveIndex = controllerPakCurrentlySelectedSaveIndex_;
         }
 
-        int openFile(const QString& filepath_);
-        int writeFile(const QString& filepath_);
-
-        std::vector<ControllerPakIndexData>* getControllerPakIndexDataArray() {
-            return &indexDataArray;
+        inline std::vector<ControllerPakNotetableData>* getControllerPakNotetableDataArray() {
+            return &noteTableArray;
         }
 
-        unsigned int initIndexData(QFile& file);
-
-        void clearIndexData() {
-            for (int i = 0; i < indexDataArray.size(); i++) {
-                indexDataArray[i].clearEntry();
-            }
-        }
-
-        bool wasFileOpened() const {
+        inline bool wasFileOpened() const {
             return fileOpened;
         }
 
-        void setFileOpened(const bool fileOpened_) {
+        inline void setFileOpened(const bool fileOpened_) {
             fileOpened = fileOpened_;
+        }
+
+        // Functions for the main file operations
+        int openFile(const QString& filepath_);
+        int writeFile(const QString& filepath_);
+
+        // Functions or handling the note table data array
+        unsigned int initNoteTableData(QFile& file);
+
+        void clearNoteTableData() {
+            for (int i = 0; i < noteTableArray.size(); i++) {
+                noteTableArray[i].clearEntry();
+            }
         }
 
     private:
         static FileManager* instance;
 
+        // Constructors and destructor
         FileManager() {
             filepath = "";
             buffer = new QByteArray();
@@ -145,16 +165,21 @@ class FileManager {
         FileManager(const FileManager& obj) = delete; // Remove the copy constructor
         int determineFormat();
 
-        int format = FORMAT_NOTE;
-        int controllerPakCurrentlySelectedSaveIndex = 0;    // The index of the currently selected save in a loaded Controller Pak
+        int format = FORMAT_NOTE;                           /**< File format */
+        int controllerPakCurrentlySelectedSaveIndex = 0;    /**< The index of the currently selected save in a loaded Controller Pak */
 
-        QFile* file = nullptr;
-        QByteArray* buffer = nullptr;
-        QString filepath;
-        FileLoader* loader = nullptr;
-        bool fileOpened = false;    // A file was opened at least once. Used for knowing if we have to enable or disable the Save buttons
+        QFile* file = nullptr;                              /**< Currently-opened file */
+        QByteArray* buffer = nullptr;                       /**< File buffer containing the raw bytes for the currently-opened file */
+        QString filepath;                                   /**< File path of the currently-opened file */
+        FileLoader* loader = nullptr;                       /**< File format */
+        /**< A file was opened at least once. Used for knowing if we have to enable or disable the Save buttons */
+        bool fileOpened = false;
 
-        std::vector<ControllerPakIndexData> indexDataArray{CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES};
+        /**
+         * An array of "ControllerPakNotetableData". This is use on Controller Pak-specific formats to
+         * store all the entries in the note table that contain Castlevania 64 saves.
+         */
+        std::vector<ControllerPakNotetableData> noteTableArray{CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES};
 };
 
 #endif

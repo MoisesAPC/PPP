@@ -36,7 +36,7 @@ QString ControllerPakSelectionWindow::getRegionName(const short region) const {
 
 void ControllerPakSelectionWindow::setupButtonBox() {
     // Get the Controller Pak Castlevania save array
-    std::vector<FileManager::ControllerPakIndexData>* saveArray = FileManager::getInstance()->getControllerPakIndexDataArray();
+    std::vector<FileManager::ControllerPakNotetableData>* saveArray = FileManager::getInstance()->getControllerPakNotetableDataArray();
 
     for (unsigned int i = 0; i < saveArray->size(); i++) {
         int index = (*saveArray)[i].index;

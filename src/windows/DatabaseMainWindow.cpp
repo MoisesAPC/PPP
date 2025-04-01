@@ -5,9 +5,9 @@
 #include <QInputDialog>
 #include <QtGlobal>
 
-DatabaseAccessWindow::DatabaseAccessWindow(QWidget *parent)
+DatabaseMainWindow::DatabaseMainWindow(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::DatabaseAccessWindow)
+    , ui(new Ui::DatabaseMainWindow)
 {
     ui->setupUi(this);
 
@@ -17,7 +17,7 @@ DatabaseAccessWindow::DatabaseAccessWindow(QWidget *parent)
     setupSaveListMenu();
 }
 
-void DatabaseAccessWindow::setupConnectMenu() {
+void DatabaseMainWindow::setupConnectMenu() {
     setupComboBox(ui->cbDatabase, comboBoxDataDatabaseTypes,
         [](int value) { DatabaseManager::getInstance()->setDatabaseType(value); }
     );
@@ -44,12 +44,12 @@ void DatabaseAccessWindow::setupConnectMenu() {
     });
 }
 
-void DatabaseAccessWindow::setupSaveListMenu() {
-    connect(ui->buttonUpload, &QPushButton::clicked, this, &DatabaseAccessWindow::onUploadSaveButtonPress);
-    connect(ui->sbPageList, &QSpinBox::valueChanged, this, &DatabaseAccessWindow::onPageSwitch);
+void DatabaseMainWindow::setupSaveListMenu() {
+    connect(ui->buttonUpload, &QPushButton::clicked, this, &DatabaseMainWindow::onUploadSaveButtonPress);
+    connect(ui->sbPageList, &QSpinBox::valueChanged, this, &DatabaseMainWindow::onPageSwitch);
 }
 
-void DatabaseAccessWindow::createSaveListButtons() {
+void DatabaseMainWindow::createSaveListButtons() {
     clearSaveList();
 
     if (saveEntries.empty()) {
@@ -75,7 +75,7 @@ void DatabaseAccessWindow::createSaveListButtons() {
 }
 
 // Removes all buttons from the save list
-void DatabaseAccessWindow::clearSaveList() {
+void DatabaseMainWindow::clearSaveList() {
     while (QLayoutItem* item = ui->buttonListLayout->takeAt(0)) {
         if (QWidget* widget = item->widget()) {
             delete widget;
@@ -84,7 +84,7 @@ void DatabaseAccessWindow::clearSaveList() {
     }
 }
 
-void DatabaseAccessWindow::setSaveListButtonProperties(QPushButton* button, const QString& documentId, const int listIndex, const int region, const QString& rev) {
+void DatabaseMainWindow::setSaveListButtonProperties(QPushButton* button, const QString& documentId, const int listIndex, const int region, const QString& rev) {
     button->setProperty("documentId", documentId);
     button->setProperty("rev", rev);
     button->setProperty("listIndex", listIndex);
@@ -113,7 +113,7 @@ void DatabaseAccessWindow::setSaveListButtonProperties(QPushButton* button, cons
                         .arg(regionString));
 }
 
-DatabaseAccessWindow::~DatabaseAccessWindow() {
+DatabaseMainWindow::~DatabaseMainWindow() {
     Database* database = DatabaseManager::getInstance()->getDatabase();
 
     if (database != nullptr) {
@@ -124,7 +124,7 @@ DatabaseAccessWindow::~DatabaseAccessWindow() {
 }
 
 // Populate a Combo box given an array of name strings and their associated numeric value
-void DatabaseAccessWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter) {
+void DatabaseMainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter) {
     comboBox->clear();
 
     for (const auto& map: array) {
@@ -144,7 +144,7 @@ void DatabaseAccessWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBox
 }
 
 // This function ensures that the line edit can only accept certain hostnames based on the rules below
-void DatabaseAccessWindow::setupLineEditHostname(QLineEdit* lineEdit) {
+void DatabaseMainWindow::setupLineEditHostname(QLineEdit* lineEdit) {
     // Regular expression to validate hostnames:
     // - Allowed characters: letters (a-z, A-Z), numbers (0-9), hyphens (-), and periods (.).
     // - Cannot start or end with a hyphen or period.
@@ -167,11 +167,11 @@ void DatabaseAccessWindow::setupLineEditHostname(QLineEdit* lineEdit) {
     });
 }
 
-void DatabaseAccessWindow::switchPage(QStackedWidget* stackedWidget, const QWidget* page) {
+void DatabaseMainWindow::switchPage(QStackedWidget* stackedWidget, const QWidget* page) {
     stackedWidget->setCurrentIndex(stackedWidget->indexOf(page));
 }
 
-void DatabaseAccessWindow::onConnectButtonPress() {
+void DatabaseMainWindow::onConnectButtonPress() {
     DatabaseManager::getInstance()->assignDatabase();
     Database* database = DatabaseManager::getInstance()->getDatabase();
 
@@ -203,7 +203,7 @@ void DatabaseAccessWindow::onConnectButtonPress() {
 }
 
 // Retrieve save list entries from the database and construct the button list with the retrieved data
-void DatabaseAccessWindow::createSaveList() {
+void DatabaseMainWindow::createSaveList() {
     saveEntries.clear();
     saveEntries = DatabaseManager::getInstance()->getAllEntries();
 
@@ -218,7 +218,7 @@ void DatabaseAccessWindow::createSaveList() {
     createSaveListButtons();
 }
 
-void DatabaseAccessWindow::onUploadSaveButtonPress() {
+void DatabaseMainWindow::onUploadSaveButtonPress() {
     std::vector<SaveSlot> entries;
 
     // Only allow enabled saves to be uploaded to the database
@@ -241,12 +241,12 @@ void DatabaseAccessWindow::onUploadSaveButtonPress() {
     }
 }
 
-void DatabaseAccessWindow::onPageSwitch() {
+void DatabaseMainWindow::onPageSwitch() {
     createSaveListButtons();
 }
 
-void DatabaseAccessWindow::onActionButtonClicked(const QString& docId, const QString& rev) {
-    // @note We have to pass "DatabaseAccessWindow" as a parent of "DatabaseSaveListActionWindow",
+void DatabaseMainWindow::onActionButtonClicked(const QString& docId, const QString& rev) {
+    // @note We have to pass "DatabaseMainWindow" as a parent of "DatabaseSaveListActionWindow",
     // in order for the "DatabaseSaveListActionWindow" signals to work
     DatabaseSaveListActionWindow* actionWindow = new DatabaseSaveListActionWindow(docId, rev, this);
 
