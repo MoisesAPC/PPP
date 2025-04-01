@@ -7,7 +7,7 @@ var searchData=
   ['getbuffer_4',['getBuffer',['../class_file_manager.html#a88e83c1df36f4486c8ae8dd7589d6c89',1,'FileManager']]],
   ['getcartridgenumsaves_5',['getCartridgeNumSaves',['../class_file_loader_cartridge.html#a68ae8bbd0bf44ef8415ae72e7a17fa18',1,'FileLoaderCartridge']]],
   ['getcontrollerpakcurrentlyselectedsaveindex_6',['getControllerPakCurrentlySelectedSaveIndex',['../class_file_manager.html#ad6d2bfa44ad47b0ae6740231242905a7',1,'FileManager']]],
-  ['getcontrollerpakindexdataarray_7',['getControllerPakIndexDataArray',['../class_file_manager.html#a032b1a91bf7d022a2800e497dd9b8684',1,'FileManager']]],
+  ['getcontrollerpaknotetabledataarray_7',['getControllerPakNotetableDataArray',['../class_file_manager.html#ad16bce57e386fe3e158ba4bf909fed2f',1,'FileManager']]],
   ['getcurrentsave_8',['getCurrentSave',['../class_save_manager.html#a12a7d4326d6e14a4f996b433b05da0bd',1,'SaveManager']]],
   ['getcurrentsaveslot_9',['getCurrentSaveSlot',['../class_save_manager.html#a6bfa8dd1fd88829d3422dac2a05321b2',1,'SaveManager']]],
   ['getdatabase_10',['getDatabase',['../class_database_manager.html#a7915658a9a8f6084b7e2633a7f2964bf',1,'DatabaseManager']]],

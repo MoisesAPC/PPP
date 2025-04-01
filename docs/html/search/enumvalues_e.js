@@ -5,7 +5,7 @@ var searchData=
   ['save_5fflag_5fcarrie_5fgood_5fending_2',['SAVE_FLAG_CARRIE_GOOD_ENDING',['../struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa2d5a8b3dd9dfd7634269d7ba705620bd',1,'SaveData']]],
   ['save_5fflag_5fcostume_5fis_5fbeing_5fused_3',['SAVE_FLAG_COSTUME_IS_BEING_USED',['../struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa196ac996197e7e7396792edb0c7acaad',1,'SaveData']]],
   ['save_5fflag_5feasy_4',['SAVE_FLAG_EASY',['../struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca',1,'SaveData']]],
-  ['save_5fflag_5fgame_5fwas_5fsaved_5fmid_5fplay_5',['SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY',['../struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa59848f8e0dff10d72897ffe7721ed9aa',1,'SaveData']]],
+  ['save_5fflag_5fenable_5fsave_5',['SAVE_FLAG_ENABLE_SAVE',['../struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971',1,'SaveData']]],
   ['save_5fflag_5fhard_6',['SAVE_FLAG_HARD',['../struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05',1,'SaveData']]],
   ['save_5fflag_5fhard_5fmode_5funlocked_7',['SAVE_FLAG_HARD_MODE_UNLOCKED',['../struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0abc0dd391ed49f1c5b71908a7c6a76a',1,'SaveData']]],
   ['save_5fflag_5fhave_5fcarrie_5falt_5fcostume_8',['SAVE_FLAG_HAVE_CARRIE_ALT_COSTUME',['../struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0f7559cc9938c1f7e762ef9cb5f045aa',1,'SaveData']]],

@@ -1,8 +1,8 @@
 var searchData=
 [
   ['database_0',['Database',['../class_database.html#a4703c80e6969d33565ea340f768fdadf',1,'Database']]],
-  ['databaseaccesswindow_1',['DatabaseAccessWindow',['../class_database_access_window.html#ad50c3a1be7c8fc5d9d4848a985c92fff',1,'DatabaseAccessWindow']]],
-  ['databasecouch_2',['DatabaseCouch',['../class_database_couch.html#a3544450bd70074f064345dffa940c000',1,'DatabaseCouch']]],
+  ['databasecouch_1',['DatabaseCouch',['../class_database_couch.html#a3544450bd70074f064345dffa940c000',1,'DatabaseCouch']]],
+  ['databasemainwindow_2',['DatabaseMainWindow',['../class_database_main_window.html#a896a12a7410053655e12f9112095f9c2',1,'DatabaseMainWindow']]],
   ['databasemanager_3',['DatabaseManager',['../class_database_manager.html#aa162d97472e6c31a4e873adda435dbb6',1,'DatabaseManager::DatabaseManager()'],['../class_database_manager.html#ab926e596d27d74cb64635f9a01e89be9',1,'DatabaseManager::DatabaseManager(const DatabaseManager &amp;obj)=delete']]],
   ['databasemenu_4',['databaseMenu',['../class_main_window.html#a41203a431f333d9578a21d60123270bf',1,'MainWindow']]],
   ['databasesavelistactionwindow_5',['DatabaseSaveListActionWindow',['../class_database_save_list_action_window.html#a03b527b7eca2378da6dbe4641d1bdecb',1,'DatabaseSaveListActionWindow']]],

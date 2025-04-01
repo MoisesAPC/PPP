@@ -2,8 +2,8 @@ var annotated_dup =
 [
     [ "ControllerPakSelectionWindow", "class_controller_pak_selection_window.html", "class_controller_pak_selection_window" ],
     [ "Database", "class_database.html", "class_database" ],
-    [ "DatabaseAccessWindow", "class_database_access_window.html", "class_database_access_window" ],
     [ "DatabaseCouch", "class_database_couch.html", "class_database_couch" ],
+    [ "DatabaseMainWindow", "class_database_main_window.html", "class_database_main_window" ],
     [ "DatabaseManager", "class_database_manager.html", "class_database_manager" ],
     [ "DatabaseSaveListActionWindow", "class_database_save_list_action_window.html", "class_database_save_list_action_window" ],
     [ "FileLoader", "class_file_loader.html", "class_file_loader" ],

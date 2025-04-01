@@ -113,6 +113,9 @@ $(function(){initNavTree('class_controller_pak_selection_window.html',''); initR
 </div><!--header-->
 <div class="contents">
 
+<p>Save list selection window for Controller Pak saves.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_controller_pak_selection_window_8h_source.html">ControllerPakSelectionWindow.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ControllerPakSelectionWindow:</div>
@@ -129,10 +132,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a52248a587cf6911c75859493a631e699"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a694d1e4bb63f1555d9a02dd9f77eb694" id="r_a694d1e4bb63f1555d9a02dd9f77eb694"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a694d1e4bb63f1555d9a02dd9f77eb694">setupButtonBox</a> ()</td></tr>
 <tr class="separator:a694d1e4bb63f1555d9a02dd9f77eb694"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab2b50b01ee6adf952c513df12b9351f" id="r_aab2b50b01ee6adf952c513df12b9351f"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab2b50b01ee6adf952c513df12b9351f">getRegionName</a> (const short region) const</td></tr>
-<tr class="separator:aab2b50b01ee6adf952c513df12b9351f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a328faf7634b9c5f6c256db13a7530432" id="r_a328faf7634b9c5f6c256db13a7530432"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a328faf7634b9c5f6c256db13a7530432">onButtonClicked</a> (int saveIndex)</td></tr>
 <tr class="separator:a328faf7634b9c5f6c256db13a7530432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab2b50b01ee6adf952c513df12b9351f" id="r_aab2b50b01ee6adf952c513df12b9351f"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab2b50b01ee6adf952c513df12b9351f">getRegionName</a> (const short region) const</td></tr>
+<tr class="separator:aab2b50b01ee6adf952c513df12b9351f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -149,7 +152,10 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:aecfab33d599697990f1f5f85b81a4ebe" id="r_aecfab33d599697990f1f5f85b81a4ebe"><td class="memItemLeft" align="right" valign="top">Ui::ControllerPakSelectionWindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecfab33d599697990f1f5f85b81a4ebe">ui</a></td></tr>
 <tr class="separator:aecfab33d599697990f1f5f85b81a4ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Save list selection window for Controller Pak saves. </p>
+<p>Controller Pak-formatted files are a container of saves for different games. This window lists only the Castlevania 64 saves found in the container, and lets you able to select one for opening it for edit. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad1485691b673706519b3851f46db56a9" name="ad1485691b673706519b3851f46db56a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad1485691b673706519b3851f46db56a9">&#9670;&#160;</a></span>ControllerPakSelectionWindow()</h2>
 
@@ -215,6 +221,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>If exiting this window using the X button, notify that it was exited this way, in order to prevent opening the actual save file. </p>
 
 </div>
 </div>

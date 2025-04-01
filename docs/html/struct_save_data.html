@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PPP: SaveData Struct Reference</title>
+<title>PPP: SaveData Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -108,9 +108,12 @@ $(function(){initNavTree('struct_save_data.html',''); initResizable(true); });
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="struct_save_data-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">SaveData Struct Reference</div></div>
+  <div class="headertitle"><div class="title">SaveData Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The main save data structure.  
+ <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_save_8h_source.html">Save.h</a>&gt;</code></p>
 <table class="memberdecls">
@@ -233,7 +236,7 @@ Public Types</h2></td></tr>
  }</td></tr>
 <tr class="separator:acee1873b009042d499f5ea197c28c75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e441fbc2ceabdb42800e49837699fcf" id="r_a5e441fbc2ceabdb42800e49837699fcf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e441fbc2ceabdb42800e49837699fcf">SaveFlag</a> { <br />
-&#160;&#160;<a class="el" href="#a5e441fbc2ceabdb42800e49837699fcfa59848f8e0dff10d72897ffe7721ed9aa">SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY</a> = BIT(0)
+&#160;&#160;<a class="el" href="#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971">SAVE_FLAG_ENABLE_SAVE</a> = BIT(0)
 , <a class="el" href="#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca">SAVE_FLAG_EASY</a> = BIT(4)
 , <a class="el" href="#a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02">SAVE_FLAG_NORMAL</a> = BIT(5)
 , <a class="el" href="#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05">SAVE_FLAG_HARD</a> = BIT(6)
@@ -266,8 +269,6 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1c5ca55190c7632259a98e82d4cb74c7" id="r_a1c5ca55190c7632259a98e82d4cb74c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_save_data.html">SaveData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c5ca55190c7632259a98e82d4cb74c7">operator=</a> (const <a class="el" href="struct_save_data.html">SaveData</a> &amp;other)</td></tr>
-<tr class="separator:a1c5ca55190c7632259a98e82d4cb74c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60a818c910c9e2f13b47596f63497cde" id="r_a60a818c910c9e2f13b47596f63497cde"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60a818c910c9e2f13b47596f63497cde">getFlag</a> (unsigned int bitFlagMask)</td></tr>
 <tr class="separator:a60a818c910c9e2f13b47596f63497cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaee0d3ba9fa2b9e272498a542109bd8" id="r_afaee0d3ba9fa2b9e272498a542109bd8"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afaee0d3ba9fa2b9e272498a542109bd8">getItem</a> (int itemId)</td></tr>
@@ -358,7 +359,10 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a33c0045b508f92210e82f12364a23480" id="r_a33c0045b508f92210e82f12364a23480"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33c0045b508f92210e82f12364a23480">gold_spent_on_Renon</a></td></tr>
 <tr class="separator:a33c0045b508f92210e82f12364a23480"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The main save data structure. </p>
+<p>This structure contains the gameplay variables from one single save inside the game. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a841af02a68130c514a0a733ac38f9608" name="a841af02a68130c514a0a733ac38f9608"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a841af02a68130c514a0a733ac38f9608">&#9670;&#160;</a></span>eItemId</h2>
 
@@ -374,7 +378,8 @@ Public Attributes</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a841af02a68130c514a0a733ac38f9608abf879ea78449891fc69618e19f89e4ec" name="a841af02a68130c514a0a733ac38f9608abf879ea78449891fc69618e19f89e4ec"></a>ITEM_ID_NOTHING&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a841af02a68130c514a0a733ac38f9608a7ed8f0ed81e65a129bee92deef6c56c0" name="a841af02a68130c514a0a733ac38f9608a7ed8f0ed81e65a129bee92deef6c56c0"></a>ITEM_ID_WHITE_JEWEL&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a841af02a68130c514a0a733ac38f9608a6d7fafe2496deeaeff810cd5a29b40f8" name="a841af02a68130c514a0a733ac38f9608a6d7fafe2496deeaeff810cd5a29b40f8"></a>ITEM_ID_RED_JEWEL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a841af02a68130c514a0a733ac38f9608a05c4514d64014b88f364076991a2fb7c" name="a841af02a68130c514a0a733ac38f9608a05c4514d64014b88f364076991a2fb7c"></a>ITEM_ID_SPECIAL1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a841af02a68130c514a0a733ac38f9608a05c4514d64014b88f364076991a2fb7c" name="a841af02a68130c514a0a733ac38f9608a05c4514d64014b88f364076991a2fb7c"></a>ITEM_ID_SPECIAL1&#160;</td><td class="fielddoc"><dl class="section note"><dt>Note</dt><dd>We only used item ID 2 to reference the red jewels, and not 3 </dd></dl>
+</td></tr>
 <tr><td class="fieldname"><a id="a841af02a68130c514a0a733ac38f9608ac1ddf6257f6ad65e18f7e6dce2111f95" name="a841af02a68130c514a0a733ac38f9608ac1ddf6257f6ad65e18f7e6dce2111f95"></a>ITEM_ID_SPECIAL2&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a841af02a68130c514a0a733ac38f9608acf2d35d90374aa6bb769d7f8d77e4fe5" name="a841af02a68130c514a0a733ac38f9608acf2d35d90374aa6bb769d7f8d77e4fe5"></a>ITEM_ID_ROAST_CHICKEN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a841af02a68130c514a0a733ac38f9608a22424ac58cd5cf52aacea029f5ae829c" name="a841af02a68130c514a0a733ac38f9608a22424ac58cd5cf52aacea029f5ae829c"></a>ITEM_ID_ROAST_BEEF&#160;</td><td class="fielddoc"></td></tr>
@@ -427,6 +432,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section note"><dt>Note</dt><dd>Only has an effect in PAL saves </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7e6b4b14f08316bc1cc84e1cf432b4f1a361f34e742ea6c30864ce2011c6c7e2f" name="a7e6b4b14f08316bc1cc84e1cf432b4f1a361f34e742ea6c30864ce2011c6c7e2f"></a>ENGLISH&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7e6b4b14f08316bc1cc84e1cf432b4f1a2e5f45f3c5770a37a14b493b433a3bac" name="a7e6b4b14f08316bc1cc84e1cf432b4f1a2e5f45f3c5770a37a14b493b433a3bac"></a>JAPANESE&#160;</td><td class="fielddoc"></td></tr>
@@ -581,7 +587,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5e441fbc2ceabdb42800e49837699fcfa59848f8e0dff10d72897ffe7721ed9aa" name="a5e441fbc2ceabdb42800e49837699fcfa59848f8e0dff10d72897ffe7721ed9aa"></a>SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971" name="a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971"></a>SAVE_FLAG_ENABLE_SAVE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca" name="a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca"></a>SAVE_FLAG_EASY&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02" name="a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02"></a>SAVE_FLAG_NORMAL&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05" name="a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05"></a>SAVE_FLAG_HARD&#160;</td><td class="fielddoc"></td></tr>
@@ -683,31 +689,6 @@ Public Attributes</h2></td></tr>
           <td class="memname">unsigned int SaveData::getItem </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>itemId</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1c5ca55190c7632259a98e82d4cb74c7" name="a1c5ca55190c7632259a98e82d4cb74c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c5ca55190c7632259a98e82d4cb74c7">&#9670;&#160;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_save_data.html">SaveData</a> &amp; SaveData::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_save_data.html">SaveData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -985,7 +966,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Only set to 100, like the life, and never used otherwise. Maybe related to the scrapped S / E meter? </p>
+<p>Only set to 100, like the life, and never used otherwise. </p>
 
 </div>
 </div>
@@ -1283,7 +1264,7 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/save/<a class="el" href="_save_8h_source.html">Save.h</a></li>
 </ul>
 </div><!-- contents -->

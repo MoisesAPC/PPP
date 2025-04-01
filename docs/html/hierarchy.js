@@ -1,6 +1,6 @@
 var hierarchy =
 [
-    [ "FileManager::ControllerPakIndexData", "struct_file_manager_1_1_controller_pak_index_data.html", null ],
+    [ "FileManager::ControllerPakNotetableData", "struct_file_manager_1_1_controller_pak_notetable_data.html", null ],
     [ "DatabaseManager", "class_database_manager.html", null ],
     [ "FileLoader", "class_file_loader.html", [
       [ "FileLoaderCartridge", "class_file_loader_cartridge.html", null ],
@@ -12,7 +12,7 @@ var hierarchy =
     [ "FileManager", "class_file_manager.html", null ],
     [ "QDialog", null, [
       [ "ControllerPakSelectionWindow", "class_controller_pak_selection_window.html", null ],
-      [ "DatabaseAccessWindow", "class_database_access_window.html", null ],
+      [ "DatabaseMainWindow", "class_database_main_window.html", null ],
       [ "DatabaseSaveListActionWindow", "class_database_save_list_action_window.html", null ]
     ] ],
     [ "QMainWindow", null, [

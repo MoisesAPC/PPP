@@ -57,27 +57,6 @@
 <section title="hostname" ref="class_database.html#aa9e3fbcfc27ab841a5ac72687590ad71"/>
 <section title="port" ref="class_database.html#a6557601838cc506cd59638f4c368f5c2"/>
 </section>
-<section title="DatabaseAccessWindow" ref="class_database_access_window.html">
-<section title="DatabaseAccessWindow" ref="class_database_access_window.html#ad50c3a1be7c8fc5d9d4848a985c92fff"/>
-<section title="~DatabaseAccessWindow" ref="class_database_access_window.html#af90d1b5e705c3a81ceea28505931fe02"/>
-<section title="clearSaveList" ref="class_database_access_window.html#a6793cba868b9be3028439eec81b900a8"/>
-<section title="createSaveList" ref="class_database_access_window.html#a52505e5df988372636c124efce924ded"/>
-<section title="createSaveListButtons" ref="class_database_access_window.html#a8263cb226b22f4bb31d975d2a5c27798"/>
-<section title="onActionButtonClicked" ref="class_database_access_window.html#ac13f0c931f0ddd05346ab9507a7b1cd5"/>
-<section title="onConnectButtonPress" ref="class_database_access_window.html#a8cb537fea176a45b0aea83d32ea250e2"/>
-<section title="onPageSwitch" ref="class_database_access_window.html#a0b342d4df821ceb5c41445bc5277368d"/>
-<section title="onUploadSaveButtonPress" ref="class_database_access_window.html#a5eddefbe4123aecf2bbbf1ee1a974710"/>
-<section title="setSaveListButtonProperties" ref="class_database_access_window.html#a5470cd68d1cf6ab0810bda0f0865a844"/>
-<section title="setupComboBox" ref="class_database_access_window.html#a560321b5130ae0785ad9a3e462d1b461"/>
-<section title="setupConnectMenu" ref="class_database_access_window.html#aa3ff9d3f01e4fbb92547b7882b7e14d2"/>
-<section title="setupLineEditHostname" ref="class_database_access_window.html#ab8393a2a6ab3a3d54b044ca4d8853e0d"/>
-<section title="setupSaveListMenu" ref="class_database_access_window.html#a8784e10dbdaa5636839a580ff353d9fd"/>
-<section title="switchPage" ref="class_database_access_window.html#a2ee9292579e203a6c4342bb6bed50ed2"/>
-<section title="comboBoxDataDatabaseTypes" ref="class_database_access_window.html#a0916e468b6d72918c9af2c44ef84489f"/>
-<section title="entriesPerPage" ref="class_database_access_window.html#a12d723260dfd712cf61459da5bc6d041"/>
-<section title="saveEntries" ref="class_database_access_window.html#a0e6e59e9d81d83a352e76670f5b217bd"/>
-<section title="ui" ref="class_database_access_window.html#a36e85858b47174b36999b4a2765bfd17"/>
-</section>
 <section title="DatabaseCouch" ref="class_database_couch.html">
 <section title="DatabaseCouch" ref="class_database_couch.html#a3544450bd70074f064345dffa940c000"/>
 <section title="~DatabaseCouch" ref="class_database_couch.html#a3144bc777b8993775f4994d5c4009fd3"/>
@@ -97,6 +76,27 @@
 <section title="parseJSONToSaveSlot" ref="class_database_couch.html#aa6e81bc67085ab88c97fda15ad81febc"/>
 <section title="parseSaveSlotToJSON" ref="class_database_couch.html#a47f8f6d7f22e6cafe3c529998d2f77b7"/>
 <section title="readSaveDataToJSON" ref="class_database_couch.html#aeb471e9443d465269b11a498074b8bd6"/>
+</section>
+<section title="DatabaseMainWindow" ref="class_database_main_window.html">
+<section title="DatabaseMainWindow" ref="class_database_main_window.html#a896a12a7410053655e12f9112095f9c2"/>
+<section title="~DatabaseMainWindow" ref="class_database_main_window.html#af2fff8810246c402834d0eb7a9c3e565"/>
+<section title="clearSaveList" ref="class_database_main_window.html#a85961ef7da48eebe8504128a06537511"/>
+<section title="createSaveList" ref="class_database_main_window.html#a16819d1baa24f5437123147d42c69f32"/>
+<section title="createSaveListButtons" ref="class_database_main_window.html#a4e792bf549dd1a4717fc634dff440033"/>
+<section title="onActionButtonClicked" ref="class_database_main_window.html#a9d9d8dce8f167f32deb3736d5498d34b"/>
+<section title="onConnectButtonPress" ref="class_database_main_window.html#ac63ccc1429bc7b8eade28837f8057ce0"/>
+<section title="onPageSwitch" ref="class_database_main_window.html#aa91461ee5afd9c0b7096af4bcc5757d8"/>
+<section title="onUploadSaveButtonPress" ref="class_database_main_window.html#aec1a7f267e5adc798414828481834519"/>
+<section title="setSaveListButtonProperties" ref="class_database_main_window.html#a30a1901e9899ac489bb8d0297e872bc0"/>
+<section title="setupComboBox" ref="class_database_main_window.html#a5f8f88541053d39f7cf3b187483ac0de"/>
+<section title="setupConnectMenu" ref="class_database_main_window.html#afda8ad017308aec76d4201aaac2b4a22"/>
+<section title="setupLineEditHostname" ref="class_database_main_window.html#a1db172379f4be2ef5d8f152f8750a28b"/>
+<section title="setupSaveListMenu" ref="class_database_main_window.html#a023cdd2cac2709143ef1f007909442cd"/>
+<section title="switchPage" ref="class_database_main_window.html#a7b7889256744bbb5a611a592dd1552e5"/>
+<section title="comboBoxDataDatabaseTypes" ref="class_database_main_window.html#ac4db24317041384c7c616390391e50dd"/>
+<section title="entriesPerPage" ref="class_database_main_window.html#a9b78b029de7045fcc205dbe1c08704b2"/>
+<section title="saveEntries" ref="class_database_main_window.html#a3c2c8d18a24a7b57129af40756696bb3"/>
+<section title="ui" ref="class_database_main_window.html#aa834099b7856dfffc33f6a2cb9bf5899"/>
 </section>
 <section title="DatabaseManager" ref="class_database_manager.html">
 <section title="eDatabaseType" ref="class_database_manager.html#ab5d455270eba0b963d1bfe21242fcce7">
@@ -243,12 +243,12 @@
 <section title="regionIdOffset" ref="class_file_loader_note.html#a712e66a17efe4cbcedbaf8eef3f7eb2e"/>
 </section>
 <section title="FileManager" ref="class_file_manager.html">
-<section title="ControllerPakIndexData" ref="struct_file_manager_1_1_controller_pak_index_data.html">
-<section title="ControllerPakIndexData" ref="struct_file_manager_1_1_controller_pak_index_data.html#a477b2c5545132c01e262b518af52d9c0"/>
-<section title="clearEntry" ref="struct_file_manager_1_1_controller_pak_index_data.html#a00fade17601e18fcfa728f2ffcd2fa56"/>
-<section title="index" ref="struct_file_manager_1_1_controller_pak_index_data.html#a6e5ab95f235b3136e2f7c5e3ce5a3d1e"/>
-<section title="rawDataStartOffset" ref="struct_file_manager_1_1_controller_pak_index_data.html#a7120ee1a67fd296502c7619afba92264"/>
-<section title="region" ref="struct_file_manager_1_1_controller_pak_index_data.html#a26d4bf0fb8801cf8efd758d337bc33eb"/>
+<section title="ControllerPakNotetableData" ref="struct_file_manager_1_1_controller_pak_notetable_data.html">
+<section title="ControllerPakNotetableData" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#a6adabf0ee4ac804361b202fa36a4243c"/>
+<section title="clearEntry" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#ac945ecd98efe0ae9f91c1bce09817264"/>
+<section title="index" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#aca7595d0fd72d0cf103e9b33eb876b83"/>
+<section title="rawDataStartOffset" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#a65144457694a31bab74869c2dc4250a6"/>
+<section title="region" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#aeb2e5da7b6312f884328d2d0031266e3"/>
 </section>
 <section title="eFormat" ref="class_file_manager.html#aeecfd7bd59c4f57ed5bf46a90b03ef29">
 <section title="FORMAT_NOTE" ref="class_file_manager.html#aeecfd7bd59c4f57ed5bf46a90b03ef29a818a867daf26560635db699d7b4411e7"/>
@@ -259,19 +259,19 @@
 <section title="FileManager" ref="class_file_manager.html#a8afd512c06be9daf140cc19d71f9b391"/>
 <section title="~FileManager" ref="class_file_manager.html#abaed33b5b0c13b8a597db9335a1aacfa"/>
 <section title="FileManager" ref="class_file_manager.html#aa7a3a57837b1fd58e099c21b41afbaeb"/>
-<section title="clearIndexData" ref="class_file_manager.html#acef8d66684e60cf669795ef78b8ac87a"/>
+<section title="clearNoteTableData" ref="class_file_manager.html#aabd7d9cf8850811daa5ae199fcc816d5"/>
 <section title="createInstance" ref="class_file_manager.html#afc3bc63a02de87b6a8c4d8ddd269f9ac"/>
 <section title="destroyInstance" ref="class_file_manager.html#a9f4d6f2f54c54ea7afbb2650134f0d6b"/>
 <section title="determineFormat" ref="class_file_manager.html#a1a70a91f651fbd76d8ddea823b3df909"/>
 <section title="getBuffer" ref="class_file_manager.html#a88e83c1df36f4486c8ae8dd7589d6c89"/>
 <section title="getControllerPakCurrentlySelectedSaveIndex" ref="class_file_manager.html#ad6d2bfa44ad47b0ae6740231242905a7"/>
-<section title="getControllerPakIndexDataArray" ref="class_file_manager.html#a032b1a91bf7d022a2800e497dd9b8684"/>
+<section title="getControllerPakNotetableDataArray" ref="class_file_manager.html#ad16bce57e386fe3e158ba4bf909fed2f"/>
 <section title="getFile" ref="class_file_manager.html#a19e43696ac079c3102176b8256e867a3"/>
 <section title="getFileFormat" ref="class_file_manager.html#ab472de0dce60929575633c40dc3b8431"/>
 <section title="getFilepath" ref="class_file_manager.html#ad457a2267a9e807f50bdac8726aff360"/>
 <section title="getInstance" ref="class_file_manager.html#a455d2f65e7bf91d469b7b18ebc80700f"/>
 <section title="getLoader" ref="class_file_manager.html#a19fdb495b4a42a49b9ea608fbfd7f9d5"/>
-<section title="initIndexData" ref="class_file_manager.html#a0310faeb42e1df8497348d517d8a3e2a"/>
+<section title="initNoteTableData" ref="class_file_manager.html#a7ed6e608f20157ceb00d5e2e9aa0cfcf"/>
 <section title="openFile" ref="class_file_manager.html#a7944f413bc88a6598bff7718e271a181"/>
 <section title="setControllerPakCurrentlySelectedSaveIndex" ref="class_file_manager.html#a4e72582172882b3bce42f1c0d32bd7be"/>
 <section title="setFileFormat" ref="class_file_manager.html#a8e01aee16eadf9aec662a6044620ce83"/>
@@ -287,9 +287,9 @@
 <section title="fileOpened" ref="class_file_manager.html#a94f9cebf44b6c5d7ad34fad710e1d5ca"/>
 <section title="filepath" ref="class_file_manager.html#a0baf27f1107ddc4a440d5e4ab05670b1"/>
 <section title="format" ref="class_file_manager.html#a6988deaf54fb21cc7044dbb06c81bf70"/>
-<section title="indexDataArray" ref="class_file_manager.html#a55f21fcaf47604b439e0933e8036d0e0"/>
 <section title="instance" ref="class_file_manager.html#aea5432b3ba752f87360714fbf1f293f3"/>
 <section title="loader" ref="class_file_manager.html#aecb7a5308fff2b9f4783b561f83e5f86"/>
+<section title="noteTableArray" ref="class_file_manager.html#a90f8ba95af9aafe9d1bcec0d10ebfc5d"/>
 </section>
 <section title="MainWindow" ref="class_main_window.html">
 <section title="SlotMenu" ref="struct_main_window_1_1_slot_menu.html">
@@ -330,16 +330,16 @@
 <section title="updateCheckboxEnabledVisibility" ref="class_main_window.html#a78e8d1405b468249d8fd826d9e7a9726"/>
 <section title="updateSlotMenuCheckedState" ref="class_main_window.html#ad38be884314eb7763925dee610f34542"/>
 <section title="updateWindowVisibility" ref="class_main_window.html#a0298ff25e59884a08e9cb20809ec9b0a"/>
-<section title="comboBoxDataButtonConfig" ref="class_main_window.html#a7633332104beecb3f76bcd5f58b99776"/>
-<section title="comboBoxDataCharacter" ref="class_main_window.html#a37f310c1e7a96fb101566902c6e35bfa"/>
-<section title="comboBoxDataDifficulty" ref="class_main_window.html#ad06010bf22e1f3d5c5c6842695bd1507"/>
-<section title="comboBoxDataEndingCarrie" ref="class_main_window.html#ac030c7648ee1634c6f40f944a340e18c"/>
-<section title="comboBoxDataEndingReinhardt" ref="class_main_window.html#aa3658c28b39f3842a008da4eef690643"/>
-<section title="comboBoxDataLanguage" ref="class_main_window.html#ab18107435a3245001d14531017e7626e"/>
-<section title="comboBoxDataMap" ref="class_main_window.html#a043b7189b51505e5728c4de827b4aaa9"/>
-<section title="comboBoxDataRegion" ref="class_main_window.html#a17417fcc4b6b5c7fe074f604688f4c89"/>
-<section title="comboBoxDataSoundMode" ref="class_main_window.html#a796761c539007ed8c966ecb132521aeb"/>
-<section title="comboBoxDataSubweapon" ref="class_main_window.html#aaf0094b60625432a8765c77f60eb6411"/>
+<section title="comboBoxDataButtonConfig" ref="class_main_window.html#a9f0fc7ac99307092ae11d5e0e213c6a6"/>
+<section title="comboBoxDataCharacter" ref="class_main_window.html#a36c7c53d8cac5d267211cbfe0f3f5c20"/>
+<section title="comboBoxDataDifficulty" ref="class_main_window.html#a2eae266b50e91e082fb9394206613db7"/>
+<section title="comboBoxDataEndingCarrie" ref="class_main_window.html#a97a448178e97ddbd60df8299ef6e3f69"/>
+<section title="comboBoxDataEndingReinhardt" ref="class_main_window.html#ac5f50696e935b19744ba6659ff328305"/>
+<section title="comboBoxDataLanguage" ref="class_main_window.html#aa9c72adea6b913e3064df531a6019ce1"/>
+<section title="comboBoxDataMap" ref="class_main_window.html#a52e76d1f233438f4d0ac81dc397bb51d"/>
+<section title="comboBoxDataRegion" ref="class_main_window.html#a6dae91b433207cbbd120243f8de8d1d3"/>
+<section title="comboBoxDataSoundMode" ref="class_main_window.html#a39fc3271ae47e91188783ef0dbe67604"/>
+<section title="comboBoxDataSubweapon" ref="class_main_window.html#ad75cd38c108a5ecbc2e65e283bf4f483"/>
 <section title="hexBitflagLineEdits" ref="class_main_window.html#a25a2e5015d7e2ac9756163763b3d8d16"/>
 <section title="instance" ref="class_main_window.html#a806ddf9cb9332e58f7da583f3df03fd8"/>
 <section title="isMain" ref="class_main_window.html#a8e3e6ba29cafdd8a0416be9faa042e6b"/>
@@ -445,7 +445,7 @@
 <section title="PLAYER_FLAG_POISON" ref="struct_save_data.html#acee1873b009042d499f5ea197c28c75daef4ba11b47833a0e9f15f83cc2b4336e"/>
 </section>
 <section title="SaveFlag" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcf">
-<section title="SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa59848f8e0dff10d72897ffe7721ed9aa"/>
+<section title="SAVE_FLAG_ENABLE_SAVE" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971"/>
 <section title="SAVE_FLAG_EASY" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca"/>
 <section title="SAVE_FLAG_NORMAL" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02"/>
 <section title="SAVE_FLAG_HARD" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05"/>
@@ -469,7 +469,6 @@
 <section title="getEventFlags" ref="struct_save_data.html#ac93501af9494ee2b7732f233d5964a4b"/>
 <section title="getFlag" ref="struct_save_data.html#a60a818c910c9e2f13b47596f63497cde"/>
 <section title="getItem" ref="struct_save_data.html#afaee0d3ba9fa2b9e272498a542109bd8"/>
-<section title="operator=" ref="struct_save_data.html#a1c5ca55190c7632259a98e82d4cb74c7"/>
 <section title="button_config" ref="struct_save_data.html#aee3773e306482155d8f8263a4e3aaedf"/>
 <section title="character" ref="struct_save_data.html#aaa36fd4c04e7ce5a6c9513b824bc16c6"/>
 <section title="current_hour_VAMP" ref="struct_save_data.html#a93d6de610d8611fc08d758e5fd874b18"/>
@@ -521,7 +520,6 @@
 <section title="calcFirstChecksum" ref="class_save_manager.html#ab839949630cb62c5f88a05b18dfefc87"/>
 <section title="calcSecondChecksum" ref="class_save_manager.html#a17a4898c012168469d7f6e0cfa204ec5"/>
 <section title="createInstance" ref="class_save_manager.html#a284cd082ef52508bff499b94a9c41dba"/>
-<section title="createSlotMenu" ref="class_save_manager.html#aff96dcc4baa101dec8c6a9defdfcd6cc"/>
 <section title="destroyInstance" ref="class_save_manager.html#a789232a0c5a5e0b4055b2462cdd6c29b"/>
 <section title="getAllSaves" ref="class_save_manager.html#a83bbad87329982fb983a3d2bd3b6593e"/>
 <section title="getCurrentSave" ref="class_save_manager.html#a12a7d4326d6e14a4f996b433b05da0bd"/>
@@ -533,10 +531,7 @@
 <section title="getRegion" ref="class_save_manager.html#a0460f8d33ab840c37b52812f2ffc9512"/>
 <section title="getSave" ref="class_save_manager.html#a60fa114130f37cd17201516a9012ac0b"/>
 <section title="getSaveSlot" ref="class_save_manager.html#a343d4b26fc5112fdb6f8c480ed10e5df"/>
-<section title="parseAllSaveSlots" ref="class_save_manager.html#a75980a93edfee544f1ded8f8732bf0cb"/>
 <section title="parseRegion" ref="class_save_manager.html#abd50534474b601ccadb4d7a3504e1301"/>
-<section title="parseSaveSlot" ref="class_save_manager.html#a2ca21631e98e0fd573940c4080ffad0a"/>
-<section title="readSaveData" ref="class_save_manager.html#a4938428f9985fd146f840e602c21e035"/>
 <section title="setButtonConfig" ref="class_save_manager.html#aaa9fb20032eb6f37d0c0b91e06163b90"/>
 <section title="setCharacter" ref="class_save_manager.html#ab527a109af2483054c3a91ad9c2017cd"/>
 <section title="setDay" ref="class_save_manager.html#ab5afb7f197e2e8a348e4a2fb39e48ff9"/>
@@ -577,7 +572,6 @@
 <section title="assignDefaultValues" ref="struct_save_slot.html#a8f81b2a9783b01e22349d8d8ee4cfdc1"/>
 <section title="clear" ref="struct_save_slot.html#adeef575ba788e4e632000745398ef599"/>
 <section title="getPaddedSize" ref="struct_save_slot.html#a216c78a366a000005f8ac5f743e2ef36"/>
-<section title="operator=" ref="struct_save_slot.html#a2c50cad3322ae01961389cd54e4769fa"/>
 <section title="beginningOfStage" ref="struct_save_slot.html#acee13edca857fdd9a92e45a7dd1692ff"/>
 <section title="checksum1" ref="struct_save_slot.html#ae47d34da3a573453a4c75b65f0470c8d"/>
 <section title="checksum2" ref="struct_save_slot.html#ae629eb78b47514880fa21d4ddef90fba"/>
@@ -586,7 +580,7 @@
 </section>
 <section title="Class Index" ref="classes.html"/>
 <section title="Class Hierarchy" ref="hierarchy.html">
-<section title="FileManager::ControllerPakIndexData" ref="struct_file_manager_1_1_controller_pak_index_data.html"/>
+<section title="FileManager::ControllerPakNotetableData" ref="struct_file_manager_1_1_controller_pak_notetable_data.html"/>
 <section title="DatabaseManager" ref="class_database_manager.html"/>
 <section title="FileLoader" ref="class_file_loader.html">
 <section title="FileLoaderCartridge" ref="class_file_loader_cartridge.html"/>
@@ -598,7 +592,7 @@
 <section title="FileManager" ref="class_file_manager.html"/>
 <section title="QDialog" ref="doxygen_blank.html">
 <section title="ControllerPakSelectionWindow" ref="class_controller_pak_selection_window.html"/>
-<section title="DatabaseAccessWindow" ref="class_database_access_window.html"/>
+<section title="DatabaseMainWindow" ref="class_database_main_window.html"/>
 <section title="DatabaseSaveListActionWindow" ref="class_database_save_list_action_window.html"/>
 </section>
 <section title="QMainWindow" ref="doxygen_blank.html">
@@ -863,12 +857,12 @@
 </section>
 <section title="FileManager.h" ref="_file_manager_8h.html">
 <section title="FileManager" ref="class_file_manager.html">
-<section title="ControllerPakIndexData" ref="struct_file_manager_1_1_controller_pak_index_data.html">
-<section title="ControllerPakIndexData" ref="struct_file_manager_1_1_controller_pak_index_data.html#a477b2c5545132c01e262b518af52d9c0"/>
-<section title="clearEntry" ref="struct_file_manager_1_1_controller_pak_index_data.html#a00fade17601e18fcfa728f2ffcd2fa56"/>
-<section title="index" ref="struct_file_manager_1_1_controller_pak_index_data.html#a6e5ab95f235b3136e2f7c5e3ce5a3d1e"/>
-<section title="rawDataStartOffset" ref="struct_file_manager_1_1_controller_pak_index_data.html#a7120ee1a67fd296502c7619afba92264"/>
-<section title="region" ref="struct_file_manager_1_1_controller_pak_index_data.html#a26d4bf0fb8801cf8efd758d337bc33eb"/>
+<section title="ControllerPakNotetableData" ref="struct_file_manager_1_1_controller_pak_notetable_data.html">
+<section title="ControllerPakNotetableData" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#a6adabf0ee4ac804361b202fa36a4243c"/>
+<section title="clearEntry" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#ac945ecd98efe0ae9f91c1bce09817264"/>
+<section title="index" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#aca7595d0fd72d0cf103e9b33eb876b83"/>
+<section title="rawDataStartOffset" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#a65144457694a31bab74869c2dc4250a6"/>
+<section title="region" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#aeb2e5da7b6312f884328d2d0031266e3"/>
 </section>
 <section title="eFormat" ref="class_file_manager.html#aeecfd7bd59c4f57ed5bf46a90b03ef29">
 <section title="FORMAT_NOTE" ref="class_file_manager.html#aeecfd7bd59c4f57ed5bf46a90b03ef29a818a867daf26560635db699d7b4411e7"/>
@@ -879,19 +873,19 @@
 <section title="FileManager" ref="class_file_manager.html#a8afd512c06be9daf140cc19d71f9b391"/>
 <section title="~FileManager" ref="class_file_manager.html#abaed33b5b0c13b8a597db9335a1aacfa"/>
 <section title="FileManager" ref="class_file_manager.html#aa7a3a57837b1fd58e099c21b41afbaeb"/>
-<section title="clearIndexData" ref="class_file_manager.html#acef8d66684e60cf669795ef78b8ac87a"/>
+<section title="clearNoteTableData" ref="class_file_manager.html#aabd7d9cf8850811daa5ae199fcc816d5"/>
 <section title="createInstance" ref="class_file_manager.html#afc3bc63a02de87b6a8c4d8ddd269f9ac"/>
 <section title="destroyInstance" ref="class_file_manager.html#a9f4d6f2f54c54ea7afbb2650134f0d6b"/>
 <section title="determineFormat" ref="class_file_manager.html#a1a70a91f651fbd76d8ddea823b3df909"/>
 <section title="getBuffer" ref="class_file_manager.html#a88e83c1df36f4486c8ae8dd7589d6c89"/>
 <section title="getControllerPakCurrentlySelectedSaveIndex" ref="class_file_manager.html#ad6d2bfa44ad47b0ae6740231242905a7"/>
-<section title="getControllerPakIndexDataArray" ref="class_file_manager.html#a032b1a91bf7d022a2800e497dd9b8684"/>
+<section title="getControllerPakNotetableDataArray" ref="class_file_manager.html#ad16bce57e386fe3e158ba4bf909fed2f"/>
 <section title="getFile" ref="class_file_manager.html#a19e43696ac079c3102176b8256e867a3"/>
 <section title="getFileFormat" ref="class_file_manager.html#ab472de0dce60929575633c40dc3b8431"/>
 <section title="getFilepath" ref="class_file_manager.html#ad457a2267a9e807f50bdac8726aff360"/>
 <section title="getInstance" ref="class_file_manager.html#a455d2f65e7bf91d469b7b18ebc80700f"/>
 <section title="getLoader" ref="class_file_manager.html#a19fdb495b4a42a49b9ea608fbfd7f9d5"/>
-<section title="initIndexData" ref="class_file_manager.html#a0310faeb42e1df8497348d517d8a3e2a"/>
+<section title="initNoteTableData" ref="class_file_manager.html#a7ed6e608f20157ceb00d5e2e9aa0cfcf"/>
 <section title="openFile" ref="class_file_manager.html#a7944f413bc88a6598bff7718e271a181"/>
 <section title="setControllerPakCurrentlySelectedSaveIndex" ref="class_file_manager.html#a4e72582172882b3bce42f1c0d32bd7be"/>
 <section title="setFileFormat" ref="class_file_manager.html#a8e01aee16eadf9aec662a6044620ce83"/>
@@ -907,16 +901,16 @@
 <section title="fileOpened" ref="class_file_manager.html#a94f9cebf44b6c5d7ad34fad710e1d5ca"/>
 <section title="filepath" ref="class_file_manager.html#a0baf27f1107ddc4a440d5e4ab05670b1"/>
 <section title="format" ref="class_file_manager.html#a6988deaf54fb21cc7044dbb06c81bf70"/>
-<section title="indexDataArray" ref="class_file_manager.html#a55f21fcaf47604b439e0933e8036d0e0"/>
 <section title="instance" ref="class_file_manager.html#aea5432b3ba752f87360714fbf1f293f3"/>
 <section title="loader" ref="class_file_manager.html#aecb7a5308fff2b9f4783b561f83e5f86"/>
+<section title="noteTableArray" ref="class_file_manager.html#a90f8ba95af9aafe9d1bcec0d10ebfc5d"/>
 </section>
-<section title="FileManager::ControllerPakIndexData" ref="struct_file_manager_1_1_controller_pak_index_data.html">
-<section title="ControllerPakIndexData" ref="struct_file_manager_1_1_controller_pak_index_data.html#a477b2c5545132c01e262b518af52d9c0"/>
-<section title="clearEntry" ref="struct_file_manager_1_1_controller_pak_index_data.html#a00fade17601e18fcfa728f2ffcd2fa56"/>
-<section title="index" ref="struct_file_manager_1_1_controller_pak_index_data.html#a6e5ab95f235b3136e2f7c5e3ce5a3d1e"/>
-<section title="rawDataStartOffset" ref="struct_file_manager_1_1_controller_pak_index_data.html#a7120ee1a67fd296502c7619afba92264"/>
-<section title="region" ref="struct_file_manager_1_1_controller_pak_index_data.html#a26d4bf0fb8801cf8efd758d337bc33eb"/>
+<section title="FileManager::ControllerPakNotetableData" ref="struct_file_manager_1_1_controller_pak_notetable_data.html">
+<section title="ControllerPakNotetableData" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#a6adabf0ee4ac804361b202fa36a4243c"/>
+<section title="clearEntry" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#ac945ecd98efe0ae9f91c1bce09817264"/>
+<section title="index" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#aca7595d0fd72d0cf103e9b33eb876b83"/>
+<section title="rawDataStartOffset" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#a65144457694a31bab74869c2dc4250a6"/>
+<section title="region" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#aeb2e5da7b6312f884328d2d0031266e3"/>
 </section>
 </section>
 </section>
@@ -1020,7 +1014,7 @@
 <section title="PLAYER_FLAG_POISON" ref="struct_save_data.html#acee1873b009042d499f5ea197c28c75daef4ba11b47833a0e9f15f83cc2b4336e"/>
 </section>
 <section title="SaveFlag" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcf">
-<section title="SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa59848f8e0dff10d72897ffe7721ed9aa"/>
+<section title="SAVE_FLAG_ENABLE_SAVE" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971"/>
 <section title="SAVE_FLAG_EASY" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca"/>
 <section title="SAVE_FLAG_NORMAL" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02"/>
 <section title="SAVE_FLAG_HARD" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05"/>
@@ -1044,7 +1038,6 @@
 <section title="getEventFlags" ref="struct_save_data.html#ac93501af9494ee2b7732f233d5964a4b"/>
 <section title="getFlag" ref="struct_save_data.html#a60a818c910c9e2f13b47596f63497cde"/>
 <section title="getItem" ref="struct_save_data.html#afaee0d3ba9fa2b9e272498a542109bd8"/>
-<section title="operator=" ref="struct_save_data.html#a1c5ca55190c7632259a98e82d4cb74c7"/>
 <section title="button_config" ref="struct_save_data.html#aee3773e306482155d8f8263a4e3aaedf"/>
 <section title="character" ref="struct_save_data.html#aaa36fd4c04e7ce5a6c9513b824bc16c6"/>
 <section title="current_hour_VAMP" ref="struct_save_data.html#a93d6de610d8611fc08d758e5fd874b18"/>
@@ -1091,7 +1084,6 @@
 <section title="assignDefaultValues" ref="struct_save_slot.html#a8f81b2a9783b01e22349d8d8ee4cfdc1"/>
 <section title="clear" ref="struct_save_slot.html#adeef575ba788e4e632000745398ef599"/>
 <section title="getPaddedSize" ref="struct_save_slot.html#a216c78a366a000005f8ac5f743e2ef36"/>
-<section title="operator=" ref="struct_save_slot.html#a2c50cad3322ae01961389cd54e4769fa"/>
 <section title="beginningOfStage" ref="struct_save_slot.html#acee13edca857fdd9a92e45a7dd1692ff"/>
 <section title="checksum1" ref="struct_save_slot.html#ae47d34da3a573453a4c75b65f0470c8d"/>
 <section title="checksum2" ref="struct_save_slot.html#ae629eb78b47514880fa21d4ddef90fba"/>
@@ -1112,7 +1104,6 @@
 <section title="calcFirstChecksum" ref="class_save_manager.html#ab839949630cb62c5f88a05b18dfefc87"/>
 <section title="calcSecondChecksum" ref="class_save_manager.html#a17a4898c012168469d7f6e0cfa204ec5"/>
 <section title="createInstance" ref="class_save_manager.html#a284cd082ef52508bff499b94a9c41dba"/>
-<section title="createSlotMenu" ref="class_save_manager.html#aff96dcc4baa101dec8c6a9defdfcd6cc"/>
 <section title="destroyInstance" ref="class_save_manager.html#a789232a0c5a5e0b4055b2462cdd6c29b"/>
 <section title="getAllSaves" ref="class_save_manager.html#a83bbad87329982fb983a3d2bd3b6593e"/>
 <section title="getCurrentSave" ref="class_save_manager.html#a12a7d4326d6e14a4f996b433b05da0bd"/>
@@ -1124,10 +1115,7 @@
 <section title="getRegion" ref="class_save_manager.html#a0460f8d33ab840c37b52812f2ffc9512"/>
 <section title="getSave" ref="class_save_manager.html#a60fa114130f37cd17201516a9012ac0b"/>
 <section title="getSaveSlot" ref="class_save_manager.html#a343d4b26fc5112fdb6f8c480ed10e5df"/>
-<section title="parseAllSaveSlots" ref="class_save_manager.html#a75980a93edfee544f1ded8f8732bf0cb"/>
 <section title="parseRegion" ref="class_save_manager.html#abd50534474b601ccadb4d7a3504e1301"/>
-<section title="parseSaveSlot" ref="class_save_manager.html#a2ca21631e98e0fd573940c4080ffad0a"/>
-<section title="readSaveData" ref="class_save_manager.html#a4938428f9985fd146f840e602c21e035"/>
 <section title="setButtonConfig" ref="class_save_manager.html#aaa9fb20032eb6f37d0c0b91e06163b90"/>
 <section title="setCharacter" ref="class_save_manager.html#ab527a109af2483054c3a91ad9c2017cd"/>
 <section title="setDay" ref="class_save_manager.html#ab5afb7f197e2e8a348e4a2fb39e48ff9"/>
@@ -1182,26 +1170,26 @@
 </section>
 <section title="Database" ref="dir_402d1e1190c04d9794e2ce4cc45b01e4.html">
 <section title="DatabaseMainWindow.h" ref="_database_main_window_8h.html">
-<section title="DatabaseAccessWindow" ref="class_database_access_window.html">
-<section title="DatabaseAccessWindow" ref="class_database_access_window.html#ad50c3a1be7c8fc5d9d4848a985c92fff"/>
-<section title="~DatabaseAccessWindow" ref="class_database_access_window.html#af90d1b5e705c3a81ceea28505931fe02"/>
-<section title="clearSaveList" ref="class_database_access_window.html#a6793cba868b9be3028439eec81b900a8"/>
-<section title="createSaveList" ref="class_database_access_window.html#a52505e5df988372636c124efce924ded"/>
-<section title="createSaveListButtons" ref="class_database_access_window.html#a8263cb226b22f4bb31d975d2a5c27798"/>
-<section title="onActionButtonClicked" ref="class_database_access_window.html#ac13f0c931f0ddd05346ab9507a7b1cd5"/>
-<section title="onConnectButtonPress" ref="class_database_access_window.html#a8cb537fea176a45b0aea83d32ea250e2"/>
-<section title="onPageSwitch" ref="class_database_access_window.html#a0b342d4df821ceb5c41445bc5277368d"/>
-<section title="onUploadSaveButtonPress" ref="class_database_access_window.html#a5eddefbe4123aecf2bbbf1ee1a974710"/>
-<section title="setSaveListButtonProperties" ref="class_database_access_window.html#a5470cd68d1cf6ab0810bda0f0865a844"/>
-<section title="setupComboBox" ref="class_database_access_window.html#a560321b5130ae0785ad9a3e462d1b461"/>
-<section title="setupConnectMenu" ref="class_database_access_window.html#aa3ff9d3f01e4fbb92547b7882b7e14d2"/>
-<section title="setupLineEditHostname" ref="class_database_access_window.html#ab8393a2a6ab3a3d54b044ca4d8853e0d"/>
-<section title="setupSaveListMenu" ref="class_database_access_window.html#a8784e10dbdaa5636839a580ff353d9fd"/>
-<section title="switchPage" ref="class_database_access_window.html#a2ee9292579e203a6c4342bb6bed50ed2"/>
-<section title="comboBoxDataDatabaseTypes" ref="class_database_access_window.html#a0916e468b6d72918c9af2c44ef84489f"/>
-<section title="entriesPerPage" ref="class_database_access_window.html#a12d723260dfd712cf61459da5bc6d041"/>
-<section title="saveEntries" ref="class_database_access_window.html#a0e6e59e9d81d83a352e76670f5b217bd"/>
-<section title="ui" ref="class_database_access_window.html#a36e85858b47174b36999b4a2765bfd17"/>
+<section title="DatabaseMainWindow" ref="class_database_main_window.html">
+<section title="DatabaseMainWindow" ref="class_database_main_window.html#a896a12a7410053655e12f9112095f9c2"/>
+<section title="~DatabaseMainWindow" ref="class_database_main_window.html#af2fff8810246c402834d0eb7a9c3e565"/>
+<section title="clearSaveList" ref="class_database_main_window.html#a85961ef7da48eebe8504128a06537511"/>
+<section title="createSaveList" ref="class_database_main_window.html#a16819d1baa24f5437123147d42c69f32"/>
+<section title="createSaveListButtons" ref="class_database_main_window.html#a4e792bf549dd1a4717fc634dff440033"/>
+<section title="onActionButtonClicked" ref="class_database_main_window.html#a9d9d8dce8f167f32deb3736d5498d34b"/>
+<section title="onConnectButtonPress" ref="class_database_main_window.html#ac63ccc1429bc7b8eade28837f8057ce0"/>
+<section title="onPageSwitch" ref="class_database_main_window.html#aa91461ee5afd9c0b7096af4bcc5757d8"/>
+<section title="onUploadSaveButtonPress" ref="class_database_main_window.html#aec1a7f267e5adc798414828481834519"/>
+<section title="setSaveListButtonProperties" ref="class_database_main_window.html#a30a1901e9899ac489bb8d0297e872bc0"/>
+<section title="setupComboBox" ref="class_database_main_window.html#a5f8f88541053d39f7cf3b187483ac0de"/>
+<section title="setupConnectMenu" ref="class_database_main_window.html#afda8ad017308aec76d4201aaac2b4a22"/>
+<section title="setupLineEditHostname" ref="class_database_main_window.html#a1db172379f4be2ef5d8f152f8750a28b"/>
+<section title="setupSaveListMenu" ref="class_database_main_window.html#a023cdd2cac2709143ef1f007909442cd"/>
+<section title="switchPage" ref="class_database_main_window.html#a7b7889256744bbb5a611a592dd1552e5"/>
+<section title="comboBoxDataDatabaseTypes" ref="class_database_main_window.html#ac4db24317041384c7c616390391e50dd"/>
+<section title="entriesPerPage" ref="class_database_main_window.html#a9b78b029de7045fcc205dbe1c08704b2"/>
+<section title="saveEntries" ref="class_database_main_window.html#a3c2c8d18a24a7b57129af40756696bb3"/>
+<section title="ui" ref="class_database_main_window.html#aa834099b7856dfffc33f6a2cb9bf5899"/>
 </section>
 </section>
 <section title="DatabaseSaveListActionButtonWindow.h" ref="_database_save_list_action_button_window_8h.html">
@@ -1259,16 +1247,16 @@
 <section title="updateCheckboxEnabledVisibility" ref="class_main_window.html#a78e8d1405b468249d8fd826d9e7a9726"/>
 <section title="updateSlotMenuCheckedState" ref="class_main_window.html#ad38be884314eb7763925dee610f34542"/>
 <section title="updateWindowVisibility" ref="class_main_window.html#a0298ff25e59884a08e9cb20809ec9b0a"/>
-<section title="comboBoxDataButtonConfig" ref="class_main_window.html#a7633332104beecb3f76bcd5f58b99776"/>
-<section title="comboBoxDataCharacter" ref="class_main_window.html#a37f310c1e7a96fb101566902c6e35bfa"/>
-<section title="comboBoxDataDifficulty" ref="class_main_window.html#ad06010bf22e1f3d5c5c6842695bd1507"/>
-<section title="comboBoxDataEndingCarrie" ref="class_main_window.html#ac030c7648ee1634c6f40f944a340e18c"/>
-<section title="comboBoxDataEndingReinhardt" ref="class_main_window.html#aa3658c28b39f3842a008da4eef690643"/>
-<section title="comboBoxDataLanguage" ref="class_main_window.html#ab18107435a3245001d14531017e7626e"/>
-<section title="comboBoxDataMap" ref="class_main_window.html#a043b7189b51505e5728c4de827b4aaa9"/>
-<section title="comboBoxDataRegion" ref="class_main_window.html#a17417fcc4b6b5c7fe074f604688f4c89"/>
-<section title="comboBoxDataSoundMode" ref="class_main_window.html#a796761c539007ed8c966ecb132521aeb"/>
-<section title="comboBoxDataSubweapon" ref="class_main_window.html#aaf0094b60625432a8765c77f60eb6411"/>
+<section title="comboBoxDataButtonConfig" ref="class_main_window.html#a9f0fc7ac99307092ae11d5e0e213c6a6"/>
+<section title="comboBoxDataCharacter" ref="class_main_window.html#a36c7c53d8cac5d267211cbfe0f3f5c20"/>
+<section title="comboBoxDataDifficulty" ref="class_main_window.html#a2eae266b50e91e082fb9394206613db7"/>
+<section title="comboBoxDataEndingCarrie" ref="class_main_window.html#a97a448178e97ddbd60df8299ef6e3f69"/>
+<section title="comboBoxDataEndingReinhardt" ref="class_main_window.html#ac5f50696e935b19744ba6659ff328305"/>
+<section title="comboBoxDataLanguage" ref="class_main_window.html#aa9c72adea6b913e3064df531a6019ce1"/>
+<section title="comboBoxDataMap" ref="class_main_window.html#a52e76d1f233438f4d0ac81dc397bb51d"/>
+<section title="comboBoxDataRegion" ref="class_main_window.html#a6dae91b433207cbbd120243f8de8d1d3"/>
+<section title="comboBoxDataSoundMode" ref="class_main_window.html#a39fc3271ae47e91188783ef0dbe67604"/>
+<section title="comboBoxDataSubweapon" ref="class_main_window.html#ad75cd38c108a5ecbc2e65e283bf4f483"/>
 <section title="hexBitflagLineEdits" ref="class_main_window.html#a25a2e5015d7e2ac9756163763b3d8d16"/>
 <section title="instance" ref="class_main_window.html#a806ddf9cb9332e58f7da583f3df03fd8"/>
 <section title="isMain" ref="class_main_window.html#a8e3e6ba29cafdd8a0416be9faa042e6b"/>
@@ -1331,11 +1319,11 @@
 </section>
 </toc>
 <keywords>
-<keyword name="FileManager::ControllerPakIndexData" id="FileManager::ControllerPakIndexData_" ref="struct_file_manager_1_1_controller_pak_index_data.html"/>
+<keyword name="FileManager::ControllerPakNotetableData" id="FileManager::ControllerPakNotetableData_" ref="struct_file_manager_1_1_controller_pak_notetable_data.html"/>
 <keyword name="ControllerPakSelectionWindow" id="ControllerPakSelectionWindow_" ref="class_controller_pak_selection_window.html"/>
 <keyword name="Database" id="Database_" ref="class_database.html"/>
-<keyword name="DatabaseAccessWindow" id="DatabaseAccessWindow_" ref="class_database_access_window.html"/>
 <keyword name="DatabaseCouch" id="DatabaseCouch_" ref="class_database_couch.html"/>
+<keyword name="DatabaseMainWindow" id="DatabaseMainWindow_" ref="class_database_main_window.html"/>
 <keyword name="DatabaseManager" id="DatabaseManager_" ref="class_database_manager.html"/>
 <keyword name="DatabaseSaveListActionWindow" id="DatabaseSaveListActionWindow_" ref="class_database_save_list_action_window.html"/>
 <keyword name="FileLoader" id="FileLoader_" ref="class_file_loader.html"/>
@@ -1374,22 +1362,22 @@
 <keyword name="CHIKA_KODO" id="SaveData::CHIKA_KODO_a6f7b040f15df3a993ebf9373a1e0ad99a424bb939843fed52a84d0d8b642ebd09" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a424bb939843fed52a84d0d8b642ebd09"/>
 <keyword name="CHIKA_SUIRO" id="SaveData::CHIKA_SUIRO_a6f7b040f15df3a993ebf9373a1e0ad99a44acb3f1ded7ea5864ad4094bb8aa0fa" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a44acb3f1ded7ea5864ad4094bb8aa0fa"/>
 <keyword name="clear()" id="SaveSlot::clear_adeef575ba788e4e632000745398ef599" ref="struct_save_slot.html#adeef575ba788e4e632000745398ef599"/>
-<keyword name="clearEntry()" id="FileManager::ControllerPakIndexData::clearEntry_a00fade17601e18fcfa728f2ffcd2fa56" ref="struct_file_manager_1_1_controller_pak_index_data.html#a00fade17601e18fcfa728f2ffcd2fa56"/>
-<keyword name="clearIndexData()" id="FileManager::clearIndexData_acef8d66684e60cf669795ef78b8ac87a" ref="class_file_manager.html#acef8d66684e60cf669795ef78b8ac87a"/>
+<keyword name="clearEntry()" id="FileManager::ControllerPakNotetableData::clearEntry_ac945ecd98efe0ae9f91c1bce09817264" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#ac945ecd98efe0ae9f91c1bce09817264"/>
 <keyword name="clearManager()" id="DatabaseManager::clearManager_a2863d8a665122e4adf23a1e206a3547c" ref="class_database_manager.html#a2863d8a665122e4adf23a1e206a3547c"/>
-<keyword name="clearSaveList()" id="DatabaseAccessWindow::clearSaveList_a6793cba868b9be3028439eec81b900a8" ref="class_database_access_window.html#a6793cba868b9be3028439eec81b900a8"/>
+<keyword name="clearNoteTableData()" id="FileManager::clearNoteTableData_aabd7d9cf8850811daa5ae199fcc816d5" ref="class_file_manager.html#aabd7d9cf8850811daa5ae199fcc816d5"/>
+<keyword name="clearSaveList()" id="DatabaseMainWindow::clearSaveList_a85961ef7da48eebe8504128a06537511" ref="class_database_main_window.html#a85961ef7da48eebe8504128a06537511"/>
 <keyword name="closeEvent(QCloseEvent *event) override" id="ControllerPakSelectionWindow::closeEvent_af3be39ad831c806c21128887ac60c5a3" ref="class_controller_pak_selection_window.html#af3be39ad831c806c21128887ac60c5a3"/>
-<keyword name="comboBoxDataButtonConfig" id="MainWindow::comboBoxDataButtonConfig_a7633332104beecb3f76bcd5f58b99776" ref="class_main_window.html#a7633332104beecb3f76bcd5f58b99776"/>
-<keyword name="comboBoxDataCharacter" id="MainWindow::comboBoxDataCharacter_a37f310c1e7a96fb101566902c6e35bfa" ref="class_main_window.html#a37f310c1e7a96fb101566902c6e35bfa"/>
-<keyword name="comboBoxDataDatabaseTypes" id="DatabaseAccessWindow::comboBoxDataDatabaseTypes_a0916e468b6d72918c9af2c44ef84489f" ref="class_database_access_window.html#a0916e468b6d72918c9af2c44ef84489f"/>
-<keyword name="comboBoxDataDifficulty" id="MainWindow::comboBoxDataDifficulty_ad06010bf22e1f3d5c5c6842695bd1507" ref="class_main_window.html#ad06010bf22e1f3d5c5c6842695bd1507"/>
-<keyword name="comboBoxDataEndingCarrie" id="MainWindow::comboBoxDataEndingCarrie_ac030c7648ee1634c6f40f944a340e18c" ref="class_main_window.html#ac030c7648ee1634c6f40f944a340e18c"/>
-<keyword name="comboBoxDataEndingReinhardt" id="MainWindow::comboBoxDataEndingReinhardt_aa3658c28b39f3842a008da4eef690643" ref="class_main_window.html#aa3658c28b39f3842a008da4eef690643"/>
-<keyword name="comboBoxDataLanguage" id="MainWindow::comboBoxDataLanguage_ab18107435a3245001d14531017e7626e" ref="class_main_window.html#ab18107435a3245001d14531017e7626e"/>
-<keyword name="comboBoxDataMap" id="MainWindow::comboBoxDataMap_a043b7189b51505e5728c4de827b4aaa9" ref="class_main_window.html#a043b7189b51505e5728c4de827b4aaa9"/>
-<keyword name="comboBoxDataRegion" id="MainWindow::comboBoxDataRegion_a17417fcc4b6b5c7fe074f604688f4c89" ref="class_main_window.html#a17417fcc4b6b5c7fe074f604688f4c89"/>
-<keyword name="comboBoxDataSoundMode" id="MainWindow::comboBoxDataSoundMode_a796761c539007ed8c966ecb132521aeb" ref="class_main_window.html#a796761c539007ed8c966ecb132521aeb"/>
-<keyword name="comboBoxDataSubweapon" id="MainWindow::comboBoxDataSubweapon_aaf0094b60625432a8765c77f60eb6411" ref="class_main_window.html#aaf0094b60625432a8765c77f60eb6411"/>
+<keyword name="comboBoxDataButtonConfig" id="MainWindow::comboBoxDataButtonConfig_a9f0fc7ac99307092ae11d5e0e213c6a6" ref="class_main_window.html#a9f0fc7ac99307092ae11d5e0e213c6a6"/>
+<keyword name="comboBoxDataCharacter" id="MainWindow::comboBoxDataCharacter_a36c7c53d8cac5d267211cbfe0f3f5c20" ref="class_main_window.html#a36c7c53d8cac5d267211cbfe0f3f5c20"/>
+<keyword name="comboBoxDataDatabaseTypes" id="DatabaseMainWindow::comboBoxDataDatabaseTypes_ac4db24317041384c7c616390391e50dd" ref="class_database_main_window.html#ac4db24317041384c7c616390391e50dd"/>
+<keyword name="comboBoxDataDifficulty" id="MainWindow::comboBoxDataDifficulty_a2eae266b50e91e082fb9394206613db7" ref="class_main_window.html#a2eae266b50e91e082fb9394206613db7"/>
+<keyword name="comboBoxDataEndingCarrie" id="MainWindow::comboBoxDataEndingCarrie_a97a448178e97ddbd60df8299ef6e3f69" ref="class_main_window.html#a97a448178e97ddbd60df8299ef6e3f69"/>
+<keyword name="comboBoxDataEndingReinhardt" id="MainWindow::comboBoxDataEndingReinhardt_ac5f50696e935b19744ba6659ff328305" ref="class_main_window.html#ac5f50696e935b19744ba6659ff328305"/>
+<keyword name="comboBoxDataLanguage" id="MainWindow::comboBoxDataLanguage_aa9c72adea6b913e3064df531a6019ce1" ref="class_main_window.html#aa9c72adea6b913e3064df531a6019ce1"/>
+<keyword name="comboBoxDataMap" id="MainWindow::comboBoxDataMap_a52e76d1f233438f4d0ac81dc397bb51d" ref="class_main_window.html#a52e76d1f233438f4d0ac81dc397bb51d"/>
+<keyword name="comboBoxDataRegion" id="MainWindow::comboBoxDataRegion_a6dae91b433207cbbd120243f8de8d1d3" ref="class_main_window.html#a6dae91b433207cbbd120243f8de8d1d3"/>
+<keyword name="comboBoxDataSoundMode" id="MainWindow::comboBoxDataSoundMode_a39fc3271ae47e91188783ef0dbe67604" ref="class_main_window.html#a39fc3271ae47e91188783ef0dbe67604"/>
+<keyword name="comboBoxDataSubweapon" id="MainWindow::comboBoxDataSubweapon_ad75cd38c108a5ecbc2e65e283bf4f483" ref="class_main_window.html#ad75cd38c108a5ecbc2e65e283bf4f483"/>
 <keyword name="connectToDatabase()=0" id="Database::connectToDatabase_ac8f4e5a4802f0b1ac9c88f53ba8b1031" ref="class_database.html#ac8f4e5a4802f0b1ac9c88f53ba8b1031"/>
 <keyword name="connectToDatabase()" id="DatabaseCouch::connectToDatabase_ac83878f34d89f782869ef4d193bb0d97" ref="class_database_couch.html#ac83878f34d89f782869ef4d193bb0d97"/>
 <keyword name="connectToDatabase()" id="DatabaseManager::connectToDatabase_a6eb61705ccd1925062cdd6835afff7f4" ref="class_database_manager.html#a6eb61705ccd1925062cdd6835afff7f4"/>
@@ -1402,7 +1390,7 @@
 <keyword name="CONTROLLER_PAK_NOTE_TABLE_OFFSET" id="FileLoaderControllerPak::CONTROLLER_PAK_NOTE_TABLE_OFFSET_aa26545b6e517f2c25337dfb2ff77f798" ref="struct_file_loader_controller_pak.html#aa26545b6e517f2c25337dfb2ff77f798"/>
 <keyword name="CONTROLLER_PAK_NOTE_TABLE_OFFSET" id="FileLoaderDexDrive::CONTROLLER_PAK_NOTE_TABLE_OFFSET_ac62f31a83a626a24a1750ae959101fd9" ref="struct_file_loader_dex_drive.html#ac62f31a83a626a24a1750ae959101fd9"/>
 <keyword name="controllerPakCurrentlySelectedSaveIndex" id="FileManager::controllerPakCurrentlySelectedSaveIndex_a7b7537f46ea22ccce2e633e8153f6879" ref="class_file_manager.html#a7b7537f46ea22ccce2e633e8153f6879"/>
-<keyword name="ControllerPakIndexData()" id="FileManager::ControllerPakIndexData::ControllerPakIndexData_a477b2c5545132c01e262b518af52d9c0" ref="struct_file_manager_1_1_controller_pak_index_data.html#a477b2c5545132c01e262b518af52d9c0"/>
+<keyword name="ControllerPakNotetableData()" id="FileManager::ControllerPakNotetableData::ControllerPakNotetableData_a6adabf0ee4ac804361b202fa36a4243c" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#a6adabf0ee4ac804361b202fa36a4243c"/>
 <keyword name="ControllerPakSelectionWindow(QWidget *parent=nullptr)" id="ControllerPakSelectionWindow::ControllerPakSelectionWindow_ad1485691b673706519b3851f46db56a9" ref="class_controller_pak_selection_window.html#ad1485691b673706519b3851f46db56a9"/>
 <keyword name="convertFrameToTime(const unsigned int frameCount, QLabel *output)" id="MainWindow::convertFrameToTime_ac6a39c3cb3ed2638a20c9140f5b8048f" ref="class_main_window.html#ac6a39c3cb3ed2638a20c9140f5b8048f"/>
 <keyword name="countHexOccurrences(const QByteArray &amp;data, const std::vector&lt; unsigned char &gt; &amp;target) const =0" id="FileLoader::countHexOccurrences_a77e7a947e7ea8d5ecbf406c24f065dd4" ref="class_file_loader.html#a77e7a947e7ea8d5ecbf406c24f065dd4"/>
@@ -1417,17 +1405,16 @@
 <keyword name="createInstance()" id="DatabaseManager::createInstance_ad4734ac2e7d9afd5e0c8fcf45c3f9bf9" ref="class_database_manager.html#ad4734ac2e7d9afd5e0c8fcf45c3f9bf9"/>
 <keyword name="createInstance()" id="FileManager::createInstance_afc3bc63a02de87b6a8c4d8ddd269f9ac" ref="class_file_manager.html#afc3bc63a02de87b6a8c4d8ddd269f9ac"/>
 <keyword name="createInstance()" id="SaveManager::createInstance_a284cd082ef52508bff499b94a9c41dba" ref="class_save_manager.html#a284cd082ef52508bff499b94a9c41dba"/>
-<keyword name="createSaveList()" id="DatabaseAccessWindow::createSaveList_a52505e5df988372636c124efce924ded" ref="class_database_access_window.html#a52505e5df988372636c124efce924ded"/>
-<keyword name="createSaveListButtons()" id="DatabaseAccessWindow::createSaveListButtons_a8263cb226b22f4bb31d975d2a5c27798" ref="class_database_access_window.html#a8263cb226b22f4bb31d975d2a5c27798"/>
-<keyword name="createSlotMenu()" id="SaveManager::createSlotMenu_aff96dcc4baa101dec8c6a9defdfcd6cc" ref="class_save_manager.html#aff96dcc4baa101dec8c6a9defdfcd6cc"/>
+<keyword name="createSaveList()" id="DatabaseMainWindow::createSaveList_a16819d1baa24f5437123147d42c69f32" ref="class_database_main_window.html#a16819d1baa24f5437123147d42c69f32"/>
+<keyword name="createSaveListButtons()" id="DatabaseMainWindow::createSaveListButtons_a4e792bf549dd1a4717fc634dff440033" ref="class_database_main_window.html#a4e792bf549dd1a4717fc634dff440033"/>
 <keyword name="current_hour_VAMP" id="SaveData::current_hour_VAMP_a93d6de610d8611fc08d758e5fd874b18" ref="struct_save_data.html#a93d6de610d8611fc08d758e5fd874b18"/>
 <keyword name="currentSave" id="SaveManager::currentSave_af8e0eca0d0b8b198c30e48edf3cf2b47" ref="class_save_manager.html#af8e0eca0d0b8b198c30e48edf3cf2b47"/>
 <keyword name="Database()" id="Database::Database_a4703c80e6969d33565ea340f768fdadf" ref="class_database.html#a4703c80e6969d33565ea340f768fdadf"/>
 <keyword name="database" id="DatabaseManager::database_afe8af9db3dfcb4cec597482363253d91" ref="class_database_manager.html#afe8af9db3dfcb4cec597482363253d91"/>
 <keyword name="DATABASE_COUCHDB" id="DatabaseManager::DATABASE_COUCHDB_ab5d455270eba0b963d1bfe21242fcce7a63b55e1804a08f3888dee10ac0edf005" ref="class_database_manager.html#ab5d455270eba0b963d1bfe21242fcce7a63b55e1804a08f3888dee10ac0edf005"/>
 <keyword name="DATABASE_NONE" id="DatabaseManager::DATABASE_NONE_ab5d455270eba0b963d1bfe21242fcce7a2ede0eb1aadf1b36ef462c19422347ae" ref="class_database_manager.html#ab5d455270eba0b963d1bfe21242fcce7a2ede0eb1aadf1b36ef462c19422347ae"/>
-<keyword name="DatabaseAccessWindow(QWidget *parent=nullptr)" id="DatabaseAccessWindow::DatabaseAccessWindow_ad50c3a1be7c8fc5d9d4848a985c92fff" ref="class_database_access_window.html#ad50c3a1be7c8fc5d9d4848a985c92fff"/>
 <keyword name="DatabaseCouch()" id="DatabaseCouch::DatabaseCouch_a3544450bd70074f064345dffa940c000" ref="class_database_couch.html#a3544450bd70074f064345dffa940c000"/>
+<keyword name="DatabaseMainWindow(QWidget *parent=nullptr)" id="DatabaseMainWindow::DatabaseMainWindow_a896a12a7410053655e12f9112095f9c2" ref="class_database_main_window.html#a896a12a7410053655e12f9112095f9c2"/>
 <keyword name="DatabaseManager()" id="DatabaseManager::DatabaseManager_aa162d97472e6c31a4e873adda435dbb6" ref="class_database_manager.html#aa162d97472e6c31a4e873adda435dbb6"/>
 <keyword name="DatabaseManager(const DatabaseManager &amp;obj)=delete" id="DatabaseManager::DatabaseManager_ab926e596d27d74cb64635f9a01e89be9" ref="class_database_manager.html#ab926e596d27d74cb64635f9a01e89be9"/>
 <keyword name="databaseMenu()" id="MainWindow::databaseMenu_a41203a431f333d9578a21d60123270bf" ref="class_main_window.html#a41203a431f333d9578a21d60123270bf"/>
@@ -1511,7 +1498,7 @@
 <keyword name="ENDING" id="SaveData::ENDING_a6f7b040f15df3a993ebf9373a1e0ad99acefd624d94dbe29e17cca0622256e556" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99acefd624d94dbe29e17cca0622256e556"/>
 <keyword name="ENDING_DUMMY" id="SaveData::ENDING_DUMMY_a6f7b040f15df3a993ebf9373a1e0ad99a30867e84c184554c8a3f95291b1b34bc" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a30867e84c184554c8a3f95291b1b34bc"/>
 <keyword name="ENGLISH" id="SaveData::ENGLISH_a7e6b4b14f08316bc1cc84e1cf432b4f1a361f34e742ea6c30864ce2011c6c7e2f" ref="struct_save_data.html#a7e6b4b14f08316bc1cc84e1cf432b4f1a361f34e742ea6c30864ce2011c6c7e2f"/>
-<keyword name="entriesPerPage" id="DatabaseAccessWindow::entriesPerPage_a12d723260dfd712cf61459da5bc6d041" ref="class_database_access_window.html#a12d723260dfd712cf61459da5bc6d041"/>
+<keyword name="entriesPerPage" id="DatabaseMainWindow::entriesPerPage_a9b78b029de7045fcc205dbe1c08704b2" ref="class_database_main_window.html#a9b78b029de7045fcc205dbe1c08704b2"/>
 <keyword name="entryAlreadyExists(const QString &amp;id)=0" id="Database::entryAlreadyExists_a77882422156b5e65f1d5a43edd5014f2" ref="class_database.html#a77882422156b5e65f1d5a43edd5014f2"/>
 <keyword name="entryAlreadyExists(const QString &amp;id)" id="DatabaseCouch::entryAlreadyExists_a43bf9bb84714b197565829843030e298" ref="class_database_couch.html#a43bf9bb84714b197565829843030e298"/>
 <keyword name="entryAlreadyExists(const QString &amp;id)" id="DatabaseManager::entryAlreadyExists_adf96279ff131446aaa19e88191c12716" ref="class_database_manager.html#adf96279ff131446aaa19e88191c12716"/>
@@ -1563,7 +1550,7 @@
 <keyword name="getBuffer()" id="FileManager::getBuffer_a88e83c1df36f4486c8ae8dd7589d6c89" ref="class_file_manager.html#a88e83c1df36f4486c8ae8dd7589d6c89"/>
 <keyword name="getCartridgeNumSaves() const" id="FileLoaderCartridge::getCartridgeNumSaves_a68ae8bbd0bf44ef8415ae72e7a17fa18" ref="class_file_loader_cartridge.html#a68ae8bbd0bf44ef8415ae72e7a17fa18"/>
 <keyword name="getControllerPakCurrentlySelectedSaveIndex() const" id="FileManager::getControllerPakCurrentlySelectedSaveIndex_ad6d2bfa44ad47b0ae6740231242905a7" ref="class_file_manager.html#ad6d2bfa44ad47b0ae6740231242905a7"/>
-<keyword name="getControllerPakIndexDataArray()" id="FileManager::getControllerPakIndexDataArray_a032b1a91bf7d022a2800e497dd9b8684" ref="class_file_manager.html#a032b1a91bf7d022a2800e497dd9b8684"/>
+<keyword name="getControllerPakNotetableDataArray()" id="FileManager::getControllerPakNotetableDataArray_ad16bce57e386fe3e158ba4bf909fed2f" ref="class_file_manager.html#ad16bce57e386fe3e158ba4bf909fed2f"/>
 <keyword name="getCurrentSave()" id="SaveManager::getCurrentSave_a12a7d4326d6e14a4f996b433b05da0bd" ref="class_save_manager.html#a12a7d4326d6e14a4f996b433b05da0bd"/>
 <keyword name="getCurrentSaveSlot()" id="SaveManager::getCurrentSaveSlot_a6bfa8dd1fd88829d3422dac2a05321b2" ref="class_save_manager.html#a6bfa8dd1fd88829d3422dac2a05321b2"/>
 <keyword name="getDatabase()" id="DatabaseManager::getDatabase_a7915658a9a8f6084b7e2633a7f2964bf" ref="class_database_manager.html#a7915658a9a8f6084b7e2633a7f2964bf"/>
@@ -1656,9 +1643,8 @@
 <keyword name="HONMARU_B1F" id="SaveData::HONMARU_B1F_a6f7b040f15df3a993ebf9373a1e0ad99a3acfae8b95edc7759d23a720d56bc9dd" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a3acfae8b95edc7759d23a720d56bc9dd"/>
 <keyword name="hostname" id="Database::hostname_aa9e3fbcfc27ab841a5ac72687590ad71" ref="class_database.html#aa9e3fbcfc27ab841a5ac72687590ad71"/>
 <keyword name="hour" id="SaveData::hour_a61a1721b087afdc6a37819a94bf411db" ref="struct_save_data.html#a61a1721b087afdc6a37819a94bf411db"/>
-<keyword name="index" id="FileManager::ControllerPakIndexData::index_a6e5ab95f235b3136e2f7c5e3ce5a3d1e" ref="struct_file_manager_1_1_controller_pak_index_data.html#a6e5ab95f235b3136e2f7c5e3ce5a3d1e"/>
-<keyword name="indexDataArray" id="FileManager::indexDataArray_a55f21fcaf47604b439e0933e8036d0e0" ref="class_file_manager.html#a55f21fcaf47604b439e0933e8036d0e0"/>
-<keyword name="initIndexData(QFile &amp;file)" id="FileManager::initIndexData_a0310faeb42e1df8497348d517d8a3e2a" ref="class_file_manager.html#a0310faeb42e1df8497348d517d8a3e2a"/>
+<keyword name="index" id="FileManager::ControllerPakNotetableData::index_aca7595d0fd72d0cf103e9b33eb876b83" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#aca7595d0fd72d0cf103e9b33eb876b83"/>
+<keyword name="initNoteTableData(QFile &amp;file)" id="FileManager::initNoteTableData_a7ed6e608f20157ceb00d5e2e9aa0cfcf" ref="class_file_manager.html#a7ed6e608f20157ceb00d5e2e9aa0cfcf"/>
 <keyword name="instance" id="DatabaseManager::instance_afb677a148b5d4d2290abb94c6c232b6f" ref="class_database_manager.html#afb677a148b5d4d2290abb94c6c232b6f"/>
 <keyword name="instance" id="FileManager::instance_aea5432b3ba752f87360714fbf1f293f3" ref="class_file_manager.html#aea5432b3ba752f87360714fbf1f293f3"/>
 <keyword name="instance" id="SaveManager::instance_a6c427a6218ef4e470b8f62337c322b04" ref="class_save_manager.html#a6c427a6218ef4e470b8f62337c322b04"/>
@@ -1759,21 +1745,19 @@
 <keyword name="MORI" id="SaveData::MORI_a6f7b040f15df3a993ebf9373a1e0ad99a7dabdf8f114e22ee4feebbdd00458966" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a7dabdf8f114e22ee4feebbdd00458966"/>
 <keyword name="NAKANIWA" id="SaveData::NAKANIWA_a6f7b040f15df3a993ebf9373a1e0ad99a343f361b438b41dc56fe2d750a2682f5" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a343f361b438b41dc56fe2d750a2682f5"/>
 <keyword name="networkAcessManager" id="DatabaseManager::networkAcessManager_a8fa102858645b75c623eb6c010d0dec0" ref="class_database_manager.html#a8fa102858645b75c623eb6c010d0dec0"/>
-<keyword name="onActionButtonClicked(const QString &amp;docId, const QString &amp;rev)" id="DatabaseAccessWindow::onActionButtonClicked_ac13f0c931f0ddd05346ab9507a7b1cd5" ref="class_database_access_window.html#ac13f0c931f0ddd05346ab9507a7b1cd5"/>
+<keyword name="noteTableArray" id="FileManager::noteTableArray_a90f8ba95af9aafe9d1bcec0d10ebfc5d" ref="class_file_manager.html#a90f8ba95af9aafe9d1bcec0d10ebfc5d"/>
+<keyword name="onActionButtonClicked(const QString &amp;docId, const QString &amp;rev)" id="DatabaseMainWindow::onActionButtonClicked_a9d9d8dce8f167f32deb3736d5498d34b" ref="class_database_main_window.html#a9d9d8dce8f167f32deb3736d5498d34b"/>
 <keyword name="onButtonClicked(int saveIndex)" id="ControllerPakSelectionWindow::onButtonClicked_a328faf7634b9c5f6c256db13a7530432" ref="class_controller_pak_selection_window.html#a328faf7634b9c5f6c256db13a7530432"/>
-<keyword name="onConnectButtonPress()" id="DatabaseAccessWindow::onConnectButtonPress_a8cb537fea176a45b0aea83d32ea250e2" ref="class_database_access_window.html#a8cb537fea176a45b0aea83d32ea250e2"/>
+<keyword name="onConnectButtonPress()" id="DatabaseMainWindow::onConnectButtonPress_ac63ccc1429bc7b8eade28837f8057ce0" ref="class_database_main_window.html#ac63ccc1429bc7b8eade28837f8057ce0"/>
 <keyword name="onDeleteButton()" id="DatabaseSaveListActionWindow::onDeleteButton_a85a26bffd1c771c0649851d9a1589409" ref="class_database_save_list_action_window.html#a85a26bffd1c771c0649851d9a1589409"/>
 <keyword name="onEditButton()" id="DatabaseSaveListActionWindow::onEditButton_afecd380258dbafbc0dd7421094c84588" ref="class_database_save_list_action_window.html#afecd380258dbafbc0dd7421094c84588"/>
 <keyword name="onPageButtonClicked(QStackedWidget *stackedWidget, const QWidget *page)" id="MainWindow::onPageButtonClicked_aab3b747fab6fc27fb9c94ac5f6e9a64f" ref="class_main_window.html#aab3b747fab6fc27fb9c94ac5f6e9a64f"/>
-<keyword name="onPageSwitch()" id="DatabaseAccessWindow::onPageSwitch_a0b342d4df821ceb5c41445bc5277368d" ref="class_database_access_window.html#a0b342d4df821ceb5c41445bc5277368d"/>
-<keyword name="onUploadSaveButtonPress()" id="DatabaseAccessWindow::onUploadSaveButtonPress_a5eddefbe4123aecf2bbbf1ee1a974710" ref="class_database_access_window.html#a5eddefbe4123aecf2bbbf1ee1a974710"/>
+<keyword name="onPageSwitch()" id="DatabaseMainWindow::onPageSwitch_aa91461ee5afd9c0b7096af4bcc5757d8" ref="class_database_main_window.html#aa91461ee5afd9c0b7096af4bcc5757d8"/>
+<keyword name="onUploadSaveButtonPress()" id="DatabaseMainWindow::onUploadSaveButtonPress_aec1a7f267e5adc798414828481834519" ref="class_database_main_window.html#aec1a7f267e5adc798414828481834519"/>
 <keyword name="openFile(const QString &amp;filepath_)" id="FileManager::openFile_a7944f413bc88a6598bff7718e271a181" ref="class_file_manager.html#a7944f413bc88a6598bff7718e271a181"/>
 <keyword name="openFile(const QString &amp;filename)" id="MainWindow::openFile_a62d0ef52c06bf628ab32c71f90f63720" ref="class_main_window.html#a62d0ef52c06bf628ab32c71f90f63720"/>
-<keyword name="operator=(const SaveData &amp;other)" id="SaveData::operator=_a1c5ca55190c7632259a98e82d4cb74c7" ref="struct_save_data.html#a1c5ca55190c7632259a98e82d4cb74c7"/>
-<keyword name="operator=(const SaveSlot &amp;other)" id="SaveSlot::operator=_a2c50cad3322ae01961389cd54e4769fa" ref="struct_save_slot.html#a2c50cad3322ae01961389cd54e4769fa"/>
 <keyword name="padding5A_PAL" id="SaveData::padding5A_PAL_a8a45239de78e1cc580813655606fcef5" ref="struct_save_data.html#a8a45239de78e1cc580813655606fcef5"/>
 <keyword name="PAL" id="SaveData::PAL_aaa4d3af23170b53bab7bf0db434940b7ad8aacb3ec749159c634cca99c6c54237" ref="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7ad8aacb3ec749159c634cca99c6c54237"/>
-<keyword name="parseAllSaveSlots(QFile &amp;file, long startOffset)" id="SaveManager::parseAllSaveSlots_a75980a93edfee544f1ded8f8732bf0cb" ref="class_save_manager.html#a75980a93edfee544f1ded8f8732bf0cb"/>
 <keyword name="parseGetAllEntriesResponse(const QByteArray &amp;data, std::vector&lt; Database::SaveBasicInfo &gt; &amp;entries)=0" id="Database::parseGetAllEntriesResponse_a5742f5067d9bf13c1e159a511f3767af" ref="class_database.html#a5742f5067d9bf13c1e159a511f3767af"/>
 <keyword name="parseGetAllEntriesResponse(const QByteArray &amp;data, std::vector&lt; Database::SaveBasicInfo &gt; &amp;entries)" id="DatabaseCouch::parseGetAllEntriesResponse_aa778f2512af08a3845c45e7efe956d12" ref="class_database_couch.html#aa778f2512af08a3845c45e7efe956d12"/>
 <keyword name="parseJSONToSaveData(const QJsonObject &amp;json)" id="DatabaseCouch::parseJSONToSaveData_afe8533c897587d3502820454ff036645" ref="class_database_couch.html#afe8533c897587d3502820454ff036645"/>
@@ -1783,7 +1767,6 @@
 <keyword name="parseRegion(QFile &amp;file)" id="FileLoaderCartridge::parseRegion_a03aa301c4ca66ff3a9ef184ee00729d0" ref="class_file_loader_cartridge.html#a03aa301c4ca66ff3a9ef184ee00729d0"/>
 <keyword name="parseRegion(QFile &amp;file)" id="FileLoaderControllerPak::parseRegion_a67253342b9ec5737ddd134165b74ff3e" ref="struct_file_loader_controller_pak.html#a67253342b9ec5737ddd134165b74ff3e"/>
 <keyword name="parseRegion(QFile &amp;file)" id="SaveManager::parseRegion_abd50534474b601ccadb4d7a3504e1301" ref="class_save_manager.html#abd50534474b601ccadb4d7a3504e1301"/>
-<keyword name="parseSaveSlot(QFile &amp;file, SaveSlot &amp;slot, long startOffset)" id="SaveManager::parseSaveSlot_a2ca21631e98e0fd573940c4080ffad0a" ref="class_save_manager.html#a2ca21631e98e0fd573940c4080ffad0a"/>
 <keyword name="parseSaveSlotToJSON(const SaveSlot &amp;saveSlot)" id="DatabaseCouch::parseSaveSlotToJSON_a47f8f6d7f22e6cafe3c529998d2f77b7" ref="class_database_couch.html#a47f8f6d7f22e6cafe3c529998d2f77b7"/>
 <keyword name="password" id="DatabaseManager::password_a60948fe8b4d0c5acdcc1e60b71518f3a" ref="class_database_manager.html#a60948fe8b4d0c5acdcc1e60b71518f3a"/>
 <keyword name="PLAYER_FLAG_POISON" id="SaveData::PLAYER_FLAG_POISON_acee1873b009042d499f5ea197c28c75daef4ba11b47833a0e9f15f83cc2b4336e" ref="struct_save_data.html#acee1873b009042d499f5ea197c28c75daef4ba11b47833a0e9f15f83cc2b4336e"/>
@@ -1802,15 +1785,14 @@
 <keyword name="rawDataStartOffset" id="FileLoader::rawDataStartOffset_ae67da398d306c5a83f4bf4e0c771e823" ref="class_file_loader.html#ae67da398d306c5a83f4bf4e0c771e823"/>
 <keyword name="rawDataStartOffset" id="FileLoaderNote::rawDataStartOffset_accf507164738e149361bed23ac9bb414" ref="class_file_loader_note.html#accf507164738e149361bed23ac9bb414"/>
 <keyword name="rawDataStartOffset" id="FileLoaderCartridge::rawDataStartOffset_af92dcbdea5c21a8bf749896579c8a0fa" ref="class_file_loader_cartridge.html#af92dcbdea5c21a8bf749896579c8a0fa"/>
-<keyword name="rawDataStartOffset" id="FileManager::ControllerPakIndexData::rawDataStartOffset_a7120ee1a67fd296502c7619afba92264" ref="struct_file_manager_1_1_controller_pak_index_data.html#a7120ee1a67fd296502c7619afba92264"/>
+<keyword name="rawDataStartOffset" id="FileManager::ControllerPakNotetableData::rawDataStartOffset_a65144457694a31bab74869c2dc4250a6" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#a65144457694a31bab74869c2dc4250a6"/>
 <keyword name="readAllSaveSlots(QFile &amp;file)" id="FileLoader::readAllSaveSlots_a5e25c93d14b2369e48eab8d1bbc0f083" ref="class_file_loader.html#a5e25c93d14b2369e48eab8d1bbc0f083"/>
 <keyword name="readData(QDataStream &amp;inputStream, long offset)" id="FileLoader::readData_addfb14b25cd464fd852db8eb832fa00d" ref="class_file_loader.html#addfb14b25cd464fd852db8eb832fa00d"/>
 <keyword name="readSaveData(QDataStream &amp;inputStream, unsigned int startOffset)" id="FileLoader::readSaveData_a01e49e7356759294aa1faedd54b24131" ref="class_file_loader.html#a01e49e7356759294aa1faedd54b24131"/>
-<keyword name="readSaveData(QDataStream &amp;inputStream, long startOffset)" id="SaveManager::readSaveData_a4938428f9985fd146f840e602c21e035" ref="class_save_manager.html#a4938428f9985fd146f840e602c21e035"/>
 <keyword name="readSaveDataToJSON(const SaveData &amp;saveSlot)" id="DatabaseCouch::readSaveDataToJSON_aeb471e9443d465269b11a498074b8bd6" ref="class_database_couch.html#aeb471e9443d465269b11a498074b8bd6"/>
 <keyword name="readSaveSlot(QFile &amp;file, SaveSlot &amp;slot, unsigned int startOffset)" id="FileLoader::readSaveSlot_abab957ed87eb11df0f2df6f860708589" ref="class_file_loader.html#abab957ed87eb11df0f2df6f860708589"/>
 <keyword name="region" id="Database::SaveBasicInfo::region_a77385864a311192e45c2c855b8a3a5d9" ref="struct_database_1_1_save_basic_info.html#a77385864a311192e45c2c855b8a3a5d9"/>
-<keyword name="region" id="FileManager::ControllerPakIndexData::region_a26d4bf0fb8801cf8efd758d337bc33eb" ref="struct_file_manager_1_1_controller_pak_index_data.html#a26d4bf0fb8801cf8efd758d337bc33eb"/>
+<keyword name="region" id="FileManager::ControllerPakNotetableData::region_aeb2e5da7b6312f884328d2d0031266e3" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#aeb2e5da7b6312f884328d2d0031266e3"/>
 <keyword name="region" id="SaveManager::region_aae3b23c40aa1d4a683adba01669dd4f6" ref="class_save_manager.html#aae3b23c40aa1d4a683adba01669dd4f6"/>
 <keyword name="regionIdOffset" id="FileLoader::regionIdOffset_aa6e0a4f8227298a1d66d8c0b5c05d601" ref="class_file_loader.html#aa6e0a4f8227298a1d66d8c0b5c05d601"/>
 <keyword name="regionIdOffset" id="FileLoaderNote::regionIdOffset_a712e66a17efe4cbcedbaf8eef3f7eb2e" ref="class_file_loader_note.html#a712e66a17efe4cbcedbaf8eef3f7eb2e"/>
@@ -1825,7 +1807,7 @@
 <keyword name="SAVE_FLAG_CARRIE_GOOD_ENDING" id="SaveData::SAVE_FLAG_CARRIE_GOOD_ENDING_a5e441fbc2ceabdb42800e49837699fcfa2d5a8b3dd9dfd7634269d7ba705620bd" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa2d5a8b3dd9dfd7634269d7ba705620bd"/>
 <keyword name="SAVE_FLAG_COSTUME_IS_BEING_USED" id="SaveData::SAVE_FLAG_COSTUME_IS_BEING_USED_a5e441fbc2ceabdb42800e49837699fcfa196ac996197e7e7396792edb0c7acaad" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa196ac996197e7e7396792edb0c7acaad"/>
 <keyword name="SAVE_FLAG_EASY" id="SaveData::SAVE_FLAG_EASY_a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca"/>
-<keyword name="SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY" id="SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY_a5e441fbc2ceabdb42800e49837699fcfa59848f8e0dff10d72897ffe7721ed9aa" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa59848f8e0dff10d72897ffe7721ed9aa"/>
+<keyword name="SAVE_FLAG_ENABLE_SAVE" id="SaveData::SAVE_FLAG_ENABLE_SAVE_a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971"/>
 <keyword name="SAVE_FLAG_HARD" id="SaveData::SAVE_FLAG_HARD_a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05"/>
 <keyword name="SAVE_FLAG_HARD_MODE_UNLOCKED" id="SaveData::SAVE_FLAG_HARD_MODE_UNLOCKED_a5e441fbc2ceabdb42800e49837699fcfa0abc0dd391ed49f1c5b71908a7c6a76a" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0abc0dd391ed49f1c5b71908a7c6a76a"/>
 <keyword name="SAVE_FLAG_HAVE_CARRIE_ALT_COSTUME" id="SaveData::SAVE_FLAG_HAVE_CARRIE_ALT_COSTUME_a5e441fbc2ceabdb42800e49837699fcfa0f7559cc9938c1f7e762ef9cb5f045aa" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0f7559cc9938c1f7e762ef9cb5f045aa"/>
@@ -1833,9 +1815,9 @@
 <keyword name="SAVE_FLAG_NORMAL" id="SaveData::SAVE_FLAG_NORMAL_a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02"/>
 <keyword name="SAVE_FLAG_REINDHART_BAD_ENDING" id="SaveData::SAVE_FLAG_REINDHART_BAD_ENDING_a5e441fbc2ceabdb42800e49837699fcfa96cca2d0033c8208c90bcf5f4b8ba8b1" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa96cca2d0033c8208c90bcf5f4b8ba8b1"/>
 <keyword name="SAVE_FLAG_REINDHART_GOOD_ENDING" id="SaveData::SAVE_FLAG_REINDHART_GOOD_ENDING_a5e441fbc2ceabdb42800e49837699fcfa8730b3ac4591263e3a2ec555a880dbaa" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa8730b3ac4591263e3a2ec555a880dbaa"/>
-<keyword name="saveEntries" id="DatabaseAccessWindow::saveEntries_a0e6e59e9d81d83a352e76670f5b217bd" ref="class_database_access_window.html#a0e6e59e9d81d83a352e76670f5b217bd"/>
+<keyword name="saveEntries" id="DatabaseMainWindow::saveEntries_a3c2c8d18a24a7b57129af40756696bb3" ref="class_database_main_window.html#a3c2c8d18a24a7b57129af40756696bb3"/>
 <keyword name="SaveFlag" id="SaveData::SaveFlag_a5e441fbc2ceabdb42800e49837699fcf" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcf"/>
-<keyword name="SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY" id="SaveData::SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY_a5e441fbc2ceabdb42800e49837699fcfa59848f8e0dff10d72897ffe7721ed9aa" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa59848f8e0dff10d72897ffe7721ed9aa"/>
+<keyword name="SAVE_FLAG_ENABLE_SAVE" id="SaveData::SAVE_FLAG_ENABLE_SAVE_a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971"/>
 <keyword name="SAVE_FLAG_EASY" id="SaveData::SAVE_FLAG_EASY_a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca"/>
 <keyword name="SAVE_FLAG_NORMAL" id="SaveData::SAVE_FLAG_NORMAL_a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02"/>
 <keyword name="SAVE_FLAG_HARD" id="SaveData::SAVE_FLAG_HARD_a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05" ref="struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05"/>
@@ -1886,7 +1868,7 @@
 <keyword name="setPort(const int port_)" id="Database::setPort_a8f3e101df86363074792dafa6b6df4c8" ref="class_database.html#a8f3e101df86363074792dafa6b6df4c8"/>
 <keyword name="setRegion(const short)" id="SaveManager::setRegion_a8fa9280ba013631098e2fcc6b126d531" ref="class_save_manager.html#a8fa9280ba013631098e2fcc6b126d531"/>
 <keyword name="setSave(const SaveSlot &amp;save, const int index)" id="SaveManager::setSave_ad4dbe55938418ed2174fbb877c1e7f0e" ref="class_save_manager.html#ad4dbe55938418ed2174fbb877c1e7f0e"/>
-<keyword name="setSaveListButtonProperties(QPushButton *button, const QString &amp;documentId, const int listIndex, const int region, const QString &amp;rev)" id="DatabaseAccessWindow::setSaveListButtonProperties_a5470cd68d1cf6ab0810bda0f0865a844" ref="class_database_access_window.html#a5470cd68d1cf6ab0810bda0f0865a844"/>
+<keyword name="setSaveListButtonProperties(QPushButton *button, const QString &amp;documentId, const int listIndex, const int region, const QString &amp;rev)" id="DatabaseMainWindow::setSaveListButtonProperties_a30a1901e9899ac489bb8d0297e872bc0" ref="class_database_main_window.html#a30a1901e9899ac489bb8d0297e872bc0"/>
 <keyword name="setSeconds(const short)" id="SaveManager::setSeconds_afdbb9542b7b91471b15c6d298a3369fa" ref="class_save_manager.html#afdbb9542b7b91471b15c6d298a3369fa"/>
 <keyword name="setSelectedSave(const int slot)" id="MainWindow::setSelectedSave_ab5eaf8a5d2863a5834778d3fe6b8a46b" ref="class_main_window.html#ab5eaf8a5d2863a5834778d3fe6b8a46b"/>
 <keyword name="setSoundMode(const short)" id="SaveManager::setSoundMode_a6bb830b4666b8e4a51fdf603efd3f987" ref="class_save_manager.html#a6bb830b4666b8e4a51fdf603efd3f987"/>
@@ -1895,17 +1877,17 @@
 <keyword name="setTimesSaved(const unsigned int)" id="SaveManager::setTimesSaved_af24e8b6881e8216481292cc62765ac4f" ref="class_save_manager.html#af24e8b6881e8216481292cc62765ac4f"/>
 <keyword name="setupButtonBox()" id="ControllerPakSelectionWindow::setupButtonBox_a694d1e4bb63f1555d9a02dd9f77eb694" ref="class_controller_pak_selection_window.html#a694d1e4bb63f1555d9a02dd9f77eb694"/>
 <keyword name="setupCheckBox(QCheckBox *checkBox, unsigned int value, std::function&lt; void(unsigned int)&gt; setter, std::function&lt; void(unsigned int)&gt; unsetter)" id="MainWindow::setupCheckBox_a4c3fa6917b681b3f1bd532ffd5a35c3c" ref="class_main_window.html#a4c3fa6917b681b3f1bd532ffd5a35c3c"/>
-<keyword name="setupComboBox(QComboBox *comboBox, const Ui::ComboBoxData &amp;array, std::function&lt; void(int)&gt; setter)" id="DatabaseAccessWindow::setupComboBox_a560321b5130ae0785ad9a3e462d1b461" ref="class_database_access_window.html#a560321b5130ae0785ad9a3e462d1b461"/>
+<keyword name="setupComboBox(QComboBox *comboBox, const Ui::ComboBoxData &amp;array, std::function&lt; void(int)&gt; setter)" id="DatabaseMainWindow::setupComboBox_a5f8f88541053d39f7cf3b187483ac0de" ref="class_database_main_window.html#a5f8f88541053d39f7cf3b187483ac0de"/>
 <keyword name="setupComboBox(QComboBox *comboBox, const Ui::ComboBoxData &amp;array, std::function&lt; void(int)&gt; setter)" id="MainWindow::setupComboBox_a67fe40f4eade51246ce8d15e2e21625e" ref="class_main_window.html#a67fe40f4eade51246ce8d15e2e21625e"/>
 <keyword name="setupComboBoxBitflag(QComboBox *comboBox, const Ui::ComboBoxData &amp;array, unsigned int &amp;variable)" id="MainWindow::setupComboBoxBitflag_a95aa48c55dd2e279dfea5dfa485b578f" ref="class_main_window.html#a95aa48c55dd2e279dfea5dfa485b578f"/>
-<keyword name="setupConnectMenu()" id="DatabaseAccessWindow::setupConnectMenu_aa3ff9d3f01e4fbb92547b7882b7e14d2" ref="class_database_access_window.html#aa3ff9d3f01e4fbb92547b7882b7e14d2"/>
+<keyword name="setupConnectMenu()" id="DatabaseMainWindow::setupConnectMenu_afda8ad017308aec76d4201aaac2b4a22" ref="class_database_main_window.html#afda8ad017308aec76d4201aaac2b4a22"/>
 <keyword name="setupFileMenu()" id="MainWindow::setupFileMenu_abbef0fd765240e301926c130a94a7949" ref="class_main_window.html#abbef0fd765240e301926c130a94a7949"/>
-<keyword name="setupLineEditHostname(QLineEdit *lineEdit)" id="DatabaseAccessWindow::setupLineEditHostname_ab8393a2a6ab3a3d54b044ca4d8853e0d" ref="class_database_access_window.html#ab8393a2a6ab3a3d54b044ca4d8853e0d"/>
+<keyword name="setupLineEditHostname(QLineEdit *lineEdit)" id="DatabaseMainWindow::setupLineEditHostname_a1db172379f4be2ef5d8f152f8750a28b" ref="class_database_main_window.html#a1db172379f4be2ef5d8f152f8750a28b"/>
 <keyword name="setupLineEditNumberUnsigned(QLineEdit *lineEdit, const unsigned int minValue, const unsigned int maxValue, std::function&lt; void(unsigned int)&gt; setter)" id="MainWindow::setupLineEditNumberUnsigned_a485780b29edadb78b1cf2b8db7f86b82" ref="class_main_window.html#a485780b29edadb78b1cf2b8db7f86b82"/>
 <keyword name="setupPageEventFlags()" id="MainWindow::setupPageEventFlags_af927e3a1e9e0eadf1b507e8a3b97aa2a" ref="class_main_window.html#af927e3a1e9e0eadf1b507e8a3b97aa2a"/>
 <keyword name="setupPageItems()" id="MainWindow::setupPageItems_a8ec7ab6c42133713b9c9af8c20414f9c" ref="class_main_window.html#a8ec7ab6c42133713b9c9af8c20414f9c"/>
 <keyword name="setupPageMain()" id="MainWindow::setupPageMain_aff87a8d774d273cfde80316a655f91f5" ref="class_main_window.html#aff87a8d774d273cfde80316a655f91f5"/>
-<keyword name="setupSaveListMenu()" id="DatabaseAccessWindow::setupSaveListMenu_a8784e10dbdaa5636839a580ff353d9fd" ref="class_database_access_window.html#a8784e10dbdaa5636839a580ff353d9fd"/>
+<keyword name="setupSaveListMenu()" id="DatabaseMainWindow::setupSaveListMenu_a023cdd2cac2709143ef1f007909442cd" ref="class_database_main_window.html#a023cdd2cac2709143ef1f007909442cd"/>
 <keyword name="setupSlotMenu()" id="MainWindow::setupSlotMenu_a1a830e7d3c286db15af827a6a482b44e" ref="class_main_window.html#a1a830e7d3c286db15af827a6a482b44e"/>
 <keyword name="setUsername(const QString &amp;username_)" id="DatabaseManager::setUsername_aee1a3d22bdd38b971f0ea3dcb45924bd" ref="class_database_manager.html#aee1a3d22bdd38b971f0ea3dcb45924bd"/>
 <keyword name="setWeek(const short)" id="SaveManager::setWeek_a39b5724f7bac31d4b54a6cafa97962b0" ref="class_save_manager.html#a39b5724f7bac31d4b54a6cafa97962b0"/>
@@ -1928,7 +1910,7 @@
 <keyword name="SUBWEAPON_CROSS" id="SaveData::SUBWEAPON_CROSS_af65974cd9c39d5667331f040088b10fdac35a3eaea0e443155d1acd8cdddfefb3" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdac35a3eaea0e443155d1acd8cdddfefb3"/>
 <keyword name="SUBWEAPON_AXE" id="SaveData::SUBWEAPON_AXE_af65974cd9c39d5667331f040088b10fda862426d40c5c2fe6c4dac67fb47f958c" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda862426d40c5c2fe6c4dac67fb47f958c"/>
 <keyword name="swapEndianness(QByteArray *)" id="FileLoader::swapEndianness_a771287ce55fb02a818398c1ad4428a3c" ref="class_file_loader.html#a771287ce55fb02a818398c1ad4428a3c"/>
-<keyword name="switchPage(QStackedWidget *stackedWidget, const QWidget *page)" id="DatabaseAccessWindow::switchPage_a2ee9292579e203a6c4342bb6bed50ed2" ref="class_database_access_window.html#a2ee9292579e203a6c4342bb6bed50ed2"/>
+<keyword name="switchPage(QStackedWidget *stackedWidget, const QWidget *page)" id="DatabaseMainWindow::switchPage_a7b7889256744bbb5a611a592dd1552e5" ref="class_database_main_window.html#a7b7889256744bbb5a611a592dd1552e5"/>
 <keyword name="switchPage(QStackedWidget *stackedWidgetPages, const QWidget *page)" id="MainWindow::switchPage_a9b7360f461dc4d169ba03937ce10f8e6" ref="class_main_window.html#a9b7360f461dc4d169ba03937ce10f8e6"/>
 <keyword name="TENSHU" id="SaveData::TENSHU_a6f7b040f15df3a993ebf9373a1e0ad99a5d6d7a060df5e9ffbca2e280761979c2" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a5d6d7a060df5e9ffbca2e280761979c2"/>
 <keyword name="TEST_GRID" id="SaveData::TEST_GRID_a6f7b040f15df3a993ebf9373a1e0ad99a24b861a5d1fe60f638f4339f8a9f5ee0" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a24b861a5d1fe60f638f4339f8a9f5ee0"/>
@@ -1939,7 +1921,7 @@
 <keyword name="TOUOKUJI" id="SaveData::TOUOKUJI_a6f7b040f15df3a993ebf9373a1e0ad99aeda7581b9633959950b6d938e82d5097" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99aeda7581b9633959950b6d938e82d5097"/>
 <keyword name="TURO_TOKEITOU" id="SaveData::TURO_TOKEITOU_a6f7b040f15df3a993ebf9373a1e0ad99a7c13d8e4d8842c6737fa241dc959fd81" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a7c13d8e4d8842c6737fa241dc959fd81"/>
 <keyword name="ui" id="ControllerPakSelectionWindow::ui_aecfab33d599697990f1f5f85b81a4ebe" ref="class_controller_pak_selection_window.html#aecfab33d599697990f1f5f85b81a4ebe"/>
-<keyword name="ui" id="DatabaseAccessWindow::ui_a36e85858b47174b36999b4a2765bfd17" ref="class_database_access_window.html#a36e85858b47174b36999b4a2765bfd17"/>
+<keyword name="ui" id="DatabaseMainWindow::ui_aa834099b7856dfffc33f6a2cb9bf5899" ref="class_database_main_window.html#aa834099b7856dfffc33f6a2cb9bf5899"/>
 <keyword name="ui" id="DatabaseSaveListActionWindow::ui_a05093853167e112cc88a0868534656f9" ref="class_database_save_list_action_window.html#a05093853167e112cc88a0868534656f9"/>
 <keyword name="ui" id="MainWindow::ui_a35466a70ed47252a0191168126a352a5" ref="class_main_window.html#a35466a70ed47252a0191168126a352a5"/>
 <keyword name="unassignEventFlags(const int, const unsigned int)" id="SaveManager::unassignEventFlags_a3e6f7635ad47957892d85341d273f532" ref="class_save_manager.html#a3e6f7635ad47957892d85341d273f532"/>
@@ -1963,8 +1945,8 @@
 <keyword name="writeSaveSlot(QFile &amp;file, SaveSlot &amp;slot, unsigned int startOffset)" id="FileLoader::writeSaveSlot_a8a5fbd15b377d95bbfe921594dcc747a" ref="class_file_loader.html#a8a5fbd15b377d95bbfe921594dcc747a"/>
 <keyword name="~ControllerPakSelectionWindow()" id="ControllerPakSelectionWindow::~ControllerPakSelectionWindow_a52248a587cf6911c75859493a631e699" ref="class_controller_pak_selection_window.html#a52248a587cf6911c75859493a631e699"/>
 <keyword name="~Database()" id="Database::~Database_a749d9987dd49d441d8e938f1706583db" ref="class_database.html#a749d9987dd49d441d8e938f1706583db"/>
-<keyword name="~DatabaseAccessWindow()" id="DatabaseAccessWindow::~DatabaseAccessWindow_af90d1b5e705c3a81ceea28505931fe02" ref="class_database_access_window.html#af90d1b5e705c3a81ceea28505931fe02"/>
 <keyword name="~DatabaseCouch()" id="DatabaseCouch::~DatabaseCouch_a3144bc777b8993775f4994d5c4009fd3" ref="class_database_couch.html#a3144bc777b8993775f4994d5c4009fd3"/>
+<keyword name="~DatabaseMainWindow()" id="DatabaseMainWindow::~DatabaseMainWindow_af2fff8810246c402834d0eb7a9c3e565" ref="class_database_main_window.html#af2fff8810246c402834d0eb7a9c3e565"/>
 <keyword name="~DatabaseManager()" id="DatabaseManager::~DatabaseManager_ae9b3a5da1e04fbb00faf8a034da1d063" ref="class_database_manager.html#ae9b3a5da1e04fbb00faf8a034da1d063"/>
 <keyword name="~DatabaseSaveListActionWindow()" id="DatabaseSaveListActionWindow::~DatabaseSaveListActionWindow_a40103bd99f0581454464ba9eb044c95d" ref="class_database_save_list_action_window.html#a40103bd99f0581454464ba9eb044c95d"/>
 <keyword name="~FileLoader()" id="FileLoader::~FileLoader_a3e9444022cd5cc90535917ae3687c69e" ref="class_file_loader.html#a3e9444022cd5cc90535917ae3687c69e"/>
@@ -2033,12 +2015,12 @@
 <file>class_database-members.html</file>
 <file>class_database.html</file>
 <file>class_database.png</file>
-<file>class_database_access_window-members.html</file>
-<file>class_database_access_window.html</file>
-<file>class_database_access_window.png</file>
 <file>class_database_couch-members.html</file>
 <file>class_database_couch.html</file>
 <file>class_database_couch.png</file>
+<file>class_database_main_window-members.html</file>
+<file>class_database_main_window.html</file>
+<file>class_database_main_window.png</file>
 <file>class_database_manager-members.html</file>
 <file>class_database_manager.html</file>
 <file>class_database_save_list_action_window-members.html</file>
@@ -2255,8 +2237,8 @@
 <file>struct_file_loader_dex_drive-members.html</file>
 <file>struct_file_loader_dex_drive.html</file>
 <file>struct_file_loader_dex_drive.png</file>
-<file>struct_file_manager_1_1_controller_pak_index_data-members.html</file>
-<file>struct_file_manager_1_1_controller_pak_index_data.html</file>
+<file>struct_file_manager_1_1_controller_pak_notetable_data-members.html</file>
+<file>struct_file_manager_1_1_controller_pak_notetable_data.html</file>
 <file>struct_main_window_1_1_slot_menu-members.html</file>
 <file>struct_main_window_1_1_slot_menu.html</file>
 <file>struct_save_data-members.html</file>

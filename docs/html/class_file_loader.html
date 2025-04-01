@@ -105,8 +105,7 @@ $(function(){initNavTree('class_file_loader.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_file_loader-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">FileLoader Class Reference<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
@@ -142,15 +141,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5e25c93d14b2369e48eab8d1bbc0f083"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab637c13de72fd64cabd6851d95983473" id="r_ab637c13de72fd64cabd6851d95983473"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab637c13de72fd64cabd6851d95983473">writeAllSaveSlots</a> (QFile &amp;file)</td></tr>
 <tr class="separator:ab637c13de72fd64cabd6851d95983473"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addfb14b25cd464fd852db8eb832fa00d" id="r_addfb14b25cd464fd852db8eb832fa00d"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:addfb14b25cd464fd852db8eb832fa00d"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#addfb14b25cd464fd852db8eb832fa00d">readData</a> (QDataStream &amp;inputStream, long offset)</td></tr>
-<tr class="separator:addfb14b25cd464fd852db8eb832fa00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04ccac001da70f4f8ea5d8a5debef41d" id="r_a04ccac001da70f4f8ea5d8a5debef41d"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:a04ccac001da70f4f8ea5d8a5debef41d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a04ccac001da70f4f8ea5d8a5debef41d">writeData</a> (QDataStream &amp;outputStream, long offset, T value)</td></tr>
-<tr class="separator:a04ccac001da70f4f8ea5d8a5debef41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
 <tr class="memitem:abab957ed87eb11df0f2df6f860708589" id="r_abab957ed87eb11df0f2df6f860708589"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abab957ed87eb11df0f2df6f860708589">readSaveSlot</a> (QFile &amp;file, <a class="el" href="struct_save_slot.html">SaveSlot</a> &amp;slot, unsigned int startOffset)</td></tr>
 <tr class="separator:abab957ed87eb11df0f2df6f860708589"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a5fbd15b377d95bbfe921594dcc747a" id="r_a8a5fbd15b377d95bbfe921594dcc747a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a5fbd15b377d95bbfe921594dcc747a">writeSaveSlot</a> (QFile &amp;file, <a class="el" href="struct_save_slot.html">SaveSlot</a> &amp;slot, unsigned int startOffset)</td></tr>
@@ -176,8 +166,6 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:af1f70ab6f3eb3766aa76268e92018d26" id="r_af1f70ab6f3eb3766aa76268e92018d26"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; unsigned char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1f70ab6f3eb3766aa76268e92018d26">getHeaderBytes</a> () const =0</td></tr>
 <tr class="memdesc:af1f70ab6f3eb3766aa76268e92018d26"><td class="mdescLeft">&#160;</td><td class="mdescRight">getHeaderBytes Get the raw bytes associated to the file's header, when applicable.  <br /></td></tr>
 <tr class="separator:af1f70ab6f3eb3766aa76268e92018d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6321a8623f4150630957457206ebb0ad" id="r_a6321a8623f4150630957457206ebb0ad"><td class="memItemLeft" align="right" valign="top">short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6321a8623f4150630957457206ebb0ad">getRegionEnumFromChar</a> (const unsigned char regionFromFile)</td></tr>
-<tr class="separator:a6321a8623f4150630957457206ebb0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa11da2471443d7c9def7f1f8db1a58c0" id="r_aa11da2471443d7c9def7f1f8db1a58c0"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa11da2471443d7c9def7f1f8db1a58c0">getNoteTableOffset</a> () const</td></tr>
 <tr class="separator:aa11da2471443d7c9def7f1f8db1a58c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2d625467baa8c42fba226701b71e546" id="r_ae2d625467baa8c42fba226701b71e546"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2d625467baa8c42fba226701b71e546">getNoteTableEntrySize</a> () const</td></tr>
@@ -189,9 +177,17 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ac0c2886bac87f4ede9d268fff254ae7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a771287ce55fb02a818398c1ad4428a3c" id="r_a771287ce55fb02a818398c1ad4428a3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a771287ce55fb02a818398c1ad4428a3c">swapEndianness</a> (QByteArray *)</td></tr>
 <tr class="separator:a771287ce55fb02a818398c1ad4428a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6321a8623f4150630957457206ebb0ad" id="r_a6321a8623f4150630957457206ebb0ad"><td class="memItemLeft" align="right" valign="top">short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6321a8623f4150630957457206ebb0ad">getRegionEnumFromChar</a> (const unsigned char regionFromFile)</td></tr>
+<tr class="separator:a6321a8623f4150630957457206ebb0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addfb14b25cd464fd852db8eb832fa00d" id="r_addfb14b25cd464fd852db8eb832fa00d"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:addfb14b25cd464fd852db8eb832fa00d"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#addfb14b25cd464fd852db8eb832fa00d">readData</a> (QDataStream &amp;inputStream, long offset)</td></tr>
+<tr class="separator:addfb14b25cd464fd852db8eb832fa00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ccac001da70f4f8ea5d8a5debef41d" id="r_a04ccac001da70f4f8ea5d8a5debef41d"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a04ccac001da70f4f8ea5d8a5debef41d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a04ccac001da70f4f8ea5d8a5debef41d">writeData</a> (QDataStream &amp;outputStream, long offset, T value)</td></tr>
+<tr class="separator:a04ccac001da70f4f8ea5d8a5debef41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a99132e282866b369e8c14ea327673314" id="r_a99132e282866b369e8c14ea327673314"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99132e282866b369e8c14ea327673314">searchHexInFile</a> (const QByteArray &amp;data, const std::vector&lt; unsigned char &gt; &amp;target)</td></tr>
 <tr class="separator:a99132e282866b369e8c14ea327673314"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -281,7 +277,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -308,7 +304,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -337,7 +333,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -364,7 +360,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -391,7 +387,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -418,7 +414,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -445,7 +441,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -476,7 +472,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -490,9 +486,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">short FileLoader::getRegionEnumFromChar </td>
@@ -501,11 +494,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -528,7 +516,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -555,7 +543,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -582,7 +570,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -609,7 +597,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -699,9 +687,6 @@ template&lt;typename T&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="struct_save_data.html">SaveData</a> &amp; FileLoader::readSaveData </td>
@@ -714,11 +699,6 @@ template&lt;typename T&gt; </div>
           <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>startOffset</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -728,9 +708,6 @@ template&lt;typename T&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void FileLoader::readSaveSlot </td>
@@ -748,11 +725,6 @@ template&lt;typename T&gt; </div>
           <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>startOffset</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -779,7 +751,7 @@ template&lt;typename T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -791,9 +763,6 @@ template&lt;typename T&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void FileLoader::swapEndianness </td>
@@ -802,11 +771,6 @@ template&lt;typename T&gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -880,9 +844,6 @@ template&lt;typename T&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void FileLoader::writeSaveData </td>
@@ -900,11 +861,6 @@ template&lt;typename T&gt; </div>
           <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>startOffset</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -914,9 +870,6 @@ template&lt;typename T&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void FileLoader::writeSaveSlot </td>
@@ -934,11 +887,6 @@ template&lt;typename T&gt; </div>
           <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>startOffset</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -986,7 +934,7 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>All of these offsets are relative to the very beginning of the file. Offset where the binary <a class="el" href="struct_save_data.html">SaveData</a> starts within the file </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>All of these offsets are relative to the very beginning of the file. Offset where the binary <a class="el" href="struct_save_data.html" title="The main save data structure.">SaveData</a> starts within the file </dd></dl>
 
 </div>
 </div>

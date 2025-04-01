@@ -1,7 +1,7 @@
 var searchData=
 [
   ['save_5fcrystal_5fnumber_0',['save_crystal_number',['../struct_save_data.html#aef8950ba769a3d336c00ab60b33b7b1b',1,'SaveData']]],
-  ['saveentries_1',['saveEntries',['../class_database_access_window.html#a0e6e59e9d81d83a352e76670f5b217bd',1,'DatabaseAccessWindow']]],
+  ['saveentries_1',['saveEntries',['../class_database_main_window.html#a3c2c8d18a24a7b57129af40756696bb3',1,'DatabaseMainWindow']]],
   ['saves_2',['saves',['../class_save_manager.html#a7c0e537e244ebab15447b32f19764949',1,'SaveManager']]],
   ['seconds_3',['seconds',['../struct_save_data.html#ab2650991a3d35c4d324ab305de433c8b',1,'SaveData']]],
   ['selectedslot_4',['selectedSlot',['../class_main_window.html#a65acd66fe3cff55ed73d403cecd0b18b',1,'MainWindow']]],

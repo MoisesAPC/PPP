@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initindexdata_0',['initIndexData',['../class_file_manager.html#a0310faeb42e1df8497348d517d8a3e2a',1,'FileManager']]]
+  ['initnotetabledata_0',['initNoteTableData',['../class_file_manager.html#a7ed6e608f20157ceb00d5e2e9aa0cfcf',1,'FileManager']]]
 ];

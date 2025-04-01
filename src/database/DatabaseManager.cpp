@@ -36,6 +36,12 @@ QString DatabaseManager::getDocumentRevision(const QString& id) {
     return "";
 }
 
+void DatabaseManager::getEntry(const QString& id, std::vector<SaveSlot>& entries) {
+    if (database != nullptr) {
+        database->getEntry(id, entries);
+    }
+}
+
 std::vector<Database::SaveBasicInfo> DatabaseManager::getAllEntries() {
     if (database != nullptr) {
         return database->getAllEntries();
@@ -50,6 +56,9 @@ void DatabaseManager::deleteEntry(const QString& id, const QString& rev) {
     }
 }
 
+/**
+ * @brief Depending on the database type, assign the appropiate database handling class.
+ */
 void DatabaseManager::assignDatabase() {
     if (database != nullptr) {
         delete database;
@@ -60,11 +69,5 @@ void DatabaseManager::assignDatabase() {
         case DATABASE_COUCHDB:
             database = new DatabaseCouch();
             break;
-    }
-}
-
-void DatabaseManager::getEntry(const QString& id, std::vector<SaveSlot>& entries) {
-    if (database != nullptr) {
-        database->getEntry(id, entries);
     }
 }

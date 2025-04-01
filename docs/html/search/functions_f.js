@@ -2,8 +2,8 @@ var searchData=
 [
   ['_7econtrollerpakselectionwindow_0',['~ControllerPakSelectionWindow',['../class_controller_pak_selection_window.html#a52248a587cf6911c75859493a631e699',1,'ControllerPakSelectionWindow']]],
   ['_7edatabase_1',['~Database',['../class_database.html#a749d9987dd49d441d8e938f1706583db',1,'Database']]],
-  ['_7edatabaseaccesswindow_2',['~DatabaseAccessWindow',['../class_database_access_window.html#af90d1b5e705c3a81ceea28505931fe02',1,'DatabaseAccessWindow']]],
-  ['_7edatabasecouch_3',['~DatabaseCouch',['../class_database_couch.html#a3144bc777b8993775f4994d5c4009fd3',1,'DatabaseCouch']]],
+  ['_7edatabasecouch_2',['~DatabaseCouch',['../class_database_couch.html#a3144bc777b8993775f4994d5c4009fd3',1,'DatabaseCouch']]],
+  ['_7edatabasemainwindow_3',['~DatabaseMainWindow',['../class_database_main_window.html#af2fff8810246c402834d0eb7a9c3e565',1,'DatabaseMainWindow']]],
   ['_7edatabasemanager_4',['~DatabaseManager',['../class_database_manager.html#ae9b3a5da1e04fbb00faf8a034da1d063',1,'DatabaseManager']]],
   ['_7edatabasesavelistactionwindow_5',['~DatabaseSaveListActionWindow',['../class_database_save_list_action_window.html#a40103bd99f0581454464ba9eb044c95d',1,'DatabaseSaveListActionWindow']]],
   ['_7efileloader_6',['~FileLoader',['../class_file_loader.html#a3e9444022cd5cc90535917ae3687c69e',1,'FileLoader']]],

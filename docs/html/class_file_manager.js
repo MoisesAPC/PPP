@@ -1,6 +1,6 @@
 var class_file_manager =
 [
-    [ "ControllerPakIndexData", "struct_file_manager_1_1_controller_pak_index_data.html", "struct_file_manager_1_1_controller_pak_index_data" ],
+    [ "ControllerPakNotetableData", "struct_file_manager_1_1_controller_pak_notetable_data.html", "struct_file_manager_1_1_controller_pak_notetable_data" ],
     [ "eFormat", "class_file_manager.html#aeecfd7bd59c4f57ed5bf46a90b03ef29", [
       [ "FORMAT_NOTE", "class_file_manager.html#aeecfd7bd59c4f57ed5bf46a90b03ef29a818a867daf26560635db699d7b4411e7", null ],
       [ "FORMAT_CONTROLLERPAK", "class_file_manager.html#aeecfd7bd59c4f57ed5bf46a90b03ef29a3e2da481d636b60cf14b7ceba8287ffa", null ],
@@ -10,19 +10,19 @@ var class_file_manager =
     [ "FileManager", "class_file_manager.html#a8afd512c06be9daf140cc19d71f9b391", null ],
     [ "~FileManager", "class_file_manager.html#abaed33b5b0c13b8a597db9335a1aacfa", null ],
     [ "FileManager", "class_file_manager.html#aa7a3a57837b1fd58e099c21b41afbaeb", null ],
-    [ "clearIndexData", "class_file_manager.html#acef8d66684e60cf669795ef78b8ac87a", null ],
+    [ "clearNoteTableData", "class_file_manager.html#aabd7d9cf8850811daa5ae199fcc816d5", null ],
     [ "createInstance", "class_file_manager.html#afc3bc63a02de87b6a8c4d8ddd269f9ac", null ],
     [ "destroyInstance", "class_file_manager.html#a9f4d6f2f54c54ea7afbb2650134f0d6b", null ],
     [ "determineFormat", "class_file_manager.html#a1a70a91f651fbd76d8ddea823b3df909", null ],
     [ "getBuffer", "class_file_manager.html#a88e83c1df36f4486c8ae8dd7589d6c89", null ],
     [ "getControllerPakCurrentlySelectedSaveIndex", "class_file_manager.html#ad6d2bfa44ad47b0ae6740231242905a7", null ],
-    [ "getControllerPakIndexDataArray", "class_file_manager.html#a032b1a91bf7d022a2800e497dd9b8684", null ],
+    [ "getControllerPakNotetableDataArray", "class_file_manager.html#ad16bce57e386fe3e158ba4bf909fed2f", null ],
     [ "getFile", "class_file_manager.html#a19e43696ac079c3102176b8256e867a3", null ],
     [ "getFileFormat", "class_file_manager.html#ab472de0dce60929575633c40dc3b8431", null ],
     [ "getFilepath", "class_file_manager.html#ad457a2267a9e807f50bdac8726aff360", null ],
     [ "getInstance", "class_file_manager.html#a455d2f65e7bf91d469b7b18ebc80700f", null ],
     [ "getLoader", "class_file_manager.html#a19fdb495b4a42a49b9ea608fbfd7f9d5", null ],
-    [ "initIndexData", "class_file_manager.html#a0310faeb42e1df8497348d517d8a3e2a", null ],
+    [ "initNoteTableData", "class_file_manager.html#a7ed6e608f20157ceb00d5e2e9aa0cfcf", null ],
     [ "openFile", "class_file_manager.html#a7944f413bc88a6598bff7718e271a181", null ],
     [ "setControllerPakCurrentlySelectedSaveIndex", "class_file_manager.html#a4e72582172882b3bce42f1c0d32bd7be", null ],
     [ "setFileFormat", "class_file_manager.html#a8e01aee16eadf9aec662a6044620ce83", null ],
@@ -38,7 +38,7 @@ var class_file_manager =
     [ "fileOpened", "class_file_manager.html#a94f9cebf44b6c5d7ad34fad710e1d5ca", null ],
     [ "filepath", "class_file_manager.html#a0baf27f1107ddc4a440d5e4ab05670b1", null ],
     [ "format", "class_file_manager.html#a6988deaf54fb21cc7044dbb06c81bf70", null ],
-    [ "indexDataArray", "class_file_manager.html#a55f21fcaf47604b439e0933e8036d0e0", null ],
     [ "instance", "class_file_manager.html#aea5432b3ba752f87360714fbf1f293f3", null ],
-    [ "loader", "class_file_manager.html#aecb7a5308fff2b9f4783b561f83e5f86", null ]
+    [ "loader", "class_file_manager.html#aecb7a5308fff2b9f4783b561f83e5f86", null ],
+    [ "noteTableArray", "class_file_manager.html#a90f8ba95af9aafe9d1bcec0d10ebfc5d", null ]
 ];

@@ -114,6 +114,9 @@ $(function(){initNavTree('class_main_window.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
+<p>Main window.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_main_window_8h_source.html">MainWindow.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for MainWindow:</div>
@@ -125,6 +128,7 @@ Inheritance diagram for MainWindow:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_main_window_1_1_slot_menu.html">SlotMenu</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">With this struct, we can keep track of the components inside the "Slot" menu option.  <a href="struct_main_window_1_1_slot_menu.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -161,16 +165,10 @@ Private Slots</h2></td></tr>
 <tr class="separator:a67fe40f4eade51246ce8d15e2e21625e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95aa48c55dd2e279dfea5dfa485b578f" id="r_a95aa48c55dd2e279dfea5dfa485b578f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95aa48c55dd2e279dfea5dfa485b578f">setupComboBoxBitflag</a> (QComboBox *comboBox, const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> &amp;array, unsigned int &amp;variable)</td></tr>
 <tr class="separator:a95aa48c55dd2e279dfea5dfa485b578f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab3b747fab6fc27fb9c94ac5f6e9a64f" id="r_aab3b747fab6fc27fb9c94ac5f6e9a64f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab3b747fab6fc27fb9c94ac5f6e9a64f">onPageButtonClicked</a> (QStackedWidget *stackedWidget, const QWidget *page)</td></tr>
-<tr class="separator:aab3b747fab6fc27fb9c94ac5f6e9a64f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b7360f461dc4d169ba03937ce10f8e6" id="r_a9b7360f461dc4d169ba03937ce10f8e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b7360f461dc4d169ba03937ce10f8e6">switchPage</a> (QStackedWidget *stackedWidgetPages, const QWidget *page)</td></tr>
-<tr class="separator:a9b7360f461dc4d169ba03937ce10f8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34cd38c778def0655d511b31798d2f29" id="r_a34cd38c778def0655d511b31798d2f29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34cd38c778def0655d511b31798d2f29">checkMandragoraAndNitroLineEdits</a> ()</td></tr>
-<tr class="separator:a34cd38c778def0655d511b31798d2f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af577a6e5132e994c055a89a540385a7e" id="r_af577a6e5132e994c055a89a540385a7e"><td class="memItemLeft" align="right" valign="top">QLineEdit *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af577a6e5132e994c055a89a540385a7e">createGridFlag</a> (QGridLayout *gridLayout, int flagSet, unsigned int flags)</td></tr>
-<tr class="separator:af577a6e5132e994c055a89a540385a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c3fa6917b681b3f1bd532ffd5a35c3c" id="r_a4c3fa6917b681b3f1bd532ffd5a35c3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c3fa6917b681b3f1bd532ffd5a35c3c">setupCheckBox</a> (QCheckBox *checkBox, unsigned int value, std::function&lt; void(unsigned int)&gt; setter, std::function&lt; void(unsigned int)&gt; unsetter)</td></tr>
 <tr class="separator:a4c3fa6917b681b3f1bd532ffd5a35c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af577a6e5132e994c055a89a540385a7e" id="r_af577a6e5132e994c055a89a540385a7e"><td class="memItemLeft" align="right" valign="top">QLineEdit *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af577a6e5132e994c055a89a540385a7e">createGridFlag</a> (QGridLayout *gridLayout, int flagSet, unsigned int flags)</td></tr>
+<tr class="separator:af577a6e5132e994c055a89a540385a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4f788f509252c0bf83befa7611776e0" id="r_ad4f788f509252c0bf83befa7611776e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4f788f509252c0bf83befa7611776e0">fileOpenMenu</a> ()</td></tr>
 <tr class="separator:ad4f788f509252c0bf83befa7611776e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adda69c6562ec70e9283e6d043cbb8dc4" id="r_adda69c6562ec70e9283e6d043cbb8dc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adda69c6562ec70e9283e6d043cbb8dc4">fileSaveMenu</a> ()</td></tr>
@@ -181,20 +179,16 @@ Private Slots</h2></td></tr>
 <tr class="separator:a41203a431f333d9578a21d60123270bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad38be884314eb7763925dee610f34542" id="r_ad38be884314eb7763925dee610f34542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad38be884314eb7763925dee610f34542">updateSlotMenuCheckedState</a> (int selectedSlotIndex, bool isMainSave)</td></tr>
 <tr class="separator:ad38be884314eb7763925dee610f34542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab3b747fab6fc27fb9c94ac5f6e9a64f" id="r_aab3b747fab6fc27fb9c94ac5f6e9a64f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab3b747fab6fc27fb9c94ac5f6e9a64f">onPageButtonClicked</a> (QStackedWidget *stackedWidget, const QWidget *page)</td></tr>
+<tr class="separator:aab3b747fab6fc27fb9c94ac5f6e9a64f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62d0ef52c06bf628ab32c71f90f63720" id="r_a62d0ef52c06bf628ab32c71f90f63720"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62d0ef52c06bf628ab32c71f90f63720">openFile</a> (const QString &amp;filename)</td></tr>
 <tr class="separator:a62d0ef52c06bf628ab32c71f90f63720"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5eaf8a5d2863a5834778d3fe6b8a46b" id="r_ab5eaf8a5d2863a5834778d3fe6b8a46b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5eaf8a5d2863a5834778d3fe6b8a46b">setSelectedSave</a> (const int slot)</td></tr>
-<tr class="separator:ab5eaf8a5d2863a5834778d3fe6b8a46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d291689a2407ba98ea2615c93da9dcd" id="r_a8d291689a2407ba98ea2615c93da9dcd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d291689a2407ba98ea2615c93da9dcd">getSelectedSave</a> () const</td></tr>
-<tr class="separator:a8d291689a2407ba98ea2615c93da9dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe3a4512d46b15b71a05aa6f1c794c56" id="r_afe3a4512d46b15b71a05aa6f1c794c56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe3a4512d46b15b71a05aa6f1c794c56">setIsMain</a> (const bool isMain_)</td></tr>
-<tr class="separator:afe3a4512d46b15b71a05aa6f1c794c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab85b427f5d9f93ba28336253953459a" id="r_aab85b427f5d9f93ba28336253953459a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab85b427f5d9f93ba28336253953459a">getIsMain</a> () const</td></tr>
-<tr class="separator:aab85b427f5d9f93ba28336253953459a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b7360f461dc4d169ba03937ce10f8e6" id="r_a9b7360f461dc4d169ba03937ce10f8e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b7360f461dc4d169ba03937ce10f8e6">switchPage</a> (QStackedWidget *stackedWidgetPages, const QWidget *page)</td></tr>
+<tr class="separator:a9b7360f461dc4d169ba03937ce10f8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34cd38c778def0655d511b31798d2f29" id="r_a34cd38c778def0655d511b31798d2f29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34cd38c778def0655d511b31798d2f29">checkMandragoraAndNitroLineEdits</a> ()</td></tr>
+<tr class="separator:a34cd38c778def0655d511b31798d2f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad23ae58ba5d148b138fd4ad57eacb7e6" id="r_ad23ae58ba5d148b138fd4ad57eacb7e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad23ae58ba5d148b138fd4ad57eacb7e6">selectComboBoxOption</a> (QComboBox &amp;comboBox, const QVariant data)</td></tr>
 <tr class="separator:ad23ae58ba5d148b138fd4ad57eacb7e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2d2a54f00c5ce7d9a5d87171930611e" id="r_ab2d2a54f00c5ce7d9a5d87171930611e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2d2a54f00c5ce7d9a5d87171930611e">updateBitSelection</a> (unsigned int &amp;variable, unsigned int newValue, const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> &amp;comboBoxData)</td></tr>
-<tr class="separator:ab2d2a54f00c5ce7d9a5d87171930611e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a762bc1282ce6ec461cff148a713a0ff1" id="r_a762bc1282ce6ec461cff148a713a0ff1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a762bc1282ce6ec461cff148a713a0ff1">enableUIComponents</a> (bool)</td></tr>
 <tr class="separator:a762bc1282ce6ec461cff148a713a0ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78e8d1405b468249d8fd826d9e7a9726" id="r_a78e8d1405b468249d8fd826d9e7a9726"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78e8d1405b468249d8fd826d9e7a9726">updateCheckboxEnabledVisibility</a> ()</td></tr>
@@ -203,6 +197,16 @@ Private Slots</h2></td></tr>
 <tr class="separator:a0298ff25e59884a08e9cb20809ec9b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6a39c3cb3ed2638a20c9140f5b8048f" id="r_ac6a39c3cb3ed2638a20c9140f5b8048f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6a39c3cb3ed2638a20c9140f5b8048f">convertFrameToTime</a> (const unsigned int frameCount, QLabel *output)</td></tr>
 <tr class="separator:ac6a39c3cb3ed2638a20c9140f5b8048f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5eaf8a5d2863a5834778d3fe6b8a46b" id="r_ab5eaf8a5d2863a5834778d3fe6b8a46b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5eaf8a5d2863a5834778d3fe6b8a46b">setSelectedSave</a> (const int slot)</td></tr>
+<tr class="separator:ab5eaf8a5d2863a5834778d3fe6b8a46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d291689a2407ba98ea2615c93da9dcd" id="r_a8d291689a2407ba98ea2615c93da9dcd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d291689a2407ba98ea2615c93da9dcd">getSelectedSave</a> () const</td></tr>
+<tr class="separator:a8d291689a2407ba98ea2615c93da9dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe3a4512d46b15b71a05aa6f1c794c56" id="r_afe3a4512d46b15b71a05aa6f1c794c56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe3a4512d46b15b71a05aa6f1c794c56">setIsMain</a> (const bool isMain_)</td></tr>
+<tr class="separator:afe3a4512d46b15b71a05aa6f1c794c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab85b427f5d9f93ba28336253953459a" id="r_aab85b427f5d9f93ba28336253953459a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab85b427f5d9f93ba28336253953459a">getIsMain</a> () const</td></tr>
+<tr class="separator:aab85b427f5d9f93ba28336253953459a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2d2a54f00c5ce7d9a5d87171930611e" id="r_ab2d2a54f00c5ce7d9a5d87171930611e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2d2a54f00c5ce7d9a5d87171930611e">updateBitSelection</a> (unsigned int &amp;variable, unsigned int newValue, const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> &amp;comboBoxData)</td></tr>
+<tr class="separator:ab2d2a54f00c5ce7d9a5d87171930611e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -216,28 +220,31 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a8e3e6ba29cafdd8a0416be9faa042e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdcbc9702c2a27cc4deaa269eb02178a" id="r_abdcbc9702c2a27cc4deaa269eb02178a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_main_window_1_1_slot_menu.html">SlotMenu</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abdcbc9702c2a27cc4deaa269eb02178a">slotMenuOptions</a> [4] = {}</td></tr>
 <tr class="separator:abdcbc9702c2a27cc4deaa269eb02178a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a043b7189b51505e5728c4de827b4aaa9" id="r_a043b7189b51505e5728c4de827b4aaa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a043b7189b51505e5728c4de827b4aaa9">comboBoxDataMap</a></td></tr>
-<tr class="separator:a043b7189b51505e5728c4de827b4aaa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37f310c1e7a96fb101566902c6e35bfa" id="r_a37f310c1e7a96fb101566902c6e35bfa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37f310c1e7a96fb101566902c6e35bfa">comboBoxDataCharacter</a></td></tr>
-<tr class="separator:a37f310c1e7a96fb101566902c6e35bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7633332104beecb3f76bcd5f58b99776" id="r_a7633332104beecb3f76bcd5f58b99776"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7633332104beecb3f76bcd5f58b99776">comboBoxDataButtonConfig</a></td></tr>
-<tr class="separator:a7633332104beecb3f76bcd5f58b99776"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a796761c539007ed8c966ecb132521aeb" id="r_a796761c539007ed8c966ecb132521aeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a796761c539007ed8c966ecb132521aeb">comboBoxDataSoundMode</a></td></tr>
-<tr class="separator:a796761c539007ed8c966ecb132521aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf0094b60625432a8765c77f60eb6411" id="r_aaf0094b60625432a8765c77f60eb6411"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf0094b60625432a8765c77f60eb6411">comboBoxDataSubweapon</a></td></tr>
-<tr class="separator:aaf0094b60625432a8765c77f60eb6411"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad06010bf22e1f3d5c5c6842695bd1507" id="r_ad06010bf22e1f3d5c5c6842695bd1507"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad06010bf22e1f3d5c5c6842695bd1507">comboBoxDataDifficulty</a></td></tr>
-<tr class="separator:ad06010bf22e1f3d5c5c6842695bd1507"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3658c28b39f3842a008da4eef690643" id="r_aa3658c28b39f3842a008da4eef690643"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3658c28b39f3842a008da4eef690643">comboBoxDataEndingReinhardt</a></td></tr>
-<tr class="separator:aa3658c28b39f3842a008da4eef690643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac030c7648ee1634c6f40f944a340e18c" id="r_ac030c7648ee1634c6f40f944a340e18c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac030c7648ee1634c6f40f944a340e18c">comboBoxDataEndingCarrie</a></td></tr>
-<tr class="separator:ac030c7648ee1634c6f40f944a340e18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17417fcc4b6b5c7fe074f604688f4c89" id="r_a17417fcc4b6b5c7fe074f604688f4c89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17417fcc4b6b5c7fe074f604688f4c89">comboBoxDataRegion</a></td></tr>
-<tr class="separator:a17417fcc4b6b5c7fe074f604688f4c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab18107435a3245001d14531017e7626e" id="r_ab18107435a3245001d14531017e7626e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab18107435a3245001d14531017e7626e">comboBoxDataLanguage</a></td></tr>
-<tr class="separator:ab18107435a3245001d14531017e7626e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52e76d1f233438f4d0ac81dc397bb51d" id="r_a52e76d1f233438f4d0ac81dc397bb51d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52e76d1f233438f4d0ac81dc397bb51d">comboBoxDataMap</a></td></tr>
+<tr class="separator:a52e76d1f233438f4d0ac81dc397bb51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36c7c53d8cac5d267211cbfe0f3f5c20" id="r_a36c7c53d8cac5d267211cbfe0f3f5c20"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36c7c53d8cac5d267211cbfe0f3f5c20">comboBoxDataCharacter</a></td></tr>
+<tr class="separator:a36c7c53d8cac5d267211cbfe0f3f5c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f0fc7ac99307092ae11d5e0e213c6a6" id="r_a9f0fc7ac99307092ae11d5e0e213c6a6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f0fc7ac99307092ae11d5e0e213c6a6">comboBoxDataButtonConfig</a></td></tr>
+<tr class="separator:a9f0fc7ac99307092ae11d5e0e213c6a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39fc3271ae47e91188783ef0dbe67604" id="r_a39fc3271ae47e91188783ef0dbe67604"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39fc3271ae47e91188783ef0dbe67604">comboBoxDataSoundMode</a></td></tr>
+<tr class="separator:a39fc3271ae47e91188783ef0dbe67604"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad75cd38c108a5ecbc2e65e283bf4f483" id="r_ad75cd38c108a5ecbc2e65e283bf4f483"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad75cd38c108a5ecbc2e65e283bf4f483">comboBoxDataSubweapon</a></td></tr>
+<tr class="separator:ad75cd38c108a5ecbc2e65e283bf4f483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eae266b50e91e082fb9394206613db7" id="r_a2eae266b50e91e082fb9394206613db7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2eae266b50e91e082fb9394206613db7">comboBoxDataDifficulty</a></td></tr>
+<tr class="separator:a2eae266b50e91e082fb9394206613db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5f50696e935b19744ba6659ff328305" id="r_ac5f50696e935b19744ba6659ff328305"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5f50696e935b19744ba6659ff328305">comboBoxDataEndingReinhardt</a></td></tr>
+<tr class="separator:ac5f50696e935b19744ba6659ff328305"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97a448178e97ddbd60df8299ef6e3f69" id="r_a97a448178e97ddbd60df8299ef6e3f69"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97a448178e97ddbd60df8299ef6e3f69">comboBoxDataEndingCarrie</a></td></tr>
+<tr class="separator:a97a448178e97ddbd60df8299ef6e3f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dae91b433207cbbd120243f8de8d1d3" id="r_a6dae91b433207cbbd120243f8de8d1d3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dae91b433207cbbd120243f8de8d1d3">comboBoxDataRegion</a></td></tr>
+<tr class="separator:a6dae91b433207cbbd120243f8de8d1d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9c72adea6b913e3064df531a6019ce1" id="r_aa9c72adea6b913e3064df531a6019ce1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9c72adea6b913e3064df531a6019ce1">comboBoxDataLanguage</a></td></tr>
+<tr class="separator:aa9c72adea6b913e3064df531a6019ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Main window. </p>
+<p>The application's main window </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a996c5a2b6f77944776856f08ec30858d" name="a996c5a2b6f77944776856f08ec30858d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a996c5a2b6f77944776856f08ec30858d">&#9670;&#160;</a></span>MainWindow()</h2>
 
@@ -633,6 +640,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section note"><dt>Note</dt><dd>This is public so that we can use this inside the database save list action button menu, when clicking on the "Edit" option. </dd></dl>
 
 </div>
 </div>
@@ -1046,6 +1054,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>This function unsets all the comboBoxData values from "variable", and then sets the "newValue" into the variable. </p>
 
 </div>
 </div>
@@ -1129,8 +1138,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a7633332104beecb3f76bcd5f58b99776" name="a7633332104beecb3f76bcd5f58b99776"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7633332104beecb3f76bcd5f58b99776">&#9670;&#160;</a></span>comboBoxDataButtonConfig</h2>
+<a id="a9f0fc7ac99307092ae11d5e0e213c6a6" name="a9f0fc7ac99307092ae11d5e0e213c6a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f0fc7ac99307092ae11d5e0e213c6a6">&#9670;&#160;</a></span>comboBoxDataButtonConfig</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1139,7 +1148,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataButtonConfig</td>
+          <td class="memname">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataButtonConfig</td>
         </tr>
       </table>
   </td>
@@ -1156,8 +1165,8 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a37f310c1e7a96fb101566902c6e35bfa" name="a37f310c1e7a96fb101566902c6e35bfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37f310c1e7a96fb101566902c6e35bfa">&#9670;&#160;</a></span>comboBoxDataCharacter</h2>
+<a id="a36c7c53d8cac5d267211cbfe0f3f5c20" name="a36c7c53d8cac5d267211cbfe0f3f5c20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36c7c53d8cac5d267211cbfe0f3f5c20">&#9670;&#160;</a></span>comboBoxDataCharacter</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1166,7 +1175,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataCharacter</td>
+          <td class="memname">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataCharacter</td>
         </tr>
       </table>
   </td>
@@ -1182,8 +1191,8 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ad06010bf22e1f3d5c5c6842695bd1507" name="ad06010bf22e1f3d5c5c6842695bd1507"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad06010bf22e1f3d5c5c6842695bd1507">&#9670;&#160;</a></span>comboBoxDataDifficulty</h2>
+<a id="a2eae266b50e91e082fb9394206613db7" name="a2eae266b50e91e082fb9394206613db7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eae266b50e91e082fb9394206613db7">&#9670;&#160;</a></span>comboBoxDataDifficulty</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1192,7 +1201,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataDifficulty</td>
+          <td class="memname">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataDifficulty</td>
         </tr>
       </table>
   </td>
@@ -1210,8 +1219,8 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ac030c7648ee1634c6f40f944a340e18c" name="ac030c7648ee1634c6f40f944a340e18c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac030c7648ee1634c6f40f944a340e18c">&#9670;&#160;</a></span>comboBoxDataEndingCarrie</h2>
+<a id="a97a448178e97ddbd60df8299ef6e3f69" name="a97a448178e97ddbd60df8299ef6e3f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97a448178e97ddbd60df8299ef6e3f69">&#9670;&#160;</a></span>comboBoxDataEndingCarrie</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1220,7 +1229,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataEndingCarrie</td>
+          <td class="memname">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataEndingCarrie</td>
         </tr>
       </table>
   </td>
@@ -1237,8 +1246,8 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="aa3658c28b39f3842a008da4eef690643" name="aa3658c28b39f3842a008da4eef690643"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3658c28b39f3842a008da4eef690643">&#9670;&#160;</a></span>comboBoxDataEndingReinhardt</h2>
+<a id="ac5f50696e935b19744ba6659ff328305" name="ac5f50696e935b19744ba6659ff328305"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f50696e935b19744ba6659ff328305">&#9670;&#160;</a></span>comboBoxDataEndingReinhardt</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1247,7 +1256,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataEndingReinhardt</td>
+          <td class="memname">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataEndingReinhardt</td>
         </tr>
       </table>
   </td>
@@ -1264,8 +1273,8 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ab18107435a3245001d14531017e7626e" name="ab18107435a3245001d14531017e7626e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab18107435a3245001d14531017e7626e">&#9670;&#160;</a></span>comboBoxDataLanguage</h2>
+<a id="aa9c72adea6b913e3064df531a6019ce1" name="aa9c72adea6b913e3064df531a6019ce1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9c72adea6b913e3064df531a6019ce1">&#9670;&#160;</a></span>comboBoxDataLanguage</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1274,7 +1283,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataLanguage</td>
+          <td class="memname">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataLanguage</td>
         </tr>
       </table>
   </td>
@@ -1288,14 +1297,14 @@ Private Attributes</h2></td></tr>
 <div class="line">        {{<span class="stringliteral">&quot;German&quot;</span>, <a class="code hl_enumvalue" href="struct_save_data.html#a7e6b4b14f08316bc1cc84e1cf432b4f1a1933262dffa046fd365fc78a9946ccf8">SaveData::GERMAN</a>}},</div>
 <div class="line">        {{<span class="stringliteral">&quot;French&quot;</span>, <a class="code hl_enumvalue" href="struct_save_data.html#a7e6b4b14f08316bc1cc84e1cf432b4f1af5032ea6ba7c7a03349b6cd8da5630e8">SaveData::FRENCH</a>}}</div>
 <div class="line">    }</div>
-<div class="ttc" id="astruct_save_data_html_a7e6b4b14f08316bc1cc84e1cf432b4f1a1933262dffa046fd365fc78a9946ccf8"><div class="ttname"><a href="struct_save_data.html#a7e6b4b14f08316bc1cc84e1cf432b4f1a1933262dffa046fd365fc78a9946ccf8">SaveData::GERMAN</a></div><div class="ttdeci">@ GERMAN</div><div class="ttdef"><b>Definition</b> Save.h:279</div></div>
-<div class="ttc" id="astruct_save_data_html_a7e6b4b14f08316bc1cc84e1cf432b4f1a361f34e742ea6c30864ce2011c6c7e2f"><div class="ttname"><a href="struct_save_data.html#a7e6b4b14f08316bc1cc84e1cf432b4f1a361f34e742ea6c30864ce2011c6c7e2f">SaveData::ENGLISH</a></div><div class="ttdeci">@ ENGLISH</div><div class="ttdef"><b>Definition</b> Save.h:277</div></div>
-<div class="ttc" id="astruct_save_data_html_a7e6b4b14f08316bc1cc84e1cf432b4f1af5032ea6ba7c7a03349b6cd8da5630e8"><div class="ttname"><a href="struct_save_data.html#a7e6b4b14f08316bc1cc84e1cf432b4f1af5032ea6ba7c7a03349b6cd8da5630e8">SaveData::FRENCH</a></div><div class="ttdeci">@ FRENCH</div><div class="ttdef"><b>Definition</b> Save.h:280</div></div>
+<div class="ttc" id="astruct_save_data_html_a7e6b4b14f08316bc1cc84e1cf432b4f1a1933262dffa046fd365fc78a9946ccf8"><div class="ttname"><a href="struct_save_data.html#a7e6b4b14f08316bc1cc84e1cf432b4f1a1933262dffa046fd365fc78a9946ccf8">SaveData::GERMAN</a></div><div class="ttdeci">@ GERMAN</div><div class="ttdef"><b>Definition</b> Save.h:227</div></div>
+<div class="ttc" id="astruct_save_data_html_a7e6b4b14f08316bc1cc84e1cf432b4f1a361f34e742ea6c30864ce2011c6c7e2f"><div class="ttname"><a href="struct_save_data.html#a7e6b4b14f08316bc1cc84e1cf432b4f1a361f34e742ea6c30864ce2011c6c7e2f">SaveData::ENGLISH</a></div><div class="ttdeci">@ ENGLISH</div><div class="ttdef"><b>Definition</b> Save.h:225</div></div>
+<div class="ttc" id="astruct_save_data_html_a7e6b4b14f08316bc1cc84e1cf432b4f1af5032ea6ba7c7a03349b6cd8da5630e8"><div class="ttname"><a href="struct_save_data.html#a7e6b4b14f08316bc1cc84e1cf432b4f1af5032ea6ba7c7a03349b6cd8da5630e8">SaveData::FRENCH</a></div><div class="ttdeci">@ FRENCH</div><div class="ttdef"><b>Definition</b> Save.h:228</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a043b7189b51505e5728c4de827b4aaa9" name="a043b7189b51505e5728c4de827b4aaa9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a043b7189b51505e5728c4de827b4aaa9">&#9670;&#160;</a></span>comboBoxDataMap</h2>
+<a id="a52e76d1f233438f4d0ac81dc397bb51d" name="a52e76d1f233438f4d0ac81dc397bb51d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52e76d1f233438f4d0ac81dc397bb51d">&#9670;&#160;</a></span>comboBoxDataMap</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1304,7 +1313,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataMap</td>
+          <td class="memname">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataMap</td>
         </tr>
       </table>
   </td>
@@ -1316,8 +1325,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a17417fcc4b6b5c7fe074f604688f4c89" name="a17417fcc4b6b5c7fe074f604688f4c89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17417fcc4b6b5c7fe074f604688f4c89">&#9670;&#160;</a></span>comboBoxDataRegion</h2>
+<a id="a6dae91b433207cbbd120243f8de8d1d3" name="a6dae91b433207cbbd120243f8de8d1d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dae91b433207cbbd120243f8de8d1d3">&#9670;&#160;</a></span>comboBoxDataRegion</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1326,7 +1335,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataRegion</td>
+          <td class="memname">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataRegion</td>
         </tr>
       </table>
   </td>
@@ -1340,14 +1349,14 @@ Private Attributes</h2></td></tr>
 <div class="line">        {{<span class="stringliteral">&quot;JPN&quot;</span>, <a class="code hl_enumvalue" href="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7af71bfe9a594abf6e287b85f8b4435a12">SaveData::JPN</a>}},</div>
 <div class="line">        {{<span class="stringliteral">&quot;PAL&quot;</span>, <a class="code hl_enumvalue" href="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7ad8aacb3ec749159c634cca99c6c54237">SaveData::PAL</a>}}</div>
 <div class="line">    }</div>
-<div class="ttc" id="astruct_save_data_html_aaa4d3af23170b53bab7bf0db434940b7a980d8d9b0344e238827c46794027e0e6"><div class="ttname"><a href="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7a980d8d9b0344e238827c46794027e0e6">SaveData::USA</a></div><div class="ttdeci">@ USA</div><div class="ttdef"><b>Definition</b> Save.h:270</div></div>
-<div class="ttc" id="astruct_save_data_html_aaa4d3af23170b53bab7bf0db434940b7ad8aacb3ec749159c634cca99c6c54237"><div class="ttname"><a href="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7ad8aacb3ec749159c634cca99c6c54237">SaveData::PAL</a></div><div class="ttdeci">@ PAL</div><div class="ttdef"><b>Definition</b> Save.h:272</div></div>
-<div class="ttc" id="astruct_save_data_html_aaa4d3af23170b53bab7bf0db434940b7af71bfe9a594abf6e287b85f8b4435a12"><div class="ttname"><a href="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7af71bfe9a594abf6e287b85f8b4435a12">SaveData::JPN</a></div><div class="ttdeci">@ JPN</div><div class="ttdef"><b>Definition</b> Save.h:271</div></div>
+<div class="ttc" id="astruct_save_data_html_aaa4d3af23170b53bab7bf0db434940b7a980d8d9b0344e238827c46794027e0e6"><div class="ttname"><a href="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7a980d8d9b0344e238827c46794027e0e6">SaveData::USA</a></div><div class="ttdeci">@ USA</div><div class="ttdef"><b>Definition</b> Save.h:218</div></div>
+<div class="ttc" id="astruct_save_data_html_aaa4d3af23170b53bab7bf0db434940b7ad8aacb3ec749159c634cca99c6c54237"><div class="ttname"><a href="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7ad8aacb3ec749159c634cca99c6c54237">SaveData::PAL</a></div><div class="ttdeci">@ PAL</div><div class="ttdef"><b>Definition</b> Save.h:220</div></div>
+<div class="ttc" id="astruct_save_data_html_aaa4d3af23170b53bab7bf0db434940b7af71bfe9a594abf6e287b85f8b4435a12"><div class="ttname"><a href="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7af71bfe9a594abf6e287b85f8b4435a12">SaveData::JPN</a></div><div class="ttdeci">@ JPN</div><div class="ttdef"><b>Definition</b> Save.h:219</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a796761c539007ed8c966ecb132521aeb" name="a796761c539007ed8c966ecb132521aeb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a796761c539007ed8c966ecb132521aeb">&#9670;&#160;</a></span>comboBoxDataSoundMode</h2>
+<a id="a39fc3271ae47e91188783ef0dbe67604" name="a39fc3271ae47e91188783ef0dbe67604"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39fc3271ae47e91188783ef0dbe67604">&#9670;&#160;</a></span>comboBoxDataSoundMode</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1356,7 +1365,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataSoundMode</td>
+          <td class="memname">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataSoundMode</td>
         </tr>
       </table>
   </td>
@@ -1372,8 +1381,8 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="aaf0094b60625432a8765c77f60eb6411" name="aaf0094b60625432a8765c77f60eb6411"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf0094b60625432a8765c77f60eb6411">&#9670;&#160;</a></span>comboBoxDataSubweapon</h2>
+<a id="ad75cd38c108a5ecbc2e65e283bf4f483" name="ad75cd38c108a5ecbc2e65e283bf4f483"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad75cd38c108a5ecbc2e65e283bf4f483">&#9670;&#160;</a></span>comboBoxDataSubweapon</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1382,7 +1391,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataSubweapon</td>
+          <td class="memname">const <a class="el" href="namespace_ui.html#adb491832e1353e97d8bc7bfd31de5b22">Ui::ComboBoxData</a> MainWindow::comboBoxDataSubweapon</td>
         </tr>
       </table>
   </td>
@@ -1422,6 +1431,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The currently-selected save slot </p>
 
 </div>
 </div>
@@ -1466,6 +1476,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The options found in the "Slot" menu </p>
 
 </div>
 </div>
@@ -1488,6 +1499,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>If true, the "Main" save is selected. Otherwise, the "Beginning of Stage" save is selected. </p>
 
 </div>
 </div>
@@ -1532,6 +1544,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The array of line edits that appear in the "Event Flags" page </p>
 
 </div>
 </div>

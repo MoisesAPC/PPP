@@ -1,3 +1,12 @@
+/**
+ * @file Database.cpp
+ * @brief Database source code file
+ *
+ * This source code file contains the code for the database operations.
+ *
+ * @author Moisés Antonio Pestano Castro
+ */
+
 #include "include/database/Database.h"
 #include "include/database/DatabaseManager.h"
 #include <QEventLoop>
@@ -7,14 +16,19 @@
 #include <QUrlQuery>
 #include <QJsonArray>
 
-// IMPORTANT: We need this code in order to ensure that the "reply" operation (for example, creating a new database entry, deleting, etc)
-// is finished BEFORE the code below gets executed (i.e. synchronously)
+/**
+ * @important We need this code in order to ensure that the "reply" operation
+ * (for example, creating a new database entry, deleting, etc) is finished *BEFORE* the code below gets executed (i.e. synchronously).
+ */
 void Database::waitForEventToFinish(QNetworkReply* reply) {
     QEventLoop loop;
     connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
     loop.exec();
 }
 
+/**
+ * @brief Request connecting to the database
+ */
 bool DatabaseCouch::connectToDatabase() {
     DatabaseManager* databaseManager = DatabaseManager::getInstance()->getInstance();
     QNetworkAccessManager* networkManager = databaseManager->allocNetworkAccessManager();
@@ -43,10 +57,16 @@ bool DatabaseCouch::connectToDatabase() {
     return success;
 }
 
+/**
+ * @brief Disconnect from the database
+ */
 void DatabaseCouch::disconnectFromDatabase() {
     DatabaseManager::getInstance()->destroyNetworkAccessManager();
 }
 
+/**
+ * @brief Create an entire save file entry in the database
+ */
 void DatabaseCouch::createEntry(const QString& id, const std::vector<SaveSlot>& entries, const QString& rev) {
     QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
     QNetworkRequest request(url);
@@ -66,7 +86,6 @@ void DatabaseCouch::createEntry(const QString& id, const std::vector<SaveSlot>& 
         }
     }
 
-    // Send the "PUT" request with the JSON object (converted from the SaveSlot) and wait for the reply
     QJsonArray jsonArray;
     for (int i = 0; i < NUM_SAVES; i++) {
         jsonArray.append(parseSaveSlotToJSON(entries[i]));
@@ -82,6 +101,7 @@ void DatabaseCouch::createEntry(const QString& id, const std::vector<SaveSlot>& 
         jsonDoc["_rev"] = rev;
     }
 
+    // Send the "PUT" request with the JSON object (converted from the SaveSlot) and wait for the reply
     QNetworkReply* reply = DatabaseManager::getInstance()->getNetworkAccessManager()->put(request, QJsonDocument(jsonDoc).toJson());
 
     waitForEventToFinish(reply);
@@ -101,6 +121,9 @@ bool DatabaseCouch::entryAlreadyExistsGivenRequest(const QNetworkRequest& reques
     return documentExists;
 }
 
+/**
+ * @brief If true, the entry with the given document ID already exists in the database.
+ */
 bool DatabaseCouch::entryAlreadyExists(const QString& id) {
     QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
     QNetworkRequest request(url);
@@ -110,6 +133,10 @@ bool DatabaseCouch::entryAlreadyExists(const QString& id) {
     return entryAlreadyExistsGivenRequest(request);
 }
 
+/**
+ * Given a database operation reply (the result obtained *after* performing the database operation),
+ * this function prints a success or error message depending on the result obtained.
+ */
 void DatabaseCouch::getDatabaseRequestReply(QNetworkReply* reply) {
     if (reply == nullptr) {
         QMessageBox::critical(nullptr, "", "An error has occurred while performing this operation.");
@@ -118,6 +145,8 @@ void DatabaseCouch::getDatabaseRequestReply(QNetworkReply* reply) {
 
     QByteArray responseData = reply->readAll();
     QJsonDocument jsonResponse = QJsonDocument::fromJson(responseData);
+
+    // Detailed error message
     QString responseText = jsonResponse.isNull() ? QString(responseData) : jsonResponse.toJson(QJsonDocument::Indented);
 
     if (reply->error() == QNetworkReply::NoError) {
@@ -131,6 +160,9 @@ void DatabaseCouch::getDatabaseRequestReply(QNetworkReply* reply) {
     reply->deleteLater();
 }
 
+/**
+ * @brief Parse a save data to JSON in order to ensure it's in the format accepted by CouchDB.
+ */
 QJsonObject DatabaseCouch::readSaveDataToJSON(const SaveData& saveData) {
     QJsonObject json;
     QJsonArray eventFlagsArray;
@@ -175,6 +207,9 @@ QJsonObject DatabaseCouch::readSaveDataToJSON(const SaveData& saveData) {
     return json;
 }
 
+/**
+ * @brief Parse a JSON entry from the database to the save data struct.
+ */
 SaveData DatabaseCouch::parseJSONToSaveData(const QJsonObject& json) {
     SaveData saveData = {};
 
@@ -217,6 +252,9 @@ SaveData DatabaseCouch::parseJSONToSaveData(const QJsonObject& json) {
     return saveData;
 }
 
+/**
+ * @brief Parse a save slot to JSON in order to ensure it's in the format accepted by CouchDB.
+ */
 QJsonObject DatabaseCouch::parseSaveSlotToJSON(const SaveSlot& saveSlot) {
     QJsonObject json;
 
@@ -229,6 +267,9 @@ QJsonObject DatabaseCouch::parseSaveSlotToJSON(const SaveSlot& saveSlot) {
     return json;
 }
 
+/**
+ * @brief Parse a JSON entry from the database to the save slot struct.
+ */
 SaveSlot DatabaseCouch::parseJSONToSaveSlot(const QJsonObject& json) {
     SaveSlot saveSlot;
 
@@ -241,7 +282,9 @@ SaveSlot DatabaseCouch::parseJSONToSaveSlot(const QJsonObject& json) {
     return saveSlot;
 }
 
-// Call this function when doing GET, PUT, etc, so that you are authorized to enter the DB
+/**
+ * @brief Call this function when doing GET, PUT, etc, so that you are authorized to enter the database.
+ */
 void DatabaseCouch::createAuthorizationHeader(QNetworkRequest& request) {
     DatabaseManager* databaseManager = DatabaseManager::getInstance();
 
@@ -250,6 +293,12 @@ void DatabaseCouch::createAuthorizationHeader(QNetworkRequest& request) {
     request.setRawHeader("Authorization", authHeader.toUtf8());
 }
 
+/**
+ * @brief Get all entries from the database.
+ *
+ * Each entry follows the "Database::SaveBasicInfo" format, containing variables needed to identify
+ * each save inside the database.
+ */
 std::vector<Database::SaveBasicInfo> DatabaseCouch::getAllEntries() {
     std::vector<Database::SaveBasicInfo> entries;
     entries.clear();
@@ -276,6 +325,9 @@ std::vector<Database::SaveBasicInfo> DatabaseCouch::getAllEntries() {
     return entries;
 }
 
+/**
+ * @brief Parses the entries obtained in the "getAllEntries" function into a "Database::SaveBasicInfo" array.
+ */
 void DatabaseCouch::parseGetAllEntriesResponse(const QByteArray& data, std::vector<Database::SaveBasicInfo>& entries) {
     QJsonDocument jsonDoc = QJsonDocument::fromJson(data);
     QJsonObject jsonObj = jsonDoc.object();
@@ -299,6 +351,9 @@ void DatabaseCouch::parseGetAllEntriesResponse(const QByteArray& data, std::vect
     }
 }
 
+/**
+ * @brief Delete an entry from the database
+ */
 void DatabaseCouch::deleteEntry(const QString& id, const QString& rev) {
     QUrl url(QString("http://%1:%2/%3/%4").arg(getHostname()).arg(getPort()).arg(getDatabaseName()).arg(id));
     // We need to add the "rev" field to ensure the deletion is properly made
@@ -317,7 +372,9 @@ void DatabaseCouch::deleteEntry(const QString& id, const QString& rev) {
     reply->deleteLater();
 }
 
-// Obtains the document's associated "rev" given the documentId
+/**
+ * @brief Obtains the document's associated "rev" given the documentId
+ */
 QString DatabaseCouch::getDocumentRevision(const QString& documentId) {
     QUrl url(QString("http://%1:%2/%3/%4")
                  .arg(getHostname())
@@ -343,6 +400,10 @@ QString DatabaseCouch::getDocumentRevision(const QString& documentId) {
     return rev;
 }
 
+/**
+ * @brief Obtains a single save slot entry from the database, given its document ID.
+ * The result isa stored in the "array" argument.
+ */
 void DatabaseCouch::getEntry(const QString& id, std::vector<SaveSlot>& array) {
     array.clear();
 

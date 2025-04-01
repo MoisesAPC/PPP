@@ -97,7 +97,7 @@ var struct_save_data =
       [ "PLAYER_FLAG_POISON", "struct_save_data.html#acee1873b009042d499f5ea197c28c75daef4ba11b47833a0e9f15f83cc2b4336e", null ]
     ] ],
     [ "SaveFlag", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcf", [
-      [ "SAVE_FLAG_GAME_WAS_SAVED_MID_PLAY", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa59848f8e0dff10d72897ffe7721ed9aa", null ],
+      [ "SAVE_FLAG_ENABLE_SAVE", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa41208b30a3759413973d622316774971", null ],
       [ "SAVE_FLAG_EASY", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfab4945cd4e028f97894ffeb5468bf07ca", null ],
       [ "SAVE_FLAG_NORMAL", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa832347df6da512becfc826bafafcdb02", null ],
       [ "SAVE_FLAG_HARD", "struct_save_data.html#a5e441fbc2ceabdb42800e49837699fcfa0c7c5d289c22336504832ef4c0210b05", null ],
@@ -121,7 +121,6 @@ var struct_save_data =
     [ "getEventFlags", "struct_save_data.html#ac93501af9494ee2b7732f233d5964a4b", null ],
     [ "getFlag", "struct_save_data.html#a60a818c910c9e2f13b47596f63497cde", null ],
     [ "getItem", "struct_save_data.html#afaee0d3ba9fa2b9e272498a542109bd8", null ],
-    [ "operator=", "struct_save_data.html#a1c5ca55190c7632259a98e82d4cb74c7", null ],
     [ "button_config", "struct_save_data.html#aee3773e306482155d8f8263a4e3aaedf", null ],
     [ "character", "struct_save_data.html#aaa36fd4c04e7ce5a6c9513b824bc16c6", null ],
     [ "current_hour_VAMP", "struct_save_data.html#a93d6de610d8611fc08d758e5fd874b18", null ],

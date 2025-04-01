@@ -115,18 +115,15 @@ $(function(){initNavTree('class_save_manager.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_save_manager.html" title="SaveManager singleton class definition.">SaveManager</a> singleton class definition.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_save_manager_8h_source.html">SaveManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abd50534474b601ccadb4d7a3504e1301" id="r_abd50534474b601ccadb4d7a3504e1301"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd50534474b601ccadb4d7a3504e1301">parseRegion</a> (QFile &amp;file)</td></tr>
 <tr class="separator:abd50534474b601ccadb4d7a3504e1301"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4938428f9985fd146f840e602c21e035" id="r_a4938428f9985fd146f840e602c21e035"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_save_data.html">SaveData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4938428f9985fd146f840e602c21e035">readSaveData</a> (QDataStream &amp;inputStream, long startOffset)</td></tr>
-<tr class="separator:a4938428f9985fd146f840e602c21e035"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ca21631e98e0fd573940c4080ffad0a" id="r_a2ca21631e98e0fd573940c4080ffad0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ca21631e98e0fd573940c4080ffad0a">parseSaveSlot</a> (QFile &amp;file, <a class="el" href="struct_save_slot.html">SaveSlot</a> &amp;slot, long startOffset)</td></tr>
-<tr class="separator:a2ca21631e98e0fd573940c4080ffad0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75980a93edfee544f1ded8f8732bf0cb" id="r_a75980a93edfee544f1ded8f8732bf0cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75980a93edfee544f1ded8f8732bf0cb">parseAllSaveSlots</a> (QFile &amp;file, long startOffset)</td></tr>
-<tr class="separator:a75980a93edfee544f1ded8f8732bf0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0460f8d33ab840c37b52812f2ffc9512" id="r_a0460f8d33ab840c37b52812f2ffc9512"><td class="memItemLeft" align="right" valign="top">short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0460f8d33ab840c37b52812f2ffc9512">getRegion</a> () const</td></tr>
 <tr class="separator:a0460f8d33ab840c37b52812f2ffc9512"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fa9280ba013631098e2fcc6b126d531" id="r_a8fa9280ba013631098e2fcc6b126d531"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fa9280ba013631098e2fcc6b126d531">setRegion</a> (const short)</td></tr>
@@ -211,8 +208,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a83bbad87329982fb983a3d2bd3b6593e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4dbe55938418ed2174fbb877c1e7f0e" id="r_ad4dbe55938418ed2174fbb877c1e7f0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4dbe55938418ed2174fbb877c1e7f0e">setSave</a> (const <a class="el" href="struct_save_slot.html">SaveSlot</a> &amp;save, const int index)</td></tr>
 <tr class="separator:ad4dbe55938418ed2174fbb877c1e7f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff96dcc4baa101dec8c6a9defdfcd6cc" id="r_aff96dcc4baa101dec8c6a9defdfcd6cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff96dcc4baa101dec8c6a9defdfcd6cc">createSlotMenu</a> ()</td></tr>
-<tr class="separator:aff96dcc4baa101dec8c6a9defdfcd6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fae04e04d4dd820ac431c137f859783" id="r_a2fae04e04d4dd820ac431c137f859783"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fae04e04d4dd820ac431c137f859783">assignDefaultValues</a> ()</td></tr>
 <tr class="separator:a2fae04e04d4dd820ac431c137f859783"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -227,8 +222,6 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aae3b23c40aa1d4a683adba01669dd4f6" id="r_aae3b23c40aa1d4a683adba01669dd4f6"><td class="memItemLeft" align="right" valign="top">short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae3b23c40aa1d4a683adba01669dd4f6">region</a> = <a class="el" href="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7a980d8d9b0344e238827c46794027e0e6">SaveData::USA</a></td></tr>
-<tr class="separator:aae3b23c40aa1d4a683adba01669dd4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8e0eca0d0b8b198c30e48edf3cf2b47" id="r_af8e0eca0d0b8b198c30e48edf3cf2b47"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8e0eca0d0b8b198c30e48edf3cf2b47">currentSave</a> = 0</td></tr>
 <tr class="separator:af8e0eca0d0b8b198c30e48edf3cf2b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a498a59efbcf7f087e62ab6d786d03fc1" id="r_a498a59efbcf7f087e62ab6d786d03fc1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a498a59efbcf7f087e62ab6d786d03fc1">isMain</a> = true</td></tr>
@@ -247,13 +240,18 @@ Private Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a7c0e537e244ebab15447b32f19764949" id="r_a7c0e537e244ebab15447b32f19764949"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_save_slot.html">SaveSlot</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c0e537e244ebab15447b32f19764949">saves</a> [<a class="el" href="_save_8h.html#ac79c80814ce9328ea16a17299422bc55">NUM_SAVES</a>]</td></tr>
 <tr class="separator:a7c0e537e244ebab15447b32f19764949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae3b23c40aa1d4a683adba01669dd4f6" id="r_aae3b23c40aa1d4a683adba01669dd4f6"><td class="memItemLeft" align="right" valign="top">short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae3b23c40aa1d4a683adba01669dd4f6">region</a> = <a class="el" href="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7a980d8d9b0344e238827c46794027e0e6">SaveData::USA</a></td></tr>
+<tr class="separator:aae3b23c40aa1d4a683adba01669dd4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a6c427a6218ef4e470b8f62337c322b04" id="r_a6c427a6218ef4e470b8f62337c322b04"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_save_manager.html">SaveManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c427a6218ef4e470b8f62337c322b04">instance</a> = nullptr</td></tr>
 <tr class="separator:a6c427a6218ef4e470b8f62337c322b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_save_manager.html" title="SaveManager singleton class definition.">SaveManager</a> singleton class definition. </p>
+<p>This singleton handles save-related operations. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab8bb791be648b9b91db44aa11f6e8e14" name="ab8bb791be648b9b91db44aa11f6e8e14"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8bb791be648b9b91db44aa11f6e8e14">&#9670;&#160;</a></span>SaveManager() <span class="overload">[1/2]</span></h2>
 
@@ -440,23 +438,6 @@ Static Private Attributes</h2></td></tr>
 <span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aff96dcc4baa101dec8c6a9defdfcd6cc" name="aff96dcc4baa101dec8c6a9defdfcd6cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff96dcc4baa101dec8c6a9defdfcd6cc">&#9670;&#160;</a></span>createSlotMenu()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SaveManager::createSlotMenu </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
 </div><div class="memdoc">
 
 </div>
@@ -708,27 +689,6 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a75980a93edfee544f1ded8f8732bf0cb" name="a75980a93edfee544f1ded8f8732bf0cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75980a93edfee544f1ded8f8732bf0cb">&#9670;&#160;</a></span>parseAllSaveSlots()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SaveManager::parseAllSaveSlots </td>
-          <td>(</td>
-          <td class="paramtype">QFile &amp;</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>startOffset</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="abd50534474b601ccadb4d7a3504e1301" name="abd50534474b601ccadb4d7a3504e1301"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abd50534474b601ccadb4d7a3504e1301">&#9670;&#160;</a></span>parseRegion()</h2>
 
@@ -740,53 +700,6 @@ Static Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">QFile &amp;</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2ca21631e98e0fd573940c4080ffad0a" name="a2ca21631e98e0fd573940c4080ffad0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ca21631e98e0fd573940c4080ffad0a">&#9670;&#160;</a></span>parseSaveSlot()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SaveManager::parseSaveSlot </td>
-          <td>(</td>
-          <td class="paramtype">QFile &amp;</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_save_slot.html">SaveSlot</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>slot</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>startOffset</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4938428f9985fd146f840e602c21e035" name="a4938428f9985fd146f840e602c21e035"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4938428f9985fd146f840e602c21e035">&#9670;&#160;</a></span>readSaveData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="struct_save_data.html">SaveData</a> &amp; SaveManager::readSaveData </td>
-          <td>(</td>
-          <td class="paramtype">QDataStream &amp;</td>          <td class="paramname"><span class="paramname"><em>inputStream</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>startOffset</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1368,11 +1281,19 @@ Static Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">short SaveManager::region = <a class="el" href="struct_save_data.html#aaa4d3af23170b53bab7bf0db434940b7a980d8d9b0344e238827c46794027e0e6">SaveData::USA</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

@@ -117,11 +117,14 @@ $(function(){initNavTree('class_file_manager.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_file_manager.html" title="FileManager singleton class definition.">FileManager</a> singleton class definition.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_file_manager_8h_source.html">FileManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_file_manager_1_1_controller_pak_index_data.html">ControllerPakIndexData</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_file_manager_1_1_controller_pak_notetable_data.html">ControllerPakNotetableData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
@@ -131,6 +134,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="#aeecfd7bd59c4f57ed5bf46a90b03ef29a26a5e2ae2dab90f09dc7700e4b6a5a9a">FORMAT_CARTRIDGE</a>
 , <a class="el" href="#aeecfd7bd59c4f57ed5bf46a90b03ef29ab042d838f1aa5c3dd60259d92e79ac45">FORMAT_DEXDRIVE</a>
  }</td></tr>
+<tr class="memdesc:aeecfd7bd59c4f57ed5bf46a90b03ef29"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file format of the opened file.  <a href="#aeecfd7bd59c4f57ed5bf46a90b03ef29">More...</a><br /></td></tr>
 <tr class="separator:aeecfd7bd59c4f57ed5bf46a90b03ef29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -153,20 +157,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad6d2bfa44ad47b0ae6740231242905a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e72582172882b3bce42f1c0d32bd7be" id="r_a4e72582172882b3bce42f1c0d32bd7be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e72582172882b3bce42f1c0d32bd7be">setControllerPakCurrentlySelectedSaveIndex</a> (int controllerPakCurrentlySelectedSaveIndex_)</td></tr>
 <tr class="separator:a4e72582172882b3bce42f1c0d32bd7be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7944f413bc88a6598bff7718e271a181" id="r_a7944f413bc88a6598bff7718e271a181"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7944f413bc88a6598bff7718e271a181">openFile</a> (const QString &amp;filepath_)</td></tr>
-<tr class="separator:a7944f413bc88a6598bff7718e271a181"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57a0da1c7b4231b2b374128105c33a78" id="r_a57a0da1c7b4231b2b374128105c33a78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57a0da1c7b4231b2b374128105c33a78">writeFile</a> (const QString &amp;filepath_)</td></tr>
-<tr class="separator:a57a0da1c7b4231b2b374128105c33a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a032b1a91bf7d022a2800e497dd9b8684" id="r_a032b1a91bf7d022a2800e497dd9b8684"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_file_manager_1_1_controller_pak_index_data.html">ControllerPakIndexData</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a032b1a91bf7d022a2800e497dd9b8684">getControllerPakIndexDataArray</a> ()</td></tr>
-<tr class="separator:a032b1a91bf7d022a2800e497dd9b8684"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0310faeb42e1df8497348d517d8a3e2a" id="r_a0310faeb42e1df8497348d517d8a3e2a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0310faeb42e1df8497348d517d8a3e2a">initIndexData</a> (QFile &amp;<a class="el" href="#afcc728b02094e2ac544730dfbab815a9">file</a>)</td></tr>
-<tr class="separator:a0310faeb42e1df8497348d517d8a3e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acef8d66684e60cf669795ef78b8ac87a" id="r_acef8d66684e60cf669795ef78b8ac87a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acef8d66684e60cf669795ef78b8ac87a">clearIndexData</a> ()</td></tr>
-<tr class="separator:acef8d66684e60cf669795ef78b8ac87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad16bce57e386fe3e158ba4bf909fed2f" id="r_ad16bce57e386fe3e158ba4bf909fed2f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_file_manager_1_1_controller_pak_notetable_data.html">ControllerPakNotetableData</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad16bce57e386fe3e158ba4bf909fed2f">getControllerPakNotetableDataArray</a> ()</td></tr>
+<tr class="separator:ad16bce57e386fe3e158ba4bf909fed2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c16abdd7d339479b8919d5abf40c12b" id="r_a5c16abdd7d339479b8919d5abf40c12b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c16abdd7d339479b8919d5abf40c12b">wasFileOpened</a> () const</td></tr>
 <tr class="separator:a5c16abdd7d339479b8919d5abf40c12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad514efca3d35b41cf6998f0b14274b9c" id="r_ad514efca3d35b41cf6998f0b14274b9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad514efca3d35b41cf6998f0b14274b9c">setFileOpened</a> (const bool fileOpened_)</td></tr>
 <tr class="separator:ad514efca3d35b41cf6998f0b14274b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7944f413bc88a6598bff7718e271a181" id="r_a7944f413bc88a6598bff7718e271a181"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7944f413bc88a6598bff7718e271a181">openFile</a> (const QString &amp;filepath_)</td></tr>
+<tr class="separator:a7944f413bc88a6598bff7718e271a181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57a0da1c7b4231b2b374128105c33a78" id="r_a57a0da1c7b4231b2b374128105c33a78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57a0da1c7b4231b2b374128105c33a78">writeFile</a> (const QString &amp;filepath_)</td></tr>
+<tr class="separator:a57a0da1c7b4231b2b374128105c33a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed6e608f20157ceb00d5e2e9aa0cfcf" id="r_a7ed6e608f20157ceb00d5e2e9aa0cfcf"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ed6e608f20157ceb00d5e2e9aa0cfcf">initNoteTableData</a> (QFile &amp;<a class="el" href="#afcc728b02094e2ac544730dfbab815a9">file</a>)</td></tr>
+<tr class="separator:a7ed6e608f20157ceb00d5e2e9aa0cfcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabd7d9cf8850811daa5ae199fcc816d5" id="r_aabd7d9cf8850811daa5ae199fcc816d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabd7d9cf8850811daa5ae199fcc816d5">clearNoteTableData</a> ()</td></tr>
+<tr class="separator:aabd7d9cf8850811daa5ae199fcc816d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -211,15 +215,18 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aecb7a5308fff2b9f4783b561f83e5f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94f9cebf44b6c5d7ad34fad710e1d5ca" id="r_a94f9cebf44b6c5d7ad34fad710e1d5ca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94f9cebf44b6c5d7ad34fad710e1d5ca">fileOpened</a> = false</td></tr>
 <tr class="separator:a94f9cebf44b6c5d7ad34fad710e1d5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55f21fcaf47604b439e0933e8036d0e0" id="r_a55f21fcaf47604b439e0933e8036d0e0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_file_manager_1_1_controller_pak_index_data.html">ControllerPakIndexData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55f21fcaf47604b439e0933e8036d0e0">indexDataArray</a> {<a class="el" href="#a44fba90dd4a1c17e61d842cff7e48dc2">CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES</a>}</td></tr>
-<tr class="separator:a55f21fcaf47604b439e0933e8036d0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90f8ba95af9aafe9d1bcec0d10ebfc5d" id="r_a90f8ba95af9aafe9d1bcec0d10ebfc5d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_file_manager_1_1_controller_pak_notetable_data.html">ControllerPakNotetableData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90f8ba95af9aafe9d1bcec0d10ebfc5d">noteTableArray</a> {<a class="el" href="#a44fba90dd4a1c17e61d842cff7e48dc2">CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES</a>}</td></tr>
+<tr class="separator:a90f8ba95af9aafe9d1bcec0d10ebfc5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:aea5432b3ba752f87360714fbf1f293f3" id="r_aea5432b3ba752f87360714fbf1f293f3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_file_manager.html">FileManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea5432b3ba752f87360714fbf1f293f3">instance</a> = nullptr</td></tr>
 <tr class="separator:aea5432b3ba752f87360714fbf1f293f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_file_manager.html" title="FileManager singleton class definition.">FileManager</a> singleton class definition. </p>
+<p>This singleton handles file-related operations. This class is a wrapper for file tasks. The specific operations are handled by the pre-assigned file parser (see the "loader" member variable). </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="aeecfd7bd59c4f57ed5bf46a90b03ef29" name="aeecfd7bd59c4f57ed5bf46a90b03ef29"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeecfd7bd59c4f57ed5bf46a90b03ef29">&#9670;&#160;</a></span>eFormat</h2>
 
@@ -231,6 +238,8 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The file format of the opened file. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aeecfd7bd59c4f57ed5bf46a90b03ef29a818a867daf26560635db699d7b4411e7" name="aeecfd7bd59c4f57ed5bf46a90b03ef29a818a867daf26560635db699d7b4411e7"></a>FORMAT_NOTE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aeecfd7bd59c4f57ed5bf46a90b03ef29a3e2da481d636b60cf14b7ceba8287ffa" name="aeecfd7bd59c4f57ed5bf46a90b03ef29a3e2da481d636b60cf14b7ceba8287ffa"></a>FORMAT_CONTROLLERPAK&#160;</td><td class="fielddoc"></td></tr>
@@ -317,8 +326,8 @@ Static Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="acef8d66684e60cf669795ef78b8ac87a" name="acef8d66684e60cf669795ef78b8ac87a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acef8d66684e60cf669795ef78b8ac87a">&#9670;&#160;</a></span>clearIndexData()</h2>
+<a id="aabd7d9cf8850811daa5ae199fcc816d5" name="aabd7d9cf8850811daa5ae199fcc816d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabd7d9cf8850811daa5ae199fcc816d5">&#9670;&#160;</a></span>clearNoteTableData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -327,7 +336,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void FileManager::clearIndexData </td>
+          <td class="memname">void FileManager::clearNoteTableData </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -467,8 +476,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a032b1a91bf7d022a2800e497dd9b8684" name="a032b1a91bf7d022a2800e497dd9b8684"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a032b1a91bf7d022a2800e497dd9b8684">&#9670;&#160;</a></span>getControllerPakIndexDataArray()</h2>
+<a id="ad16bce57e386fe3e158ba4bf909fed2f" name="ad16bce57e386fe3e158ba4bf909fed2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad16bce57e386fe3e158ba4bf909fed2f">&#9670;&#160;</a></span>getControllerPakNotetableDataArray()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -477,7 +486,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="struct_file_manager_1_1_controller_pak_index_data.html">ControllerPakIndexData</a> &gt; * FileManager::getControllerPakIndexDataArray </td>
+          <td class="memname">std::vector&lt; <a class="el" href="struct_file_manager_1_1_controller_pak_notetable_data.html">ControllerPakNotetableData</a> &gt; * FileManager::getControllerPakNotetableDataArray </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -617,14 +626,14 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0310faeb42e1df8497348d517d8a3e2a" name="a0310faeb42e1df8497348d517d8a3e2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0310faeb42e1df8497348d517d8a3e2a">&#9670;&#160;</a></span>initIndexData()</h2>
+<a id="a7ed6e608f20157ceb00d5e2e9aa0cfcf" name="a7ed6e608f20157ceb00d5e2e9aa0cfcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ed6e608f20157ceb00d5e2e9aa0cfcf">&#9670;&#160;</a></span>initNoteTableData()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int FileManager::initIndexData </td>
+          <td class="memname">unsigned int FileManager::initNoteTableData </td>
           <td>(</td>
           <td class="paramtype">QFile &amp;</td>          <td class="paramname"><span class="paramname"><em>file</em></span></td><td>)</td>
           <td></td>
@@ -813,6 +822,7 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>File buffer containing the raw bytes for the currently-opened file </p>
 
 </div>
 </div>
@@ -827,6 +837,7 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Size of each entry in the note table </p>
 
 </div>
 </div>
@@ -841,6 +852,7 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Total number of elements in the note table </p>
 
 </div>
 </div>
@@ -863,6 +875,7 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The index of the currently selected save in a loaded Controller Pak </p>
 
 </div>
 </div>
@@ -885,6 +898,7 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Currently-opened file </p>
 
 </div>
 </div>
@@ -929,6 +943,7 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>File path of the currently-opened file </p>
 
 </div>
 </div>
@@ -951,28 +966,7 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a55f21fcaf47604b439e0933e8036d0e0" name="a55f21fcaf47604b439e0933e8036d0e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55f21fcaf47604b439e0933e8036d0e0">&#9670;&#160;</a></span>indexDataArray</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="struct_file_manager_1_1_controller_pak_index_data.html">ControllerPakIndexData</a>&gt; FileManager::indexDataArray {<a class="el" href="#a44fba90dd4a1c17e61d842cff7e48dc2">CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES</a>}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>File format </p>
 
 </div>
 </div>
@@ -1017,6 +1011,30 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>File format A file was opened at least once. Used for knowing if we have to enable or disable the Save buttons </p>
+
+</div>
+</div>
+<a id="a90f8ba95af9aafe9d1bcec0d10ebfc5d" name="a90f8ba95af9aafe9d1bcec0d10ebfc5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f8ba95af9aafe9d1bcec0d10ebfc5d">&#9670;&#160;</a></span>noteTableArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_file_manager_1_1_controller_pak_notetable_data.html">ControllerPakNotetableData</a>&gt; FileManager::noteTableArray {<a class="el" href="#a44fba90dd4a1c17e61d842cff7e48dc2">CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES</a>}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>An array of "ControllerPakNotetableData". This is use on Controller Pak-specific formats to store all the entries in the note table that contain Castlevania 64 saves. </p>
 
 </div>
 </div>

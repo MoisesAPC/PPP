@@ -1,7 +1,7 @@
 var searchData=
 [
   ['ui_0',['Ui',['../namespace_ui.html',1,'']]],
-  ['ui_1',['ui',['../class_controller_pak_selection_window.html#aecfab33d599697990f1f5f85b81a4ebe',1,'ControllerPakSelectionWindow::ui'],['../class_database_access_window.html#a36e85858b47174b36999b4a2765bfd17',1,'DatabaseAccessWindow::ui'],['../class_database_save_list_action_window.html#a05093853167e112cc88a0868534656f9',1,'DatabaseSaveListActionWindow::ui'],['../class_main_window.html#a35466a70ed47252a0191168126a352a5',1,'MainWindow::ui']]],
+  ['ui_1',['ui',['../class_controller_pak_selection_window.html#aecfab33d599697990f1f5f85b81a4ebe',1,'ControllerPakSelectionWindow::ui'],['../class_database_main_window.html#aa834099b7856dfffc33f6a2cb9bf5899',1,'DatabaseMainWindow::ui'],['../class_database_save_list_action_window.html#a05093853167e112cc88a0868534656f9',1,'DatabaseSaveListActionWindow::ui'],['../class_main_window.html#a35466a70ed47252a0191168126a352a5',1,'MainWindow::ui']]],
   ['unassigneventflags_2',['unassignEventFlags',['../class_save_manager.html#a3e6f7635ad47957892d85341d273f532',1,'SaveManager']]],
   ['unsetflags_3',['unsetFlags',['../class_save_manager.html#a9c8273ddf38c8b596b5afefef1363b23',1,'SaveManager']]],
   ['updatebitselection_4',['updateBitSelection',['../class_main_window.html#ab2d2a54f00c5ce7d9a5d87171930611e',1,'MainWindow']]],
