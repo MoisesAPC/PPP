@@ -564,3 +564,38 @@ unsigned int FileLoaderCartridge::getSaveSlotPaddingBytesSize() const {
         return paddingBytes;
     }
 }
+
+int FileLoaderNote::checkFileOpenErrors() {
+    FileManager* fileManager = FileManager::getInstance();
+
+    // Ensure the file has the predefined size (0x900 bytes in practice)
+    if (fileManager->getFile().size() != getMaxFileSize()) {
+        return -1;
+    }
+
+    return 0;
+}
+
+int FileLoaderCartridge::checkFileOpenErrors() {
+    FileManager* fileManager = FileManager::getInstance();
+
+    // Ensure the file has the predefined size (0x900 bytes in practice),
+    // + that there's at least one valid save on it.
+    if (fileManager->getFile().size() != getMaxFileSize() ||
+        getCartridgeNumSaves() == 0) {
+        return -1;
+    }
+
+    return 0;
+}
+
+int FileLoaderControllerPak::checkFileOpenErrors() {
+    FileManager* fileManager = FileManager::getInstance();
+
+    // Ensure the file has the predefined size (0x900 bytes in practice)
+    if (fileManager->getFile().size() != getMaxFileSize()) {
+        return -1;
+    }
+
+    return 0;
+}

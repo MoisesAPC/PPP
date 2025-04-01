@@ -75,6 +75,9 @@ int FileManager::openFile(const QString& filepath_) {
 
             // Then, parse the contents of the file
             if (loader != nullptr) {
+                if (loader->checkFileOpenErrors() != 0) {
+                    return -1;
+                }
 
                 // Initialize Controller Pak specific data
                 if (format == FORMAT_CONTROLLERPAK || format == FORMAT_DEXDRIVE) {

@@ -98,6 +98,13 @@ class FileLoader {
             T bigEndianValue = qToBigEndian(value);
             outputStream.writeRawData(reinterpret_cast<char*>(&bigEndianValue), sizeof(T));
         }
+
+        /**
+         * Error verification when opening a file.
+         *
+         * @return -1 on fail. 0 on success.
+         */
+        virtual int checkFileOpenErrors() = 0;
 };
 
 /**
@@ -130,6 +137,7 @@ class FileLoaderNote: public FileLoader {
         unsigned int getSaveSlotPaddedSize() const;
         std::vector<unsigned char> getHeaderBytes() const;
         unsigned int getSaveSlotPaddingBytesSize() const;
+        int checkFileOpenErrors();
 };
 
 /**
@@ -164,6 +172,7 @@ class FileLoaderCartridge: public FileLoader {
         std::vector<unsigned char> getHeaderBytes() const;
         unsigned int getCartridgeNumSaves() const;
         unsigned int getSaveSlotPaddingBytesSize() const;
+        int checkFileOpenErrors();
 };
 
 /**
@@ -200,6 +209,7 @@ struct FileLoaderControllerPak: public FileLoader {
         unsigned int getNoteTableEntrySize() const { return CONTROLLER_PAK_NOTE_TABLE_ENTRY_SIZE; }
         unsigned int getNoteTableNumEntries() const { return CONTROLLER_PAK_NOTE_TABLE_NUM_ENTRIES; }
         unsigned int getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const { return rawDataStartOffsetByte * 0x100; };
+        int checkFileOpenErrors();
 };
 
 /**
