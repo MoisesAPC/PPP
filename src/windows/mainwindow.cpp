@@ -820,6 +820,7 @@ void MainWindow::setupSlotMenu() {
             isMain = true;
             updateSlotMenuCheckedState(i, true);
             populateMainWindow(&SaveManager::getInstance()->getSaveSlot(i).mainSave);
+            updateWindowVisibility(BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_ACTIVE));
         });
 
         // Create "Beginning of Stage" action inside the Slot X menu
@@ -831,6 +832,8 @@ void MainWindow::setupSlotMenu() {
             isMain = false;
             updateSlotMenuCheckedState(i, false);
             populateMainWindow(&SaveManager::getInstance()->getSaveSlot(i).beginningOfStage);
+            /// @note For enabling / disabling the interface, we only look at the active flag from "mainSave", NOT the one in "beginningOfStage"
+            updateWindowVisibility(BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_ACTIVE));
         });
     }
 
@@ -1156,6 +1159,8 @@ void MainWindow::onCopy(QWidget* parent) {
     QObject::connect(&buttonBox, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
 
     if (dialog.exec() == QDialog::Accepted) {
+        destSaveSlot = spinBox.value() - 1;
+
         // If trying to copy the current save slot into an slot marked as "Enabled", then ask first if the user
         // wants to overwrite the data.
         if (BITS_HAS(saveManager->getSaveSlot(destSaveSlot).mainSave.flags, SaveData::SAVE_FLAG_ACTIVE)) {
@@ -1167,7 +1172,6 @@ void MainWindow::onCopy(QWidget* parent) {
             }
         }
 
-        destSaveSlot = spinBox.value() - 1;
         saveManager->setSaveSlot(saveManager->getCurrentSaveSlot(), destSaveSlot);
         populateMainWindow(&SaveManager::getInstance()->getCurrentSave());
     }
@@ -1182,6 +1186,7 @@ void MainWindow::onDelete() {
     if (reply == QMessageBox::Yes) {
         SaveManager::getInstance()->getCurrentSaveSlot().assignDefaultValues();
         populateMainWindow(&SaveManager::getInstance()->getCurrentSave());
+        updateWindowVisibility(BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_ACTIVE));
     }
 }
 
@@ -1195,6 +1200,7 @@ void MainWindow::onDeleteAll() {
         for (int i = 0; i < NUM_SAVES; i++) {
             SaveManager::getInstance()->getSaveSlot(i).assignDefaultValues();
             populateMainWindow(&SaveManager::getInstance()->getCurrentSave());
+            updateWindowVisibility(BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_ACTIVE));
         }
     }
 }

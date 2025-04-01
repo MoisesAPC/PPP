@@ -25,6 +25,10 @@ Proyecto de Desarrollo de aplicaciones multiplataforma de Moisés Antonio Pestan
   ├── PPP.pro   # Fichero de proyecto de Qt.
 ```
 
+Si compilas el ejecutable utilizando QtCreator, el ejecutable y los respectivos DLL se encontrarán en los siguientes directorios:
+* Debug:   ```\PPP\build\Desktop_Qt_6_8_2_MinGW_64_bit-Debug\debug```
+* Release: ```\PPP\build\Desktop_Qt_6_8_2_MinGW_64_bit-Release\release```
+
 ## Documentación
 La documentación se encuentra en [docs/html/index.html](docs/html/index.html).
 
