@@ -592,6 +592,7 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
     ui->leHealthDepletionRate->setText(QString::number(saveData->health_depletion_rate_while_poisoned));
     ui->leWeek->setText(QString::number(saveData->week));
     ui->leDay->setText(QString::number(saveData->day));
+    ui->leHour->setText(QString::number(saveData->hour));
     ui->leMinutes->setText(QString::number(saveData->minute));
     ui->leSeconds->setText(QString::number(saveData->seconds));
     ui->leMilliseconds->setText(QString::number(saveData->milliseconds));
