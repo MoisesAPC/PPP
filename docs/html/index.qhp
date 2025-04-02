@@ -314,6 +314,7 @@
 <section title="fileSaveMenu" ref="class_main_window.html#adda69c6562ec70e9283e6d043cbb8dc4"/>
 <section title="getIsMain" ref="class_main_window.html#aab85b427f5d9f93ba28336253953459a"/>
 <section title="getSelectedSave" ref="class_main_window.html#a8d291689a2407ba98ea2615c93da9dcd"/>
+<section title="handleComboBoxSelection" ref="class_main_window.html#a686da3603c12aece821f9f7b35ef7cf3"/>
 <section title="handleNumberOnlyInputUnsigned" ref="class_main_window.html#a2d184758cb8a12e837b5ffb4456304db"/>
 <section title="onCopy" ref="class_main_window.html#a6bef41faa222a2d1401e94db4f08fba3"/>
 <section title="onDelete" ref="class_main_window.html#a3f29a7235acf922406190b6477167a80"/>
@@ -326,7 +327,7 @@
 <section title="setSelectedSave" ref="class_main_window.html#ab5eaf8a5d2863a5834778d3fe6b8a46b"/>
 <section title="setupCheckBox" ref="class_main_window.html#a4c3fa6917b681b3f1bd532ffd5a35c3c"/>
 <section title="setupComboBox" ref="class_main_window.html#a67fe40f4eade51246ce8d15e2e21625e"/>
-<section title="setupComboBoxBitflag" ref="class_main_window.html#a95aa48c55dd2e279dfea5dfa485b578f"/>
+<section title="setupComboBoxBitflag" ref="class_main_window.html#a1e22f5e8ab049134097b64b0f93e52e6"/>
 <section title="setupEditMenu" ref="class_main_window.html#a6c17e66411a66bed8faa592e7a89d25d"/>
 <section title="setupFileMenu" ref="class_main_window.html#abbef0fd765240e301926c130a94a7949"/>
 <section title="setupLineEditNumberUnsigned" ref="class_main_window.html#a485780b29edadb78b1cf2b8db7f86b82"/>
@@ -335,7 +336,7 @@
 <section title="setupPageMain" ref="class_main_window.html#aff87a8d774d273cfde80316a655f91f5"/>
 <section title="setupSlotMenu" ref="class_main_window.html#a1a830e7d3c286db15af827a6a482b44e"/>
 <section title="switchPage" ref="class_main_window.html#a9b7360f461dc4d169ba03937ce10f8e6"/>
-<section title="updateBitSelection" ref="class_main_window.html#ab2d2a54f00c5ce7d9a5d87171930611e"/>
+<section title="updateBitSelection" ref="class_main_window.html#ac734c5dfe8f51ab51047120292259287"/>
 <section title="updateCheckboxEnabledVisibility" ref="class_main_window.html#a78e8d1405b468249d8fd826d9e7a9726"/>
 <section title="updateSlotMenuCheckedState" ref="class_main_window.html#ad38be884314eb7763925dee610f34542"/>
 <section title="updateWindowVisibility" ref="class_main_window.html#a0298ff25e59884a08e9cb20809ec9b0a"/>
@@ -474,10 +475,13 @@
 <section title="SUBWEAPON_HOLY_WATER" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda858a34cf7b1035a80459afb8f4febe1d"/>
 <section title="SUBWEAPON_CROSS" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdac35a3eaea0e443155d1acd8cdddfefb3"/>
 <section title="SUBWEAPON_AXE" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda862426d40c5c2fe6c4dac67fb47f958c"/>
+<section title="SUBWEAPON_WOODEN_STAKE" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda548138c9eb379565853f31afd1fd0591"/>
+<section title="SUBWEAPON_ROSE" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdaafc4a86ff3bbf7114812621a3edf834e"/>
 </section>
 <section title="getEventFlags" ref="struct_save_data.html#ac93501af9494ee2b7732f233d5964a4b"/>
 <section title="getFlag" ref="struct_save_data.html#a60a818c910c9e2f13b47596f63497cde"/>
 <section title="getItem" ref="struct_save_data.html#afaee0d3ba9fa2b9e272498a542109bd8"/>
+<section title="getPlayerStatus" ref="struct_save_data.html#a5e17697b999fdf592022ebae6bf35c26"/>
 <section title="button_config" ref="struct_save_data.html#aee3773e306482155d8f8263a4e3aaedf"/>
 <section title="character" ref="struct_save_data.html#aaa36fd4c04e7ce5a6c9513b824bc16c6"/>
 <section title="current_hour_VAMP" ref="struct_save_data.html#a93d6de610d8611fc08d758e5fd874b18"/>
@@ -528,15 +532,17 @@
 <section title="assignEventFlags" ref="class_save_manager.html#a434b5b42069087030aa13cae5243f002"/>
 <section title="calcFirstChecksum" ref="class_save_manager.html#ab839949630cb62c5f88a05b18dfefc87"/>
 <section title="calcSecondChecksum" ref="class_save_manager.html#a17a4898c012168469d7f6e0cfa204ec5"/>
+<section title="clear" ref="class_save_manager.html#a97f4210cf1babf29c8707f9ec97b0f93"/>
 <section title="createInstance" ref="class_save_manager.html#a284cd082ef52508bff499b94a9c41dba"/>
 <section title="destroyInstance" ref="class_save_manager.html#a789232a0c5a5e0b4055b2462cdd6c29b"/>
 <section title="getAllSaves" ref="class_save_manager.html#a83bbad87329982fb983a3d2bd3b6593e"/>
 <section title="getCurrentSave" ref="class_save_manager.html#a12a7d4326d6e14a4f996b433b05da0bd"/>
 <section title="getCurrentSaveSlot" ref="class_save_manager.html#a6bfa8dd1fd88829d3422dac2a05321b2"/>
-<section title="getFlagsPtr" ref="class_save_manager.html#a717baa8307dc08fb51664df15f058e29"/>
+<section title="getFlags" ref="class_save_manager.html#aba51721b6277d6d7cb8157f6eb41305a"/>
 <section title="getFrameCount" ref="class_save_manager.html#a7864537c1104853cc03ecf351b05dad3"/>
 <section title="getInstance" ref="class_save_manager.html#ac14d18579e054a26571a0878ecd7cb8d"/>
 <section title="getLanguage" ref="class_save_manager.html#a2a7aab1f069bdace486e4265be8bd256"/>
+<section title="getPlayerStatus" ref="class_save_manager.html#a2e1b3e7f7c1318a8249c11c781efb817"/>
 <section title="getRegion" ref="class_save_manager.html#a0460f8d33ab840c37b52812f2ffc9512"/>
 <section title="getSave" ref="class_save_manager.html#a60fa114130f37cd17201516a9012ac0b"/>
 <section title="getSaveSlot" ref="class_save_manager.html#a343d4b26fc5112fdb6f8c480ed10e5df"/>
@@ -559,6 +565,7 @@
 <section title="setMap" ref="class_save_manager.html#ab3628f813f76a95fcb064358e558aace"/>
 <section title="setMilliseconds" ref="class_save_manager.html#a9fa36bf5d4f1b1aa8613a2f38abd0b14"/>
 <section title="setMinutes" ref="class_save_manager.html#a6bdde009019cab456ef233d2b3244a41"/>
+<section title="setPlayerStatus" ref="class_save_manager.html#ae8bbaddda5d615d149dd96926fe185a4"/>
 <section title="setRegion" ref="class_save_manager.html#a8fa9280ba013631098e2fcc6b126d531"/>
 <section title="setSaveSlot" ref="class_save_manager.html#a3a63f64ee2a723dc0d8ec17e6e818ee2"/>
 <section title="setSeconds" ref="class_save_manager.html#afdbb9542b7b91471b15c6d298a3369fa"/>
@@ -570,6 +577,7 @@
 <section title="setWhiteJewel" ref="class_save_manager.html#a0fc4b240330225650edaf7c93c654a32"/>
 <section title="unassignEventFlags" ref="class_save_manager.html#a3e6f7635ad47957892d85341d273f532"/>
 <section title="unsetFlags" ref="class_save_manager.html#a9c8273ddf38c8b596b5afefef1363b23"/>
+<section title="unsetPlayerStatus" ref="class_save_manager.html#aa5d269dd145ed06f8ab65e7aa76d6c4d"/>
 <section title="currentSave" ref="class_save_manager.html#af8e0eca0d0b8b198c30e48edf3cf2b47"/>
 <section title="instance" ref="class_save_manager.html#a6c427a6218ef4e470b8f62337c322b04"/>
 <section title="isMain" ref="class_save_manager.html#a498a59efbcf7f087e62ab6d786d03fc1"/>
@@ -1047,10 +1055,13 @@
 <section title="SUBWEAPON_HOLY_WATER" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda858a34cf7b1035a80459afb8f4febe1d"/>
 <section title="SUBWEAPON_CROSS" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdac35a3eaea0e443155d1acd8cdddfefb3"/>
 <section title="SUBWEAPON_AXE" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda862426d40c5c2fe6c4dac67fb47f958c"/>
+<section title="SUBWEAPON_WOODEN_STAKE" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda548138c9eb379565853f31afd1fd0591"/>
+<section title="SUBWEAPON_ROSE" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdaafc4a86ff3bbf7114812621a3edf834e"/>
 </section>
 <section title="getEventFlags" ref="struct_save_data.html#ac93501af9494ee2b7732f233d5964a4b"/>
 <section title="getFlag" ref="struct_save_data.html#a60a818c910c9e2f13b47596f63497cde"/>
 <section title="getItem" ref="struct_save_data.html#afaee0d3ba9fa2b9e272498a542109bd8"/>
+<section title="getPlayerStatus" ref="struct_save_data.html#a5e17697b999fdf592022ebae6bf35c26"/>
 <section title="button_config" ref="struct_save_data.html#aee3773e306482155d8f8263a4e3aaedf"/>
 <section title="character" ref="struct_save_data.html#aaa36fd4c04e7ce5a6c9513b824bc16c6"/>
 <section title="current_hour_VAMP" ref="struct_save_data.html#a93d6de610d8611fc08d758e5fd874b18"/>
@@ -1115,15 +1126,17 @@
 <section title="assignEventFlags" ref="class_save_manager.html#a434b5b42069087030aa13cae5243f002"/>
 <section title="calcFirstChecksum" ref="class_save_manager.html#ab839949630cb62c5f88a05b18dfefc87"/>
 <section title="calcSecondChecksum" ref="class_save_manager.html#a17a4898c012168469d7f6e0cfa204ec5"/>
+<section title="clear" ref="class_save_manager.html#a97f4210cf1babf29c8707f9ec97b0f93"/>
 <section title="createInstance" ref="class_save_manager.html#a284cd082ef52508bff499b94a9c41dba"/>
 <section title="destroyInstance" ref="class_save_manager.html#a789232a0c5a5e0b4055b2462cdd6c29b"/>
 <section title="getAllSaves" ref="class_save_manager.html#a83bbad87329982fb983a3d2bd3b6593e"/>
 <section title="getCurrentSave" ref="class_save_manager.html#a12a7d4326d6e14a4f996b433b05da0bd"/>
 <section title="getCurrentSaveSlot" ref="class_save_manager.html#a6bfa8dd1fd88829d3422dac2a05321b2"/>
-<section title="getFlagsPtr" ref="class_save_manager.html#a717baa8307dc08fb51664df15f058e29"/>
+<section title="getFlags" ref="class_save_manager.html#aba51721b6277d6d7cb8157f6eb41305a"/>
 <section title="getFrameCount" ref="class_save_manager.html#a7864537c1104853cc03ecf351b05dad3"/>
 <section title="getInstance" ref="class_save_manager.html#ac14d18579e054a26571a0878ecd7cb8d"/>
 <section title="getLanguage" ref="class_save_manager.html#a2a7aab1f069bdace486e4265be8bd256"/>
+<section title="getPlayerStatus" ref="class_save_manager.html#a2e1b3e7f7c1318a8249c11c781efb817"/>
 <section title="getRegion" ref="class_save_manager.html#a0460f8d33ab840c37b52812f2ffc9512"/>
 <section title="getSave" ref="class_save_manager.html#a60fa114130f37cd17201516a9012ac0b"/>
 <section title="getSaveSlot" ref="class_save_manager.html#a343d4b26fc5112fdb6f8c480ed10e5df"/>
@@ -1146,6 +1159,7 @@
 <section title="setMap" ref="class_save_manager.html#ab3628f813f76a95fcb064358e558aace"/>
 <section title="setMilliseconds" ref="class_save_manager.html#a9fa36bf5d4f1b1aa8613a2f38abd0b14"/>
 <section title="setMinutes" ref="class_save_manager.html#a6bdde009019cab456ef233d2b3244a41"/>
+<section title="setPlayerStatus" ref="class_save_manager.html#ae8bbaddda5d615d149dd96926fe185a4"/>
 <section title="setRegion" ref="class_save_manager.html#a8fa9280ba013631098e2fcc6b126d531"/>
 <section title="setSaveSlot" ref="class_save_manager.html#a3a63f64ee2a723dc0d8ec17e6e818ee2"/>
 <section title="setSeconds" ref="class_save_manager.html#afdbb9542b7b91471b15c6d298a3369fa"/>
@@ -1157,6 +1171,7 @@
 <section title="setWhiteJewel" ref="class_save_manager.html#a0fc4b240330225650edaf7c93c654a32"/>
 <section title="unassignEventFlags" ref="class_save_manager.html#a3e6f7635ad47957892d85341d273f532"/>
 <section title="unsetFlags" ref="class_save_manager.html#a9c8273ddf38c8b596b5afefef1363b23"/>
+<section title="unsetPlayerStatus" ref="class_save_manager.html#aa5d269dd145ed06f8ab65e7aa76d6c4d"/>
 <section title="currentSave" ref="class_save_manager.html#af8e0eca0d0b8b198c30e48edf3cf2b47"/>
 <section title="instance" ref="class_save_manager.html#a6c427a6218ef4e470b8f62337c322b04"/>
 <section title="isMain" ref="class_save_manager.html#a498a59efbcf7f087e62ab6d786d03fc1"/>
@@ -1238,6 +1253,7 @@
 <section title="fileSaveMenu" ref="class_main_window.html#adda69c6562ec70e9283e6d043cbb8dc4"/>
 <section title="getIsMain" ref="class_main_window.html#aab85b427f5d9f93ba28336253953459a"/>
 <section title="getSelectedSave" ref="class_main_window.html#a8d291689a2407ba98ea2615c93da9dcd"/>
+<section title="handleComboBoxSelection" ref="class_main_window.html#a686da3603c12aece821f9f7b35ef7cf3"/>
 <section title="handleNumberOnlyInputUnsigned" ref="class_main_window.html#a2d184758cb8a12e837b5ffb4456304db"/>
 <section title="onCopy" ref="class_main_window.html#a6bef41faa222a2d1401e94db4f08fba3"/>
 <section title="onDelete" ref="class_main_window.html#a3f29a7235acf922406190b6477167a80"/>
@@ -1250,7 +1266,7 @@
 <section title="setSelectedSave" ref="class_main_window.html#ab5eaf8a5d2863a5834778d3fe6b8a46b"/>
 <section title="setupCheckBox" ref="class_main_window.html#a4c3fa6917b681b3f1bd532ffd5a35c3c"/>
 <section title="setupComboBox" ref="class_main_window.html#a67fe40f4eade51246ce8d15e2e21625e"/>
-<section title="setupComboBoxBitflag" ref="class_main_window.html#a95aa48c55dd2e279dfea5dfa485b578f"/>
+<section title="setupComboBoxBitflag" ref="class_main_window.html#a1e22f5e8ab049134097b64b0f93e52e6"/>
 <section title="setupEditMenu" ref="class_main_window.html#a6c17e66411a66bed8faa592e7a89d25d"/>
 <section title="setupFileMenu" ref="class_main_window.html#abbef0fd765240e301926c130a94a7949"/>
 <section title="setupLineEditNumberUnsigned" ref="class_main_window.html#a485780b29edadb78b1cf2b8db7f86b82"/>
@@ -1259,7 +1275,7 @@
 <section title="setupPageMain" ref="class_main_window.html#aff87a8d774d273cfde80316a655f91f5"/>
 <section title="setupSlotMenu" ref="class_main_window.html#a1a830e7d3c286db15af827a6a482b44e"/>
 <section title="switchPage" ref="class_main_window.html#a9b7360f461dc4d169ba03937ce10f8e6"/>
-<section title="updateBitSelection" ref="class_main_window.html#ab2d2a54f00c5ce7d9a5d87171930611e"/>
+<section title="updateBitSelection" ref="class_main_window.html#ac734c5dfe8f51ab51047120292259287"/>
 <section title="updateCheckboxEnabledVisibility" ref="class_main_window.html#a78e8d1405b468249d8fd826d9e7a9726"/>
 <section title="updateSlotMenuCheckedState" ref="class_main_window.html#ad38be884314eb7763925dee610f34542"/>
 <section title="updateWindowVisibility" ref="class_main_window.html#a0298ff25e59884a08e9cb20809ec9b0a"/>
@@ -1382,6 +1398,7 @@
 <keyword name="CHIKA_KODO" id="SaveData::CHIKA_KODO_a6f7b040f15df3a993ebf9373a1e0ad99a424bb939843fed52a84d0d8b642ebd09" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a424bb939843fed52a84d0d8b642ebd09"/>
 <keyword name="CHIKA_SUIRO" id="SaveData::CHIKA_SUIRO_a6f7b040f15df3a993ebf9373a1e0ad99a44acb3f1ded7ea5864ad4094bb8aa0fa" ref="struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a44acb3f1ded7ea5864ad4094bb8aa0fa"/>
 <keyword name="clear()" id="SaveSlot::clear_adeef575ba788e4e632000745398ef599" ref="struct_save_slot.html#adeef575ba788e4e632000745398ef599"/>
+<keyword name="clear()" id="SaveManager::clear_a97f4210cf1babf29c8707f9ec97b0f93" ref="class_save_manager.html#a97f4210cf1babf29c8707f9ec97b0f93"/>
 <keyword name="clearEntry()" id="FileManager::ControllerPakNotetableData::clearEntry_ac945ecd98efe0ae9f91c1bce09817264" ref="struct_file_manager_1_1_controller_pak_notetable_data.html#ac945ecd98efe0ae9f91c1bce09817264"/>
 <keyword name="clearManager()" id="DatabaseManager::clearManager_a2863d8a665122e4adf23a1e206a3547c" ref="class_database_manager.html#a2863d8a665122e4adf23a1e206a3547c"/>
 <keyword name="clearNoteTableData()" id="FileManager::clearNoteTableData_aabd7d9cf8850811daa5ae199fcc816d5" ref="class_file_manager.html#aabd7d9cf8850811daa5ae199fcc816d5"/>
@@ -1588,7 +1605,7 @@
 <keyword name="getFileFormat() const" id="FileManager::getFileFormat_ab472de0dce60929575633c40dc3b8431" ref="class_file_manager.html#ab472de0dce60929575633c40dc3b8431"/>
 <keyword name="getFilepath()" id="FileManager::getFilepath_ad457a2267a9e807f50bdac8726aff360" ref="class_file_manager.html#ad457a2267a9e807f50bdac8726aff360"/>
 <keyword name="getFlag(unsigned int bitFlagMask)" id="SaveData::getFlag_a60a818c910c9e2f13b47596f63497cde" ref="struct_save_data.html#a60a818c910c9e2f13b47596f63497cde"/>
-<keyword name="getFlagsPtr()" id="SaveManager::getFlagsPtr_a717baa8307dc08fb51664df15f058e29" ref="class_save_manager.html#a717baa8307dc08fb51664df15f058e29"/>
+<keyword name="getFlags() const" id="SaveManager::getFlags_aba51721b6277d6d7cb8157f6eb41305a" ref="class_save_manager.html#aba51721b6277d6d7cb8157f6eb41305a"/>
 <keyword name="getFrameCount() const" id="SaveManager::getFrameCount_a7864537c1104853cc03ecf351b05dad3" ref="class_save_manager.html#a7864537c1104853cc03ecf351b05dad3"/>
 <keyword name="getHeaderBytes() const =0" id="FileLoader::getHeaderBytes_af1f70ab6f3eb3766aa76268e92018d26" ref="class_file_loader.html#af1f70ab6f3eb3766aa76268e92018d26"/>
 <keyword name="getHeaderBytes() const" id="FileLoaderNote::getHeaderBytes_adae722a19e9e251009162f6f85ec88e5" ref="class_file_loader_note.html#adae722a19e9e251009162f6f85ec88e5"/>
@@ -1618,6 +1635,8 @@
 <keyword name="getNoteTableOffset() const" id="FileLoaderControllerPak::getNoteTableOffset_a9a826bacf8a6e79e8e79a7d3d7e4ead7" ref="struct_file_loader_controller_pak.html#a9a826bacf8a6e79e8e79a7d3d7e4ead7"/>
 <keyword name="getNoteTableOffset() const" id="FileLoaderDexDrive::getNoteTableOffset_ab615c68e86e3a044d8dc29c12b7df5a0" ref="struct_file_loader_dex_drive.html#ab615c68e86e3a044d8dc29c12b7df5a0"/>
 <keyword name="getPassword() const" id="DatabaseManager::getPassword_af3c3e5826b2d725274bf5422fc0218f1" ref="class_database_manager.html#af3c3e5826b2d725274bf5422fc0218f1"/>
+<keyword name="getPlayerStatus(unsigned int bitFlagMask)" id="SaveData::getPlayerStatus_a5e17697b999fdf592022ebae6bf35c26" ref="struct_save_data.html#a5e17697b999fdf592022ebae6bf35c26"/>
+<keyword name="getPlayerStatus() const" id="SaveManager::getPlayerStatus_a2e1b3e7f7c1318a8249c11c781efb817" ref="class_save_manager.html#a2e1b3e7f7c1318a8249c11c781efb817"/>
 <keyword name="getPort() const" id="Database::getPort_a7d710f7602221a732865f11030396a90" ref="class_database.html#a7d710f7602221a732865f11030396a90"/>
 <keyword name="getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const" id="FileLoader::getRawDataOffsetPerEntry_ac0c2886bac87f4ede9d268fff254ae7a" ref="class_file_loader.html#ac0c2886bac87f4ede9d268fff254ae7a"/>
 <keyword name="getRawDataOffsetPerEntry(unsigned int rawDataStartOffsetByte) const" id="FileLoaderControllerPak::getRawDataOffsetPerEntry_a0813b20ee0907d2c5873740fec68a9fa" ref="struct_file_loader_controller_pak.html#a0813b20ee0907d2c5873740fec68a9fa"/>
@@ -1651,6 +1670,7 @@
 <keyword name="getUsername() const" id="DatabaseManager::getUsername_af7f78ba238f79764d39c53a093c40041" ref="class_database_manager.html#af7f78ba238f79764d39c53a093c40041"/>
 <keyword name="gold" id="SaveData::gold_a6b8f3f3b92591921773b0e949accd6bb" ref="struct_save_data.html#a6b8f3f3b92591921773b0e949accd6bb"/>
 <keyword name="gold_spent_on_Renon" id="SaveData::gold_spent_on_Renon_a33c0045b508f92210e82f12364a23480" ref="struct_save_data.html#a33c0045b508f92210e82f12364a23480"/>
+<keyword name="handleComboBoxSelection(QComboBox *comboBox, const Ui::ComboBoxData &amp;array)" id="MainWindow::handleComboBoxSelection_a686da3603c12aece821f9f7b35ef7cf3" ref="class_main_window.html#a686da3603c12aece821f9f7b35ef7cf3"/>
 <keyword name="handleNumberOnlyInputUnsigned(std::function&lt; void(unsigned int)&gt; setter, QLineEdit *lineEdit)" id="MainWindow::handleNumberOnlyInputUnsigned_a2d184758cb8a12e837b5ffb4456304db" ref="class_main_window.html#a2d184758cb8a12e837b5ffb4456304db"/>
 <keyword name="health_depletion_rate_while_poisoned" id="SaveData::health_depletion_rate_while_poisoned_a7ca861bb3b7698d064afc3addc46b493" ref="struct_save_data.html#a7ca861bb3b7698d064afc3addc46b493"/>
 <keyword name="hexBitflagLineEdits[NUM_EVENT_FLAGS]" id="MainWindow::hexBitflagLineEdits_a25a2e5015d7e2ac9756163763b3d8d16" ref="class_main_window.html#a25a2e5015d7e2ac9756163763b3d8d16"/>
@@ -1888,6 +1908,7 @@
 <keyword name="setMilliseconds(const unsigned short)" id="SaveManager::setMilliseconds_a9fa36bf5d4f1b1aa8613a2f38abd0b14" ref="class_save_manager.html#a9fa36bf5d4f1b1aa8613a2f38abd0b14"/>
 <keyword name="setMinutes(const short)" id="SaveManager::setMinutes_a6bdde009019cab456ef233d2b3244a41" ref="class_save_manager.html#a6bdde009019cab456ef233d2b3244a41"/>
 <keyword name="setPassword(const QString &amp;password_)" id="DatabaseManager::setPassword_a9f484cdbe59efe1241b07e493a2361ce" ref="class_database_manager.html#a9f484cdbe59efe1241b07e493a2361ce"/>
+<keyword name="setPlayerStatus(const unsigned int status)" id="SaveManager::setPlayerStatus_ae8bbaddda5d615d149dd96926fe185a4" ref="class_save_manager.html#ae8bbaddda5d615d149dd96926fe185a4"/>
 <keyword name="setPort(const int port_)" id="Database::setPort_a8f3e101df86363074792dafa6b6df4c8" ref="class_database.html#a8f3e101df86363074792dafa6b6df4c8"/>
 <keyword name="setRegion(const short)" id="SaveManager::setRegion_a8fa9280ba013631098e2fcc6b126d531" ref="class_save_manager.html#a8fa9280ba013631098e2fcc6b126d531"/>
 <keyword name="setSaveListButtonProperties(QPushButton *button, const QString &amp;documentId, const int listIndex, const int region, const QString &amp;rev)" id="DatabaseMainWindow::setSaveListButtonProperties_a30a1901e9899ac489bb8d0297e872bc0" ref="class_database_main_window.html#a30a1901e9899ac489bb8d0297e872bc0"/>
@@ -1902,7 +1923,7 @@
 <keyword name="setupCheckBox(QCheckBox *checkBox, unsigned int value, std::function&lt; void(unsigned int)&gt; setter, std::function&lt; void(unsigned int)&gt; unsetter)" id="MainWindow::setupCheckBox_a4c3fa6917b681b3f1bd532ffd5a35c3c" ref="class_main_window.html#a4c3fa6917b681b3f1bd532ffd5a35c3c"/>
 <keyword name="setupComboBox(QComboBox *comboBox, const Ui::ComboBoxData &amp;array, std::function&lt; void(int)&gt; setter)" id="DatabaseMainWindow::setupComboBox_a5f8f88541053d39f7cf3b187483ac0de" ref="class_database_main_window.html#a5f8f88541053d39f7cf3b187483ac0de"/>
 <keyword name="setupComboBox(QComboBox *comboBox, const Ui::ComboBoxData &amp;array, std::function&lt; void(int)&gt; setter)" id="MainWindow::setupComboBox_a67fe40f4eade51246ce8d15e2e21625e" ref="class_main_window.html#a67fe40f4eade51246ce8d15e2e21625e"/>
-<keyword name="setupComboBoxBitflag(QComboBox *comboBox, const Ui::ComboBoxData &amp;array, unsigned int &amp;variable)" id="MainWindow::setupComboBoxBitflag_a95aa48c55dd2e279dfea5dfa485b578f" ref="class_main_window.html#a95aa48c55dd2e279dfea5dfa485b578f"/>
+<keyword name="setupComboBoxBitflag(QComboBox *comboBox, const Ui::ComboBoxData &amp;array)" id="MainWindow::setupComboBoxBitflag_a1e22f5e8ab049134097b64b0f93e52e6" ref="class_main_window.html#a1e22f5e8ab049134097b64b0f93e52e6"/>
 <keyword name="setupConnectMenu()" id="DatabaseMainWindow::setupConnectMenu_afda8ad017308aec76d4201aaac2b4a22" ref="class_database_main_window.html#afda8ad017308aec76d4201aaac2b4a22"/>
 <keyword name="setupEditMenu()" id="MainWindow::setupEditMenu_a6c17e66411a66bed8faa592e7a89d25d" ref="class_main_window.html#a6c17e66411a66bed8faa592e7a89d25d"/>
 <keyword name="setupFileMenu()" id="MainWindow::setupFileMenu_abbef0fd765240e301926c130a94a7949" ref="class_main_window.html#abbef0fd765240e301926c130a94a7949"/>
@@ -1927,12 +1948,16 @@
 <keyword name="SUBWEAPON_HOLY_WATER" id="SaveData::SUBWEAPON_HOLY_WATER_af65974cd9c39d5667331f040088b10fda858a34cf7b1035a80459afb8f4febe1d" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda858a34cf7b1035a80459afb8f4febe1d"/>
 <keyword name="SUBWEAPON_KNIFE" id="SaveData::SUBWEAPON_KNIFE_af65974cd9c39d5667331f040088b10fdaa53f30ecce1d60a376832b2ace68b3d5" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdaa53f30ecce1d60a376832b2ace68b3d5"/>
 <keyword name="SUBWEAPON_NONE" id="SaveData::SUBWEAPON_NONE_af65974cd9c39d5667331f040088b10fdaf8c1285527788d82d45012eb91c862a1" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdaf8c1285527788d82d45012eb91c862a1"/>
+<keyword name="SUBWEAPON_ROSE" id="SaveData::SUBWEAPON_ROSE_af65974cd9c39d5667331f040088b10fdaafc4a86ff3bbf7114812621a3edf834e" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdaafc4a86ff3bbf7114812621a3edf834e"/>
+<keyword name="SUBWEAPON_WOODEN_STAKE" id="SaveData::SUBWEAPON_WOODEN_STAKE_af65974cd9c39d5667331f040088b10fda548138c9eb379565853f31afd1fd0591" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda548138c9eb379565853f31afd1fd0591"/>
 <keyword name="SubweaponID" id="SaveData::SubweaponID_af65974cd9c39d5667331f040088b10fd" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fd"/>
 <keyword name="SUBWEAPON_NONE" id="SaveData::SUBWEAPON_NONE_af65974cd9c39d5667331f040088b10fdaf8c1285527788d82d45012eb91c862a1" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdaf8c1285527788d82d45012eb91c862a1"/>
 <keyword name="SUBWEAPON_KNIFE" id="SaveData::SUBWEAPON_KNIFE_af65974cd9c39d5667331f040088b10fdaa53f30ecce1d60a376832b2ace68b3d5" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdaa53f30ecce1d60a376832b2ace68b3d5"/>
 <keyword name="SUBWEAPON_HOLY_WATER" id="SaveData::SUBWEAPON_HOLY_WATER_af65974cd9c39d5667331f040088b10fda858a34cf7b1035a80459afb8f4febe1d" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda858a34cf7b1035a80459afb8f4febe1d"/>
 <keyword name="SUBWEAPON_CROSS" id="SaveData::SUBWEAPON_CROSS_af65974cd9c39d5667331f040088b10fdac35a3eaea0e443155d1acd8cdddfefb3" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdac35a3eaea0e443155d1acd8cdddfefb3"/>
 <keyword name="SUBWEAPON_AXE" id="SaveData::SUBWEAPON_AXE_af65974cd9c39d5667331f040088b10fda862426d40c5c2fe6c4dac67fb47f958c" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda862426d40c5c2fe6c4dac67fb47f958c"/>
+<keyword name="SUBWEAPON_WOODEN_STAKE" id="SaveData::SUBWEAPON_WOODEN_STAKE_af65974cd9c39d5667331f040088b10fda548138c9eb379565853f31afd1fd0591" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fda548138c9eb379565853f31afd1fd0591"/>
+<keyword name="SUBWEAPON_ROSE" id="SaveData::SUBWEAPON_ROSE_af65974cd9c39d5667331f040088b10fdaafc4a86ff3bbf7114812621a3edf834e" ref="struct_save_data.html#af65974cd9c39d5667331f040088b10fdaafc4a86ff3bbf7114812621a3edf834e"/>
 <keyword name="swapEndianness(QByteArray *)" id="FileLoader::swapEndianness_a771287ce55fb02a818398c1ad4428a3c" ref="class_file_loader.html#a771287ce55fb02a818398c1ad4428a3c"/>
 <keyword name="switchPage(QStackedWidget *stackedWidget, const QWidget *page)" id="DatabaseMainWindow::switchPage_a7b7889256744bbb5a611a592dd1552e5" ref="class_database_main_window.html#a7b7889256744bbb5a611a592dd1552e5"/>
 <keyword name="switchPage(QStackedWidget *stackedWidgetPages, const QWidget *page)" id="MainWindow::switchPage_a9b7360f461dc4d169ba03937ce10f8e6" ref="class_main_window.html#a9b7360f461dc4d169ba03937ce10f8e6"/>
@@ -1950,7 +1975,8 @@
 <keyword name="ui" id="MainWindow::ui_a35466a70ed47252a0191168126a352a5" ref="class_main_window.html#a35466a70ed47252a0191168126a352a5"/>
 <keyword name="unassignEventFlags(const int, const unsigned int)" id="SaveManager::unassignEventFlags_a3e6f7635ad47957892d85341d273f532" ref="class_save_manager.html#a3e6f7635ad47957892d85341d273f532"/>
 <keyword name="unsetFlags(const unsigned int)" id="SaveManager::unsetFlags_a9c8273ddf38c8b596b5afefef1363b23" ref="class_save_manager.html#a9c8273ddf38c8b596b5afefef1363b23"/>
-<keyword name="updateBitSelection(unsigned int &amp;variable, unsigned int newValue, const Ui::ComboBoxData &amp;comboBoxData)" id="MainWindow::updateBitSelection_ab2d2a54f00c5ce7d9a5d87171930611e" ref="class_main_window.html#ab2d2a54f00c5ce7d9a5d87171930611e"/>
+<keyword name="unsetPlayerStatus(const unsigned int status)" id="SaveManager::unsetPlayerStatus_aa5d269dd145ed06f8ab65e7aa76d6c4d" ref="class_save_manager.html#aa5d269dd145ed06f8ab65e7aa76d6c4d"/>
+<keyword name="updateBitSelection(unsigned int newValue, const Ui::ComboBoxData &amp;comboBoxData)" id="MainWindow::updateBitSelection_ac734c5dfe8f51ab51047120292259287" ref="class_main_window.html#ac734c5dfe8f51ab51047120292259287"/>
 <keyword name="updateCheckboxEnabledVisibility()" id="MainWindow::updateCheckboxEnabledVisibility_a78e8d1405b468249d8fd826d9e7a9726" ref="class_main_window.html#a78e8d1405b468249d8fd826d9e7a9726"/>
 <keyword name="updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave)" id="MainWindow::updateSlotMenuCheckedState_ad38be884314eb7763925dee610f34542" ref="class_main_window.html#ad38be884314eb7763925dee610f34542"/>
 <keyword name="updateWindowVisibility(bool)" id="MainWindow::updateWindowVisibility_a0298ff25e59884a08e9cb20809ec9b0a" ref="class_main_window.html#a0298ff25e59884a08e9cb20809ec9b0a"/>

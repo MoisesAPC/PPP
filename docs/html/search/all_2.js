@@ -10,7 +10,7 @@ var searchData=
   ['checksum2_7',['checksum2',['../struct_save_slot.html#ae629eb78b47514880fa21d4ddef90fba',1,'SaveSlot']]],
   ['chika_5fkodo_8',['CHIKA_KODO',['../struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a424bb939843fed52a84d0d8b642ebd09',1,'SaveData']]],
   ['chika_5fsuiro_9',['CHIKA_SUIRO',['../struct_save_data.html#a6f7b040f15df3a993ebf9373a1e0ad99a44acb3f1ded7ea5864ad4094bb8aa0fa',1,'SaveData']]],
-  ['clear_10',['clear',['../struct_save_slot.html#adeef575ba788e4e632000745398ef599',1,'SaveSlot']]],
+  ['clear_10',['clear',['../struct_save_slot.html#adeef575ba788e4e632000745398ef599',1,'SaveSlot::clear()'],['../class_save_manager.html#a97f4210cf1babf29c8707f9ec97b0f93',1,'SaveManager::clear()']]],
   ['clearentry_11',['clearEntry',['../struct_file_manager_1_1_controller_pak_notetable_data.html#ac945ecd98efe0ae9f91c1bce09817264',1,'FileManager::ControllerPakNotetableData']]],
   ['clearmanager_12',['clearManager',['../class_database_manager.html#a2863d8a665122e4adf23a1e206a3547c',1,'DatabaseManager']]],
   ['clearnotetabledata_13',['clearNoteTableData',['../class_file_manager.html#aabd7d9cf8850811daa5ae199fcc816d5',1,'FileManager']]],

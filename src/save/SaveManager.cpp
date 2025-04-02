@@ -78,15 +78,15 @@ void SaveManager::setHour(const short hour) {
 }
 
 void SaveManager::setMinutes(const short minutes) {
-    getInstance()->getCurrentSave().hour = minutes;
+    getInstance()->getCurrentSave().minute = minutes;
 }
 
 void SaveManager::setSeconds(const short seconds) {
     getInstance()->getCurrentSave().seconds = seconds;
 }
 
-void SaveManager::setMilliseconds(const unsigned short seconds) {
-    getInstance()->getCurrentSave().seconds = seconds;
+void SaveManager::setMilliseconds(const unsigned short milliseconds) {
+    getInstance()->getCurrentSave().milliseconds = milliseconds;
 }
 
 void SaveManager::setFramecount(const unsigned int gameplay_framecount) {
@@ -117,8 +117,8 @@ void SaveManager::setMap(const short map) {
     getInstance()->getCurrentSave().map = map;
 }
 
-unsigned int* SaveManager::getFlagsPtr() {
-    return &getInstance()->getCurrentSave().flags;
+unsigned int SaveManager::getFlags() const {
+    return getInstance()->getCurrentSave().flags;
 }
 
 void SaveManager::setFlags(const unsigned int flags) {
@@ -127,6 +127,18 @@ void SaveManager::setFlags(const unsigned int flags) {
 
 void SaveManager::unsetFlags(const unsigned int flags) {
     BITS_UNSET(getInstance()->getCurrentSave().flags, flags);
+}
+
+unsigned int SaveManager::getPlayerStatus() const {
+    return getInstance()->getCurrentSave().player_status;
+}
+
+void SaveManager::setPlayerStatus(const unsigned int status) {
+    BITS_SET(getInstance()->getCurrentSave().player_status, status);
+}
+
+void SaveManager::unsetPlayerStatus(const unsigned int status) {
+    BITS_UNSET(getInstance()->getCurrentSave().player_status, status);
 }
 
 /**
@@ -206,5 +218,14 @@ bool SaveManager::areAllSavesDisabled() {
 void SaveManager::assignDefaultValues() {
     for (int i = 0; i < NUM_SAVES; i++) {
         saves[i].assignDefaultValues();
+    }
+}
+
+/**
+ * @brief Clears all save game fields.
+ */
+void SaveManager::clear() {
+    for (int i = 0; i < NUM_SAVES; i++) {
+        saves[i].clear();
     }
 }

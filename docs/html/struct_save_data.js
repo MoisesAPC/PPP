@@ -116,11 +116,14 @@ var struct_save_data =
       [ "SUBWEAPON_KNIFE", "struct_save_data.html#af65974cd9c39d5667331f040088b10fdaa53f30ecce1d60a376832b2ace68b3d5", null ],
       [ "SUBWEAPON_HOLY_WATER", "struct_save_data.html#af65974cd9c39d5667331f040088b10fda858a34cf7b1035a80459afb8f4febe1d", null ],
       [ "SUBWEAPON_CROSS", "struct_save_data.html#af65974cd9c39d5667331f040088b10fdac35a3eaea0e443155d1acd8cdddfefb3", null ],
-      [ "SUBWEAPON_AXE", "struct_save_data.html#af65974cd9c39d5667331f040088b10fda862426d40c5c2fe6c4dac67fb47f958c", null ]
+      [ "SUBWEAPON_AXE", "struct_save_data.html#af65974cd9c39d5667331f040088b10fda862426d40c5c2fe6c4dac67fb47f958c", null ],
+      [ "SUBWEAPON_WOODEN_STAKE", "struct_save_data.html#af65974cd9c39d5667331f040088b10fda548138c9eb379565853f31afd1fd0591", null ],
+      [ "SUBWEAPON_ROSE", "struct_save_data.html#af65974cd9c39d5667331f040088b10fdaafc4a86ff3bbf7114812621a3edf834e", null ]
     ] ],
     [ "getEventFlags", "struct_save_data.html#ac93501af9494ee2b7732f233d5964a4b", null ],
     [ "getFlag", "struct_save_data.html#a60a818c910c9e2f13b47596f63497cde", null ],
     [ "getItem", "struct_save_data.html#afaee0d3ba9fa2b9e272498a542109bd8", null ],
+    [ "getPlayerStatus", "struct_save_data.html#a5e17697b999fdf592022ebae6bf35c26", null ],
     [ "button_config", "struct_save_data.html#aee3773e306482155d8f8263a4e3aaedf", null ],
     [ "character", "struct_save_data.html#aaa36fd4c04e7ce5a6c9513b824bc16c6", null ],
     [ "current_hour_VAMP", "struct_save_data.html#a93d6de610d8611fc08d758e5fd874b18", null ],

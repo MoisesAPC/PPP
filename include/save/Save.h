@@ -121,11 +121,13 @@ struct SaveData {
     };
 
     enum SubweaponID {
-        SUBWEAPON_NONE       = 0,
-        SUBWEAPON_KNIFE      = 1,
-        SUBWEAPON_HOLY_WATER = 2,
-        SUBWEAPON_CROSS      = 3,
-        SUBWEAPON_AXE        = 4
+        SUBWEAPON_NONE         = 0,
+        SUBWEAPON_KNIFE        = 1,
+        SUBWEAPON_HOLY_WATER   = 2,
+        SUBWEAPON_CROSS        = 3,
+        SUBWEAPON_AXE          = 4,
+        SUBWEAPON_WOODEN_STAKE = 5,
+        SUBWEAPON_ROSE         = 6
     };
 
     enum MapID {
@@ -193,13 +195,13 @@ struct SaveData {
     };
 
     enum PlayerStatus {
-        PLAYER_FLAG_STO                      = BIT(22),
+        PLAYER_FLAG_STO                      = BIT(26),
         PLAYER_FLAG_VAMP                     = BIT(27),
         PLAYER_FLAG_POISON                   = BIT(28)
     };
 
     enum SaveFlag {
-        SAVE_FLAG_ACTIVE                = BIT(0),
+        SAVE_FLAG_ACTIVE                     = BIT(0),
         SAVE_FLAG_EASY                       = BIT(4),
         SAVE_FLAG_NORMAL                     = BIT(5),
         SAVE_FLAG_HARD                       = BIT(6),
@@ -227,6 +229,10 @@ struct SaveData {
         GERMAN,
         FRENCH
     };
+
+    inline unsigned int getPlayerStatus(unsigned int bitFlagMask) {
+        return BITS_HAS(player_status, bitFlagMask);
+    }
 
     inline unsigned int getFlag(unsigned int bitFlagMask) {
         return BITS_HAS(flags, bitFlagMask);

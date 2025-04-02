@@ -71,10 +71,13 @@ class SaveManager {
         void setSoundMode(const short);
         void setSubweapon(const short);
         void setMap(const short);
-        unsigned int* getFlagsPtr();
+        unsigned int getFlags() const;
         void setFlags(const unsigned int);
         void unsetFlags(const unsigned int);
         void setEventFlags(const int, const unsigned int);
+        unsigned int getPlayerStatus() const;
+        void setPlayerStatus(const unsigned int status);
+        void unsetPlayerStatus(const unsigned int status);
         void assignEventFlags(const int, const unsigned int);
         void unassignEventFlags(const int, const unsigned int);
         unsigned int calcFirstChecksum(const QByteArray&);
@@ -105,6 +108,7 @@ class SaveManager {
             saves[index] = save;
         }
 
+        void clear();
         void assignDefaultValues();
 
     private:

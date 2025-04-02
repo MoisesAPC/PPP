@@ -48,8 +48,9 @@ public:
         QAction* beginningOfStageSaveOption;
     };
 
-    /// @note This is public so that we can use this inside the database save list action button menu, when clicking on the "Edit" option.
+    /// @note These are public so that we can use them inside the database save list action button menu, when clicking on the "Edit" option.
     void populateMainWindow(SaveData* save);
+    void updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave);
 
 private slots:
     // Setup functions
@@ -62,7 +63,7 @@ private slots:
     void handleNumberOnlyInputUnsigned(std::function<void(unsigned int)> setter, QLineEdit* lineEdit);
     void setupLineEditNumberUnsigned(QLineEdit* lineEdit, const unsigned int minValue, const unsigned int maxValue, std::function<void(unsigned int)> setter);
     void setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& array, std::function<void(int)> setter);
-    void setupComboBoxBitflag(QComboBox* comboBox, const Ui::ComboBoxData& array, unsigned int& variable);
+    void setupComboBoxBitflag(QComboBox* comboBox, const Ui::ComboBoxData& array);
     void setupCheckBox(QCheckBox* checkBox, unsigned int value, std::function<void(unsigned int)> setter, std::function<void(unsigned int)> unsetter);
     QLineEdit* createGridFlag(QGridLayout* gridLayout, int flagSet, unsigned int flags);
 
@@ -71,12 +72,12 @@ private slots:
     void fileSaveMenu();
     void fileSaveAsMenu();
     void databaseMenu();
-    void updateSlotMenuCheckedState(int selectedSlotIndex, bool isMainSave);
     void onPageButtonClicked(QStackedWidget* stackedWidget, const QWidget* page);
     void openFile(const QString& filename);
     void onCopy(QWidget* parent);
     void onDelete();
     void onDeleteAll();
+    void handleComboBoxSelection(QComboBox* comboBox, const Ui::ComboBoxData& array);
 
     // Helper functions
     void switchPage(QStackedWidget* stackedWidgetPages, const QWidget* page);
@@ -86,6 +87,7 @@ private slots:
     void updateCheckboxEnabledVisibility();
     void updateWindowVisibility(bool);
     void convertFrameToTime(const unsigned int frameCount, QLabel* output);
+    void updateBitSelection(unsigned int newValue, const Ui::ComboBoxData& comboBoxData);
 
     // Inline getters and setters
     inline void setSelectedSave(const int slot) {
@@ -104,20 +106,6 @@ private slots:
         return isMain;
     }
 
-    /**
-     * This function unsets all the comboBoxData values from "variable",
-     * and then sets the "newValue" into the variable.
-     */
-    void updateBitSelection(unsigned int& variable, unsigned int newValue, const Ui::ComboBoxData& comboBoxData) {
-        for (const auto& data: comboBoxData) {
-            for (const auto& entry: data) {
-                BITS_UNSET(variable, entry.second);
-            }
-        }
-
-        BITS_SET(variable, newValue);
-    }
-
 private:
     Ui::MainWindow* ui;
 
@@ -134,41 +122,41 @@ private:
 
     // Data for this window's combo boxes
     const Ui::ComboBoxData comboBoxDataMap = {
-        {{"Forest of Silence", 0}},
-        {{"Castle Wall (Towers)", 1}},
-        {{"Castle Wall (Main)", 2}},
-        {{"Villa (Yard)", 3}},
-        {{"Villa (Foyer)", 4}},
-        {{"Villa (Hallway)", 5}},
-        {{"Villa (Maze Garden)", 6}},
-        {{"Tunnel", 7}},
-        {{"Underground Waterway", 8}},
-        {{"Castle Center (Main)", 9}},
-        {{"Castle Center (Bottom Elevator)", 10}},
-        {{"Castle Center (Gears)", 11}},
-        {{"Castle Center (Friendly Lizard-man)", 12}},
-        {{"Castle Center (Library)", 13}},
-        {{"Castle Center (Nitro Room)", 14}},
-        {{"Castle Center (Top Elevator)", 15}},
-        {{"Tower of Execution", 16}},
-        {{"Tower of Sorcery", 17}},
-        {{"Tower of Science", 18}},
-        {{"Duel Tower", 19}},
-        {{"Castle Keep Stairs", 20}},
-        {{"Castle Keep", 21}},
-        {{"Intro Cutscene Map", 22}},
-        {{"Clock Tower", 23}},
-        {{"Dracula Desert", 24}},
-        {{"Rose / Actrice Fan Room", 25}},
-        {{"Villa (Vampire Crypt)", 26}},
-        {{"Room of Clocks", 27}},
-        {{"Ending Map", 28}},
-        {{"Test Grid", 29}}
+        {{"Forest of Silence", SaveData::MORI}},
+        {{"Castle Wall (Towers)", SaveData::TOU}},
+        {{"Castle Wall (Main)", SaveData::TOUOKUJI}},
+        {{"Villa (Yard)", SaveData::NAKANIWA}},
+        {{"Villa (Foyer)", SaveData::BEKKAN_1F}},
+        {{"Villa (Hallway)", SaveData::BEKKAN_2F}},
+        {{"Villa (Maze Garden)", SaveData::MEIRO_TEIEN}},
+        {{"Tunnel", SaveData::CHIKA_KODO}},
+        {{"Underground Waterway", SaveData::CHIKA_SUIRO}},
+        {{"Castle Center (Main)", SaveData::HONMARU_B1F}},
+        {{"Castle Center (Bottom Elevator)", SaveData::HONMARU_1F}},
+        {{"Castle Center (Gears)", SaveData::HONMARU_2F}},
+        {{"Castle Center (Friendly Lizard-man)", SaveData::HONMARU_3F_MINAMI}},
+        {{"Castle Center (Library)", SaveData::HONMARU_4F_MINAMI}},
+        {{"Castle Center (Nitro Room)", SaveData::HONMARU_3F_KITA}},
+        {{"Castle Center (Top Elevator)", SaveData::HONMARU_5F}},
+        {{"Tower of Execution", SaveData::SHOKEI_TOU}},
+        {{"Tower of Sorcery", SaveData::MAHOU_TOU}},
+        {{"Tower of Science", SaveData::KAGAKU_TOU}},
+        {{"Duel Tower", SaveData::KETTOU_TOU}},
+        {{"Castle Keep Stairs", SaveData::TURO_TOKEITOU}},
+        {{"Castle Keep", SaveData::TENSHU}},
+        {{"Intro Cutscene Map", SaveData::ENDING_DUMMY}},
+        {{"Clock Tower", SaveData::TOKEITOU_NAI}},
+        {{"Dracula Desert", SaveData::DRACULA}},
+        {{"Rose / Actrice Fan Room", SaveData::ROSE}},
+        {{"Villa (Vampire Crypt)", SaveData::BEKKAN_BOSS}},
+        {{"Room of Clocks", SaveData::TOU_TURO}},
+        {{"Ending Map", SaveData::ENDING}},
+        {{"Test Grid", SaveData::TEST_GRID}}
     };
 
     const Ui::ComboBoxData comboBoxDataCharacter = {
-        {{"Reinhardt", 0}},
-        {{"Carrie", 1}}
+        {{"Reinhardt", SaveData::REINHARDT}},
+        {{"Carrie", SaveData::CARRIE}}
     };
 
     const Ui::ComboBoxData comboBoxDataButtonConfig = {
@@ -183,31 +171,31 @@ private:
     };
 
     const Ui::ComboBoxData comboBoxDataSubweapon = {
-        {{"None", 0}},
-        {{"Knife", 1}},
-        {{"Holy Water", 2}},
-        {{"Cross", 3}},
-        {{"Axe", 4}},
-        {{"Wooden Stake", 5}},
-        {{"Rose", 6}}
+        {{"None", SaveData::SUBWEAPON_NONE}},
+        {{"Knife", SaveData::SUBWEAPON_KNIFE}},
+        {{"Holy Water", SaveData::SUBWEAPON_HOLY_WATER}},
+        {{"Cross", SaveData::SUBWEAPON_CROSS}},
+        {{"Axe", SaveData::SUBWEAPON_AXE}},
+        {{"Wooden Stake", SaveData::SUBWEAPON_WOODEN_STAKE}},
+        {{"Rose", SaveData::SUBWEAPON_ROSE}}
     };
 
     const Ui::ComboBoxData comboBoxDataDifficulty = {
-        {{"Easy", BIT(4)}},
-        {{"Normal", BIT(5)}},
-        {{"Hard", BIT(6)}},
+        {{"Easy", SaveData::SAVE_FLAG_EASY}},
+        {{"Normal", SaveData::SAVE_FLAG_NORMAL}},
+        {{"Hard", SaveData::SAVE_FLAG_HARD}},
     };
 
     const Ui::ComboBoxData comboBoxDataEndingReinhardt = {
         {{"-", 0}},
-        {{"Good", BIT(17)}},
-        {{"Bad", BIT(18)}}
+        {{"Good", SaveData::SAVE_FLAG_REINDHART_GOOD_ENDING}},
+        {{"Bad", SaveData::SAVE_FLAG_REINDHART_BAD_ENDING}}
     };
 
     const Ui::ComboBoxData comboBoxDataEndingCarrie = {
         {{"-", 0}},
-        {{"Good", BIT(19)}},
-        {{"Bad", BIT(20)}}
+        {{"Good", SaveData::SAVE_FLAG_CARRIE_GOOD_ENDING}},
+        {{"Bad", SaveData::SAVE_FLAG_CARRIE_BAD_ENDING}}
     };
 
     const Ui::ComboBoxData comboBoxDataRegion = {

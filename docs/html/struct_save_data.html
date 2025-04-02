@@ -185,6 +185,8 @@ Public Types</h2></td></tr>
 , <a class="el" href="#af65974cd9c39d5667331f040088b10fdac35a3eaea0e443155d1acd8cdddfefb3">SUBWEAPON_CROSS</a> = 3
 , <br />
 &#160;&#160;<a class="el" href="#af65974cd9c39d5667331f040088b10fda862426d40c5c2fe6c4dac67fb47f958c">SUBWEAPON_AXE</a> = 4
+, <a class="el" href="#af65974cd9c39d5667331f040088b10fda548138c9eb379565853f31afd1fd0591">SUBWEAPON_WOODEN_STAKE</a> = 5
+, <a class="el" href="#af65974cd9c39d5667331f040088b10fdaafc4a86ff3bbf7114812621a3edf834e">SUBWEAPON_ROSE</a> = 6
 <br />
  }</td></tr>
 <tr class="separator:af65974cd9c39d5667331f040088b10fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -230,7 +232,7 @@ Public Types</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a6f7b040f15df3a993ebf9373a1e0ad99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acee1873b009042d499f5ea197c28c75d" id="r_acee1873b009042d499f5ea197c28c75d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acee1873b009042d499f5ea197c28c75d">PlayerStatus</a> { <a class="el" href="#acee1873b009042d499f5ea197c28c75dabd39191f07cf57bbb598982d37f7092f">PLAYER_FLAG_STO</a> = BIT(22)
+<tr class="memitem:acee1873b009042d499f5ea197c28c75d" id="r_acee1873b009042d499f5ea197c28c75d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acee1873b009042d499f5ea197c28c75d">PlayerStatus</a> { <a class="el" href="#acee1873b009042d499f5ea197c28c75dabd39191f07cf57bbb598982d37f7092f">PLAYER_FLAG_STO</a> = BIT(26)
 , <a class="el" href="#acee1873b009042d499f5ea197c28c75daa6396312833353c2ebc4f4c95fc4cc73">PLAYER_FLAG_VAMP</a> = BIT(27)
 , <a class="el" href="#acee1873b009042d499f5ea197c28c75daef4ba11b47833a0e9f15f83cc2b4336e">PLAYER_FLAG_POISON</a> = BIT(28)
  }</td></tr>
@@ -269,6 +271,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a5e17697b999fdf592022ebae6bf35c26" id="r_a5e17697b999fdf592022ebae6bf35c26"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e17697b999fdf592022ebae6bf35c26">getPlayerStatus</a> (unsigned int bitFlagMask)</td></tr>
+<tr class="separator:a5e17697b999fdf592022ebae6bf35c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60a818c910c9e2f13b47596f63497cde" id="r_a60a818c910c9e2f13b47596f63497cde"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60a818c910c9e2f13b47596f63497cde">getFlag</a> (unsigned int bitFlagMask)</td></tr>
 <tr class="separator:a60a818c910c9e2f13b47596f63497cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaee0d3ba9fa2b9e272498a542109bd8" id="r_afaee0d3ba9fa2b9e272498a542109bd8"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afaee0d3ba9fa2b9e272498a542109bd8">getItem</a> (int itemId)</td></tr>
@@ -621,6 +625,8 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="af65974cd9c39d5667331f040088b10fda858a34cf7b1035a80459afb8f4febe1d" name="af65974cd9c39d5667331f040088b10fda858a34cf7b1035a80459afb8f4febe1d"></a>SUBWEAPON_HOLY_WATER&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="af65974cd9c39d5667331f040088b10fdac35a3eaea0e443155d1acd8cdddfefb3" name="af65974cd9c39d5667331f040088b10fdac35a3eaea0e443155d1acd8cdddfefb3"></a>SUBWEAPON_CROSS&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="af65974cd9c39d5667331f040088b10fda862426d40c5c2fe6c4dac67fb47f958c" name="af65974cd9c39d5667331f040088b10fda862426d40c5c2fe6c4dac67fb47f958c"></a>SUBWEAPON_AXE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af65974cd9c39d5667331f040088b10fda548138c9eb379565853f31afd1fd0591" name="af65974cd9c39d5667331f040088b10fda548138c9eb379565853f31afd1fd0591"></a>SUBWEAPON_WOODEN_STAKE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af65974cd9c39d5667331f040088b10fdaafc4a86ff3bbf7114812621a3edf834e" name="af65974cd9c39d5667331f040088b10fdaafc4a86ff3bbf7114812621a3edf834e"></a>SUBWEAPON_ROSE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -689,6 +695,31 @@ Public Attributes</h2></td></tr>
           <td class="memname">unsigned int SaveData::getItem </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>itemId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e17697b999fdf592022ebae6bf35c26" name="a5e17697b999fdf592022ebae6bf35c26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e17697b999fdf592022ebae6bf35c26">&#9670;&#160;</a></span>getPlayerStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int SaveData::getPlayerStatus </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>bitFlagMask</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

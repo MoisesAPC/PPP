@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
     setupEditMenu();
 
     // Set default values to the savegame at boot
-    SaveManager::getInstance()->assignDefaultValues();
+    SaveManager::getInstance()->clear();
     SaveManager::getInstance()->setRegion(SaveData::USA);
 
     // Ensure that we start in the "Main" page
@@ -191,9 +191,9 @@ void MainWindow::setupPageMain() {
         [](int value) { SaveManager::getInstance()->setSubweapon(value); }
     );
 
-    setupComboBoxBitflag(ui->cbDifficulty, comboBoxDataDifficulty, *SaveManager::getInstance()->getFlagsPtr());
-    setupComboBoxBitflag(ui->cbReinhardtEnding, comboBoxDataEndingReinhardt, *SaveManager::getInstance()->getFlagsPtr());
-    setupComboBoxBitflag(ui->cbCarrieEnding, comboBoxDataEndingCarrie, *SaveManager::getInstance()->getFlagsPtr());
+    setupComboBoxBitflag(ui->cbDifficulty, comboBoxDataDifficulty);
+    setupComboBoxBitflag(ui->cbReinhardtEnding, comboBoxDataEndingReinhardt);
+    setupComboBoxBitflag(ui->cbCarrieEnding, comboBoxDataEndingCarrie);
 
     setupComboBox(ui->cbRegion, comboBoxDataRegion,
         [this](int value) {
@@ -287,18 +287,18 @@ void MainWindow::setupPageMain() {
     );
 
     setupCheckBox(ui->cboxVamp, SaveData::PLAYER_FLAG_VAMP,
-        [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
-        [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
+        [](unsigned int value) { SaveManager::getInstance()->setPlayerStatus(value); },
+        [](unsigned int value) { SaveManager::getInstance()->unsetPlayerStatus(value); }
     );
 
     setupCheckBox(ui->cboxPoison, SaveData::PLAYER_FLAG_POISON,
-        [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
-        [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
+        [](unsigned int value) { SaveManager::getInstance()->setPlayerStatus(value); },
+        [](unsigned int value) { SaveManager::getInstance()->unsetPlayerStatus(value); }
     );
 
     setupCheckBox(ui->cboxSto, SaveData::PLAYER_FLAG_STO,
-        [](unsigned int value) { SaveManager::getInstance()->setFlags(value); },
-        [](unsigned int value) { SaveManager::getInstance()->unsetFlags(value); }
+        [](unsigned int value) { SaveManager::getInstance()->setPlayerStatus(value); },
+        [](unsigned int value) { SaveManager::getInstance()->unsetPlayerStatus(value); }
     );
 }
 
@@ -569,6 +569,7 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
     selectComboBoxOption(*ui->cbSoundMode, saveData->sound_mode);
     selectComboBoxOption(*ui->cbSubweapon, saveData->subweapon);
     selectComboBoxOption(*ui->cbMap, saveData->map);
+
     selectComboBoxOption(*ui->cbDifficulty, saveData->getFlag(SaveData::SAVE_FLAG_EASY | SaveData::SAVE_FLAG_NORMAL | SaveData::SAVE_FLAG_HARD));
     selectComboBoxOption(*ui->cbReinhardtEnding, saveData->getFlag(SaveData::SAVE_FLAG_REINDHART_GOOD_ENDING | SaveData::SAVE_FLAG_REINDHART_BAD_ENDING));
     selectComboBoxOption(*ui->cbCarrieEnding, saveData->getFlag(SaveData::SAVE_FLAG_CARRIE_GOOD_ENDING | SaveData::SAVE_FLAG_CARRIE_BAD_ENDING));
@@ -634,9 +635,9 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
     ui->cboxReinhardtCostume->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_HAVE_REINHARDT_ALT_COSTUME));
     ui->cboxCarrieCostume->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_HAVE_CARRIE_ALT_COSTUME));
     ui->cboxNitro->setChecked(saveData->getFlag(SaveData::SAVE_FLAG_CAN_EXPLODE_ON_JUMPING));
-    ui->cboxVamp->setChecked(saveData->getFlag(SaveData::PLAYER_FLAG_VAMP));
-    ui->cboxPoison->setChecked(saveData->getFlag(SaveData::PLAYER_FLAG_POISON));
-    ui->cboxSto->setChecked(saveData->getFlag(SaveData::PLAYER_FLAG_STO));
+    ui->cboxVamp->setChecked(saveData->getPlayerStatus(SaveData::PLAYER_FLAG_VAMP));
+    ui->cboxPoison->setChecked(saveData->getPlayerStatus(SaveData::PLAYER_FLAG_POISON));
+    ui->cboxSto->setChecked(saveData->getPlayerStatus(SaveData::PLAYER_FLAG_STO));
 
     // Event flag grids. We edit each of the line edits associated to the event flags to assign the hex value gotten
     // from the save data. Then, the checkboxes will be ticked / unticked automatically
@@ -938,7 +939,7 @@ void MainWindow::setupComboBox(QComboBox* comboBox, const Ui::ComboBoxData& arra
 
 /// Same as "setupComboBox", but this is meant for comboboxes which are supposed to assign bitflags to a value instead,
 /// such as the combo box for setting the game's difficulty
-void MainWindow::setupComboBoxBitflag(QComboBox* comboBox, const Ui::ComboBoxData& array, unsigned int& variable) {
+void MainWindow::setupComboBoxBitflag(QComboBox* comboBox, const Ui::ComboBoxData& array) {
     comboBox->clear();
 
     for (const auto& map: array) {
@@ -947,17 +948,40 @@ void MainWindow::setupComboBoxBitflag(QComboBox* comboBox, const Ui::ComboBoxDat
         }
     }
 
-    connect(comboBox, &QComboBox::currentIndexChanged, [this, comboBox, array, &variable](int index) {
-        if (index >= 0) {
-            int value = comboBox->itemData(index).toInt();
-            this->updateBitSelection(variable, value, array);
-        }
+    connect(comboBox, &QComboBox::currentIndexChanged, [this, comboBox, array](int) {
+        this->handleComboBoxSelection(comboBox, array);
     });
 
     comboBox->setCurrentIndex(0);
+    handleComboBoxSelection(comboBox, array);
+}
+
+void MainWindow::updateBitSelection(unsigned int newValue, const Ui::ComboBoxData& comboBoxData) {
+    for (const auto& data: comboBoxData) {
+        for (const auto& entry: data) {
+            SaveManager::getInstance()->unsetFlags(entry.second);
+        }
+    }
+
+    SaveManager::getInstance()->setFlags(newValue);
+}
+
+void MainWindow::handleComboBoxSelection(QComboBox* comboBox, const Ui::ComboBoxData& array) {
+    int index = comboBox->currentIndex();
+    if (index >= 0) {
+        int value = comboBox->itemData(index).toInt();
+        this->updateBitSelection(value, array);
+    }
 }
 
 void MainWindow::selectComboBoxOption(QComboBox& comboBox, const QVariant data) {
+    // Workaround to fix a bug where some comboboxes wouldn't update properly when setting
+    // an option whose value was 0.
+    if (data.toInt() == 0) {
+        comboBox.setCurrentIndex(0);
+        return;
+    }
+
     int index = comboBox.findData(data);
 
     if (index != -1) {
@@ -1068,6 +1092,10 @@ QLineEdit* MainWindow::createGridFlag(QGridLayout* gridLayout, int flagSet, unsi
 }
 
 void MainWindow::enableUIComponents(bool enable) {
+    // This function is now scrapped as it sometimes is necessary to edit a disabled save
+    // (fo example, to activate New Game+)
+    return;
+/*
     QList<QWidget*> widgets = this->findChildren<QWidget*>();
     QMenu* menuSlot = menuBar()->findChild<QMenu*>("Slot");
 
@@ -1091,6 +1119,7 @@ void MainWindow::enableUIComponents(bool enable) {
 
         widget->setEnabled(enable);
     }
+*/
 }
 
 /// This function ensures that the "Enabled" checkbox is only visible for "Main" saves
@@ -1184,7 +1213,7 @@ void MainWindow::onDelete() {
     QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Clear", "Are you sure you want to clear the current save?", QMessageBox::Yes | QMessageBox::No);
 
     if (reply == QMessageBox::Yes) {
-        SaveManager::getInstance()->getCurrentSaveSlot().assignDefaultValues();
+        SaveManager::getInstance()->getCurrentSaveSlot().clear();
         populateMainWindow(&SaveManager::getInstance()->getCurrentSave());
         updateWindowVisibility(BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_ACTIVE));
     }
@@ -1198,7 +1227,7 @@ void MainWindow::onDeleteAll() {
 
     if (reply == QMessageBox::Yes) {
         for (int i = 0; i < NUM_SAVES; i++) {
-            SaveManager::getInstance()->getSaveSlot(i).assignDefaultValues();
+            SaveManager::getInstance()->getSaveSlot(i).clear();
             populateMainWindow(&SaveManager::getInstance()->getCurrentSave());
             updateWindowVisibility(BITS_HAS(SaveManager::getInstance()->getCurrentSaveSlot().mainSave.flags, SaveData::SAVE_FLAG_ACTIVE));
         }

@@ -63,6 +63,7 @@ void DatabaseSaveListActionWindow::onEditButton() {
 
     // Populate with the first slot by default + main save
     MainWindow::instance->populateMainWindow(&SaveManager::getInstance()->getSaveSlot(0).mainSave);
+    MainWindow::instance->updateSlotMenuCheckedState(0, true);
     close();
 }
 

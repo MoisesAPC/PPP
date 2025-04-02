@@ -59,7 +59,7 @@ var NAVTREEINDEX =
 [
 "_combo_box_data_8h.html",
 "class_file_manager.html#ac8a6de1d1eb61fcb320aa5141145ca8f",
-"struct_save_data.html#a268f0152cb39497500c64bff04416714"
+"struct_save_data.html#a00f3de3c7e3a06729545089a71e59687aa096ce31f263369e3ff7fe5b02d65000"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

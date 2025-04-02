@@ -428,7 +428,7 @@ unsigned int FileLoaderCartridge::getSaveSlotPaddedSize() const {
 
     // The complete save slot ends at offset 0x1F0, not 0x200, so we remove -0x10 bytes from it.
     // Besides, each slot now starts with the header data.
-    return headerSize + (sizeof(SaveSlot) + (getSavePaddedSize() - sizeof(SaveSlot)));
+    return headerSize + (sizeof(SaveSlot) + (getSavePaddedSize() - sizeof(SaveSlot))) - 0x10;
 }
 
 /**

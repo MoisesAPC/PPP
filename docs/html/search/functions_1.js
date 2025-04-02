@@ -4,7 +4,7 @@ var searchData=
   ['calcsecondchecksum_1',['calcSecondChecksum',['../class_save_manager.html#a17a4898c012168469d7f6e0cfa204ec5',1,'SaveManager']]],
   ['checkfileopenerrors_2',['checkFileOpenErrors',['../class_file_loader.html#aeb075fa1b58d71a9f0c4dff5d20d5de4',1,'FileLoader::checkFileOpenErrors()'],['../class_file_loader_note.html#a31507dac1abcaa97235546eabb41cd81',1,'FileLoaderNote::checkFileOpenErrors()'],['../class_file_loader_cartridge.html#a5565b2089a1eb30f5410a4bbe87466bf',1,'FileLoaderCartridge::checkFileOpenErrors()'],['../struct_file_loader_controller_pak.html#ab9be9a7b306dde132acaec7f5b21975d',1,'FileLoaderControllerPak::checkFileOpenErrors()']]],
   ['checkmandragoraandnitrolineedits_3',['checkMandragoraAndNitroLineEdits',['../class_main_window.html#a34cd38c778def0655d511b31798d2f29',1,'MainWindow']]],
-  ['clear_4',['clear',['../struct_save_slot.html#adeef575ba788e4e632000745398ef599',1,'SaveSlot']]],
+  ['clear_4',['clear',['../struct_save_slot.html#adeef575ba788e4e632000745398ef599',1,'SaveSlot::clear()'],['../class_save_manager.html#a97f4210cf1babf29c8707f9ec97b0f93',1,'SaveManager::clear()']]],
   ['clearentry_5',['clearEntry',['../struct_file_manager_1_1_controller_pak_notetable_data.html#ac945ecd98efe0ae9f91c1bce09817264',1,'FileManager::ControllerPakNotetableData']]],
   ['clearmanager_6',['clearManager',['../class_database_manager.html#a2863d8a665122e4adf23a1e206a3547c',1,'DatabaseManager']]],
   ['clearnotetabledata_7',['clearNoteTableData',['../class_file_manager.html#aabd7d9cf8850811daa5ae199fcc816d5',1,'FileManager']]],

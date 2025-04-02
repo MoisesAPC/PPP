@@ -18,5 +18,7 @@ var searchData=
   ['subweapon_5fcross_15',['SUBWEAPON_CROSS',['../struct_save_data.html#af65974cd9c39d5667331f040088b10fdac35a3eaea0e443155d1acd8cdddfefb3',1,'SaveData']]],
   ['subweapon_5fholy_5fwater_16',['SUBWEAPON_HOLY_WATER',['../struct_save_data.html#af65974cd9c39d5667331f040088b10fda858a34cf7b1035a80459afb8f4febe1d',1,'SaveData']]],
   ['subweapon_5fknife_17',['SUBWEAPON_KNIFE',['../struct_save_data.html#af65974cd9c39d5667331f040088b10fdaa53f30ecce1d60a376832b2ace68b3d5',1,'SaveData']]],
-  ['subweapon_5fnone_18',['SUBWEAPON_NONE',['../struct_save_data.html#af65974cd9c39d5667331f040088b10fdaf8c1285527788d82d45012eb91c862a1',1,'SaveData']]]
+  ['subweapon_5fnone_18',['SUBWEAPON_NONE',['../struct_save_data.html#af65974cd9c39d5667331f040088b10fdaf8c1285527788d82d45012eb91c862a1',1,'SaveData']]],
+  ['subweapon_5frose_19',['SUBWEAPON_ROSE',['../struct_save_data.html#af65974cd9c39d5667331f040088b10fdaafc4a86ff3bbf7114812621a3edf834e',1,'SaveData']]],
+  ['subweapon_5fwooden_5fstake_20',['SUBWEAPON_WOODEN_STAKE',['../struct_save_data.html#af65974cd9c39d5667331f040088b10fda548138c9eb379565853f31afd1fd0591',1,'SaveData']]]
 ];
