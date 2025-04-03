@@ -715,10 +715,14 @@ void MainWindow::fileSaveMenu() {
         QMessageBox::critical(this, "Error", "Open a file in local before trying to save.");
         return;
     }
+
+    /// @note Scrapping this since we need to save empty saves in order to save New Game+ files.
+    /*
     if (SaveManager::getInstance()->areAllSavesDisabled()) {
         QMessageBox::critical(this, "Error", "This save is empty, so it can't be saved.");
         return;
     }
+*/
 
     int result = FileManager::getInstance()->writeFile(FileManager::getInstance()->getFilepath(), false);
 
@@ -737,10 +741,13 @@ void MainWindow::fileSaveMenu() {
 }
 
 void MainWindow::fileSaveAsMenu() {
+    /// @note Scrapping this since we need to save empty saves in order to save New Game+ files.
+    /*
     if (SaveManager::getInstance()->areAllSavesDisabled()) {
         QMessageBox::critical(this, "Error", "This save is empty, so it can't be saved.");
         return;
     }
+*/
 
     // Retrieve the last "Save As..." directory
     QSettings settings("PPP", "Castlevania 64 Save Editor");
