@@ -48,6 +48,8 @@ MainWindow::MainWindow(QWidget *parent)
     // Set default values to the savegame at boot
     SaveManager::getInstance()->clear();
     SaveManager::getInstance()->setRegion(SaveData::USA);
+    ui->leItemsSpecial3->setEnabled(false);
+    ui->leItemsPoutPourri->setEnabled(true);
 
     // Ensure that we start in the "Main" page
     switchPage(ui->stackedWidgetPages, ui->pageMain);
@@ -205,18 +207,24 @@ void MainWindow::setupPageMain() {
                 ui->cbLanguage->setEnabled(false);
                 ui->cbLanguage->setCurrentIndex(0);
                 ui->cbLanguage->setItemText(0, "English");
+                ui->leItemsSpecial3->setEnabled(false);
+                ui->leItemsPoutPourri->setEnabled(true);
                 break;
 
             case SaveData::JPN:
                 ui->cbLanguage->setEnabled(false);
                 ui->cbLanguage->setCurrentIndex(0);
                 ui->cbLanguage->setItemText(0, "Japanese");
+                ui->leItemsSpecial3->setEnabled(true);
+                ui->leItemsPoutPourri->setEnabled(false);
                 break;
 
             case SaveData::PAL:
                 ui->cbLanguage->setEnabled(true);
                 ui->cbLanguage->setCurrentIndex(0);
                 ui->cbLanguage->setItemText(0, "English");
+                ui->leItemsSpecial3->setEnabled(true);
+                ui->leItemsPoutPourri->setEnabled(false);
                 break;
             }
         }
@@ -313,6 +321,12 @@ void MainWindow::setupPageItems() {
     setupLineEditNumberUnsigned(ui->leItemsSpecial2, 0, 1,
         [](unsigned char value) {
             SaveManager::getInstance()->setItem(SaveData::ITEM_ID_SPECIAL2, value);
+        }
+    );
+
+    setupLineEditNumberUnsigned(ui->leItemsSpecial3, 0, 1,
+        [](unsigned char value) {
+            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_SPECIAL3, value);
         }
     );
 
@@ -601,6 +615,7 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
 
     ui->leItemsSpecial1->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SPECIAL1)));
     ui->leItemsSpecial2->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SPECIAL2)));
+    ui->leItemsSpecial3->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SPECIAL3)));
     ui->leItemsRoastChicken->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ROAST_CHICKEN)));
     ui->leItemsRoastBeef->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ROAST_BEEF)));
     ui->leItemsHealingKit->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_HEALING_KIT)));

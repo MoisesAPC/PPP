@@ -74,22 +74,24 @@ struct SaveData {
     enum eItemId {
         ITEM_ID_NOTHING           = 0,
         ITEM_ID_WHITE_JEWEL       = 1,
-        ITEM_ID_RED_JEWEL         = 2,  /// @note We only used item ID 2 to reference the red jewels, and not 3
+        ITEM_ID_RED_JEWEL         = 2,  /// @note We only used item ID 2 to reference the red jewels, and not 3.
         ITEM_ID_SPECIAL1          = 4,
         ITEM_ID_SPECIAL2          = 5,
+        ITEM_ID_SPECIAL3          = 6,  // JPN and PAL-exclusive
+
+        /// @note These items IDs are the same ID, but added +1 in the JPN and PAL versions.
+        /// Shown below are their IDs in the USA version, used as a base
         ITEM_ID_ROAST_CHICKEN     = 6,
         ITEM_ID_ROAST_BEEF        = 7,
         ITEM_ID_HEALING_KIT       = 8,
         ITEM_ID_PURIFYING         = 9,
         ITEM_ID_CURE_AMPOULE      = 10,
-        ITEM_ID_POUT_POURRI       = 11,
+
+        ITEM_ID_POUT_POURRI       = 11, // USA-exclusive
         ITEM_ID_POWERUP           = 12,
-        ITEM_ID_KNIFE             = 13,
-        ITEM_ID_HOLY_WATER        = 14,
-        ITEM_ID_CROSS             = 15,
-        ITEM_ID_AXE               = 16,
-        ITEM_ID_WOODEN_STAKE      = 17,
-        ITEM_ID_ROSE              = 18,
+
+        // We don't take into account the subweapons here, as we won't treat them as items.
+
         ITEM_ID_THE_CONTRACT      = 19,
         ITEM_ID_ENGAGEMENT_RING   = 20,
         ITEM_ID_MAGICAL_NITRO     = 21,
