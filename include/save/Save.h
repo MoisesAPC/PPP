@@ -80,7 +80,7 @@ struct SaveData {
         ITEM_ID_SPECIAL3          = 6,  // JPN and PAL-exclusive
 
         /// @note These items IDs are the same ID, but added +1 in the JPN and PAL versions.
-        /// Shown below are their IDs in the USA version, used as a base
+        /// Shown below are their IDs in the USA version, used as a base.
         ITEM_ID_ROAST_CHICKEN     = 6,
         ITEM_ID_ROAST_BEEF        = 7,
         ITEM_ID_HEALING_KIT       = 8,

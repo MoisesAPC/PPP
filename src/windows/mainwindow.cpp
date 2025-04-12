@@ -326,44 +326,86 @@ void MainWindow::setupPageItems() {
 
     setupLineEditNumberUnsigned(ui->leItemsSpecial3, 0, 1,
         [](unsigned char value) {
-            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_SPECIAL3, value);
+            // This item is version exclusive. Ensure we're only setting it when its associated region is set.
+            if (SaveManager::getInstance()->getRegion() == SaveData::PAL ||
+                SaveManager::getInstance()->getRegion() == SaveData::JPN) {
+                SaveManager::getInstance()->setItem(SaveData::ITEM_ID_SPECIAL3, value);
+            }
         }
     );
 
     // Healing and effect-cure items
     setupLineEditNumberUnsigned(ui->leItemsRoastChicken, 0, 10,
         [](unsigned char value) {
-            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_ROAST_CHICKEN, value);
+            // In the JPN and PAL versions, this item's ID is the same as USA, but added +1.
+            int actualItemId = SaveData::ITEM_ID_ROAST_CHICKEN;
+            if (SaveManager::getInstance()->getRegion() == SaveData::PAL ||
+                SaveManager::getInstance()->getRegion() == SaveData::JPN) {
+                actualItemId++;
+            }
+
+            SaveManager::getInstance()->setItem(actualItemId, value);
         }
     );
 
     setupLineEditNumberUnsigned(ui->leItemsRoastBeef, 0, 10,
         [](unsigned char value) {
-            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_ROAST_BEEF, value);
+            // In the JPN and PAL versions, this item's ID is the same as USA, but added +1.
+            int actualItemId = SaveData::ITEM_ID_ROAST_BEEF;
+            if (SaveManager::getInstance()->getRegion() == SaveData::PAL ||
+                SaveManager::getInstance()->getRegion() == SaveData::JPN) {
+                actualItemId++;
+            }
+
+            SaveManager::getInstance()->setItem(actualItemId, value);
         }
     );
 
     setupLineEditNumberUnsigned(ui->leItemsPurifying, 0, 10,
         [](unsigned char value) {
-            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_PURIFYING, value);
+            // In the JPN and PAL versions, this item's ID is the same as USA, but added +1.
+            int actualItemId = SaveData::ITEM_ID_PURIFYING;
+            if (SaveManager::getInstance()->getRegion() == SaveData::PAL ||
+                SaveManager::getInstance()->getRegion() == SaveData::JPN) {
+                actualItemId++;
+            }
+
+            SaveManager::getInstance()->setItem(actualItemId, value);
         }
     );
 
     setupLineEditNumberUnsigned(ui->leItemsCureAmpoule, 0, 10,
         [](unsigned char value) {
-            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_CURE_AMPOULE, value);
+            // In the JPN and PAL versions, this item's ID is the same as USA, but added +1.
+            int actualItemId = SaveData::ITEM_ID_CURE_AMPOULE;
+            if (SaveManager::getInstance()->getRegion() == SaveData::PAL ||
+                SaveManager::getInstance()->getRegion() == SaveData::JPN) {
+                actualItemId++;
+            }
+
+            SaveManager::getInstance()->setItem(actualItemId, value);
         }
     );
 
     setupLineEditNumberUnsigned(ui->leItemsPoutPourri, 0, 10,
         [](unsigned char value) {
-            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_POUT_POURRI, value);
+            // This item is version exclusive. Ensure we're only setting it when its associated region is set.
+            if (SaveManager::getInstance()->getRegion() == SaveData::USA) {
+                SaveManager::getInstance()->setItem(SaveData::ITEM_ID_POUT_POURRI, value);
+            }
         }
     );
 
     setupLineEditNumberUnsigned(ui->leItemsHealingKit, 0, 10,
         [](unsigned char value) {
-            SaveManager::getInstance()->setItem(SaveData::ITEM_ID_HEALING_KIT, value);
+            // In the JPN and PAL versions, this item's ID is the same as USA, but added +1.
+            int actualItemId = SaveData::ITEM_ID_HEALING_KIT;
+            if (SaveManager::getInstance()->getRegion() == SaveData::PAL ||
+                SaveManager::getInstance()->getRegion() == SaveData::JPN) {
+                actualItemId++;
+            }
+
+            SaveManager::getInstance()->setItem(actualItemId, value);
         }
     );
 
@@ -615,13 +657,37 @@ void MainWindow::populateMainWindow(SaveData* saveData) {
 
     ui->leItemsSpecial1->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SPECIAL1)));
     ui->leItemsSpecial2->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SPECIAL2)));
-    ui->leItemsSpecial3->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SPECIAL3)));
-    ui->leItemsRoastChicken->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ROAST_CHICKEN)));
-    ui->leItemsRoastBeef->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ROAST_BEEF)));
-    ui->leItemsHealingKit->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_HEALING_KIT)));
-    ui->leItemsPurifying->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_PURIFYING)));
-    ui->leItemsCureAmpoule->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_CURE_AMPOULE)));
-    ui->leItemsPoutPourri->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_POUT_POURRI)));
+
+    if (SaveManager::getInstance()->getRegion() == SaveData::PAL ||
+        SaveManager::getInstance()->getRegion() == SaveData::JPN) {
+        ui->leItemsSpecial3->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SPECIAL3)));
+    }
+    else {
+        ui->leItemsSpecial3->setText("0");
+    }
+
+    if (SaveManager::getInstance()->getRegion() == SaveData::USA) {
+        ui->leItemsRoastChicken->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ROAST_CHICKEN)));
+        ui->leItemsRoastBeef->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ROAST_BEEF)));
+        ui->leItemsHealingKit->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_HEALING_KIT)));
+        ui->leItemsPurifying->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_PURIFYING)));
+        ui->leItemsCureAmpoule->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_CURE_AMPOULE)));
+    }
+    else {
+        ui->leItemsRoastChicken->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ROAST_CHICKEN + 1)));
+        ui->leItemsRoastBeef->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_ROAST_BEEF + 1)));
+        ui->leItemsHealingKit->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_HEALING_KIT + 1)));
+        ui->leItemsPurifying->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_PURIFYING + 1)));
+        ui->leItemsCureAmpoule->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_CURE_AMPOULE + 1)));
+    }
+
+    if (SaveManager::getInstance()->getRegion() == SaveData::USA) {
+        ui->leItemsPoutPourri->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_POUT_POURRI)));
+    }
+    else {
+        ui->leItemsPoutPourri->setText("0");
+    }
+
     ui->leItemsSunCard->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_SUN_CARD)));
     ui->leItemsMoonCard->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_MOON_CARD)));
     ui->leItemsNitro->setText(QString::number(saveData->getItem(SaveData::ITEM_ID_MAGICAL_NITRO)));
